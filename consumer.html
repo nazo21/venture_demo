@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>piVoT — Family</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B2D4D;
+    --navy-mid: #134068;
+    --navy-soft: #1A5080;
+    --blue: #2B6CB0;
+    --blue-light: #E8F2FC;
+    --white: #FFFFFF;
+    --off: #F4F8FC;
+    --line: #D8E4F0;
+    --text: #0F2942;
+    --muted: #5A7A96;
+    --muted-2: #8FA8BE;
+    --green: #1A7A4C;
+    --green-soft: #E6F5ED;
+    --amber: #B8860B;
+    --amber-soft: #FEF6E0;
+    --red: #C53030;
+    --red-soft: #FDECEC;
+    --tab-h: 62px;
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --r: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--off); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+  .app { display: flex; flex-direction: column; height: 100%; max-width: 720px; margin: 0 auto; background: var(--white); box-shadow: 0 0 40px rgba(11,45,77,0.08); }
+
+  .header {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    padding: 12px 16px 0;
+    padding-top: max(12px, env(safe-area-inset-top));
+    flex-shrink: 0;
+  }
+  .header-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding-bottom: 10px;
+  }
+  .header-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .logo {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, #3B82C4, #1A5080);
+    display: grid; place-items: center;
+    font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
+  }
+  .header-title { font-size: 0.95rem; font-weight: 700; }
+  .header-sub { font-size: 0.72rem; color: rgba(255,255,255,0.65); margin-top: 1px; }
+  .live-pill {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.65rem; font-weight: 600; padding: 4px 9px;
+    background: rgba(255,255,255,0.12); border-radius: 99px; flex-shrink: 0;
+  }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .switch-link {
+    font-size: 0.72rem; color: rgba(255,255,255,0.7); text-decoration: none;
+    padding: 5px 10px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+  }
+
+  .panels { flex: 1; overflow: hidden; position: relative; background: var(--off); }
+  .panel {
+    position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;
+    opacity: 0; pointer-events: none; transform: translateX(12px);
+    transition: opacity .28s ease, transform .28s ease;
+  }
+  .panel.active { opacity: 1; pointer-events: auto; transform: none; z-index: 1; }
+  .panel.exit-left { transform: translateX(-12px); opacity: 0; }
+
+  /* BiBi Chat */
+  .chat-live {
+    padding: 8px 16px; background: var(--blue-light); border-bottom: 1px solid var(--line);
+    font-size: 0.72rem; color: var(--navy-soft); display: flex; align-items: center; gap: 6px;
+  }
+  .chat-messages {
+    flex: 1; overflow-y: auto; padding: 16px;
+    display: flex; flex-direction: column; gap: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .msg { display: flex; gap: 10px; max-width: 92%; animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+  .msg.user { flex-direction: row-reverse; align-self: flex-end; }
+  .msg-avatar {
+    width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
+    display: grid; place-items: center; font-size: 0.65rem; font-weight: 700;
+  }
+  .msg-avatar.bibi { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; }
+  .msg-avatar.you { background: var(--navy-mid); color: #fff; }
+  .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 0.88rem; line-height: 1.55; }
+  .msg.bibi .msg-bubble { background: var(--off); border: 1px solid var(--line); border-top-left-radius: 4px; }
+  .msg.user .msg-bubble { background: var(--navy); color: #fff; border-top-right-radius: 4px; }
+  .msg-meta { font-size: 0.65rem; color: var(--muted-2); margin-top: 4px; padding: 0 4px; }
+  .msg.user .msg-meta { text-align: right; }
+
+  .typing { display: none; align-items: center; gap: 10px; padding: 0 16px 8px; }
+  .typing.show { display: flex; }
+  .typing-dots { display: flex; gap: 4px; padding: 10px 14px; background: var(--off); border-radius: 14px; border: 1px solid var(--line); }
+  .typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--muted-2); animation: bounce 1.2s infinite; }
+  .typing-dots span:nth-child(2) { animation-delay: .15s; }
+  .typing-dots span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-4px)} }
+
+  .chat-chips { display: flex; gap: 6px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; }
+  .chat-chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex-shrink: 0; padding: 6px 12px; border-radius: 99px;
+    border: 1px solid var(--line); background: var(--white);
+    font-size: 0.75rem; font-weight: 500; color: var(--navy-soft); cursor: pointer;
+  }
+  .chip:hover { background: var(--blue-light); border-color: var(--blue); }
+
+  .chat-input-bar {
+    display: flex; gap: 8px; padding: 12px 16px;
+    padding-bottom: max(12px, var(--safe-b));
+    border-top: 1px solid var(--line); background: var(--white);
+  }
+  .chat-input-bar input {
+    flex: 1; padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
+    font: inherit; font-size: 0.88rem; outline: none; background: var(--off);
+  }
+  .chat-input-bar input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
+  .send-btn {
+    width: 42px; height: 42px; border: none; border-radius: 12px;
+    background: var(--navy); color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0;
+  }
+
+  /* Message board */
+  .board-toolbar {
+    padding: 10px 16px; border-bottom: 1px solid var(--line);
+    display: flex; gap: 8px; align-items: center; background: var(--white);
+  }
+  .filter-tabs { display: flex; gap: 6px; overflow-x: auto; flex: 1; scrollbar-width: none; }
+  .filter-tabs::-webkit-scrollbar { display: none; }
+  .filter-tab {
+    flex-shrink: 0; padding: 6px 12px; border-radius: 99px; border: 1px solid var(--line);
+    background: var(--white); font: inherit; font-size: 0.75rem; font-weight: 500;
+    color: var(--muted); cursor: pointer;
+  }
+  .filter-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  .board-feed { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+  .board-header { padding: 14px 16px 8px; background: var(--white); border-bottom: 1px solid var(--line); }
+  .board-channel { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .board-channel span { color: var(--muted); font-weight: 500; }
+  .board-live { font-size: 0.72rem; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 6px; }
+
+  .post {
+    padding: 14px 16px; margin: 8px 12px; background: var(--white);
+    border: 1px solid var(--line); border-radius: 14px;
+    animation: postIn .45s cubic-bezier(.22,1,.36,1) both;
+    box-shadow: 0 2px 8px rgba(11,45,77,0.04);
+  }
+  @keyframes postIn { from { opacity:0; transform:translateY(16px) scale(.97); } to { opacity:1; transform:none; } }
+  .post.new-flash { animation: postIn .45s cubic-bezier(.22,1,.36,1) both, flash 1.2s ease .2s; }
+  @keyframes flash { 0%,100%{box-shadow:0 2px 8px rgba(11,45,77,0.04)} 40%{box-shadow:0 0 0 3px var(--blue), 0 4px 20px rgba(43,108,176,0.2)} }
+
+  .post-head { display: flex; gap: 10px; }
+  .post-avatar {
+    width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+    display: grid; place-items: center; font-size: 0.7rem; font-weight: 700; color: #fff;
+  }
+  .post-body { flex: 1; min-width: 0; }
+  .post-top { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .post-name { font-size: 0.88rem; font-weight: 700; }
+  .post-handle { font-size: 0.75rem; color: var(--muted); }
+  .post-time { font-size: 0.72rem; color: var(--muted-2); margin-left: auto; }
+  .post-tag {
+    font-size: 0.65rem; font-weight: 600; padding: 2px 7px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .tag-aide { background: var(--green-soft); color: var(--green); }
+  .tag-pt { background: var(--blue-light); color: var(--blue); }
+  .tag-meals { background: var(--amber-soft); color: var(--amber); }
+  .tag-ride { background: #EDE9FE; color: #6D28D9; }
+  .tag-family { background: #E8F2FC; color: var(--navy); }
+  .tag-flag { background: var(--red-soft); color: var(--red); }
+  .post-text { font-size: 0.88rem; line-height: 1.55; margin-top: 6px; }
+  .post-actions { display: flex; gap: 16px; margin-top: 10px; }
+  .post-actions button {
+    background: none; border: none; font: inherit; font-size: 0.75rem;
+    color: var(--muted); cursor: pointer;
+  }
+  .post-actions button:hover { color: var(--navy); }
+
+  .reply-box {
+    margin-top: 10px; display: none; gap: 8px;
+  }
+  .reply-box.open { display: flex; }
+  .reply-box input {
+    flex: 1; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px;
+    font: inherit; font-size: 0.82rem; outline: none;
+  }
+  .reply-btn {
+    padding: 8px 12px; background: var(--navy); color: #fff; border: none;
+    border-radius: 10px; font: inherit; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+  }
+
+  .thread-reply {
+    margin-top: 10px; padding: 10px 12px; background: var(--off);
+    border-radius: 10px; border-left: 3px solid var(--blue); font-size: 0.82rem;
+  }
+  .thread-reply .reply-author { font-weight: 600; font-size: 0.78rem; color: var(--navy); }
+
+  /* Settings / Schedule */
+  .settings-scroll { flex: 1; overflow-y: auto; padding: 16px; -webkit-overflow-scrolling: touch; }
+  .settings-section { margin-bottom: 24px; }
+  .settings-label {
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;
+  }
+
+  .today-banner {
+    padding: 16px; background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+    color: #fff; border-radius: var(--r); margin-bottom: 16px;
+  }
+  .today-banner h2 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .today-banner p { font-size: 0.82rem; opacity: 0.85; line-height: 1.45; }
+
+  .timeline-item {
+    display: flex; gap: 12px; padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .timeline-time { font-size: 0.72rem; font-weight: 700; color: var(--navy); min-width: 52px; }
+  .timeline-detail { font-size: 0.84rem; line-height: 1.45; }
+  .timeline-detail .sub { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .timeline-item.done .timeline-detail { color: var(--muted); }
+  .timeline-item.upcoming .timeline-time { color: var(--blue); }
+
+  .team-card {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; background: var(--white); border: 1px solid var(--line);
+    border-radius: 10px; margin-bottom: 8px;
+  }
+  .team-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; color: #fff;
+  }
+  .team-info { flex: 1; }
+  .team-name { font-size: 0.88rem; font-weight: 600; }
+  .team-role { font-size: 0.75rem; color: var(--muted); }
+  .team-contact {
+    padding: 6px 12px; background: var(--blue-light); border: 1px solid var(--line);
+    border-radius: 8px; font: inherit; font-size: 0.72rem; font-weight: 600;
+    color: var(--navy); cursor: pointer;
+  }
+
+  .wellness-card {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;
+  }
+  .wellness-stat {
+    padding: 12px 8px; background: var(--off); border: 1px solid var(--line);
+    border-radius: 10px; text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .wellness-stat.bump { animation: statBump .5s ease; }
+  @keyframes statBump { 0%{transform:scale(1)} 50%{transform:scale(1.06);box-shadow:0 4px 16px rgba(43,108,176,0.15)} 100%{transform:scale(1)} }
+  .wellness-stat .val { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+  .wellness-stat .lbl { font-size: 0.62rem; color: var(--muted); margin-top: 3px; text-transform: uppercase; }
+  .wellness-stat.warn { background: var(--amber-soft); border-color: var(--amber); }
+  .wellness-stat.warn .val { color: var(--amber); }
+
+  .request-btn {
+    width: 100%; padding: 12px; margin-bottom: 16px;
+    background: var(--navy); color: #fff; border: none; border-radius: 10px;
+    font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .request-btn:active { opacity: 0.85; }
+
+  .history-day {
+    border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; overflow: hidden;
+  }
+  .history-head {
+    padding: 12px 14px; display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; background: var(--white); font-size: 0.84rem; font-weight: 600;
+  }
+  .history-head:hover { background: var(--off); }
+  .history-head .chevron { transition: transform .2s; color: var(--muted); }
+  .history-day.open .history-head .chevron { transform: rotate(180deg); }
+  .history-body { display: none; padding: 0 14px 12px; font-size: 0.82rem; line-height: 1.55; color: var(--muted); }
+  .history-day.open .history-body { display: block; }
+  .history-body li { margin: 6px 0 6px 16px; }
+
+  .timeline-wrap { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .timeline-item { cursor: pointer; transition: background .2s; }
+  .timeline-item:hover { background: var(--off); }
+  .timeline-item.expanded { background: var(--blue-light); }
+  .timeline-item.just-done { animation: doneFlash 1s ease; }
+  @keyframes doneFlash { 0%,100%{background:transparent} 50%{background:var(--green-soft)} }
+
+  .detail-pop {
+    margin-top: 8px; padding: 10px 12px; background: var(--white);
+    border: 1px solid var(--line); border-radius: 8px; font-size: 0.8rem; line-height: 1.5;
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .3s ease, opacity .25s ease, margin .25s ease;
+  }
+  .timeline-item.expanded .detail-pop { max-height: 120px; opacity: 1; }
+
+  .toast {
+    position: fixed; bottom: calc(var(--tab-h) + var(--safe-b) + 12px); left: 50%;
+    transform: translateX(-50%) translateY(80px); opacity: 0;
+    background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 500; z-index: 200; transition: all .3s ease;
+    max-width: 90%; text-align: center;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+  .msg-card {
+    margin-top: 8px; padding: 10px 12px; background: var(--white);
+    border: 1px solid var(--line); border-radius: 10px; font-size: 0.8rem;
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start;
+  }
+  .msg-card button {
+    padding: 8px 12px; border: none; border-radius: 8px; font: inherit;
+    font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: transform .1s, opacity .15s;
+  }
+  .msg-card button:active { transform: scale(0.96); }
+  .msg-card .btn-ehr { background: var(--navy); color: #fff; }
+  .msg-card .btn-primary { background: var(--navy); color: #fff; }
+  .msg-card .btn-flag { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber); }
+  .msg-card .btn-ghost { background: var(--off); color: var(--navy); border: 1px solid var(--line); }
+  .msg-card .btn-sent { background: var(--green-soft); color: var(--green); pointer-events: none; }
+
+  .chart-preview {
+    margin-top: 8px; padding: 10px 12px; background: var(--off);
+    border: 1px dashed var(--blue); border-radius: 8px;
+    font-size: 0.78rem; line-height: 1.55; color: var(--navy-soft);
+    white-space: pre-wrap;
+  }
+  .chart-label {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted); margin-bottom: 6px;
+  }
+
+  .escalate-form {
+    width: 100%; margin-top: 4px;
+  }
+  .escalate-form textarea {
+    width: 100%; min-height: 64px; padding: 10px 12px; border: 1px solid var(--line);
+    border-radius: 8px; font: inherit; font-size: 0.82rem; resize: none; outline: none;
+    margin-bottom: 8px;
+  }
+  .escalate-form textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
+  .escalate-hint {
+    font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; line-height: 1.4;
+  }
+
+  .reaction-bar { display: flex; gap: 6px; margin-top: 8px; }
+  .reaction-btn {
+    padding: 4px 10px; border: 1px solid var(--line); border-radius: 99px;
+    background: var(--off); font-size: 0.85rem; cursor: pointer; transition: transform .1s;
+  }
+  .reaction-btn:active { transform: scale(1.15); }
+  .reaction-btn.picked { background: var(--blue-light); border-color: var(--blue); }
+
+  /* Bottom tabs */
+  .tabbar {
+    display: flex; border-top: 1px solid var(--line); background: var(--white);
+    padding-bottom: var(--safe-b); flex-shrink: 0;
+    height: calc(var(--tab-h) + var(--safe-b));
+  }
+  .tab {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px; border: none; background: transparent; cursor: pointer;
+    color: var(--muted); font: inherit; font-size: 0.6rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 4px;
+    border-radius: 12px; margin: 0 2px; transition: all .2s; position: relative;
+    min-height: 50px;
+  }
+  .tab svg { width: 22px; height: 22px; transition: transform .2s; }
+  .tab.active { color: var(--navy); background: var(--blue-light); }
+  .tab.active svg { transform: scale(1.08); }
+  .tab-badge {
+    position: absolute; top: 6px; right: calc(50% - 20px);
+    min-width: 8px; height: 8px; border-radius: 99px; background: var(--red);
+    border: 2px solid var(--white); display: none;
+  }
+  .tab-badge.show { display: block; animation: badgePop .4s ease; }
+  @keyframes badgePop { 0%{transform:scale(0)} 70%{transform:scale(1.3)} 100%{transform:scale(1)} }
+
+  /* Boot & live overlays */
+  .boot {
+    position: fixed; inset: 0; z-index: 300; background: var(--navy);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #fff; transition: opacity .5s ease, visibility .5s;
+  }
+  .boot.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .boot-logo {
+    width: 64px; height: 64px; border-radius: 18px;
+    background: linear-gradient(135deg, #4A9AD4, #1A5080);
+    display: grid; place-items: center; font-size: 1.2rem; font-weight: 800;
+    animation: bootPulse 1.5s ease infinite;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  @keyframes bootPulse { 0%,100%{transform:scale(1);box-shadow:0 8px 32px rgba(0,0,0,0.3)} 50%{transform:scale(1.05);box-shadow:0 12px 40px rgba(74,154,212,0.4)} }
+  .boot h2 { margin-top: 20px; font-size: 1.1rem; font-weight: 700; }
+  .boot p { margin-top: 8px; font-size: 0.82rem; opacity: 0.7; }
+  .boot-bar { width: 160px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 99px; margin-top: 24px; overflow: hidden; }
+  .boot-fill { height: 100%; background: #4ADE80; border-radius: 99px; width: 0; transition: width .8s ease; }
+
+  .live-toast {
+    position: fixed; top: max(12px, env(safe-area-inset-top)); left: 50%;
+    transform: translateX(-50%) translateY(-120%);
+    background: var(--white); border: 1px solid var(--line);
+    padding: 12px 16px; border-radius: 14px; z-index: 250;
+    box-shadow: 0 8px 32px rgba(11,45,77,0.15);
+    display: flex; align-items: center; gap: 10px; max-width: 90%;
+    transition: transform .4s cubic-bezier(.22,1,.36,1);
+  }
+  .live-toast.show { transform: translateX(-50%) translateY(0); }
+  .live-toast-icon {
+    width: 36px; height: 36px; border-radius: 10px; background: var(--blue-light);
+    display: grid; place-items: center; font-size: 1rem; flex-shrink: 0;
+  }
+  .live-toast-text { font-size: 0.82rem; line-height: 1.4; }
+  .live-toast-text strong { color: var(--navy); }
+
+  .sync-overlay {
+    position: fixed; inset: 0; z-index: 150; background: rgba(11,45,77,0.4);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .25s;
+  }
+  .sync-overlay.show { opacity: 1; pointer-events: auto; }
+  .sync-card {
+    background: var(--white); border-radius: 16px; padding: 28px 32px;
+    text-align: center; transform: scale(.9); transition: transform .3s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 20px 60px rgba(11,45,77,0.2);
+  }
+  .sync-overlay.show .sync-card { transform: scale(1); }
+  .sync-ring {
+    width: 48px; height: 48px; border: 3px solid var(--line);
+    border-top-color: var(--navy); border-radius: 50%;
+    animation: spin .8s linear infinite; margin: 0 auto 14px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .sync-card p { font-size: 0.88rem; color: var(--muted); }
+
+  .mom-strip {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px 14px; background: rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mom-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #E8F2FC, #B8D4F0);
+    color: var(--navy); display: grid; place-items: center;
+    font-size: 0.75rem; font-weight: 800; border: 2px solid rgba(255,255,255,0.2);
+  }
+  .mom-info { flex: 1; }
+  .mom-name { font-size: 0.88rem; font-weight: 700; }
+  .mom-status { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 1px; }
+  .mom-status .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; margin-right: 4px; animation: pulse 1.5s infinite; }
+
+  .request-btn.loading { opacity: 0.7; pointer-events: none; }
+  .request-btn .btn-spin { display: none; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+  .request-btn.loading .btn-spin { display: block; }
+  .request-btn.loading .btn-label { opacity: 0.7; }
+
+  .chip { transition: transform .1s, background .15s; }
+  .chip:active { transform: scale(0.96); }
+  .send-btn { transition: transform .1s; }
+  .send-btn:active { transform: scale(0.92); }
+  .send-btn.sending { animation: sendPop .3s ease; }
+  @keyframes sendPop { 50%{transform:scale(.85)} 100%{transform:scale(1)} }
+
+  @media (min-width: 721px) {
+    body { padding: 20px 0; height: auto; overflow: auto; }
+    .app { height: calc(100vh - 40px); border-radius: 20px; overflow: hidden; }
+  }
+</style>
+</head>
+<body>
+
+<div class="boot" id="boot">
+  <div class="boot-logo">Bi</div>
+  <h2>Connecting to BiBi</h2>
+  <p id="bootStatus">Loading Mom's care day…</p>
+  <div class="boot-bar"><div class="boot-fill" id="bootFill"></div></div>
+</div>
+
+<div class="sync-overlay" id="syncOverlay">
+  <div class="sync-card">
+    <div class="sync-ring"></div>
+    <p id="syncText">Syncing…</p>
+  </div>
+</div>
+
+<div class="live-toast" id="liveToast">
+  <div class="live-toast-icon">🚗</div>
+  <div class="live-toast-text" id="liveToastText"></div>
+</div>
+
+<div class="app">
+  <header class="header">
+    <div class="header-row">
+      <div class="header-left">
+        <div class="logo">Bi</div>
+        <div>
+          <div class="header-title">piVoT Family</div>
+          <div class="header-sub">Eleanor Whitman</div>
+        </div>
+      </div>
+      <a class="switch-link" href="provider.html">Clinical</a>
+    </div>
+    <div class="mom-strip">
+      <div class="mom-avatar">RW</div>
+      <div class="mom-info">
+        <div class="mom-name">Ruth Whitman · Mom</div>
+        <div class="mom-status" id="momStatus"><span class="dot"></span>At dermatology appointment</div>
+      </div>
+      <div class="live-pill"><span class="live-dot"></span> Live</div>
+    </div>
+  </header>
+
+  <div class="panels">
+    <!-- Tab 1: BiBi -->
+    <div class="panel active" id="panel-chat">
+      <div class="chat-live"><span class="live-dot"></span> BiBi is watching today's care updates</div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bibi">
+          <div class="msg-avatar bibi">Bi</div>
+          <div>
+            <div class="msg-bubble">Hi Eleanor. I'm BiBi — here to help you follow Mom's care day in plain language. Ask about visits, meals, therapy, or anything flagged for you.</div>
+            <div class="msg-meta">BiBi · just now</div>
+          </div>
+        </div>
+      </div>
+      <div class="typing" id="typing"><div class="msg-avatar bibi">Bi</div><div class="typing-dots"><span></span><span></span><span></span></div></div>
+      <div class="chat-chips" id="chatChips">
+        <button class="chip" data-q="How is Mom doing today?">How is Mom?</button>
+        <button class="chip" data-q="Explain Mom's medications">Medications</button>
+        <button class="chip" data-q="What does the blood pressure flag mean?">BP flag</button>
+        <button class="chip" data-q="Anything I should know?">Anything flagged?</button>
+        <button class="chip" data-action="flag">Flag a concern</button>
+      </div>
+      <div class="chat-input-bar">
+        <input id="chatInput" type="text" placeholder="Ask BiBi about Mom's care…" autocomplete="off" />
+        <button class="send-btn" id="sendChat">↑</button>
+      </div>
+    </div>
+
+    <!-- Tab 2: Board -->
+    <div class="panel" id="panel-board">
+      <div class="board-header">
+        <div class="board-channel"># <span>mom-care</span></div>
+        <div class="board-live"><span class="live-dot" style="width:5px;height:5px"></span> <span id="boardLiveText">6 updates today · streaming live</span></div>
+      </div>
+      <div class="board-toolbar">
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="flag">Flagged</button>
+          <button class="filter-tab" data-filter="aide">Nursing</button>
+          <button class="filter-tab" data-filter="pt">Therapy</button>
+          <button class="filter-tab" data-filter="meals">Meals</button>
+        </div>
+      </div>
+      <div class="board-feed" id="boardFeed"></div>
+    </div>
+
+    <!-- Tab 3: Mom's schedule -->
+    <div class="panel" id="panel-settings">
+      <div class="settings-scroll">
+        <div class="today-banner">
+          <h2>Wednesday · Mom's day</h2>
+          <p>Dermatology follow-up this afternoon. Ana is on shift until 3 PM.</p>
+        </div>
+
+        <button class="request-btn" id="requestBtn" onclick="requestUpdate()">
+          <span class="btn-spin"></span>
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="btn-label">Request a care update</span>
+        </button>
+
+        <div class="settings-section">
+          <div class="settings-label">Mom's wellness · live</div>
+          <div class="wellness-card" id="wellnessCard"></div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-label">Today's timeline</div>
+          <div class="timeline-wrap" id="todayTimeline"></div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-label">Past week</div>
+          <div id="pastWeek"></div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-label">Care team</div>
+          <div id="careTeam"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="tabbar">
+    <button class="tab active" data-tab="chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      BiBi
+    </button>
+    <button class="tab" data-tab="board">
+      <span class="tab-badge" id="boardBadge"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.17L4 17.17V4z"/><path d="M8 8h8M8 12h5"/></svg>
+      Board
+    </button>
+    <button class="tab" data-tab="settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Schedule
+    </button>
+  </nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const posts = [
+  { id:1, name:'Coastal Meals', handle:'@coastalmeals', time:'7:45 AM', tag:'meals', tagLabel:'Meals', color:'#B8860B', text:'Breakfast arrived — oatmeal and fruit on Mom\'s low-salt meal plan.', likes:2, replies:[], flag:false },
+  { id:2, name:'Ana Melendez', handle:'@ana.lpn', time:'9:05 AM', tag:'aide', tagLabel:'Nursing', color:'#1A7A4C', text:'Morning medications given on schedule. Blood pressure was a little lower than usual (108/64). Mom felt tired after breakfast and rested — we flagged this so you\'d know. She felt better by early afternoon.', likes:1, replies:[{author:'BiBi', text:'This was shared for your peace of mind — not an emergency. Ana checked again at 1:10 PM and Mom\'s energy was back up.'}], flag:true, clinical:'0900 MAR administered without incident. VS: BP 108/64 (mild hypotension), HR 72. Pt reports fatigue post-prandial — family alert triggered per protocol.' },
+  { id:3, name:'James K.', handle:'@james.pt', time:'11:40 AM', tag:'pt', tagLabel:'Therapy', color:'#2B6CB0', text:'Physical therapy went well — 30 minutes of walking and balance exercises. Steadier steps than last week, and Mom said she had no pain.', likes:4, replies:[], flag:false, clinical:'Therapeutic exercise x30 min — gait training. Improved step symmetry vs prior visit. Pain 0/10. Continue BID weekly per POC.' },
+  { id:4, name:'Coastal Meals', handle:'@coastalmeals', time:'12:15 PM', tag:'meals', tagLabel:'Meals', color:'#B8860B', text:'Lunch delivered on schedule.', likes:1, replies:[], flag:false },
+  { id:5, name:'Ana Melendez', handle:'@ana.lpn', time:'1:10 PM', tag:'aide', tagLabel:'Nursing', color:'#1A7A4C', text:'Checked in with Mom — her energy is back up after resting. No new concerns this afternoon.', likes:2, replies:[], flag:false },
+  { id:6, name:'RideWell', handle:'@ridewell', time:'2:00 PM', tag:'ride', tagLabel:'Transport', color:'#6D28D9', text:'Ride confirmed for Mom\'s dermatology appointment. Return trip booked for 3:30 PM.', likes:0, replies:[], flag:false },
+];
+
+const timeline = [
+  { time:'7:45a', detail:'Breakfast delivered', sub:'Coastal Meals', done:true, detailText:'Oatmeal, fruit, and low-salt options. Mom ate most of her breakfast.' },
+  { time:'9:05a', detail:'Morning medications & vitals', sub:'Ana Melendez · blood pressure a little low', done:true, detailText:'All scheduled medications were given. Blood pressure was 108/64 — a bit lower than her usual range. Mom rested afterward and felt better by late morning. The team flagged this so you would know.', flag:true },
+  { time:'11:40a', detail:'Physical therapy session', sub:'James K., physical therapist', done:true, detailText:'30 minutes of walking and balance work. Steadier steps than last week. No pain. Continuing twice-a-week sessions.' },
+  { time:'12:15p', detail:'Lunch delivered', sub:'Coastal Meals', done:true, detailText:'Lunch on schedule. Low-salt meal plan.' },
+  { time:'2:00p', detail:'Ride to dermatology', sub:'RideWell', done:true, detailText:'Pickup on time for dermatology follow-up.' },
+  { time:'3:30p', detail:'Return trip home', sub:'RideWell', done:false, upcoming:true, detailText:'Return ride scheduled for 3:30 PM.' },
+  { time:'3:00p', detail:'Ana end of shift', sub:'Care summary posted to board', done:false, upcoming:true, detailText:'Ana will post an end-of-shift summary in plain language on the care board.' },
+];
+
+const pastWeek = [
+  { day:'Tuesday', summary:'Steady day', items:['Maria (home health aide) on shift 7 AM–3 PM','Physical therapy — good progress','Brief dizziness when standing in the morning, resolved with rest','Good appetite at dinner'] },
+  { day:'Monday', summary:'Routine care', items:['Maria on shift','Meals on plan','Vitals in normal range','Family call at 6 PM'] },
+  { day:'Sunday', summary:'Quiet day', items:['No scheduled visits','Family visit 2–4 PM','Medications taken from pill organizer'] },
+];
+
+const wellness = { bp:'108/64', hr:'72', mood:'Resting well', updated:'9:05 AM', bpNote:'A little lower than usual — improved after rest' };
+
+const team = [
+  { name:'Ana Melendez', role:'Licensed practical nurse · on shift today', color:'#1A7A4C', initials:'AM', phone:true },
+  { name:'James K.', role:'Physical therapist · visits Tue & Thu', color:'#2B6CB0', initials:'JK', phone:true },
+  { name:'Coastal Meals', role:'Meal delivery · daily', color:'#B8860B', initials:'CM', phone:false },
+  { name:'RideWell', role:'Medical ride service', color:'#6D28D9', initials:'RW', phone:true },
+];
+
+let activeFilter = 'all';
+let expandedTimeline = null;
+let currentTab = 'chat';
+
+function showSync(text, ms = 1400) {
+  return new Promise(resolve => {
+    document.getElementById('syncText').textContent = text;
+    document.getElementById('syncOverlay').classList.add('show');
+    setTimeout(() => {
+      document.getElementById('syncOverlay').classList.remove('show');
+      setTimeout(resolve, 250);
+    }, ms);
+  });
+}
+
+function showLiveToast(icon, html, ms = 4000) {
+  const t = document.getElementById('liveToast');
+  t.querySelector('.live-toast-icon').textContent = icon;
+  document.getElementById('liveToastText').innerHTML = html;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+function renderWellness(animate) {
+  const bpLow = parseInt(wellness.bp) < 110;
+  document.getElementById('wellnessCard').innerHTML = `
+    <div class="wellness-stat${bpLow?' warn':''}${animate?' bump':''}"><div class="val">${esc(wellness.bp)}</div><div class="lbl">Blood pressure</div>${bpLow ? `<div class="lbl" style="font-size:0.65rem;margin-top:2px;color:var(--amber)">${esc(wellness.bpNote||'')}</div>` : ''}</div>
+    <div class="wellness-stat${animate?' bump':''}"><div class="val">${esc(wellness.hr)}</div><div class="lbl">Heart rate (beats/min)</div></div>
+    <div class="wellness-stat${animate?' bump':''}"><div class="val" style="font-size:0.82rem">${esc(wellness.mood)}</div><div class="lbl">How Mom seems</div></div>`;
+}
+
+function decodeClinical(text) {
+  return String(text || '')
+    .replace(/\bMAR\b/gi, 'medications given')
+    .replace(/\bVS:?\s*/gi, 'vital signs: ')
+    .replace(/\bBP\b/gi, 'blood pressure')
+    .replace(/\bHR\b/gi, 'heart rate')
+    .replace(/\bPO\b/gi, 'by mouth')
+    .replace(/\bPt\b/g, 'Mom')
+    .replace(/\bpt\b/g, 'Mom')
+    .replace(/\bpost-prandial\b/gi, 'after eating')
+    .replace(/\bmild hypotension\b/gi, 'blood pressure a little lower than usual')
+    .replace(/\btherapeutic exercise\b/gi, 'guided exercises')
+    .replace(/\bgait training\b/gi, 'walking practice')
+    .replace(/\bstep symmetry\b/gi, 'even steps on both sides')
+    .replace(/\bBID\b/gi, 'twice a week')
+    .replace(/\bPOC\b/gi, 'care plan')
+    .replace(/\bNEMT\b/gi, 'medical transport')
+    .replace(/\borthostasis\b/gi, 'dizziness when standing up')
+    .replace(/\bSBP\b/gi, 'top blood pressure number')
+    .replace(/\bDBP\b/gi, 'bottom blood pressure number');
+}
+
+function explainPost(id) {
+  const p = posts.find(x => x.id === id);
+  if (!p) return;
+  switchTab('chat');
+  const plain = p.text.replace(/^📋 Family summary:\s*/i, '');
+  const clinical = p.clinical ? decodeClinical(p.clinical) : null;
+  let html = `<strong>In plain language:</strong><br>${esc(plain)}`;
+  if (clinical && clinical !== plain) {
+    html += `<br><br><strong>What the clinical note said:</strong><br><span style="color:var(--muted);font-size:0.85em">${esc(clinical)}</span>`;
+  }
+  if (p.flag) {
+    html += `<br><br><em>Flagged updates are shared so you stay informed — they don't always mean something is wrong. Ana rechecked and Mom improved.</em>`;
+  }
+  addMsgRich(html, [
+    { label: 'Ask a follow-up', variant: 'btn-ghost', action: () => { document.getElementById('chatInput').value = 'Tell me more about the ' + p.time + ' update'; document.getElementById('chatInput').focus(); } },
+    { label: 'Flag a concern', variant: 'btn-flag', action: openFlagConcern },
+  ]);
+}
+
+function renderPastWeek() {
+  document.getElementById('pastWeek').innerHTML = pastWeek.map((d,i) => `
+    <div class="history-day" id="hist-${i}">
+      <div class="history-head" onclick="toggleHistory(${i})">
+        <span>${esc(d.day)} · ${esc(d.summary)}</span>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="history-body"><ul>${d.items.map(it => `<li>${esc(it)}</li>`).join('')}</ul></div>
+    </div>`).join('');
+}
+
+function toggleHistory(i) {
+  document.getElementById('hist-'+i).classList.toggle('open');
+}
+
+function requestUpdate() {
+  const btn = document.getElementById('requestBtn');
+  btn.classList.add('loading');
+  showSync('Sending request to care team…', 1200).then(() => {
+    btn.classList.remove('loading');
+    showToast('✓ Request sent — Ana will respond shortly');
+    showLiveToast('📩', '<strong>Request sent</strong> — Ana Melendez received your update request');
+    setTimeout(() => {
+      const post = {
+        id: Date.now(), name:'Ana Melendez', handle:'@ana.lpn', time:'Just now',
+        tag:'aide', tagLabel:'LPN', color:'#1A7A4C',
+        text:'Hi Eleanor — saw your update request. Mom is doing well. I\'ll post a full summary at end of shift.',
+        likes:0, replies:[], flag:false
+      };
+      posts.unshift(post);
+      document.getElementById('boardBadge').classList.add('show');
+      document.getElementById('boardLiveText').textContent = (posts.length) + ' updates today · just now';
+      if (currentTab === 'board') {
+        renderBoard();
+        flashPost(post.id);
+      } else {
+        showLiveToast('💬', '<strong>Ana Melendez</strong> replied to your request — tap Board to see');
+      }
+    }, 2000);
+  });
+}
+
+function contactTeam(idx) {
+  const t = team[idx];
+  if (!t) return;
+  showToast(`Opening message to ${t.name}…`);
+  switchTab('chat');
+  setTimeout(() => addMsg(`You can reach ${t.name} through the care board or I can draft a message for you. What would you like to ask?`, 'bibi'), 400);
+}
+
+function esc(s) { return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function renderBoard() {
+  const feed = document.getElementById('boardFeed');
+  const filtered = activeFilter === 'all' ? posts
+    : activeFilter === 'flag' ? posts.filter(p => p.flag)
+    : posts.filter(p => p.tag === activeFilter);
+
+  feed.innerHTML = filtered.map((p, i) => `
+    <article class="post" data-id="${p.id}" style="animation-delay:${i * 0.06}s">
+      <div class="post-head">
+        <div class="post-avatar" style="background:${p.color}">${esc(p.name.split(' ').map(w=>w[0]).join('').slice(0,2))}</div>
+        <div class="post-body">
+          <div class="post-top">
+            <span class="post-name">${esc(p.name)}</span>
+            <span class="post-handle">${esc(p.handle)}</span>
+            <span class="post-tag tag-${p.tag}">${esc(p.tagLabel)}</span>
+            <span class="post-time">${esc(p.time)}</span>
+          </div>
+          <div class="post-text">${esc(p.text)}</div>
+          ${p.flag ? '<div class="post-tag tag-flag" style="margin-top:8px;display:inline-block">⚑ For your attention</div>' : ''}
+          ${(p.replies||[]).map(r => `<div class="thread-reply"><div class="reply-author">${esc(r.author)}</div>${esc(r.text)}</div>`).join('')}
+          <div class="post-actions">
+            <button onclick="likePost(${p.id})">♡ ${p.likes}</button>
+            <button onclick="toggleReply(${p.id})">Reply</button>
+            <button onclick="explainPost(${p.id})">What does this mean?</button>
+            <button onclick="askBibiAbout(${p.id})">Ask BiBi</button>
+          </div>
+          <div class="reaction-bar">
+            ${['👍','❤️','🙏','✓'].map((e,i) => `<button class="reaction-btn" onclick="reactPost(${p.id},'${e}',this)">${e}</button>`).join('')}
+          </div>
+          <div class="reply-box" id="reply-${p.id}">
+            <input type="text" placeholder="Reply to care team…" id="replyInput-${p.id}" />
+            <button class="reply-btn" onclick="submitReply(${p.id})">Send</button>
+          </div>
+        </div>
+      </div>
+    </article>`).join('');
+}
+
+function flashPost(id) {
+  requestAnimationFrame(() => {
+    const el = document.querySelector('.post[data-id="'+id+'"]');
+    if (el) { el.classList.add('new-flash'); setTimeout(() => el.classList.remove('new-flash'), 1400); }
+  });
+}
+
+function renderTimeline(highlightIdx) {
+  document.getElementById('todayTimeline').innerHTML = timeline.map((t,i) => `
+    <div class="timeline-item${t.done?' done':''}${t.upcoming?' upcoming':''}${expandedTimeline===i?' expanded':''}${highlightIdx===i?' just-done':''}" onclick="expandTimeline(${i})">
+      <div style="display:flex;gap:12px;padding:12px 14px;${i < timeline.length-1 ? 'border-bottom:1px solid var(--line)' : ''}">
+        <div class="timeline-time">${esc(t.time)}</div>
+        <div class="timeline-detail">
+          ${t.done ? '✓ ' : ''}${esc(t.detail)}${t.flag ? ' <span class="post-tag tag-flag" style="font-size:0.6rem">Flagged</span>' : ''}
+          <div class="sub">${esc(t.sub)}</div>
+          <div class="detail-pop">${esc(t.detailText||'')}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function expandTimeline(i) {
+  expandedTimeline = expandedTimeline === i ? null : i;
+  renderTimeline();
+}
+
+function reactPost(id, emoji, btn) {
+  btn.classList.add('picked');
+  showToast(`Reacted ${emoji} — care team notified`);
+}
+
+function renderTeam() {
+  document.getElementById('careTeam').innerHTML = team.map((t, i) => `
+    <div class="team-card">
+      <div class="team-avatar" style="background:${t.color}">${esc(t.initials)}</div>
+      <div class="team-info">
+        <div class="team-name">${esc(t.name)}</div>
+        <div class="team-role">${esc(t.role)}</div>
+      </div>
+      ${t.phone ? `<button class="team-contact" onclick="contactTeam(${i})">Message</button>` : ''}
+    </div>`).join('');
+}
+
+function likePost(id) { const p = posts.find(x=>x.id===id); if(p){p.likes++; renderBoard();} }
+function toggleReply(id) { document.getElementById('reply-'+id).classList.toggle('open'); }
+function submitReply(id) {
+  const input = document.getElementById('replyInput-'+id);
+  const text = input.value.trim();
+  if (!text) return;
+  const p = posts.find(x=>x.id===id);
+  if (p) { p.replies = p.replies || []; p.replies.push({author:'Eleanor', text}); input.value=''; renderBoard(); }
+}
+
+function askBibiAbout(id) {
+  const p = posts.find(x=>x.id===id);
+  if (!p) return;
+  switchTab('chat');
+  addMsg(`Tell me about the ${p.time} update from ${p.name}`, 'user');
+  typing.classList.add('show');
+  setTimeout(() => {
+    typing.classList.remove('show');
+    explainPost(id);
+  }, 600);
+}
+
+function switchTab(name) {
+  if (name === currentTab) return;
+  const prev = document.getElementById('panel-' + currentTab);
+  const next = document.getElementById('panel-' + name);
+  prev.classList.add('exit-left');
+  setTimeout(() => prev.classList.remove('exit-left'), 280);
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  next.classList.add('active');
+  currentTab = name;
+  if (name === 'board') {
+    document.getElementById('boardBadge').classList.remove('show');
+    renderBoard();
+  }
+}
+
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+document.querySelectorAll('.filter-tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.filter-tab').forEach(f => f.classList.remove('active'));
+  t.classList.add('active');
+  activeFilter = t.dataset.filter;
+  renderBoard();
+}));
+
+// BiBi
+const chatMessages = document.getElementById('chatMessages');
+const typing = document.getElementById('typing');
+
+function addMsg(text, who) {
+  const row = document.createElement('div');
+  row.className = 'msg ' + who;
+  row.innerHTML = `
+    <div class="msg-avatar ${who}">${who==='bibi'?'Bi':'EW'}</div>
+    <div>
+      <div class="msg-bubble">${esc(text)}</div>
+      <div class="msg-meta">${who==='bibi'?'BiBi':'You'} · just now</div>
+    </div>`;
+  chatMessages.appendChild(row);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function bibiAnswer(q) {
+  const lower = q.toLowerCase();
+  if (lower.includes('blood pressure') && (lower.includes('flag') || lower.includes('mean') || lower.includes('low')))
+    return { text: "At 9:05 AM Mom's blood pressure was 108/64 — a little lower than her usual range (your alert is set for below 110). She felt tired after breakfast and rested. Ana checked again at 1:10 PM and Mom's energy was back up. This was shared so you'd know, not because it was an emergency." };
+  if (lower.includes('how') && (lower.includes('mom') || lower.includes('doing')))
+    return { text: "Mom's had a mostly steady day. Physical therapy went well this morning. Blood pressure was briefly a little low after breakfast, but she rested and felt better by early afternoon. She's at her dermatology appointment now with RideWell." };
+  if (lower.includes('medication') || lower.includes('meds'))
+    return { rich: 'meds' };
+  if (lower.includes('yesterday') || lower.includes('happened'))
+    return { text: "Yesterday (Tuesday): Maria (home health aide) was on shift. Physical therapy went well. Mom had brief dizziness when standing in the morning that went away with rest. She had a good appetite at dinner. Nothing urgent was flagged for you." };
+  if (lower.includes('flag') || lower.includes('should know') || lower.includes('attention'))
+    return { text: "One update flagged for you: at 9:05 AM Ana noted blood pressure was a little low (108/64) and Mom felt tired after breakfast. By 1:10 PM her energy was back up — no further concerns since. Tap \"What does this mean?\" on any board post for a plain-language breakdown." };
+  if (lower.includes('left') || lower.includes('rest') || lower.includes('today'))
+    return { text: "Still ahead: return ride from dermatology around 3:30 PM, and Ana's end-of-shift care summary. Everything else on today's plan is done." };
+  if (lower.includes('visit') || lower.includes('who'))
+    return { text: "Today: Ana (nurse, all day), James (physical therapist, 11:40 AM), Coastal Meals (breakfast & lunch), and RideWell (dermatology ride)." };
+  if (lower.includes('explain') || lower.includes('what does') || lower.includes('mean'))
+    return { text: "I translate clinical notes into everyday language. On the Board tab, tap \"What does this mean?\" on any update — I'll walk you through it and show what the care team wrote in simpler terms." };
+  if (lower.includes('update') && (lower.includes('9:05') || lower.includes('morning')))
+    return { explainPost: 2 };
+  if (lower.includes('pt') || lower.includes('therapy') || lower.includes('physical'))
+    return { text: "James led a 30-minute session at 11:40 AM — walking and balance exercises. Mom's steps were steadier than last week and she had no pain. He's recommending twice-a-week sessions." };
+  if (lower.includes('meal') || lower.includes('eat'))
+    return { text: "Breakfast at 7:45 AM and lunch at 12:15 PM — both on Mom's low-salt meal plan from Coastal Meals." };
+  if (lower.includes('side effect'))
+    return { text: "No medication side effects were noted today. Morning medications were given at 9:05 AM without problems.", unknown: true };
+  if (lower.includes('lab') || lower.includes('test result') || lower.includes('blood work'))
+    return { text: "I don't have access to lab or test results — those stay in Mom's medical record. I can flag this for the care team so someone follows up with you.", unknown: true };
+  if (lower.includes('insurance') || lower.includes('bill') || lower.includes('cost'))
+    return { text: "I can't pull billing or insurance details. Want me to route this to the care team?", unknown: true };
+  if (lower.includes('discharge') || lower.includes('hospital') && lower.includes('when'))
+    return { text: "I don't have discharge or hospital schedule info in today's home-care log.", unknown: true };
+  return { text: "I couldn't find that in today's care updates. You can flag it for the team or send a question directly — they'll respond on the board.", unknown: true };
+}
+
+function addMsgRich(html, actions, extraHtml) {
+  const row = document.createElement('div');
+  row.className = 'msg bibi';
+  const btns = (actions||[]).map((a,i) =>
+    `<button class="${a.variant||'btn-primary'}" data-act="${i}">${esc(a.label)}</button>`
+  ).join('');
+  row.innerHTML = `
+    <div class="msg-avatar bibi">Bi</div>
+    <div>
+      <div class="msg-bubble">${html}</div>
+      ${extraHtml || ''}
+      ${btns ? `<div class="msg-card">${btns}</div>` : ''}
+      <div class="msg-meta">BiBi · just now</div>
+    </div>`;
+  chatMessages.appendChild(row);
+  (actions||[]).forEach((a,i) => row.querySelector(`[data-act="${i}"]`)?.addEventListener('click', a.action));
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return row;
+}
+
+function addEscalateOptions(prefill) {
+  const id = 'esc-' + Date.now();
+  addMsgRich(
+    `<strong>I don't have that information on hand.</strong><br>You can flag it for the care team or ask a question — Ana or James will see it on the board.`,
+    null,
+    `<div class="escalate-form" id="${id}">
+      <div class="escalate-hint">Describe your concern or question. The care team will respond on #mom-care.</div>
+      <textarea id="${id}-input" placeholder="e.g. Mom seemed confused on our call — is that normal?">${esc(prefill || '')}</textarea>
+      <div class="msg-card" style="margin-top:0;padding:0;border:none;background:transparent">
+        <button class="btn-flag" data-flag>⚑ Flag for care team</button>
+        <button class="btn-primary" data-ask>Ask care team</button>
+      </div>
+    </div>`
+  );
+  const form = document.getElementById(id);
+  form.querySelector('[data-flag]').addEventListener('click', () => submitFamilyEscalation(id, true));
+  form.querySelector('[data-ask]').addEventListener('click', () => submitFamilyEscalation(id, false));
+}
+
+function submitFamilyEscalation(formId, isFlag) {
+  const input = document.getElementById(formId + '-input');
+  const text = input.value.trim();
+  if (!text) { showToast('Please add a message first'); input.focus(); return; }
+  const now = new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+  const post = {
+    id: Date.now(), name:'Eleanor Whitman', handle:'@eleanor.family', time: now,
+    tag:'family', tagLabel:'Family', color:'#134068',
+    text: (isFlag ? '⚑ FLAG: ' : '❓ Question: ') + text,
+    likes: 0, replies: [], flag: isFlag
+  };
+  posts.unshift(post);
+  document.getElementById('boardBadge').classList.add('show');
+  document.getElementById('boardLiveText').textContent = posts.length + ' updates today · just now';
+  input.disabled = true;
+  form.querySelectorAll('button').forEach(b => { b.classList.add('btn-sent'); b.textContent = isFlag ? '✓ Flagged' : '✓ Sent'; });
+  showSync(isFlag ? 'Flagging for care team…' : 'Sending question to care team…', 1200).then(() => {
+    showToast(isFlag ? '✓ Care team flagged — Ana will follow up' : '✓ Question sent — watch the board for a reply');
+    showLiveToast(isFlag ? '⚑' : '❓', `<strong>${isFlag?'Flagged':'Question sent'}</strong> — the care team will respond on the board`);
+    setTimeout(() => {
+      posts.unshift({
+        id: Date.now()+1, name:'Ana Melendez', handle:'@ana.lpn', time:'Just now',
+        tag:'aide', tagLabel:'LPN', color:'#1A7A4C',
+        text: 'Hi Eleanor — got your ' + (isFlag ? 'flag' : 'question') + '. I\'ll check on this and post an update shortly.',
+        likes:0, replies:[], flag:false
+      });
+      if (currentTab === 'board') renderBoard();
+    }, 3000);
+  });
+}
+
+function openFlagConcern() {
+  addEscalateOptions('');
+  document.getElementById('chatMessages').lastElementChild?.scrollIntoView({behavior:'smooth'});
+}
+
+function sendChat(text) {
+  if (!text.trim()) return;
+  const sendBtn = document.getElementById('sendChat');
+  sendBtn.classList.add('sending');
+  setTimeout(() => sendBtn.classList.remove('sending'), 300);
+  addMsg(text, 'user');
+  document.getElementById('chatInput').value = '';
+  typing.classList.add('show');
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  const lower = text.toLowerCase();
+  setTimeout(() => {
+    typing.classList.remove('show');
+    const result = bibiAnswer(text);
+    if (result.rich === 'meds') {
+      addMsgRich(`<strong>Mom's medications</strong> (from her care plan):<br><br>
+        • Lisinopril 10 mg — once each morning, for blood pressure<br>
+        • Metformin 500 mg — twice daily, for diabetes<br>
+        • Aspirin 81 mg — once each morning<br>
+        • Acetaminophen 500 mg — as needed for pain<br><br>
+        All morning medications were given at 9:05 AM today without problems.`, [
+        { label: 'View on timeline', variant: 'btn-ghost', action: () => { switchTab('settings'); expandTimeline(1); } },
+        { label: 'What does the BP flag mean?', variant: 'btn-ghost', action: () => sendChat('What does the blood pressure flag mean?') },
+      ]);
+    } else if (result.explainPost) {
+      explainPost(result.explainPost);
+    } else if (result.unknown) {
+      addMsg(result.text, 'bibi');
+      setTimeout(() => addEscalateOptions(text), 400);
+    } else {
+      addMsg(result.text, 'bibi');
+    }
+  }, 700 + Math.random() * 500);
+}
+
+document.getElementById('sendChat').addEventListener('click', () => sendChat(document.getElementById('chatInput').value));
+document.getElementById('chatInput').addEventListener('keydown', e => { if (e.key === 'Enter') sendChat(e.target.value); });
+document.querySelectorAll('#chatChips .chip').forEach(c => {
+  if (c.dataset.action === 'flag') c.addEventListener('click', openFlagConcern);
+  else if (c.dataset.q) c.addEventListener('click', () => sendChat(c.dataset.q));
+});
+
+// Boot sequence
+function runBoot() {
+  const fill = document.getElementById('bootFill');
+  const status = document.getElementById('bootStatus');
+  const steps = [
+    { pct: 30, text: 'Connecting to care team…' },
+    { pct: 60, text: 'Syncing today\'s timeline…' },
+    { pct: 85, text: 'BiBi is ready…' },
+    { pct: 100, text: 'Connected' },
+  ];
+  let i = 0;
+  const tick = () => {
+    if (i >= steps.length) {
+      setTimeout(() => document.getElementById('boot').classList.add('hide'), 400);
+      setTimeout(startLiveDemo, 800);
+      return;
+    }
+    fill.style.width = steps[i].pct + '%';
+    status.textContent = steps[i].text;
+    i++;
+    setTimeout(tick, 500);
+  };
+  setTimeout(tick, 300);
+}
+
+function startLiveDemo() {
+  // Simulate family portal summary from clinical side
+  setTimeout(() => {
+    const summary = {
+      id: Date.now() - 1, name:'Ana Melendez', handle:'@ana.lpn', time:'Just now',
+      tag:'aide', tagLabel:'Nursing', color:'#1A7A4C',
+      text:'📋 Family summary: Blood pressure was a little lower than usual this morning (108/64). Mom rested and felt better later.',
+      likes:0, replies:[], flag:true
+    };
+    posts.unshift(summary);
+    document.getElementById('boardBadge').classList.add('show');
+    if (currentTab === 'board') { renderBoard(); flashPost(summary.id); }
+    else showLiveToast('📋', '<strong>Ana posted a plain-language summary</strong> — tap Board to read');
+  }, 3500);
+
+  setTimeout(async () => {
+    showLiveToast('🚗', '<strong>RideWell</strong> — Mom is on the way home from dermatology');
+    document.getElementById('momStatus').innerHTML = '<span class="dot"></span>Heading home from dermatology';
+  }, 4000);
+
+  setTimeout(async () => {
+    await showSync('Receiving live update from RideWell…', 1000);
+    const post = {
+      id: Date.now(), name:'RideWell', handle:'@ridewell', time:'Just now',
+      tag:'ride', tagLabel:'Transport', color:'#6D28D9',
+      text:'Return trip from dermatology completed — Mom dropped off safely at home.',
+      likes:0, replies:[], flag:false
+    };
+    posts.unshift(post);
+    const retIdx = timeline.findIndex(t => t.detail.includes('Return'));
+    if (retIdx >= 0) timeline[retIdx].done = true;
+    wellness.mood = 'Home safely';
+    document.getElementById('momStatus').innerHTML = '<span class="dot"></span>Home safely · resting';
+    document.getElementById('boardLiveText').textContent = posts.length + ' updates today · live now';
+    renderWellness(true);
+    renderTimeline(retIdx);
+    document.getElementById('boardBadge').classList.add('show');
+
+    if (currentTab === 'board') {
+      renderBoard();
+      flashPost(post.id);
+    } else {
+      showLiveToast('✅', '<strong>Mom is home!</strong> RideWell confirmed safe return — tap Board');
+      addMsg("RideWell just posted — Mom's back home from dermatology. Return trip completed safely. I've updated her timeline and wellness status.", 'bibi');
+    }
+  }, 7000);
+}
+
+runBoot();
+renderBoard(); renderTimeline(); renderTeam(); renderWellness(); renderPastWeek();
+</script>
+</body>
+</html>
