@@ -4,39 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>piVoT — Family</title>
+<script>try{var t=localStorage.getItem('pivot-demo-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0B2D4D;
-    --navy-mid: #134068;
-    --navy-soft: #1A5080;
-    --blue: #2B6CB0;
-    --blue-light: #E8F2FC;
-    --white: #FFFFFF;
-    --off: #F4F8FC;
-    --line: #D8E4F0;
-    --text: #0F2942;
-    --muted: #5A7A96;
-    --muted-2: #8FA8BE;
-    --green: #1A7A4C;
-    --green-soft: #E6F5ED;
-    --amber: #B8860B;
-    --amber-soft: #FEF6E0;
-    --red: #C53030;
-    --red-soft: #FDECEC;
+    --navy: #0A2540;
+    --navy-mid: #123456;
+    --navy-soft: #1D6FEB;
+    --blue: #1D6FEB;
+    --blue-light: #DBEAFE;
+    --off: #EFF4FA;
+    --line: #C5D5E8;
+    --text: #0A1929;
+    --muted: #475F7A;
+    --muted-2: #647892;
+    --green: #059669;
+    --green-soft: #D1FAE5;
+    --amber: #D97706;
+    --amber-soft: #FEF3C7;
+    --amber-text: #92400E;
+    --red: #DC2626;
+    --red-soft: #FEE2E2;
+    --header-from: #0A2540;
+    --header-to: #123456;
+    --boot-bg: #0A2540;
+    --overlay: rgba(10, 37, 64, 0.55);
+    --accent-glow: #4ADE80;
+    --surface: #FFFFFF;
+    --surface-elevated: #FFFFFF;
+    --inverse: #FFFFFF;
     --tab-h: 62px;
     --safe-b: env(safe-area-inset-bottom, 0px);
     --r: 12px;
   }
+
+  html[data-theme="dark"] {
+    --navy: #3B82F6;
+    --navy-mid: #1E293B;
+    --navy-soft: #93C5FD;
+    --blue: #60A5FA;
+    --blue-light: #1E293B;
+    --off: #0B1018;
+    --line: #334155;
+    --text: #F1F5F9;
+    --muted: #94A3B8;
+    --muted-2: #64748B;
+    --green: #4ADE80;
+    --green-soft: #14291F;
+    --amber: #FBBF24;
+    --amber-soft: #2A2210;
+    --amber-text: #FDE68A;
+    --red: #FB7185;
+    --red-soft: #2A1218;
+    --header-from: #0C1422;
+    --header-to: #152238;
+    --boot-bg: #0C1422;
+    --overlay: rgba(0, 0, 0, 0.72);
+    --accent-glow: #4ADE80;
+    --surface: #172033;
+    --surface-elevated: #1E293B;
+    --inverse: #FFFFFF;
+    --accent-label: #93C5FD;
+  }
+
+  html[data-theme="dark"] .header,
+  html[data-theme="dark"] .header-row,
+  html[data-theme="dark"] .mom-strip,
+  html[data-theme="dark"] .mom-name { color: var(--inverse); }
+  html[data-theme="dark"] .header-sub,
+  html[data-theme="dark"] .mom-status { color: rgba(255,255,255,0.72); }
+  html[data-theme="dark"] .chip { color: var(--text); background: var(--surface-elevated); }
+  html[data-theme="dark"] .chip:hover { background: var(--blue-light); color: var(--accent-label); }
+  html[data-theme="dark"] .msg.bibi .msg-bubble { background: var(--surface-elevated); color: var(--text); border-color: var(--line); }
+  html[data-theme="dark"] .msg-meta { color: var(--muted); }
+  html[data-theme="dark"] .msg-card { background: var(--surface-elevated); }
+  html[data-theme="dark"] .msg-card .btn-ghost { color: var(--text); background: var(--surface); }
+  html[data-theme="dark"] .tab.active { color: var(--accent-label); background: var(--blue-light); }
+  html[data-theme="dark"] .tab.active svg { stroke: var(--accent-label); }
+  html[data-theme="dark"] .tab-badge { border-color: var(--surface); }
+  html[data-theme="dark"] .chat-input-bar input { background: var(--surface-elevated); color: var(--text); }
+  html[data-theme="dark"] .escalate-form textarea { background: var(--surface-elevated); color: var(--text); }
+  html[data-theme="dark"] .typing-dots { background: var(--surface-elevated); }
+  html[data-theme="dark"] .chat-live { color: var(--accent-label); }
+  html[data-theme="dark"] .sync-card p { color: var(--muted); }
+  html[data-theme="dark"] .live-toast { background: var(--surface); border-color: var(--line); }
+  html[data-theme="dark"] .live-toast-text { color: var(--text); }
+  html[data-theme="dark"] .live-toast-text strong { color: var(--accent-label); }
+  html[data-theme="dark"] .app { box-shadow: 0 0 48px rgba(0, 0, 0, 0.55); }
+  html[data-theme="dark"] .mom-avatar { background: linear-gradient(135deg, #1E3A5F, #2563EB); color: #E2E8F0; }
+  html[data-theme="dark"] .send-btn { background: #2563EB; }
+  html[data-theme="dark"] .task-card { background: var(--surface); border-color: var(--line); }
+  html[data-theme="dark"] .task-form input,
+  html[data-theme="dark"] .task-form select { background: var(--surface-elevated); color: var(--text); }
+  html[data-theme="dark"] .task-assignee { color: var(--text); }
+  html[data-theme="dark"] .task-meta { color: var(--muted); }
+  html[data-theme="dark"] .ch-head { background: var(--surface); border-color: var(--line); }
+  html[data-theme="dark"] .ch-tab { color: var(--muted); background: var(--surface-elevated); }
+  html[data-theme="dark"] .ch-tab.active { background: var(--blue-light); color: var(--accent-label); }
+  html[data-theme="dark"] .ch-msg { border-color: var(--line); }
+  html[data-theme="dark"] .ch-msg-name { color: var(--text); }
+  html[data-theme="dark"] .ch-compose input { background: var(--surface-elevated); color: var(--text); }
+  html[data-theme="dark"] .done-drawer { background: var(--surface); border-color: var(--line); }
+  html[data-theme="dark"] .task-stat { background: var(--surface); }
+  html[data-theme="dark"] .tasks-head h2,
+  html[data-theme="dark"] .done-drawer-label { color: var(--accent-label); }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; overflow: hidden; }
+  html, body { height: 100%; height: 100dvh; overflow: hidden; }
   body { font-family: 'Inter', system-ui, sans-serif; background: var(--off); color: var(--text); -webkit-font-smoothing: antialiased; }
 
-  .app { display: flex; flex-direction: column; height: 100%; max-width: 720px; margin: 0 auto; background: var(--white); box-shadow: 0 0 40px rgba(11,45,77,0.08); }
+  .app { display: flex; flex-direction: column; height: 100%; height: 100dvh; max-width: 720px; margin: 0 auto; background: var(--surface); box-shadow: 0 0 40px rgba(11,45,77,0.08); overflow: hidden; }
 
   .header {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
-    color: var(--white);
+    background: linear-gradient(180deg, var(--header-from) 0%, var(--header-to) 100%);
+    color: var(--inverse);
     padding: 12px 16px 0;
     padding-top: max(12px, env(safe-area-inset-top));
     flex-shrink: 0;
@@ -53,35 +134,57 @@
     font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
   }
   .header-title { font-size: 0.95rem; font-weight: 700; }
-  .header-sub { font-size: 0.72rem; color: rgba(255,255,255,0.65); margin-top: 1px; }
-  .live-pill {
-    display: flex; align-items: center; gap: 5px;
-    font-size: 0.65rem; font-weight: 600; padding: 4px 9px;
-    background: rgba(255,255,255,0.12); border-radius: 99px; flex-shrink: 0;
-  }
-  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .header-sub { font-size: 0.72rem; color: rgba(255,255,255,0.75); margin-top: 1px; }
+  .header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
   .switch-link {
-    font-size: 0.72rem; color: rgba(255,255,255,0.7); text-decoration: none;
-    padding: 5px 10px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+    font-size: 0.72rem; color: rgba(255,255,255,0.85); text-decoration: none;
+    padding: 5px 10px; border: 1px solid rgba(255,255,255,0.22); border-radius: 8px;
   }
+  .theme-toggle {
+    font: inherit; font-size: 0.85rem; line-height: 1;
+    padding: 5px 8px; border-radius: 8px; cursor: pointer;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+    color: #fff; flex-shrink: 0;
+  }
+  .theme-toggle:active { background: rgba(255,255,255,0.22); }
 
-  .panels { flex: 1; overflow: hidden; position: relative; background: var(--off); }
+  .mom-strip {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px 14px; background: rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mom-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #E8F2FC, #B8D4F0);
+    color: var(--navy); display: grid; place-items: center;
+    font-size: 0.75rem; font-weight: 800; border: 2px solid rgba(255,255,255,0.2);
+  }
+  .mom-info { flex: 1; }
+  .mom-name { font-size: 0.88rem; font-weight: 700; }
+  .mom-status { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 1px; }
+  .mom-status .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; margin-right: 4px; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+  .panels { flex: 1; min-height: 0; overflow: hidden; position: relative; background: var(--off); }
   .panel {
     position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;
+    min-height: 0;
     opacity: 0; pointer-events: none; transform: translateX(12px);
     transition: opacity .28s ease, transform .28s ease;
   }
   .panel.active { opacity: 1; pointer-events: auto; transform: none; z-index: 1; }
   .panel.exit-left { transform: translateX(-12px); opacity: 0; }
 
-  /* BiBi Chat */
+  /* BiBi chat */
   .chat-live {
     padding: 8px 16px; background: var(--blue-light); border-bottom: 1px solid var(--line);
     font-size: 0.72rem; color: var(--navy-soft); display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
   }
+  .chat-body { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-glow); animation: pulse 1.5s infinite; }
   .chat-messages {
-    flex: 1; overflow-y: auto; padding: 16px;
+    flex: 1; min-height: 0; overflow-y: auto; padding: 16px;
     display: flex; flex-direction: column; gap: 12px;
     -webkit-overflow-scrolling: touch;
   }
@@ -100,7 +203,7 @@
   .msg-meta { font-size: 0.65rem; color: var(--muted-2); margin-top: 4px; padding: 0 4px; }
   .msg.user .msg-meta { text-align: right; }
 
-  .typing { display: none; align-items: center; gap: 10px; padding: 0 16px 8px; }
+  .typing { display: none; align-items: center; gap: 10px; padding: 0 16px 8px; flex-shrink: 0; }
   .typing.show { display: flex; }
   .typing-dots { display: flex; gap: 4px; padding: 10px 14px; background: var(--off); border-radius: 14px; border: 1px solid var(--line); }
   .typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--muted-2); animation: bounce 1.2s infinite; }
@@ -108,19 +211,21 @@
   .typing-dots span:nth-child(3) { animation-delay: .3s; }
   @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-4px)} }
 
-  .chat-chips { display: flex; gap: 6px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; }
+  .chat-chips { display: flex; gap: 6px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; flex-shrink: 0; }
   .chat-chips::-webkit-scrollbar { display: none; }
   .chip {
     flex-shrink: 0; padding: 6px 12px; border-radius: 99px;
-    border: 1px solid var(--line); background: var(--white);
+    border: 1px solid var(--line); background: var(--surface);
     font-size: 0.75rem; font-weight: 500; color: var(--navy-soft); cursor: pointer;
+    transition: transform .1s, background .15s;
   }
   .chip:hover { background: var(--blue-light); border-color: var(--blue); }
+  .chip:active { transform: scale(0.96); }
 
   .chat-input-bar {
     display: flex; gap: 8px; padding: 12px 16px;
     padding-bottom: max(12px, var(--safe-b));
-    border-top: 1px solid var(--line); background: var(--white);
+    border-top: 1px solid var(--line); background: var(--surface); flex-shrink: 0;
   }
   .chat-input-bar input {
     flex: 1; padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
@@ -130,240 +235,278 @@
   .send-btn {
     width: 42px; height: 42px; border: none; border-radius: 12px;
     background: var(--navy); color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0;
+    transition: transform .1s;
   }
-
-  /* Message board */
-  .board-toolbar {
-    padding: 10px 16px; border-bottom: 1px solid var(--line);
-    display: flex; gap: 8px; align-items: center; background: var(--white);
-  }
-  .filter-tabs { display: flex; gap: 6px; overflow-x: auto; flex: 1; scrollbar-width: none; }
-  .filter-tabs::-webkit-scrollbar { display: none; }
-  .filter-tab {
-    flex-shrink: 0; padding: 6px 12px; border-radius: 99px; border: 1px solid var(--line);
-    background: var(--white); font: inherit; font-size: 0.75rem; font-weight: 500;
-    color: var(--muted); cursor: pointer;
-  }
-  .filter-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-
-  .board-feed { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
-  .board-header { padding: 14px 16px 8px; background: var(--white); border-bottom: 1px solid var(--line); }
-  .board-channel { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
-  .board-channel span { color: var(--muted); font-weight: 500; }
-  .board-live { font-size: 0.72rem; color: var(--muted); margin-top: 2px; display: flex; align-items: center; gap: 6px; }
-
-  .post {
-    padding: 14px 16px; margin: 8px 12px; background: var(--white);
-    border: 1px solid var(--line); border-radius: 14px;
-    animation: postIn .45s cubic-bezier(.22,1,.36,1) both;
-    box-shadow: 0 2px 8px rgba(11,45,77,0.04);
-  }
-  @keyframes postIn { from { opacity:0; transform:translateY(16px) scale(.97); } to { opacity:1; transform:none; } }
-  .post.new-flash { animation: postIn .45s cubic-bezier(.22,1,.36,1) both, flash 1.2s ease .2s; }
-  @keyframes flash { 0%,100%{box-shadow:0 2px 8px rgba(11,45,77,0.04)} 40%{box-shadow:0 0 0 3px var(--blue), 0 4px 20px rgba(43,108,176,0.2)} }
-
-  .post-head { display: flex; gap: 10px; }
-  .post-avatar {
-    width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-    display: grid; place-items: center; font-size: 0.7rem; font-weight: 700; color: #fff;
-  }
-  .post-body { flex: 1; min-width: 0; }
-  .post-top { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
-  .post-name { font-size: 0.88rem; font-weight: 700; }
-  .post-handle { font-size: 0.75rem; color: var(--muted); }
-  .post-time { font-size: 0.72rem; color: var(--muted-2); margin-left: auto; }
-  .post-tag {
-    font-size: 0.65rem; font-weight: 600; padding: 2px 7px; border-radius: 4px;
-    text-transform: uppercase; letter-spacing: 0.04em;
-  }
-  .tag-aide { background: var(--green-soft); color: var(--green); }
-  .tag-pt { background: var(--blue-light); color: var(--blue); }
-  .tag-meals { background: var(--amber-soft); color: var(--amber); }
-  .tag-ride { background: #EDE9FE; color: #6D28D9; }
-  .tag-family { background: #E8F2FC; color: var(--navy); }
-  .tag-flag { background: var(--red-soft); color: var(--red); }
-  .post-text { font-size: 0.88rem; line-height: 1.55; margin-top: 6px; }
-  .post-actions { display: flex; gap: 16px; margin-top: 10px; }
-  .post-actions button {
-    background: none; border: none; font: inherit; font-size: 0.75rem;
-    color: var(--muted); cursor: pointer;
-  }
-  .post-actions button:hover { color: var(--navy); }
-
-  .reply-box {
-    margin-top: 10px; display: none; gap: 8px;
-  }
-  .reply-box.open { display: flex; }
-  .reply-box input {
-    flex: 1; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px;
-    font: inherit; font-size: 0.82rem; outline: none;
-  }
-  .reply-btn {
-    padding: 8px 12px; background: var(--navy); color: #fff; border: none;
-    border-radius: 10px; font: inherit; font-size: 0.78rem; font-weight: 600; cursor: pointer;
-  }
-
-  .thread-reply {
-    margin-top: 10px; padding: 10px 12px; background: var(--off);
-    border-radius: 10px; border-left: 3px solid var(--blue); font-size: 0.82rem;
-  }
-  .thread-reply .reply-author { font-weight: 600; font-size: 0.78rem; color: var(--navy); }
-
-  /* Settings / Schedule */
-  .settings-scroll { flex: 1; overflow-y: auto; padding: 16px; -webkit-overflow-scrolling: touch; }
-  .settings-section { margin-bottom: 24px; }
-  .settings-label {
-    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;
-  }
-
-  .today-banner {
-    padding: 16px; background: linear-gradient(135deg, var(--navy), var(--navy-soft));
-    color: #fff; border-radius: var(--r); margin-bottom: 16px;
-  }
-  .today-banner h2 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
-  .today-banner p { font-size: 0.82rem; opacity: 0.85; line-height: 1.45; }
-
-  .timeline-item {
-    display: flex; gap: 12px; padding: 12px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .timeline-time { font-size: 0.72rem; font-weight: 700; color: var(--navy); min-width: 52px; }
-  .timeline-detail { font-size: 0.84rem; line-height: 1.45; }
-  .timeline-detail .sub { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
-  .timeline-item.done .timeline-detail { color: var(--muted); }
-  .timeline-item.upcoming .timeline-time { color: var(--blue); }
-
-  .team-card {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 14px; background: var(--white); border: 1px solid var(--line);
-    border-radius: 10px; margin-bottom: 8px;
-  }
-  .team-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; color: #fff;
-  }
-  .team-info { flex: 1; }
-  .team-name { font-size: 0.88rem; font-weight: 600; }
-  .team-role { font-size: 0.75rem; color: var(--muted); }
-  .team-contact {
-    padding: 6px 12px; background: var(--blue-light); border: 1px solid var(--line);
-    border-radius: 8px; font: inherit; font-size: 0.72rem; font-weight: 600;
-    color: var(--navy); cursor: pointer;
-  }
-
-  .wellness-card {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;
-  }
-  .wellness-stat {
-    padding: 12px 8px; background: var(--off); border: 1px solid var(--line);
-    border-radius: 10px; text-align: center;
-    transition: transform .3s ease, box-shadow .3s ease;
-  }
-  .wellness-stat.bump { animation: statBump .5s ease; }
-  @keyframes statBump { 0%{transform:scale(1)} 50%{transform:scale(1.06);box-shadow:0 4px 16px rgba(43,108,176,0.15)} 100%{transform:scale(1)} }
-  .wellness-stat .val { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
-  .wellness-stat .lbl { font-size: 0.62rem; color: var(--muted); margin-top: 3px; text-transform: uppercase; }
-  .wellness-stat.warn { background: var(--amber-soft); border-color: var(--amber); }
-  .wellness-stat.warn .val { color: var(--amber); }
-
-  .request-btn {
-    width: 100%; padding: 12px; margin-bottom: 16px;
-    background: var(--navy); color: #fff; border: none; border-radius: 10px;
-    font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .request-btn:active { opacity: 0.85; }
-
-  .history-day {
-    border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; overflow: hidden;
-  }
-  .history-head {
-    padding: 12px 14px; display: flex; justify-content: space-between; align-items: center;
-    cursor: pointer; background: var(--white); font-size: 0.84rem; font-weight: 600;
-  }
-  .history-head:hover { background: var(--off); }
-  .history-head .chevron { transition: transform .2s; color: var(--muted); }
-  .history-day.open .history-head .chevron { transform: rotate(180deg); }
-  .history-body { display: none; padding: 0 14px 12px; font-size: 0.82rem; line-height: 1.55; color: var(--muted); }
-  .history-day.open .history-body { display: block; }
-  .history-body li { margin: 6px 0 6px 16px; }
-
-  .timeline-wrap { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-  .timeline-item { cursor: pointer; transition: background .2s; }
-  .timeline-item:hover { background: var(--off); }
-  .timeline-item.expanded { background: var(--blue-light); }
-  .timeline-item.just-done { animation: doneFlash 1s ease; }
-  @keyframes doneFlash { 0%,100%{background:transparent} 50%{background:var(--green-soft)} }
-
-  .detail-pop {
-    margin-top: 8px; padding: 10px 12px; background: var(--white);
-    border: 1px solid var(--line); border-radius: 8px; font-size: 0.8rem; line-height: 1.5;
-    max-height: 0; overflow: hidden; opacity: 0;
-    transition: max-height .3s ease, opacity .25s ease, margin .25s ease;
-  }
-  .timeline-item.expanded .detail-pop { max-height: 120px; opacity: 1; }
-
-  .toast {
-    position: fixed; bottom: calc(var(--tab-h) + var(--safe-b) + 12px); left: 50%;
-    transform: translateX(-50%) translateY(80px); opacity: 0;
-    background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 99px;
-    font-size: 0.8rem; font-weight: 500; z-index: 200; transition: all .3s ease;
-    max-width: 90%; text-align: center;
-  }
-  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .send-btn:active { transform: scale(0.92); }
+  .send-btn.sending { animation: sendPop .3s ease; }
+  @keyframes sendPop { 50%{transform:scale(.85)} 100%{transform:scale(1)} }
 
   .msg-card {
-    margin-top: 8px; padding: 10px 12px; background: var(--white);
+    margin-top: 8px; padding: 10px 12px; background: var(--surface);
     border: 1px solid var(--line); border-radius: 10px; font-size: 0.8rem;
     display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start;
   }
   .msg-card button {
     padding: 8px 12px; border: none; border-radius: 8px; font: inherit;
-    font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: transform .1s, opacity .15s;
+    font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: transform .1s;
   }
   .msg-card button:active { transform: scale(0.96); }
-  .msg-card .btn-ehr { background: var(--navy); color: #fff; }
   .msg-card .btn-primary { background: var(--navy); color: #fff; }
   .msg-card .btn-flag { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber); }
   .msg-card .btn-ghost { background: var(--off); color: var(--navy); border: 1px solid var(--line); }
   .msg-card .btn-sent { background: var(--green-soft); color: var(--green); pointer-events: none; }
 
-  .chart-preview {
-    margin-top: 8px; padding: 10px 12px; background: var(--off);
-    border: 1px dashed var(--blue); border-radius: 8px;
-    font-size: 0.78rem; line-height: 1.55; color: var(--navy-soft);
-    white-space: pre-wrap;
-  }
-  .chart-label {
-    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.06em; color: var(--muted); margin-bottom: 6px;
-  }
-
-  .escalate-form {
-    width: 100%; margin-top: 4px;
-  }
+  .escalate-form { width: 100%; margin-top: 4px; }
   .escalate-form textarea {
     width: 100%; min-height: 64px; padding: 10px 12px; border: 1px solid var(--line);
     border-radius: 8px; font: inherit; font-size: 0.82rem; resize: none; outline: none;
     margin-bottom: 8px;
   }
   .escalate-form textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
-  .escalate-hint {
-    font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; line-height: 1.4;
+  .escalate-hint { font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; line-height: 1.4; }
+
+  /* Tasks */
+  .tasks-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .tasks-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 16px 8px; -webkit-overflow-scrolling: touch; }
+  .tasks-head { margin-bottom: 12px; }
+  .tasks-head h2 { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .tasks-head p { font-size: 0.8rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+
+  .task-stats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .task-stat {
+    flex: 1; min-width: 88px; padding: 10px 12px; border-radius: 10px;
+    background: var(--surface); border: 1px solid var(--line); text-align: center;
+  }
+  .task-stat .num { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+  .task-stat .lbl { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+  .task-stat.warn .num { color: var(--amber); }
+
+  .task-form-toggle {
+    width: 100%; padding: 11px 14px; margin-bottom: 12px;
+    border: 1px dashed var(--line); border-radius: 10px; background: var(--off);
+    font: inherit; font-size: 0.85rem; font-weight: 600; color: var(--navy-soft);
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .task-form-toggle.open { margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-style: solid; background: var(--surface); }
+  .task-form-wrap { display: none; margin-bottom: 16px; }
+  .task-form-wrap.open { display: block; }
+
+  .task-form {
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 14px; background: var(--surface); border: 1px solid var(--line);
+    border-top: none; border-radius: 0 0 var(--r) var(--r);
+  }
+  .task-form label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .task-form input,
+  .task-form select {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
+    font: inherit; font-size: 0.88rem; outline: none; background: var(--off);
+  }
+  .task-form input:focus,
+  .task-form select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
+  .task-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .task-add-btn {
+    padding: 12px; border: none; border-radius: 10px;
+    background: var(--navy); color: #fff; font: inherit;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  }
+  .task-add-btn:active { opacity: 0.88; }
+
+  .task-section-label {
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted); margin: 16px 0 8px;
+  }
+  .task-section-label:first-of-type { margin-top: 0; }
+
+  .task-card {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 14px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; margin-bottom: 8px;
+    animation: fadeIn .25s ease;
+    transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .35s ease, max-height .35s ease, margin .35s ease, padding .35s ease;
+    overflow: hidden;
+  }
+  .task-card.sliding-out {
+    transform: translateX(105%);
+    opacity: 0;
+    max-height: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-width: 0 !important;
+    pointer-events: none;
+  }
+  .task-card.needed { border-left: 3px solid var(--amber); }
+  .task-card.assigned { border-left: 3px solid var(--blue); }
+  .task-card.done { border-left: 3px solid var(--green); opacity: 0.85; }
+  .task-check {
+    width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--line);
+    background: var(--off); cursor: pointer; flex-shrink: 0; margin-top: 2px;
+    display: grid; place-items: center; font-size: 0.7rem;
+  }
+  .task-card.done .task-check { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+  .task-body { flex: 1; min-width: 0; }
+  .task-title { font-size: 0.88rem; font-weight: 600; line-height: 1.4; }
+  .task-card.done .task-title { text-decoration: line-through; color: var(--muted); }
+  .task-meta { font-size: 0.72rem; color: var(--muted); margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+  .task-badge {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 4px;
+  }
+  .task-badge.needed { background: var(--amber-soft); color: var(--amber-text); }
+  .task-badge.assigned { background: var(--blue-light); color: var(--navy-soft); }
+  .task-badge.done { background: var(--green-soft); color: var(--green); }
+  .task-assignee {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 500;
+  }
+  .task-assignee-dot {
+    width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 0.55rem; font-weight: 700; color: #fff; flex-shrink: 0;
+  }
+  .task-reassign {
+    margin-top: 8px; display: flex; gap: 6px; align-items: center;
+  }
+  .task-reassign select {
+    flex: 1; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px;
+    font: inherit; font-size: 0.75rem; background: var(--off);
+  }
+  .task-reassign button {
+    padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--off); font: inherit; font-size: 0.72rem; font-weight: 600; cursor: pointer;
+  }
+  .tasks-empty { text-align: center; padding: 24px 16px; color: var(--muted); font-size: 0.85rem; }
+
+  /* Mobile done-task slide drawer */
+  .done-drawer {
+    flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--line);
+    box-shadow: 0 -6px 24px rgba(11,45,77,0.08);
+    max-height: 52px; overflow: hidden;
+    transition: max-height .38s cubic-bezier(.22,1,.36,1);
+  }
+  .done-drawer.open { max-height: min(42vh, 320px); }
+  .done-drawer.peek { animation: drawerPeek .6s ease; }
+  @keyframes drawerPeek {
+    0%,100% { max-height: 52px; }
+    40%,60% { max-height: 140px; }
+  }
+  .done-drawer-handle {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 14px 16px 12px; cursor: pointer; user-select: none; position: relative;
+  }
+  .done-drawer-handle::before {
+    content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 4px; border-radius: 99px; background: var(--line);
+  }
+  .done-drawer-label { font-size: 0.82rem; font-weight: 600; color: var(--navy); padding-top: 4px; }
+  .done-drawer-label span { color: var(--green); }
+  .done-drawer-chevron { font-size: 0.7rem; color: var(--muted); transition: transform .25s; }
+  .done-drawer.open .done-drawer-chevron { transform: rotate(180deg); }
+  .done-drawer-body {
+    overflow-y: auto; padding: 0 16px max(12px, var(--safe-b));
+    -webkit-overflow-scrolling: touch;
+  }
+  .done-drawer-body .task-card { margin-bottom: 6px; }
+  .done-drawer-body .task-reassign { display: none; }
+
+  .tasks-desktop-done { display: none; }
+
+  @media (max-width: 720px) {
+    .tab { font-size: 0.55rem; letter-spacing: 0.03em; }
+    .tab svg { width: 20px; height: 20px; }
+    .ch-tab { font-size: 0.7rem; padding: 7px 10px; }
+    .ch-tab .ch-label-long { display: none; }
+    .ch-tab .ch-label-short { display: inline; }
+    .task-form-row { grid-template-columns: 1fr; }
+    .tasks-desktop-done { display: none !important; }
   }
 
-  .reaction-bar { display: flex; gap: 6px; margin-top: 8px; }
-  .reaction-btn {
-    padding: 4px 10px; border: 1px solid var(--line); border-radius: 99px;
-    background: var(--off); font-size: 0.85rem; cursor: pointer; transition: transform .1s;
+  @media (min-width: 721px) {
+    .done-drawer { display: none; }
+    .tasks-desktop-done { display: block; }
+    .task-form-toggle { display: none; }
+    .task-form-wrap { display: block !important; margin-bottom: 16px; }
+    .task-form { border-radius: var(--r); border-top: 1px solid var(--line); }
+    .ch-tab .ch-label-short { display: none; }
   }
-  .reaction-btn:active { transform: scale(1.15); }
-  .reaction-btn.picked { background: var(--blue-light); border-color: var(--blue); }
 
-  /* Bottom tabs */
+  /* Slack-style channels */
+  .ch-head {
+    flex-shrink: 0; padding: 12px 16px 10px; background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+  .ch-head-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .ch-head h2 { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .ch-live { font-size: 0.68rem; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+  .ch-tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .ch-tabs::-webkit-scrollbar { display: none; }
+  .ch-tab {
+    flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--off); font: inherit; font-size: 0.75rem; font-weight: 600;
+    color: var(--muted); cursor: pointer; transition: background .15s, border-color .15s;
+    position: relative;
+  }
+  .ch-tab .ch-label-short { display: none; }
+  .ch-tab.active { background: var(--blue-light); border-color: var(--blue); color: var(--navy); }
+  .ch-tab .ch-unread {
+    min-width: 16px; height: 16px; padding: 0 4px; border-radius: 99px;
+    background: var(--amber); color: #fff; font-size: 0.58rem; font-weight: 700;
+    display: none; align-items: center; justify-content: center;
+  }
+  .ch-tab .ch-unread.show { display: inline-flex; }
+  .ch-desc { font-size: 0.72rem; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+
+  .ch-feed {
+    flex: 1; min-height: 0; overflow-y: auto; padding: 12px 16px;
+    display: flex; flex-direction: column; gap: 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ch-msg {
+    display: flex; gap: 10px; animation: fadeIn .25s ease;
+  }
+  .ch-msg.self .ch-msg-body { background: var(--blue-light); border-radius: 10px; padding: 8px 10px; margin-left: 42px; }
+  .ch-avatar {
+    width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+    display: grid; place-items: center; font-size: 0.62rem; font-weight: 700; color: #fff;
+  }
+  .ch-msg-top { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
+  .ch-msg-name { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
+  .ch-msg-role { font-size: 0.65rem; color: var(--muted); font-weight: 500; }
+  .ch-msg-time { font-size: 0.65rem; color: var(--muted-2); margin-left: auto; }
+  .ch-msg-text { font-size: 0.86rem; line-height: 1.5; color: var(--text); }
+  .ch-msg-flag {
+    display: inline-block; margin-top: 6px; font-size: 0.62rem; font-weight: 700;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 4px;
+    background: var(--amber-soft); color: var(--amber-text);
+  }
+  .ch-day-divider {
+    text-align: center; font-size: 0.68rem; font-weight: 600; color: var(--muted);
+    position: relative; margin: 4px 0;
+  }
+  .ch-day-divider::before, .ch-day-divider::after {
+    content: ''; position: absolute; top: 50%; width: 28%; height: 1px; background: var(--line);
+  }
+  .ch-day-divider::before { left: 0; }
+  .ch-day-divider::after { right: 0; }
+
+  .ch-compose {
+    display: flex; gap: 8px; padding: 10px 12px;
+    padding-bottom: max(10px, var(--safe-b));
+    border-top: 1px solid var(--line); background: var(--surface); flex-shrink: 0;
+  }
+  .ch-compose input {
+    flex: 1; padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
+    font: inherit; font-size: 0.88rem; outline: none; background: var(--off);
+  }
+  .ch-compose input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
+  .ch-send {
+    width: 42px; height: 42px; border: none; border-radius: 12px;
+    background: var(--navy); color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0;
+  }
+  .ch-send:active { transform: scale(0.92); }
+
   .tabbar {
-    display: flex; border-top: 1px solid var(--line); background: var(--white);
+    display: flex; border-top: 1px solid var(--line); background: var(--surface);
     padding-bottom: var(--safe-b); flex-shrink: 0;
     height: calc(var(--tab-h) + var(--safe-b));
   }
@@ -380,15 +523,14 @@
   .tab.active svg { transform: scale(1.08); }
   .tab-badge {
     position: absolute; top: 6px; right: calc(50% - 20px);
-    min-width: 8px; height: 8px; border-radius: 99px; background: var(--red);
-    border: 2px solid var(--white); display: none;
+    min-width: 16px; height: 16px; padding: 0 4px; border-radius: 99px;
+    background: var(--amber); color: #fff; font-size: 0.58rem; font-weight: 700;
+    border: 2px solid var(--surface); display: none; align-items: center; justify-content: center;
   }
-  .tab-badge.show { display: block; animation: badgePop .4s ease; }
-  @keyframes badgePop { 0%{transform:scale(0)} 70%{transform:scale(1.3)} 100%{transform:scale(1)} }
+  .tab-badge.show { display: flex; }
 
-  /* Boot & live overlays */
   .boot {
-    position: fixed; inset: 0; z-index: 300; background: var(--navy);
+    position: fixed; inset: 0; z-index: 300; background: var(--boot-bg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     color: #fff; transition: opacity .5s ease, visibility .5s;
   }
@@ -397,41 +539,22 @@
     width: 64px; height: 64px; border-radius: 18px;
     background: linear-gradient(135deg, #4A9AD4, #1A5080);
     display: grid; place-items: center; font-size: 1.2rem; font-weight: 800;
-    animation: bootPulse 1.5s ease infinite;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   }
-  @keyframes bootPulse { 0%,100%{transform:scale(1);box-shadow:0 8px 32px rgba(0,0,0,0.3)} 50%{transform:scale(1.05);box-shadow:0 12px 40px rgba(74,154,212,0.4)} }
   .boot h2 { margin-top: 20px; font-size: 1.1rem; font-weight: 700; }
   .boot p { margin-top: 8px; font-size: 0.82rem; opacity: 0.7; }
   .boot-bar { width: 160px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 99px; margin-top: 24px; overflow: hidden; }
-  .boot-fill { height: 100%; background: #4ADE80; border-radius: 99px; width: 0; transition: width .8s ease; }
-
-  .live-toast {
-    position: fixed; top: max(12px, env(safe-area-inset-top)); left: 50%;
-    transform: translateX(-50%) translateY(-120%);
-    background: var(--white); border: 1px solid var(--line);
-    padding: 12px 16px; border-radius: 14px; z-index: 250;
-    box-shadow: 0 8px 32px rgba(11,45,77,0.15);
-    display: flex; align-items: center; gap: 10px; max-width: 90%;
-    transition: transform .4s cubic-bezier(.22,1,.36,1);
-  }
-  .live-toast.show { transform: translateX(-50%) translateY(0); }
-  .live-toast-icon {
-    width: 36px; height: 36px; border-radius: 10px; background: var(--blue-light);
-    display: grid; place-items: center; font-size: 1rem; flex-shrink: 0;
-  }
-  .live-toast-text { font-size: 0.82rem; line-height: 1.4; }
-  .live-toast-text strong { color: var(--navy); }
+  .boot-fill { height: 100%; background: var(--accent-glow); border-radius: 99px; width: 0; transition: width .8s ease; }
 
   .sync-overlay {
-    position: fixed; inset: 0; z-index: 150; background: rgba(11,45,77,0.4);
+    position: fixed; inset: 0; z-index: 150; background: var(--overlay);
     display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none; transition: opacity .25s;
   }
   .sync-overlay.show { opacity: 1; pointer-events: auto; }
   .sync-card {
-    background: var(--white); border-radius: 16px; padding: 28px 32px;
-    text-align: center; transform: scale(.9); transition: transform .3s cubic-bezier(.22,1,.36,1);
+    background: var(--surface); border-radius: 16px; padding: 28px 32px;
+    text-align: center; transform: scale(.9); transition: transform .3s;
     box-shadow: 0 20px 60px rgba(11,45,77,0.2);
   }
   .sync-overlay.show .sync-card { transform: scale(1); }
@@ -443,33 +566,28 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   .sync-card p { font-size: 0.88rem; color: var(--muted); }
 
-  .mom-strip {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 16px 14px; background: rgba(255,255,255,0.06);
-    border-top: 1px solid rgba(255,255,255,0.08);
+  .live-toast {
+    position: fixed; top: max(12px, env(safe-area-inset-top)); left: 50%;
+    transform: translateX(-50%) translateY(-120%);
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 12px 16px; border-radius: 14px; z-index: 250;
+    box-shadow: 0 8px 32px rgba(11,45,77,0.15);
+    display: flex; align-items: center; gap: 10px; max-width: 90%;
+    transition: transform .4s cubic-bezier(.22,1,.36,1);
   }
-  .mom-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: linear-gradient(135deg, #E8F2FC, #B8D4F0);
-    color: var(--navy); display: grid; place-items: center;
-    font-size: 0.75rem; font-weight: 800; border: 2px solid rgba(255,255,255,0.2);
+  .live-toast.show { transform: translateX(-50%) translateY(0); }
+  .live-toast-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--blue-light); display: grid; place-items: center; font-size: 1rem; flex-shrink: 0; }
+  .live-toast-text { font-size: 0.82rem; line-height: 1.4; }
+  .live-toast-text strong { color: var(--navy); }
+
+  .toast {
+    position: fixed; bottom: calc(var(--tab-h) + var(--safe-b) + 12px); left: 50%;
+    transform: translateX(-50%) translateY(80px); opacity: 0;
+    background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 500; z-index: 200; transition: all .3s ease;
+    max-width: 90%; text-align: center;
   }
-  .mom-info { flex: 1; }
-  .mom-name { font-size: 0.88rem; font-weight: 700; }
-  .mom-status { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 1px; }
-  .mom-status .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; margin-right: 4px; animation: pulse 1.5s infinite; }
-
-  .request-btn.loading { opacity: 0.7; pointer-events: none; }
-  .request-btn .btn-spin { display: none; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
-  .request-btn.loading .btn-spin { display: block; }
-  .request-btn.loading .btn-label { opacity: 0.7; }
-
-  .chip { transition: transform .1s, background .15s; }
-  .chip:active { transform: scale(0.96); }
-  .send-btn { transition: transform .1s; }
-  .send-btn:active { transform: scale(0.92); }
-  .send-btn.sending { animation: sendPop .3s ease; }
-  @keyframes sendPop { 50%{transform:scale(.85)} 100%{transform:scale(1)} }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
   @media (min-width: 721px) {
     body { padding: 20px 0; height: auto; overflow: auto; }
@@ -494,7 +612,7 @@
 </div>
 
 <div class="live-toast" id="liveToast">
-  <div class="live-toast-icon">🚗</div>
+  <div class="live-toast-icon">📋</div>
   <div class="live-toast-text" id="liveToastText"></div>
 </div>
 
@@ -508,7 +626,10 @@
           <div class="header-sub">Eleanor Whitman</div>
         </div>
       </div>
-      <a class="switch-link" href="provider.html">Clinical</a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+        <a class="switch-link" href="provider.html">Clinical</a>
+      </div>
     </div>
     <div class="mom-strip">
       <div class="mom-avatar">RW</div>
@@ -516,14 +637,13 @@
         <div class="mom-name">Ruth Whitman · Mom</div>
         <div class="mom-status" id="momStatus"><span class="dot"></span>At dermatology appointment</div>
       </div>
-      <div class="live-pill"><span class="live-dot"></span> Live</div>
     </div>
   </header>
 
   <div class="panels">
-    <!-- Tab 1: BiBi -->
     <div class="panel active" id="panel-chat">
       <div class="chat-live"><span class="live-dot"></span> BiBi is watching today's care updates</div>
+      <div class="chat-body">
       <div class="chat-messages" id="chatMessages">
         <div class="msg bibi">
           <div class="msg-avatar bibi">Bi</div>
@@ -534,6 +654,7 @@
         </div>
       </div>
       <div class="typing" id="typing"><div class="msg-avatar bibi">Bi</div><div class="typing-dots"><span></span><span></span><span></span></div></div>
+      </div>
       <div class="chat-chips" id="chatChips">
         <button class="chip" data-q="How is Mom doing today?">How is Mom?</button>
         <button class="chip" data-q="Explain Mom's medications">Medications</button>
@@ -547,56 +668,74 @@
       </div>
     </div>
 
-    <!-- Tab 2: Board -->
-    <div class="panel" id="panel-board">
-      <div class="board-header">
-        <div class="board-channel"># <span>mom-care</span></div>
-        <div class="board-live"><span class="live-dot" style="width:5px;height:5px"></span> <span id="boardLiveText">6 updates today · streaming live</span></div>
-      </div>
-      <div class="board-toolbar">
-        <div class="filter-tabs">
-          <button class="filter-tab active" data-filter="all">All</button>
-          <button class="filter-tab" data-filter="flag">Flagged</button>
-          <button class="filter-tab" data-filter="aide">Nursing</button>
-          <button class="filter-tab" data-filter="pt">Therapy</button>
-          <button class="filter-tab" data-filter="meals">Meals</button>
+    <div class="panel" id="panel-channels">
+      <div class="ch-head">
+        <div class="ch-head-top">
+          <h2>Channels</h2>
+          <span class="ch-live"><span class="live-dot"></span> Connected</span>
         </div>
+        <div class="ch-tabs" id="channelTabs">
+          <button type="button" class="ch-tab active" data-ch="family">
+            <span class="ch-label-long"># family-coordination</span><span class="ch-label-short"># family</span>
+            <span class="ch-unread" id="unread-family"></span>
+          </button>
+          <button type="button" class="ch-tab" data-ch="care">
+            <span class="ch-label-long"># care-team</span><span class="ch-label-short"># care</span>
+            <span class="ch-unread" id="unread-care"></span>
+          </button>
+        </div>
+        <p class="ch-desc" id="channelDesc">Family logistics — siblings &amp; caregivers coordinating around Mom.</p>
       </div>
-      <div class="board-feed" id="boardFeed"></div>
+      <div class="ch-feed" id="channelFeed"></div>
+      <div class="ch-compose">
+        <input id="channelInput" type="text" placeholder="Message #family-coordination…" autocomplete="off" />
+        <button type="button" class="ch-send" id="channelSend" aria-label="Send">↑</button>
+      </div>
     </div>
 
-    <!-- Tab 3: Mom's schedule -->
-    <div class="panel" id="panel-settings">
-      <div class="settings-scroll">
-        <div class="today-banner">
-          <h2>Wednesday · Mom's day</h2>
-          <p>Dermatology follow-up this afternoon. Ana is on shift until 3 PM.</p>
+    <div class="panel" id="panel-tasks">
+      <div class="tasks-panel">
+        <div class="tasks-scroll">
+          <div class="tasks-head">
+            <h2>Care tasks</h2>
+            <p>What needs doing — assign a family member to help.</p>
+          </div>
+
+          <div class="task-stats" id="taskStats"></div>
+
+          <button type="button" class="task-form-toggle" id="taskFormToggle" onclick="toggleTaskForm()">
+            <span>+</span> Add a task
+          </button>
+          <div class="task-form-wrap" id="taskFormWrap">
+            <form class="task-form" id="taskForm" onsubmit="addTask(event)">
+              <div>
+                <label for="taskTitle">What needs to be done?</label>
+                <input id="taskTitle" type="text" placeholder="e.g. Pick up prescription refill" required />
+              </div>
+              <div class="task-form-row">
+                <div>
+                  <label for="taskAssignee">Family member</label>
+                  <select id="taskAssignee" required></select>
+                </div>
+                <div>
+                  <label for="taskDue">When</label>
+                  <input id="taskDue" type="text" placeholder="Today, Tomorrow…" />
+                </div>
+              </div>
+              <button type="submit" class="task-add-btn">Add & assign</button>
+            </form>
+          </div>
+
+          <div id="taskLists"></div>
+          <div class="tasks-desktop-done" id="taskListsDone"></div>
         </div>
 
-        <button class="request-btn" id="requestBtn" onclick="requestUpdate()">
-          <span class="btn-spin"></span>
-          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="btn-label">Request a care update</span>
-        </button>
-
-        <div class="settings-section">
-          <div class="settings-label">Mom's wellness · live</div>
-          <div class="wellness-card" id="wellnessCard"></div>
-        </div>
-
-        <div class="settings-section">
-          <div class="settings-label">Today's timeline</div>
-          <div class="timeline-wrap" id="todayTimeline"></div>
-        </div>
-
-        <div class="settings-section">
-          <div class="settings-label">Past week</div>
-          <div id="pastWeek"></div>
-        </div>
-
-        <div class="settings-section">
-          <div class="settings-label">Care team</div>
-          <div id="careTeam"></div>
+        <div class="done-drawer" id="doneDrawer">
+          <div class="done-drawer-handle" id="doneDrawerHandle" onclick="toggleDoneDrawer()">
+            <span class="done-drawer-label">Completed · <span id="doneCount">0</span></span>
+            <span class="done-drawer-chevron">▾</span>
+          </div>
+          <div class="done-drawer-body" id="doneDrawerBody"></div>
         </div>
       </div>
     </div>
@@ -607,57 +746,79 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       BiBi
     </button>
-    <button class="tab" data-tab="board">
-      <span class="tab-badge" id="boardBadge"></span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.17L4 17.17V4z"/><path d="M8 8h8M8 12h5"/></svg>
-      Board
+    <button class="tab" data-tab="channels">
+      <span class="tab-badge" id="channelsBadge"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16M4 15h16"/><path d="M10 3L8 21M16 3l-2 18"/></svg>
+      Channels
     </button>
-    <button class="tab" data-tab="settings">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      Schedule
+    <button class="tab" data-tab="tasks">
+      <span class="tab-badge" id="tasksBadge"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Tasks
     </button>
   </nav>
 </div>
 <div class="toast" id="toast"></div>
 
 <script>
-const posts = [
-  { id:1, name:'Coastal Meals', handle:'@coastalmeals', time:'7:45 AM', tag:'meals', tagLabel:'Meals', color:'#B8860B', text:'Breakfast arrived — oatmeal and fruit on Mom\'s low-salt meal plan.', likes:2, replies:[], flag:false },
-  { id:2, name:'Ana Melendez', handle:'@ana.lpn', time:'9:05 AM', tag:'aide', tagLabel:'Nursing', color:'#1A7A4C', text:'Morning medications given on schedule. Blood pressure was a little lower than usual (108/64). Mom felt tired after breakfast and rested — we flagged this so you\'d know. She felt better by early afternoon.', likes:1, replies:[{author:'BiBi', text:'This was shared for your peace of mind — not an emergency. Ana checked again at 1:10 PM and Mom\'s energy was back up.'}], flag:true, clinical:'0900 MAR administered without incident. VS: BP 108/64 (mild hypotension), HR 72. Pt reports fatigue post-prandial — family alert triggered per protocol.' },
-  { id:3, name:'James K.', handle:'@james.pt', time:'11:40 AM', tag:'pt', tagLabel:'Therapy', color:'#2B6CB0', text:'Physical therapy went well — 30 minutes of walking and balance exercises. Steadier steps than last week, and Mom said she had no pain.', likes:4, replies:[], flag:false, clinical:'Therapeutic exercise x30 min — gait training. Improved step symmetry vs prior visit. Pain 0/10. Continue BID weekly per POC.' },
-  { id:4, name:'Coastal Meals', handle:'@coastalmeals', time:'12:15 PM', tag:'meals', tagLabel:'Meals', color:'#B8860B', text:'Lunch delivered on schedule.', likes:1, replies:[], flag:false },
-  { id:5, name:'Ana Melendez', handle:'@ana.lpn', time:'1:10 PM', tag:'aide', tagLabel:'Nursing', color:'#1A7A4C', text:'Checked in with Mom — her energy is back up after resting. No new concerns this afternoon.', likes:2, replies:[], flag:false },
-  { id:6, name:'RideWell', handle:'@ridewell', time:'2:00 PM', tag:'ride', tagLabel:'Transport', color:'#6D28D9', text:'Ride confirmed for Mom\'s dermatology appointment. Return trip booked for 3:30 PM.', likes:0, replies:[], flag:false },
+const assignees = [
+  { id: 'eleanor', name: 'Eleanor Whitman', role: 'You', color: '#134068', initials: 'EW' },
+  { id: 'david', name: 'David Whitman', role: 'Brother', color: '#0E7490', initials: 'DW' },
+  { id: 'sarah', name: 'Sarah Whitman', role: 'Sister', color: '#7C3AED', initials: 'SW' },
 ];
 
-const timeline = [
-  { time:'7:45a', detail:'Breakfast delivered', sub:'Coastal Meals', done:true, detailText:'Oatmeal, fruit, and low-salt options. Mom ate most of her breakfast.' },
-  { time:'9:05a', detail:'Morning medications & vitals', sub:'Ana Melendez · blood pressure a little low', done:true, detailText:'All scheduled medications were given. Blood pressure was 108/64 — a bit lower than her usual range. Mom rested afterward and felt better by late morning. The team flagged this so you would know.', flag:true },
-  { time:'11:40a', detail:'Physical therapy session', sub:'James K., physical therapist', done:true, detailText:'30 minutes of walking and balance work. Steadier steps than last week. No pain. Continuing twice-a-week sessions.' },
-  { time:'12:15p', detail:'Lunch delivered', sub:'Coastal Meals', done:true, detailText:'Lunch on schedule. Low-salt meal plan.' },
-  { time:'2:00p', detail:'Ride to dermatology', sub:'RideWell', done:true, detailText:'Pickup on time for dermatology follow-up.' },
-  { time:'3:30p', detail:'Return trip home', sub:'RideWell', done:false, upcoming:true, detailText:'Return ride scheduled for 3:30 PM.' },
-  { time:'3:00p', detail:'Ana end of shift', sub:'Care summary posted to board', done:false, upcoming:true, detailText:'Ana will post an end-of-shift summary in plain language on the care board.' },
+let tasks = [
+  { id: 1, title: 'Confirm dermatology return ride', status: 'assigned', assigneeId: 'david', createdBy: 'BiBi', due: 'Today 3:30p' },
+  { id: 2, title: 'Call Mom after dermatology appointment', status: 'assigned', assigneeId: 'sarah', createdBy: 'BiBi', due: 'Today' },
+  { id: 3, title: 'Pick up prescription refill', status: 'needed', assigneeId: null, createdBy: 'Eleanor', due: 'Tomorrow' },
 ];
 
-const pastWeek = [
-  { day:'Tuesday', summary:'Steady day', items:['Maria (home health aide) on shift 7 AM–3 PM','Physical therapy — good progress','Brief dizziness when standing in the morning, resolved with rest','Good appetite at dinner'] },
-  { day:'Monday', summary:'Routine care', items:['Maria on shift','Meals on plan','Vitals in normal range','Family call at 6 PM'] },
-  { day:'Sunday', summary:'Quiet day', items:['No scheduled visits','Family visit 2–4 PM','Medications taken from pill organizer'] },
-];
+const people = {
+  eleanor: { name: 'Eleanor Whitman', initials: 'EW', color: '#134068', role: 'Family' },
+  david: { name: 'David Whitman', initials: 'DW', color: '#0E7490', role: 'Family · brother' },
+  sarah: { name: 'Sarah Whitman', initials: 'SW', color: '#7C3AED', role: 'Family · sister' },
+  ana: { name: 'Ana Melendez', initials: 'AM', color: '#1A7A4C', role: 'LPN · on shift' },
+  james: { name: 'James K.', initials: 'JK', color: '#2B6CB0', role: 'Physical therapist' },
+  maria: { name: 'Maria T.', initials: 'MT', color: '#6D28D9', role: 'Home health aide' },
+  ridewell: { name: 'RideWell', initials: 'RW', color: '#7C3AED', role: 'Transport' },
+};
 
-const wellness = { bp:'108/64', hr:'72', mood:'Resting well', updated:'9:05 AM', bpNote:'A little lower than usual — improved after rest' };
+const channelMeta = {
+  family: {
+    slug: 'family-coordination',
+    label: 'Family coordination',
+    desc: 'Family logistics — siblings & caregivers coordinating around Mom.',
+  },
+  care: {
+    slug: 'care-team',
+    label: 'Care team',
+    desc: 'Ana, James, Maria & providers — clinical updates in plain language.',
+  },
+};
 
-const team = [
-  { name:'Ana Melendez', role:'Licensed practical nurse · on shift today', color:'#1A7A4C', initials:'AM', phone:true },
-  { name:'James K.', role:'Physical therapist · visits Tue & Thu', color:'#2B6CB0', initials:'JK', phone:true },
-  { name:'Coastal Meals', role:'Meal delivery · daily', color:'#B8860B', initials:'CM', phone:false },
-  { name:'RideWell', role:'Medical ride service', color:'#6D28D9', initials:'RW', phone:true },
-];
+let activeChannel = 'family';
+let channelUnread = { family: 0, care: 1 };
+let nextChannelMsgId = 20;
 
-let activeFilter = 'all';
-let expandedTimeline = null;
+const channelMessages = {
+  family: [
+    { id: 1, authorId: 'david', text: 'I can pick up Mom\'s prescription refill tomorrow after work if someone adds it to tasks.', time: '8:12 AM' },
+    { id: 2, authorId: 'eleanor', text: 'That would help — I added it as a task. Thanks David!', time: '8:20 AM', self: true },
+    { id: 3, authorId: 'sarah', text: 'I\'ll be in town Sunday — happy to sit with Mom if anyone needs a break.', time: '9:45 AM' },
+  ],
+  care: [
+    { id: 10, authorId: 'ana', text: 'Morning medications given on schedule. Blood pressure 108/64 — a little lower than usual. Mom rested and felt better by early afternoon.', time: '9:05 AM' },
+    { id: 11, authorId: 'james', text: 'PT session complete — 30 min gait & balance. Steadier than last week, pain 0/10.', time: '11:42 AM' },
+    { id: 12, authorId: 'ridewell', text: 'Pickup confirmed for dermatology 2:00 PM. Return trip booked 3:30 PM.', time: '1:55 PM' },
+  ],
+};
+
 let currentTab = 'chat';
+let nextTaskId = 4;
+
+function esc(s) { return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function getAssignee(id) { return assignees.find(a => a.id === id); }
 
 function showSync(text, ms = 1400) {
   return new Promise(resolve => {
@@ -685,208 +846,276 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-function renderWellness(animate) {
-  const bpLow = parseInt(wellness.bp) < 110;
-  document.getElementById('wellnessCard').innerHTML = `
-    <div class="wellness-stat${bpLow?' warn':''}${animate?' bump':''}"><div class="val">${esc(wellness.bp)}</div><div class="lbl">Blood pressure</div>${bpLow ? `<div class="lbl" style="font-size:0.65rem;margin-top:2px;color:var(--amber)">${esc(wellness.bpNote||'')}</div>` : ''}</div>
-    <div class="wellness-stat${animate?' bump':''}"><div class="val">${esc(wellness.hr)}</div><div class="lbl">Heart rate (beats/min)</div></div>
-    <div class="wellness-stat${animate?' bump':''}"><div class="val" style="font-size:0.82rem">${esc(wellness.mood)}</div><div class="lbl">How Mom seems</div></div>`;
+function populateAssigneeSelects() {
+  const opts = assignees.map(a => `<option value="${a.id}">${esc(a.name)} · ${esc(a.role)}</option>`).join('');
+  document.getElementById('taskAssignee').innerHTML = opts;
 }
 
-function decodeClinical(text) {
-  return String(text || '')
-    .replace(/\bMAR\b/gi, 'medications given')
-    .replace(/\bVS:?\s*/gi, 'vital signs: ')
-    .replace(/\bBP\b/gi, 'blood pressure')
-    .replace(/\bHR\b/gi, 'heart rate')
-    .replace(/\bPO\b/gi, 'by mouth')
-    .replace(/\bPt\b/g, 'Mom')
-    .replace(/\bpt\b/g, 'Mom')
-    .replace(/\bpost-prandial\b/gi, 'after eating')
-    .replace(/\bmild hypotension\b/gi, 'blood pressure a little lower than usual')
-    .replace(/\btherapeutic exercise\b/gi, 'guided exercises')
-    .replace(/\bgait training\b/gi, 'walking practice')
-    .replace(/\bstep symmetry\b/gi, 'even steps on both sides')
-    .replace(/\bBID\b/gi, 'twice a week')
-    .replace(/\bPOC\b/gi, 'care plan')
-    .replace(/\bNEMT\b/gi, 'medical transport')
-    .replace(/\borthostasis\b/gi, 'dizziness when standing up')
-    .replace(/\bSBP\b/gi, 'top blood pressure number')
-    .replace(/\bDBP\b/gi, 'bottom blood pressure number');
+function updateTasksBadge() {
+  const open = tasks.filter(t => t.status !== 'done').length;
+  const badge = document.getElementById('tasksBadge');
+  badge.textContent = open;
+  badge.classList.toggle('show', open > 0);
 }
 
-function explainPost(id) {
-  const p = posts.find(x => x.id === id);
-  if (!p) return;
-  switchTab('chat');
-  const plain = p.text.replace(/^📋 Family summary:\s*/i, '');
-  const clinical = p.clinical ? decodeClinical(p.clinical) : null;
-  let html = `<strong>In plain language:</strong><br>${esc(plain)}`;
-  if (clinical && clinical !== plain) {
-    html += `<br><br><strong>What the clinical note said:</strong><br><span style="color:var(--muted);font-size:0.85em">${esc(clinical)}</span>`;
-  }
-  if (p.flag) {
-    html += `<br><br><em>Flagged updates are shared so you stay informed — they don't always mean something is wrong. Ana rechecked and Mom improved.</em>`;
-  }
-  addMsgRich(html, [
-    { label: 'Ask a follow-up', variant: 'btn-ghost', action: () => { document.getElementById('chatInput').value = 'Tell me more about the ' + p.time + ' update'; document.getElementById('chatInput').focus(); } },
-    { label: 'Flag a concern', variant: 'btn-flag', action: openFlagConcern },
-  ]);
+function renderTaskStats() {
+  const needed = tasks.filter(t => t.status === 'needed').length;
+  const assigned = tasks.filter(t => t.status === 'assigned').length;
+  const done = tasks.filter(t => t.status === 'done').length;
+  const el = document.getElementById('taskStats');
+  if (!el) return;
+  el.innerHTML = `
+    <div class="task-stat${needed ? ' warn' : ''}"><div class="num">${needed}</div><div class="lbl">Needs assign</div></div>
+    <div class="task-stat"><div class="num">${assigned}</div><div class="lbl">In progress</div></div>
+    <div class="task-stat"><div class="num">${done}</div><div class="lbl">Done</div></div>`;
+  const doneCount = document.getElementById('doneCount');
+  if (doneCount) doneCount.textContent = done;
 }
 
-function renderPastWeek() {
-  document.getElementById('pastWeek').innerHTML = pastWeek.map((d,i) => `
-    <div class="history-day" id="hist-${i}">
-      <div class="history-head" onclick="toggleHistory(${i})">
-        <span>${esc(d.day)} · ${esc(d.summary)}</span>
-        <span class="chevron">▾</span>
+function taskCardHtml(t, compact) {
+  const a = t.assigneeId ? getAssignee(t.assigneeId) : null;
+  const statusLabel = t.status === 'needed' ? 'Needed' : t.status === 'assigned' ? 'Assigned' : 'Done';
+  return `
+    <div class="task-card ${t.status}" data-id="${t.id}">
+      <button type="button" class="task-check" onclick="toggleTaskDone(${t.id})" aria-label="${t.status === 'done' ? 'Mark not done' : 'Mark done'}">${t.status === 'done' ? '✓' : ''}</button>
+      <div class="task-body">
+        <div class="task-title">${esc(t.title)}</div>
+        <div class="task-meta">
+          <span class="task-badge ${t.status}">${statusLabel}</span>
+          ${a ? `<span class="task-assignee"><span class="task-assignee-dot" style="background:${a.color}">${esc(a.initials)}</span>${esc(a.name)}</span>` : '<span class="task-assignee" style="color:var(--amber)">Unassigned</span>'}
+          ${t.due ? `<span>Due ${esc(t.due)}</span>` : ''}
+          ${!compact ? `<span>Added by ${esc(t.createdBy)}</span>` : ''}
+        </div>
+        ${!compact && t.status !== 'done' ? `
+          <div class="task-reassign">
+            <select id="reassign-${t.id}">
+              <option value="">Family member…</option>
+              ${assignees.map(x => `<option value="${x.id}"${x.id === t.assigneeId ? ' selected' : ''}>${esc(x.name)}</option>`).join('')}
+            </select>
+            <button type="button" onclick="assignTask(${t.id})">Assign</button>
+          </div>` : ''}
       </div>
-      <div class="history-body"><ul>${d.items.map(it => `<li>${esc(it)}</li>`).join('')}</ul></div>
-    </div>`).join('');
+    </div>`;
 }
 
-function toggleHistory(i) {
-  document.getElementById('hist-'+i).classList.toggle('open');
+function renderTasks() {
+  const active = tasks.filter(t => t.status !== 'done');
+  const done = tasks.filter(t => t.status === 'done');
+  const el = document.getElementById('taskLists');
+  const doneDesktop = document.getElementById('taskListsDone');
+  const doneBody = document.getElementById('doneDrawerBody');
+
+  let html = '';
+  if (!active.length) {
+    html = '<div class="tasks-empty">All caught up — no open tasks</div>';
+  } else {
+    const groups = [
+      { key: 'needed', label: 'Needs assignment' },
+      { key: 'assigned', label: 'Assigned' },
+    ];
+    groups.forEach(g => {
+      const items = active.filter(t => t.status === g.key);
+      if (!items.length) return;
+      html += `<div class="task-section-label">${g.label} (${items.length})</div>`;
+      items.forEach(t => { html += taskCardHtml(t, false); });
+    });
+  }
+  el.innerHTML = html;
+
+  const doneHtml = done.length
+    ? done.map(t => taskCardHtml(t, true)).join('')
+    : '<div class="tasks-empty">Nothing completed yet</div>';
+
+  if (doneBody) doneBody.innerHTML = doneHtml;
+  if (doneDesktop) {
+    doneDesktop.innerHTML = done.length
+      ? `<div class="task-section-label">Done (${done.length})</div>${done.map(t => taskCardHtml(t, true)).join('')}`
+      : '';
+  }
+
+  renderTaskStats();
+  updateTasksBadge();
 }
 
-function requestUpdate() {
-  const btn = document.getElementById('requestBtn');
-  btn.classList.add('loading');
-  showSync('Sending request to care team…', 1200).then(() => {
-    btn.classList.remove('loading');
-    showToast('✓ Request sent — Ana will respond shortly');
-    showLiveToast('📩', '<strong>Request sent</strong> — Ana Melendez received your update request');
+function toggleTaskForm() {
+  const wrap = document.getElementById('taskFormWrap');
+  const btn = document.getElementById('taskFormToggle');
+  const open = !wrap.classList.contains('open');
+  wrap.classList.toggle('open', open);
+  btn.classList.toggle('open', open);
+  if (open) document.getElementById('taskTitle').focus();
+}
+
+function toggleDoneDrawer(force) {
+  const drawer = document.getElementById('doneDrawer');
+  const open = force === true ? true : force === false ? false : !drawer.classList.contains('open');
+  drawer.classList.toggle('open', open);
+  drawer.classList.remove('peek');
+}
+
+function peekDoneDrawer() {
+  const drawer = document.getElementById('doneDrawer');
+  drawer.classList.add('peek');
+  setTimeout(() => drawer.classList.remove('peek'), 700);
+}
+
+function isMobileTasks() {
+  return window.matchMedia('(max-width: 720px)').matches;
+}
+
+function addTask(e) {
+  e.preventDefault();
+  const title = document.getElementById('taskTitle').value.trim();
+  const assigneeId = document.getElementById('taskAssignee').value;
+  const due = document.getElementById('taskDue').value.trim();
+  if (!title) return;
+  tasks.unshift({
+    id: nextTaskId++,
+    title,
+    status: assigneeId ? 'assigned' : 'needed',
+    assigneeId: assigneeId || null,
+    createdBy: 'Eleanor',
+    due: due || '—',
+  });
+  document.getElementById('taskForm').reset();
+  populateAssigneeSelects();
+  document.getElementById('taskFormWrap').classList.remove('open');
+  document.getElementById('taskFormToggle').classList.remove('open');
+  renderTasks();
+  const person = getAssignee(assigneeId);
+  showToast(assigneeId ? `✓ Task assigned to ${person.name}` : '✓ Task added — pick a family member when ready');
+}
+
+function assignTask(id) {
+  const sel = document.getElementById('reassign-' + id);
+  const assigneeId = sel?.value;
+  if (!assigneeId) { showToast('Pick a family member to assign'); return; }
+  const task = tasks.find(t => t.id === id);
+  if (!task) return;
+  task.assigneeId = assigneeId;
+  task.status = 'assigned';
+  renderTasks();
+  showToast(`✓ Assigned to ${getAssignee(assigneeId).name}`);
+}
+
+function toggleTaskDone(id) {
+  const task = tasks.find(t => t.id === id);
+  if (!task) return;
+
+  if (task.status === 'done') {
+    task.status = task.assigneeId ? 'assigned' : 'needed';
+    renderTasks();
+    return;
+  }
+
+  const card = document.querySelector(`.task-card[data-id="${id}"]`);
+  if (card && isMobileTasks()) {
+    card.classList.add('sliding-out');
+    showToast('✓ Task completed');
     setTimeout(() => {
-      const post = {
-        id: Date.now(), name:'Ana Melendez', handle:'@ana.lpn', time:'Just now',
-        tag:'aide', tagLabel:'LPN', color:'#1A7A4C',
-        text:'Hi Eleanor — saw your update request. Mom is doing well. I\'ll post a full summary at end of shift.',
-        likes:0, replies:[], flag:false
-      };
-      posts.unshift(post);
-      document.getElementById('boardBadge').classList.add('show');
-      document.getElementById('boardLiveText').textContent = (posts.length) + ' updates today · just now';
-      if (currentTab === 'board') {
-        renderBoard();
-        flashPost(post.id);
-      } else {
-        showLiveToast('💬', '<strong>Ana Melendez</strong> replied to your request — tap Board to see');
-      }
-    }, 2000);
+      task.status = 'done';
+      renderTasks();
+      peekDoneDrawer();
+    }, 360);
+    return;
+  }
+
+  task.status = 'done';
+  renderTasks();
+  showToast('✓ Task completed');
+}
+
+function createTaskFromChat(title, assigneeId, createdBy) {
+  tasks.unshift({
+    id: nextTaskId++,
+    title,
+    status: assigneeId ? 'assigned' : 'needed',
+    assigneeId: assigneeId || null,
+    createdBy: createdBy || 'Eleanor',
+    due: 'Today',
   });
+  renderTasks();
+  document.getElementById('tasksBadge').classList.add('show');
 }
 
-function contactTeam(idx) {
-  const t = team[idx];
-  if (!t) return;
-  showToast(`Opening message to ${t.name}…`);
-  switchTab('chat');
-  setTimeout(() => addMsg(`You can reach ${t.name} through the care board or I can draft a message for you. What would you like to ask?`, 'bibi'), 400);
-}
-
-function esc(s) { return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-
-function renderBoard() {
-  const feed = document.getElementById('boardFeed');
-  const filtered = activeFilter === 'all' ? posts
-    : activeFilter === 'flag' ? posts.filter(p => p.flag)
-    : posts.filter(p => p.tag === activeFilter);
-
-  feed.innerHTML = filtered.map((p, i) => `
-    <article class="post" data-id="${p.id}" style="animation-delay:${i * 0.06}s">
-      <div class="post-head">
-        <div class="post-avatar" style="background:${p.color}">${esc(p.name.split(' ').map(w=>w[0]).join('').slice(0,2))}</div>
-        <div class="post-body">
-          <div class="post-top">
-            <span class="post-name">${esc(p.name)}</span>
-            <span class="post-handle">${esc(p.handle)}</span>
-            <span class="post-tag tag-${p.tag}">${esc(p.tagLabel)}</span>
-            <span class="post-time">${esc(p.time)}</span>
-          </div>
-          <div class="post-text">${esc(p.text)}</div>
-          ${p.flag ? '<div class="post-tag tag-flag" style="margin-top:8px;display:inline-block">⚑ For your attention</div>' : ''}
-          ${(p.replies||[]).map(r => `<div class="thread-reply"><div class="reply-author">${esc(r.author)}</div>${esc(r.text)}</div>`).join('')}
-          <div class="post-actions">
-            <button onclick="likePost(${p.id})">♡ ${p.likes}</button>
-            <button onclick="toggleReply(${p.id})">Reply</button>
-            <button onclick="explainPost(${p.id})">What does this mean?</button>
-            <button onclick="askBibiAbout(${p.id})">Ask BiBi</button>
-          </div>
-          <div class="reaction-bar">
-            ${['👍','❤️','🙏','✓'].map((e,i) => `<button class="reaction-btn" onclick="reactPost(${p.id},'${e}',this)">${e}</button>`).join('')}
-          </div>
-          <div class="reply-box" id="reply-${p.id}">
-            <input type="text" placeholder="Reply to care team…" id="replyInput-${p.id}" />
-            <button class="reply-btn" onclick="submitReply(${p.id})">Send</button>
-          </div>
-        </div>
-      </div>
-    </article>`).join('');
-}
-
-function flashPost(id) {
-  requestAnimationFrame(() => {
-    const el = document.querySelector('.post[data-id="'+id+'"]');
-    if (el) { el.classList.add('new-flash'); setTimeout(() => el.classList.remove('new-flash'), 1400); }
+function postToChannel(channelId, authorId, text, opts = {}) {
+  channelMessages[channelId].push({
+    id: nextChannelMsgId++,
+    authorId,
+    text,
+    time: opts.time || new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }),
+    self: authorId === 'eleanor',
+    flag: opts.flag || false,
   });
+  if (currentTab !== 'channels' || activeChannel !== channelId) {
+    channelUnread[channelId] = (channelUnread[channelId] || 0) + 1;
+    updateChannelBadges();
+  }
+  if (currentTab === 'channels' && activeChannel === channelId) renderChannelFeed();
 }
 
-function renderTimeline(highlightIdx) {
-  document.getElementById('todayTimeline').innerHTML = timeline.map((t,i) => `
-    <div class="timeline-item${t.done?' done':''}${t.upcoming?' upcoming':''}${expandedTimeline===i?' expanded':''}${highlightIdx===i?' just-done':''}" onclick="expandTimeline(${i})">
-      <div style="display:flex;gap:12px;padding:12px 14px;${i < timeline.length-1 ? 'border-bottom:1px solid var(--line)' : ''}">
-        <div class="timeline-time">${esc(t.time)}</div>
-        <div class="timeline-detail">
-          ${t.done ? '✓ ' : ''}${esc(t.detail)}${t.flag ? ' <span class="post-tag tag-flag" style="font-size:0.6rem">Flagged</span>' : ''}
-          <div class="sub">${esc(t.sub)}</div>
-          <div class="detail-pop">${esc(t.detailText||'')}</div>
-        </div>
-      </div>
-    </div>`).join('');
+function updateChannelBadges() {
+  ['family', 'care'].forEach(ch => {
+    const n = channelUnread[ch] || 0;
+    const el = document.getElementById('unread-' + ch);
+    if (el) {
+      el.textContent = n;
+      el.classList.toggle('show', n > 0);
+    }
+  });
+  const total = (channelUnread.family || 0) + (channelUnread.care || 0);
+  const tabBadge = document.getElementById('channelsBadge');
+  tabBadge.textContent = total;
+  tabBadge.classList.toggle('show', total > 0);
 }
 
-function expandTimeline(i) {
-  expandedTimeline = expandedTimeline === i ? null : i;
-  renderTimeline();
+function switchChannel(ch) {
+  activeChannel = ch;
+  channelUnread[ch] = 0;
+  updateChannelBadges();
+  document.querySelectorAll('.ch-tab').forEach(t => t.classList.toggle('active', t.dataset.ch === ch));
+  const meta = channelMeta[ch];
+  document.getElementById('channelDesc').textContent = meta.desc;
+  document.getElementById('channelInput').placeholder = 'Message #' + meta.slug + '…';
+  renderChannelFeed();
 }
 
-function reactPost(id, emoji, btn) {
-  btn.classList.add('picked');
-  showToast(`Reacted ${emoji} — care team notified`);
+function renderChannelFeed() {
+  const feed = document.getElementById('channelFeed');
+  const msgs = channelMessages[activeChannel] || [];
+  feed.innerHTML = `<div class="ch-day-divider">Today · ${esc(channelMeta[activeChannel].label)}</div>` +
+    msgs.map(m => {
+      const p = people[m.authorId] || { name: 'Unknown', initials: '?', color: '#647892', role: '' };
+      return `
+        <div class="ch-msg${m.self ? ' self' : ''}">
+          <div class="ch-avatar" style="background:${p.color}">${esc(p.initials)}</div>
+          <div class="ch-msg-body" style="flex:1;min-width:0">
+            <div class="ch-msg-top">
+              <span class="ch-msg-name">${esc(p.name)}</span>
+              <span class="ch-msg-role">${esc(p.role)}</span>
+              <span class="ch-msg-time">${esc(m.time)}</span>
+            </div>
+            <div class="ch-msg-text">${esc(m.text)}</div>
+            ${m.flag ? '<span class="ch-msg-flag">⚑ Flagged for team</span>' : ''}
+          </div>
+        </div>`;
+    }).join('');
+  feed.scrollTop = feed.scrollHeight;
 }
 
-function renderTeam() {
-  document.getElementById('careTeam').innerHTML = team.map((t, i) => `
-    <div class="team-card">
-      <div class="team-avatar" style="background:${t.color}">${esc(t.initials)}</div>
-      <div class="team-info">
-        <div class="team-name">${esc(t.name)}</div>
-        <div class="team-role">${esc(t.role)}</div>
-      </div>
-      ${t.phone ? `<button class="team-contact" onclick="contactTeam(${i})">Message</button>` : ''}
-    </div>`).join('');
-}
-
-function likePost(id) { const p = posts.find(x=>x.id===id); if(p){p.likes++; renderBoard();} }
-function toggleReply(id) { document.getElementById('reply-'+id).classList.toggle('open'); }
-function submitReply(id) {
-  const input = document.getElementById('replyInput-'+id);
+function sendChannelMessage() {
+  const input = document.getElementById('channelInput');
   const text = input.value.trim();
   if (!text) return;
-  const p = posts.find(x=>x.id===id);
-  if (p) { p.replies = p.replies || []; p.replies.push({author:'Eleanor', text}); input.value=''; renderBoard(); }
-}
-
-function askBibiAbout(id) {
-  const p = posts.find(x=>x.id===id);
-  if (!p) return;
-  switchTab('chat');
-  addMsg(`Tell me about the ${p.time} update from ${p.name}`, 'user');
-  typing.classList.add('show');
-  setTimeout(() => {
-    typing.classList.remove('show');
-    explainPost(id);
-  }, 600);
+  postToChannel(activeChannel, 'eleanor', text);
+  input.value = '';
+  renderChannelFeed();
+  if (activeChannel === 'care') {
+    setTimeout(() => {
+      postToChannel('care', 'ana', "Got it, Eleanor — I'll follow up and post an update here shortly.");
+      if (currentTab === 'channels') renderChannelFeed();
+    }, 2500);
+  }
 }
 
 function switchTab(name) {
@@ -899,21 +1128,20 @@ function switchTab(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
   next.classList.add('active');
   currentTab = name;
-  if (name === 'board') {
-    document.getElementById('boardBadge').classList.remove('show');
-    renderBoard();
+  if (name === 'tasks') document.getElementById('tasksBadge').classList.remove('show');
+  if (name === 'channels') {
+    channelUnread[activeChannel] = 0;
+    updateChannelBadges();
+    renderChannelFeed();
   }
 }
 
 document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
-document.querySelectorAll('.filter-tab').forEach(t => t.addEventListener('click', () => {
-  document.querySelectorAll('.filter-tab').forEach(f => f.classList.remove('active'));
-  t.classList.add('active');
-  activeFilter = t.dataset.filter;
-  renderBoard();
-}));
+document.querySelectorAll('.ch-tab').forEach(t => t.addEventListener('click', () => switchChannel(t.dataset.ch)));
+document.getElementById('channelSend').addEventListener('click', sendChannelMessage);
+document.getElementById('channelInput').addEventListener('keydown', e => { if (e.key === 'Enter') sendChannelMessage(); });
 
-// BiBi
+// BiBi chat — unchanged behavior
 const chatMessages = document.getElementById('chatMessages');
 const typing = document.getElementById('typing');
 
@@ -941,15 +1169,13 @@ function bibiAnswer(q) {
   if (lower.includes('yesterday') || lower.includes('happened'))
     return { text: "Yesterday (Tuesday): Maria (home health aide) was on shift. Physical therapy went well. Mom had brief dizziness when standing in the morning that went away with rest. She had a good appetite at dinner. Nothing urgent was flagged for you." };
   if (lower.includes('flag') || lower.includes('should know') || lower.includes('attention'))
-    return { text: "One update flagged for you: at 9:05 AM Ana noted blood pressure was a little low (108/64) and Mom felt tired after breakfast. By 1:10 PM her energy was back up — no further concerns since. Tap \"What does this mean?\" on any board post for a plain-language breakdown." };
+    return { text: "One update flagged for you: at 9:05 AM Ana noted blood pressure was a little low (108/64) and Mom felt tired after breakfast. By 1:10 PM her energy was back up — no further concerns since." };
   if (lower.includes('left') || lower.includes('rest') || lower.includes('today'))
     return { text: "Still ahead: return ride from dermatology around 3:30 PM, and Ana's end-of-shift care summary. Everything else on today's plan is done." };
   if (lower.includes('visit') || lower.includes('who'))
     return { text: "Today: Ana (nurse, all day), James (physical therapist, 11:40 AM), Coastal Meals (breakfast & lunch), and RideWell (dermatology ride)." };
   if (lower.includes('explain') || lower.includes('what does') || lower.includes('mean'))
-    return { text: "I translate clinical notes into everyday language. On the Board tab, tap \"What does this mean?\" on any update — I'll walk you through it and show what the care team wrote in simpler terms." };
-  if (lower.includes('update') && (lower.includes('9:05') || lower.includes('morning')))
-    return { explainPost: 2 };
+    return { text: "I translate clinical notes into everyday language. Ask me about any update and I'll walk you through it in simpler terms." };
   if (lower.includes('pt') || lower.includes('therapy') || lower.includes('physical'))
     return { text: "James led a 30-minute session at 11:40 AM — walking and balance exercises. Mom's steps were steadier than last week and she had no pain. He's recommending twice-a-week sessions." };
   if (lower.includes('meal') || lower.includes('eat'))
@@ -960,9 +1186,7 @@ function bibiAnswer(q) {
     return { text: "I don't have access to lab or test results — those stay in Mom's medical record. I can flag this for the care team so someone follows up with you.", unknown: true };
   if (lower.includes('insurance') || lower.includes('bill') || lower.includes('cost'))
     return { text: "I can't pull billing or insurance details. Want me to route this to the care team?", unknown: true };
-  if (lower.includes('discharge') || lower.includes('hospital') && lower.includes('when'))
-    return { text: "I don't have discharge or hospital schedule info in today's home-care log.", unknown: true };
-  return { text: "I couldn't find that in today's care updates. You can flag it for the team or send a question directly — they'll respond on the board.", unknown: true };
+  return { text: "I couldn't find that in today's care updates. You can flag it for the care team or add a task for a family member to handle.", unknown: true };
 }
 
 function addMsgRich(html, actions, extraHtml) {
@@ -988,10 +1212,10 @@ function addMsgRich(html, actions, extraHtml) {
 function addEscalateOptions(prefill) {
   const id = 'esc-' + Date.now();
   addMsgRich(
-    `<strong>I don't have that information on hand.</strong><br>You can flag it for the care team or ask a question — Ana or James will see it on the board.`,
+    `<strong>I don't have that information on hand.</strong><br>You can flag it for the care team or ask a question — someone will follow up.`,
     null,
     `<div class="escalate-form" id="${id}">
-      <div class="escalate-hint">Describe your concern or question. The care team will respond on #mom-care.</div>
+      <div class="escalate-hint">Describe your concern or question. We'll add a family task and post to #care-team.</div>
       <textarea id="${id}-input" placeholder="e.g. Mom seemed confused on our call — is that normal?">${esc(prefill || '')}</textarea>
       <div class="msg-card" style="margin-top:0;padding:0;border:none;background:transparent">
         <button class="btn-flag" data-flag>⚑ Flag for care team</button>
@@ -1008,30 +1232,18 @@ function submitFamilyEscalation(formId, isFlag) {
   const input = document.getElementById(formId + '-input');
   const text = input.value.trim();
   if (!text) { showToast('Please add a message first'); input.focus(); return; }
-  const now = new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
-  const post = {
-    id: Date.now(), name:'Eleanor Whitman', handle:'@eleanor.family', time: now,
-    tag:'family', tagLabel:'Family', color:'#134068',
-    text: (isFlag ? '⚑ FLAG: ' : '❓ Question: ') + text,
-    likes: 0, replies: [], flag: isFlag
-  };
-  posts.unshift(post);
-  document.getElementById('boardBadge').classList.add('show');
-  document.getElementById('boardLiveText').textContent = posts.length + ' updates today · just now';
   input.disabled = true;
+  const form = document.getElementById(formId);
   form.querySelectorAll('button').forEach(b => { b.classList.add('btn-sent'); b.textContent = isFlag ? '✓ Flagged' : '✓ Sent'; });
   showSync(isFlag ? 'Flagging for care team…' : 'Sending question to care team…', 1200).then(() => {
-    showToast(isFlag ? '✓ Care team flagged — Ana will follow up' : '✓ Question sent — watch the board for a reply');
-    showLiveToast(isFlag ? '⚑' : '❓', `<strong>${isFlag?'Flagged':'Question sent'}</strong> — the care team will respond on the board`);
+    createTaskFromChat((isFlag ? 'FLAG: ' : 'Question: ') + text, null, 'Eleanor');
+    postToChannel('care', 'eleanor', (isFlag ? '⚑ FLAG: ' : '❓ Question: ') + text, { flag: isFlag });
+    showToast(isFlag ? '✓ Flagged — assign a family member in Tasks' : '✓ Question sent to care team');
+    showLiveToast(isFlag ? '⚑' : '❓', `<strong>${isFlag?'Flagged':'Question sent'}</strong> — posted to #care-team`);
     setTimeout(() => {
-      posts.unshift({
-        id: Date.now()+1, name:'Ana Melendez', handle:'@ana.lpn', time:'Just now',
-        tag:'aide', tagLabel:'LPN', color:'#1A7A4C',
-        text: 'Hi Eleanor — got your ' + (isFlag ? 'flag' : 'question') + '. I\'ll check on this and post an update shortly.',
-        likes:0, replies:[], flag:false
-      });
-      if (currentTab === 'board') renderBoard();
-    }, 3000);
+      postToChannel('care', 'ana', 'Hi Eleanor — got your ' + (isFlag ? 'flag' : 'question') + ". I'll check on this and update you shortly.");
+      addMsg("Hi Eleanor — got your " + (isFlag ? 'flag' : 'question') + ". I'll check on this and update you shortly.", 'bibi');
+    }, 2000);
   });
 }
 
@@ -1049,7 +1261,6 @@ function sendChat(text) {
   document.getElementById('chatInput').value = '';
   typing.classList.add('show');
   chatMessages.scrollTop = chatMessages.scrollHeight;
-  const lower = text.toLowerCase();
   setTimeout(() => {
     typing.classList.remove('show');
     const result = bibiAnswer(text);
@@ -1060,11 +1271,9 @@ function sendChat(text) {
         • Aspirin 81 mg — once each morning<br>
         • Acetaminophen 500 mg — as needed for pain<br><br>
         All morning medications were given at 9:05 AM today without problems.`, [
-        { label: 'View on timeline', variant: 'btn-ghost', action: () => { switchTab('settings'); expandTimeline(1); } },
+        { label: 'View tasks', variant: 'btn-ghost', action: () => switchTab('tasks') },
         { label: 'What does the BP flag mean?', variant: 'btn-ghost', action: () => sendChat('What does the blood pressure flag mean?') },
       ]);
-    } else if (result.explainPost) {
-      explainPost(result.explainPost);
     } else if (result.unknown) {
       addMsg(result.text, 'bibi');
       setTimeout(() => addEscalateOptions(text), 400);
@@ -1081,14 +1290,12 @@ document.querySelectorAll('#chatChips .chip').forEach(c => {
   else if (c.dataset.q) c.addEventListener('click', () => sendChat(c.dataset.q));
 });
 
-// Boot sequence
 function runBoot() {
   const fill = document.getElementById('bootFill');
   const status = document.getElementById('bootStatus');
   const steps = [
-    { pct: 30, text: 'Connecting to care team…' },
-    { pct: 60, text: 'Syncing today\'s timeline…' },
-    { pct: 85, text: 'BiBi is ready…' },
+    { pct: 40, text: 'Connecting to care team…' },
+    { pct: 80, text: 'BiBi is ready…' },
     { pct: 100, text: 'Connected' },
   ];
   let i = 0;
@@ -1101,61 +1308,76 @@ function runBoot() {
     fill.style.width = steps[i].pct + '%';
     status.textContent = steps[i].text;
     i++;
-    setTimeout(tick, 500);
+    setTimeout(tick, 450);
   };
   setTimeout(tick, 300);
 }
 
 function startLiveDemo() {
-  // Simulate family portal summary from clinical side
   setTimeout(() => {
-    const summary = {
-      id: Date.now() - 1, name:'Ana Melendez', handle:'@ana.lpn', time:'Just now',
-      tag:'aide', tagLabel:'Nursing', color:'#1A7A4C',
-      text:'📋 Family summary: Blood pressure was a little lower than usual this morning (108/64). Mom rested and felt better later.',
-      likes:0, replies:[], flag:true
-    };
-    posts.unshift(summary);
-    document.getElementById('boardBadge').classList.add('show');
-    if (currentTab === 'board') { renderBoard(); flashPost(summary.id); }
-    else showLiveToast('📋', '<strong>Ana posted a plain-language summary</strong> — tap Board to read');
+    postToChannel('care', 'ana', '📋 Family summary: Blood pressure was a little lower than usual this morning (108/64). Mom rested and felt better later.');
+    showLiveToast('📋', '<strong>Ana posted in #care-team</strong> — plain-language summary');
+    addMsg("Ana shared a quick update: Mom's blood pressure was a little lower than usual this morning (108/64). She rested and felt better later — nothing urgent.", 'bibi');
   }, 3500);
 
-  setTimeout(async () => {
-    showLiveToast('🚗', '<strong>RideWell</strong> — Mom is on the way home from dermatology');
+  setTimeout(() => {
+    postToChannel('care', 'ridewell', 'Mom is on the way home from dermatology — ETA 3:25 PM.');
+    showLiveToast('🚗', '<strong>RideWell</strong> — update in #care-team');
     document.getElementById('momStatus').innerHTML = '<span class="dot"></span>Heading home from dermatology';
-  }, 4000);
+  }, 5500);
 
   setTimeout(async () => {
     await showSync('Receiving live update from RideWell…', 1000);
-    const post = {
-      id: Date.now(), name:'RideWell', handle:'@ridewell', time:'Just now',
-      tag:'ride', tagLabel:'Transport', color:'#6D28D9',
-      text:'Return trip from dermatology completed — Mom dropped off safely at home.',
-      likes:0, replies:[], flag:false
-    };
-    posts.unshift(post);
-    const retIdx = timeline.findIndex(t => t.detail.includes('Return'));
-    if (retIdx >= 0) timeline[retIdx].done = true;
-    wellness.mood = 'Home safely';
+    postToChannel('care', 'ridewell', 'Return trip from dermatology completed — Mom dropped off safely at home.');
+    postToChannel('family', 'david', 'Just saw RideWell\'s update — glad Mom\'s home safe!');
     document.getElementById('momStatus').innerHTML = '<span class="dot"></span>Home safely · resting';
-    document.getElementById('boardLiveText').textContent = posts.length + ' updates today · live now';
-    renderWellness(true);
-    renderTimeline(retIdx);
-    document.getElementById('boardBadge').classList.add('show');
-
-    if (currentTab === 'board') {
-      renderBoard();
-      flashPost(post.id);
-    } else {
-      showLiveToast('✅', '<strong>Mom is home!</strong> RideWell confirmed safe return — tap Board');
-      addMsg("RideWell just posted — Mom's back home from dermatology. Return trip completed safely. I've updated her timeline and wellness status.", 'bibi');
+    const task = tasks.find(t => t.title.includes('dermatology return'));
+    if (task && task.status !== 'done') {
+      if (isMobileTasks() && currentTab === 'tasks') {
+        const card = document.querySelector(`.task-card[data-id="${task.id}"]`);
+        if (card) {
+          card.classList.add('sliding-out');
+          setTimeout(() => { task.status = 'done'; renderTasks(); peekDoneDrawer(); }, 360);
+        } else {
+          task.status = 'done';
+          renderTasks();
+        }
+      } else {
+        task.status = 'done';
+        renderTasks();
+      }
     }
-  }, 7000);
+    if (currentTab === 'chat') {
+      addMsg("RideWell just confirmed — Mom's back home from dermatology safely.", 'bibi');
+    } else {
+      showLiveToast('✅', '<strong>Mom is home!</strong> Updates in Channels & Tasks');
+    }
+  }, 9000);
 }
 
 runBoot();
-renderBoard(); renderTimeline(); renderTeam(); renderWellness(); renderPastWeek();
+populateAssigneeSelects();
+renderTasks();
+switchChannel('family');
+updateChannelBadges();
+
+(function initTheme() {
+  const KEY = 'pivot-demo-theme';
+  const btn = document.getElementById('themeToggle');
+  function apply(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(KEY, theme);
+    if (btn) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      btn.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+  }
+  const saved = localStorage.getItem(KEY);
+  apply(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  if (btn) btn.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
 </script>
 </body>
 </html>
