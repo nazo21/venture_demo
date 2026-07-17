@@ -5,1379 +5,1396 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>piVoT — Family</title>
 <script>try{var t=localStorage.getItem('pivot-demo-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0A2540;
-    --navy-mid: #123456;
-    --navy-soft: #1D6FEB;
-    --blue: #1D6FEB;
-    --blue-light: #DBEAFE;
-    --off: #EFF4FA;
-    --line: #C5D5E8;
-    --text: #0A1929;
-    --muted: #475F7A;
-    --muted-2: #647892;
-    --green: #059669;
-    --green-soft: #D1FAE5;
-    --amber: #D97706;
-    --amber-soft: #FEF3C7;
-    --amber-text: #92400E;
-    --red: #DC2626;
-    --red-soft: #FEE2E2;
-    --header-from: #0A2540;
-    --header-to: #123456;
-    --boot-bg: #0A2540;
-    --overlay: rgba(10, 37, 64, 0.55);
-    --accent-glow: #4ADE80;
+    --bg: #F4F6FB;
     --surface: #FFFFFF;
-    --surface-elevated: #FFFFFF;
-    --inverse: #FFFFFF;
-    --tab-h: 62px;
+    --surface-2: #F7F9FC;
+    --line: #E4E9F2;
+    --text: #0E1B2E;
+    --muted: #5C6B82;
+    --faint: #8A99B0;
+    --brand: #1D6FEB;
+    --brand-soft: #E7F0FE;
+    --navy: #0A2540;
+    --admin: #7C3AED;
+    --admin-soft: #F1E9FE;
+    --green: #0E9F6E;
+    --green-soft: #E1F7EF;
+    --amber: #D97706;
+    --amber-soft: #FDF0D9;
+    --red: #E02424;
+    --shadow: 0 1px 2px rgba(13,30,60,.06), 0 8px 24px rgba(13,30,60,.05);
+    --shadow-lg: 0 12px 40px rgba(13,30,60,.14);
+    --r: 16px;
+    --tab-h: 64px;
     --safe-b: env(safe-area-inset-bottom, 0px);
-    --r: 12px;
   }
-
   html[data-theme="dark"] {
-    --navy: #3B82F6;
-    --navy-mid: #1E293B;
-    --navy-soft: #93C5FD;
-    --blue: #60A5FA;
-    --blue-light: #1E293B;
-    --off: #0B1018;
-    --line: #334155;
-    --text: #F1F5F9;
-    --muted: #94A3B8;
-    --muted-2: #64748B;
-    --green: #4ADE80;
-    --green-soft: #14291F;
+    --bg: #0A0F18;
+    --surface: #131B29;
+    --surface-2: #0F1622;
+    --line: #26324A;
+    --text: #EAF0F8;
+    --muted: #97A6BE;
+    --faint: #6B7B95;
+    --brand: #4C8DF5;
+    --brand-soft: #16233B;
+    --navy: #4C8DF5;
+    --admin: #A87BF6;
+    --admin-soft: #241a3a;
+    --green: #34D399;
+    --green-soft: #10251D;
     --amber: #FBBF24;
     --amber-soft: #2A2210;
-    --amber-text: #FDE68A;
     --red: #FB7185;
-    --red-soft: #2A1218;
-    --header-from: #0C1422;
-    --header-to: #152238;
-    --boot-bg: #0C1422;
-    --overlay: rgba(0, 0, 0, 0.72);
-    --accent-glow: #4ADE80;
-    --surface: #172033;
-    --surface-elevated: #1E293B;
-    --inverse: #FFFFFF;
-    --accent-label: #93C5FD;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,.5);
   }
 
-  html[data-theme="dark"] .header,
-  html[data-theme="dark"] .header-row,
-  html[data-theme="dark"] .mom-strip,
-  html[data-theme="dark"] .mom-name { color: var(--inverse); }
-  html[data-theme="dark"] .header-sub,
-  html[data-theme="dark"] .mom-status { color: rgba(255,255,255,0.72); }
-  html[data-theme="dark"] .chip { color: var(--text); background: var(--surface-elevated); }
-  html[data-theme="dark"] .chip:hover { background: var(--blue-light); color: var(--accent-label); }
-  html[data-theme="dark"] .msg.bibi .msg-bubble { background: var(--surface-elevated); color: var(--text); border-color: var(--line); }
-  html[data-theme="dark"] .msg-meta { color: var(--muted); }
-  html[data-theme="dark"] .msg-card { background: var(--surface-elevated); }
-  html[data-theme="dark"] .msg-card .btn-ghost { color: var(--text); background: var(--surface); }
-  html[data-theme="dark"] .tab.active { color: var(--accent-label); background: var(--blue-light); }
-  html[data-theme="dark"] .tab.active svg { stroke: var(--accent-label); }
-  html[data-theme="dark"] .tab-badge { border-color: var(--surface); }
-  html[data-theme="dark"] .chat-input-bar input { background: var(--surface-elevated); color: var(--text); }
-  html[data-theme="dark"] .escalate-form textarea { background: var(--surface-elevated); color: var(--text); }
-  html[data-theme="dark"] .typing-dots { background: var(--surface-elevated); }
-  html[data-theme="dark"] .chat-live { color: var(--accent-label); }
-  html[data-theme="dark"] .sync-card p { color: var(--muted); }
-  html[data-theme="dark"] .live-toast { background: var(--surface); border-color: var(--line); }
-  html[data-theme="dark"] .live-toast-text { color: var(--text); }
-  html[data-theme="dark"] .live-toast-text strong { color: var(--accent-label); }
-  html[data-theme="dark"] .app { box-shadow: 0 0 48px rgba(0, 0, 0, 0.55); }
-  html[data-theme="dark"] .mom-avatar { background: linear-gradient(135deg, #1E3A5F, #2563EB); color: #E2E8F0; }
-  html[data-theme="dark"] .send-btn { background: #2563EB; }
-  html[data-theme="dark"] .task-card { background: var(--surface); border-color: var(--line); }
-  html[data-theme="dark"] .task-form input,
-  html[data-theme="dark"] .task-form select { background: var(--surface-elevated); color: var(--text); }
-  html[data-theme="dark"] .task-assignee { color: var(--text); }
-  html[data-theme="dark"] .task-meta { color: var(--muted); }
-  html[data-theme="dark"] .ch-head { background: var(--surface); border-color: var(--line); }
-  html[data-theme="dark"] .ch-tab { color: var(--muted); background: var(--surface-elevated); }
-  html[data-theme="dark"] .ch-tab.active { background: var(--blue-light); color: var(--accent-label); }
-  html[data-theme="dark"] .ch-msg { border-color: var(--line); }
-  html[data-theme="dark"] .ch-msg-name { color: var(--text); }
-  html[data-theme="dark"] .ch-compose input { background: var(--surface-elevated); color: var(--text); }
-  html[data-theme="dark"] .done-drawer { background: var(--surface); border-color: var(--line); }
-  html[data-theme="dark"] .task-stat { background: var(--surface); }
-  html[data-theme="dark"] .tasks-head h2,
-  html[data-theme="dark"] .done-drawer-label { color: var(--accent-label); }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.45;
+  }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  input, textarea { font-family: inherit; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; height: 100dvh; overflow: hidden; }
-  body { font-family: 'Inter', system-ui, sans-serif; background: var(--off); color: var(--text); -webkit-font-smoothing: antialiased; }
-
-  .app { display: flex; flex-direction: column; height: 100%; height: 100dvh; max-width: 720px; margin: 0 auto; background: var(--surface); box-shadow: 0 0 40px rgba(11,45,77,0.08); overflow: hidden; }
-
-  .header {
-    background: linear-gradient(180deg, var(--header-from) 0%, var(--header-to) 100%);
-    color: var(--inverse);
-    padding: 12px 16px 0;
-    padding-top: max(12px, env(safe-area-inset-top));
-    flex-shrink: 0;
-  }
-  .header-row {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    padding-bottom: 10px;
-  }
-  .header-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
-  .logo {
-    width: 36px; height: 36px; border-radius: 10px;
-    background: linear-gradient(135deg, #3B82C4, #1A5080);
-    display: grid; place-items: center;
-    font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
-  }
-  .header-title { font-size: 0.95rem; font-weight: 700; }
-  .header-sub { font-size: 0.72rem; color: rgba(255,255,255,0.75); margin-top: 1px; }
-  .header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-  .switch-link {
-    font-size: 0.72rem; color: rgba(255,255,255,0.85); text-decoration: none;
-    padding: 5px 10px; border: 1px solid rgba(255,255,255,0.22); border-radius: 8px;
-  }
-  .theme-toggle {
-    font: inherit; font-size: 0.85rem; line-height: 1;
-    padding: 5px 8px; border-radius: 8px; cursor: pointer;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
-    color: #fff; flex-shrink: 0;
-  }
-  .theme-toggle:active { background: rgba(255,255,255,0.22); }
-
-  .mom-strip {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 16px 14px; background: rgba(255,255,255,0.06);
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .mom-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: linear-gradient(135deg, #E8F2FC, #B8D4F0);
-    color: var(--navy); display: grid; place-items: center;
-    font-size: 0.75rem; font-weight: 800; border: 2px solid rgba(255,255,255,0.2);
-  }
-  .mom-info { flex: 1; }
-  .mom-name { font-size: 0.88rem; font-weight: 700; }
-  .mom-status { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 1px; }
-  .mom-status .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; margin-right: 4px; animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
-
-  .panels { flex: 1; min-height: 0; overflow: hidden; position: relative; background: var(--off); }
-  .panel {
-    position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;
-    min-height: 0;
-    opacity: 0; pointer-events: none; transform: translateX(12px);
-    transition: opacity .28s ease, transform .28s ease;
-  }
-  .panel.active { opacity: 1; pointer-events: auto; transform: none; z-index: 1; }
-  .panel.exit-left { transform: translateX(-12px); opacity: 0; }
-
-  /* BiBi chat */
-  .chat-live {
-    padding: 8px 16px; background: var(--blue-light); border-bottom: 1px solid var(--line);
-    font-size: 0.72rem; color: var(--navy-soft); display: flex; align-items: center; gap: 6px;
-    flex-shrink: 0;
-  }
-  .chat-body { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
-  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-glow); animation: pulse 1.5s infinite; }
-  .chat-messages {
-    flex: 1; min-height: 0; overflow-y: auto; padding: 16px;
-    display: flex; flex-direction: column; gap: 12px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .msg { display: flex; gap: 10px; max-width: 92%; animation: fadeIn .25s ease; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-  .msg.user { flex-direction: row-reverse; align-self: flex-end; }
-  .msg-avatar {
-    width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
-    display: grid; place-items: center; font-size: 0.65rem; font-weight: 700;
-  }
-  .msg-avatar.bibi { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; }
-  .msg-avatar.you { background: var(--navy-mid); color: #fff; }
-  .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 0.88rem; line-height: 1.55; }
-  .msg.bibi .msg-bubble { background: var(--off); border: 1px solid var(--line); border-top-left-radius: 4px; }
-  .msg.user .msg-bubble { background: var(--navy); color: #fff; border-top-right-radius: 4px; }
-  .msg-meta { font-size: 0.65rem; color: var(--muted-2); margin-top: 4px; padding: 0 4px; }
-  .msg.user .msg-meta { text-align: right; }
-
-  .typing { display: none; align-items: center; gap: 10px; padding: 0 16px 8px; flex-shrink: 0; }
-  .typing.show { display: flex; }
-  .typing-dots { display: flex; gap: 4px; padding: 10px 14px; background: var(--off); border-radius: 14px; border: 1px solid var(--line); }
-  .typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--muted-2); animation: bounce 1.2s infinite; }
-  .typing-dots span:nth-child(2) { animation-delay: .15s; }
-  .typing-dots span:nth-child(3) { animation-delay: .3s; }
-  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-4px)} }
-
-  .chat-chips { display: flex; gap: 6px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; flex-shrink: 0; }
-  .chat-chips::-webkit-scrollbar { display: none; }
-  .chip {
-    flex-shrink: 0; padding: 6px 12px; border-radius: 99px;
-    border: 1px solid var(--line); background: var(--surface);
-    font-size: 0.75rem; font-weight: 500; color: var(--navy-soft); cursor: pointer;
-    transition: transform .1s, background .15s;
-  }
-  .chip:hover { background: var(--blue-light); border-color: var(--blue); }
-  .chip:active { transform: scale(0.96); }
-
-  .chat-input-bar {
-    display: flex; gap: 8px; padding: 12px 16px;
-    padding-bottom: max(12px, var(--safe-b));
-    border-top: 1px solid var(--line); background: var(--surface); flex-shrink: 0;
-  }
-  .chat-input-bar input {
-    flex: 1; padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
-    font: inherit; font-size: 0.88rem; outline: none; background: var(--off);
-  }
-  .chat-input-bar input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
-  .send-btn {
-    width: 42px; height: 42px; border: none; border-radius: 12px;
-    background: var(--navy); color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0;
-    transition: transform .1s;
-  }
-  .send-btn:active { transform: scale(0.92); }
-  .send-btn.sending { animation: sendPop .3s ease; }
-  @keyframes sendPop { 50%{transform:scale(.85)} 100%{transform:scale(1)} }
-
-  .msg-card {
-    margin-top: 8px; padding: 10px 12px; background: var(--surface);
-    border: 1px solid var(--line); border-radius: 10px; font-size: 0.8rem;
-    display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start;
-  }
-  .msg-card button {
-    padding: 8px 12px; border: none; border-radius: 8px; font: inherit;
-    font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: transform .1s;
-  }
-  .msg-card button:active { transform: scale(0.96); }
-  .msg-card .btn-primary { background: var(--navy); color: #fff; }
-  .msg-card .btn-flag { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber); }
-  .msg-card .btn-ghost { background: var(--off); color: var(--navy); border: 1px solid var(--line); }
-  .msg-card .btn-sent { background: var(--green-soft); color: var(--green); pointer-events: none; }
-
-  .escalate-form { width: 100%; margin-top: 4px; }
-  .escalate-form textarea {
-    width: 100%; min-height: 64px; padding: 10px 12px; border: 1px solid var(--line);
-    border-radius: 8px; font: inherit; font-size: 0.82rem; resize: none; outline: none;
-    margin-bottom: 8px;
-  }
-  .escalate-form textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
-  .escalate-hint { font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; line-height: 1.4; }
-
-  /* Tasks */
-  .tasks-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
-  .tasks-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 16px 8px; -webkit-overflow-scrolling: touch; }
-  .tasks-head { margin-bottom: 12px; }
-  .tasks-head h2 { font-size: 1rem; font-weight: 700; color: var(--navy); }
-  .tasks-head p { font-size: 0.8rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
-
-  .task-stats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-  .task-stat {
-    flex: 1; min-width: 88px; padding: 10px 12px; border-radius: 10px;
-    background: var(--surface); border: 1px solid var(--line); text-align: center;
-  }
-  .task-stat .num { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
-  .task-stat .lbl { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
-  .task-stat.warn .num { color: var(--amber); }
-
-  .task-form-toggle {
-    width: 100%; padding: 11px 14px; margin-bottom: 12px;
-    border: 1px dashed var(--line); border-radius: 10px; background: var(--off);
-    font: inherit; font-size: 0.85rem; font-weight: 600; color: var(--navy-soft);
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .task-form-toggle.open { margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-style: solid; background: var(--surface); }
-  .task-form-wrap { display: none; margin-bottom: 16px; }
-  .task-form-wrap.open { display: block; }
-
-  .task-form {
-    display: flex; flex-direction: column; gap: 10px;
-    padding: 14px; background: var(--surface); border: 1px solid var(--line);
-    border-top: none; border-radius: 0 0 var(--r) var(--r);
-  }
-  .task-form label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-  .task-form input,
-  .task-form select {
-    width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
-    font: inherit; font-size: 0.88rem; outline: none; background: var(--off);
-  }
-  .task-form input:focus,
-  .task-form select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
-  .task-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .task-add-btn {
-    padding: 12px; border: none; border-radius: 10px;
-    background: var(--navy); color: #fff; font: inherit;
-    font-size: 0.85rem; font-weight: 600; cursor: pointer;
-  }
-  .task-add-btn:active { opacity: 0.88; }
-
-  .task-section-label {
-    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--muted); margin: 16px 0 8px;
-  }
-  .task-section-label:first-of-type { margin-top: 0; }
-
-  .task-card {
-    display: flex; gap: 12px; align-items: flex-start;
-    padding: 12px 14px; background: var(--surface); border: 1px solid var(--line);
-    border-radius: 12px; margin-bottom: 8px;
-    animation: fadeIn .25s ease;
-    transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .35s ease, max-height .35s ease, margin .35s ease, padding .35s ease;
-    overflow: hidden;
-  }
-  .task-card.sliding-out {
-    transform: translateX(105%);
-    opacity: 0;
-    max-height: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    border-width: 0 !important;
-    pointer-events: none;
-  }
-  .task-card.needed { border-left: 3px solid var(--amber); }
-  .task-card.assigned { border-left: 3px solid var(--blue); }
-  .task-card.done { border-left: 3px solid var(--green); opacity: 0.85; }
-  .task-check {
-    width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--line);
-    background: var(--off); cursor: pointer; flex-shrink: 0; margin-top: 2px;
-    display: grid; place-items: center; font-size: 0.7rem;
-  }
-  .task-card.done .task-check { background: var(--green-soft); border-color: var(--green); color: var(--green); }
-  .task-body { flex: 1; min-width: 0; }
-  .task-title { font-size: 0.88rem; font-weight: 600; line-height: 1.4; }
-  .task-card.done .task-title { text-decoration: line-through; color: var(--muted); }
-  .task-meta { font-size: 0.72rem; color: var(--muted); margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
-  .task-badge {
-    font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-    padding: 2px 7px; border-radius: 4px;
-  }
-  .task-badge.needed { background: var(--amber-soft); color: var(--amber-text); }
-  .task-badge.assigned { background: var(--blue-light); color: var(--navy-soft); }
-  .task-badge.done { background: var(--green-soft); color: var(--green); }
-  .task-assignee {
-    display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 500;
-  }
-  .task-assignee-dot {
-    width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
-    font-size: 0.55rem; font-weight: 700; color: #fff; flex-shrink: 0;
-  }
-  .task-reassign {
-    margin-top: 8px; display: flex; gap: 6px; align-items: center;
-  }
-  .task-reassign select {
-    flex: 1; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px;
-    font: inherit; font-size: 0.75rem; background: var(--off);
-  }
-  .task-reassign button {
-    padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px;
-    background: var(--off); font: inherit; font-size: 0.72rem; font-weight: 600; cursor: pointer;
-  }
-  .tasks-empty { text-align: center; padding: 24px 16px; color: var(--muted); font-size: 0.85rem; }
-
-  /* Mobile done-task slide drawer */
-  .done-drawer {
-    flex-shrink: 0; background: var(--surface); border-top: 1px solid var(--line);
-    box-shadow: 0 -6px 24px rgba(11,45,77,0.08);
-    max-height: 52px; overflow: hidden;
-    transition: max-height .38s cubic-bezier(.22,1,.36,1);
-  }
-  .done-drawer.open { max-height: min(42vh, 320px); }
-  .done-drawer.peek { animation: drawerPeek .6s ease; }
-  @keyframes drawerPeek {
-    0%,100% { max-height: 52px; }
-    40%,60% { max-height: 140px; }
-  }
-  .done-drawer-handle {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    padding: 14px 16px 12px; cursor: pointer; user-select: none; position: relative;
-  }
-  .done-drawer-handle::before {
-    content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-    width: 40px; height: 4px; border-radius: 99px; background: var(--line);
-  }
-  .done-drawer-label { font-size: 0.82rem; font-weight: 600; color: var(--navy); padding-top: 4px; }
-  .done-drawer-label span { color: var(--green); }
-  .done-drawer-chevron { font-size: 0.7rem; color: var(--muted); transition: transform .25s; }
-  .done-drawer.open .done-drawer-chevron { transform: rotate(180deg); }
-  .done-drawer-body {
-    overflow-y: auto; padding: 0 16px max(12px, var(--safe-b));
-    -webkit-overflow-scrolling: touch;
-  }
-  .done-drawer-body .task-card { margin-bottom: 6px; }
-  .done-drawer-body .task-reassign { display: none; }
-
-  .tasks-desktop-done { display: none; }
-
-  @media (max-width: 720px) {
-    .tab { font-size: 0.55rem; letter-spacing: 0.03em; }
-    .tab svg { width: 20px; height: 20px; }
-    .ch-tab { font-size: 0.7rem; padding: 7px 10px; }
-    .ch-tab .ch-label-long { display: none; }
-    .ch-tab .ch-label-short { display: inline; }
-    .task-form-row { grid-template-columns: 1fr; }
-    .tasks-desktop-done { display: none !important; }
-  }
-
-  @media (min-width: 721px) {
-    .done-drawer { display: none; }
-    .tasks-desktop-done { display: block; }
-    .task-form-toggle { display: none; }
-    .task-form-wrap { display: block !important; margin-bottom: 16px; }
-    .task-form { border-radius: var(--r); border-top: 1px solid var(--line); }
-    .ch-tab .ch-label-short { display: none; }
-  }
-
-  /* Slack-style channels */
-  .ch-head {
-    flex-shrink: 0; padding: 12px 16px 10px; background: var(--surface);
-    border-bottom: 1px solid var(--line);
-  }
-  .ch-head-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-  .ch-head h2 { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
-  .ch-live { font-size: 0.68rem; color: var(--muted); display: flex; align-items: center; gap: 5px; }
-  .ch-tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
-  .ch-tabs::-webkit-scrollbar { display: none; }
-  .ch-tab {
-    flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
-    padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line);
-    background: var(--off); font: inherit; font-size: 0.75rem; font-weight: 600;
-    color: var(--muted); cursor: pointer; transition: background .15s, border-color .15s;
+  .app {
+    max-width: 460px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
     position: relative;
+    box-shadow: 0 0 60px rgba(13,30,60,.08);
   }
-  .ch-tab .ch-label-short { display: none; }
-  .ch-tab.active { background: var(--blue-light); border-color: var(--blue); color: var(--navy); }
-  .ch-tab .ch-unread {
-    min-width: 16px; height: 16px; padding: 0 4px; border-radius: 99px;
-    background: var(--amber); color: #fff; font-size: 0.58rem; font-weight: 700;
-    display: none; align-items: center; justify-content: center;
-  }
-  .ch-tab .ch-unread.show { display: inline-flex; }
-  .ch-desc { font-size: 0.72rem; color: var(--muted); margin-top: 8px; line-height: 1.4; }
 
-  .ch-feed {
-    flex: 1; min-height: 0; overflow-y: auto; padding: 12px 16px;
-    display: flex; flex-direction: column; gap: 14px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .ch-msg {
-    display: flex; gap: 10px; animation: fadeIn .25s ease;
-  }
-  .ch-msg.self .ch-msg-body { background: var(--blue-light); border-radius: 10px; padding: 8px 10px; margin-left: 42px; }
-  .ch-avatar {
-    width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
-    display: grid; place-items: center; font-size: 0.62rem; font-weight: 700; color: #fff;
-  }
-  .ch-msg-top { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
-  .ch-msg-name { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
-  .ch-msg-role { font-size: 0.65rem; color: var(--muted); font-weight: 500; }
-  .ch-msg-time { font-size: 0.65rem; color: var(--muted-2); margin-left: auto; }
-  .ch-msg-text { font-size: 0.86rem; line-height: 1.5; color: var(--text); }
-  .ch-msg-flag {
-    display: inline-block; margin-top: 6px; font-size: 0.62rem; font-weight: 700;
-    text-transform: uppercase; padding: 2px 7px; border-radius: 4px;
-    background: var(--amber-soft); color: var(--amber-text);
-  }
-  .ch-day-divider {
-    text-align: center; font-size: 0.68rem; font-weight: 600; color: var(--muted);
-    position: relative; margin: 4px 0;
-  }
-  .ch-day-divider::before, .ch-day-divider::after {
-    content: ''; position: absolute; top: 50%; width: 28%; height: 1px; background: var(--line);
-  }
-  .ch-day-divider::before { left: 0; }
-  .ch-day-divider::after { right: 0; }
-
-  .ch-compose {
-    display: flex; gap: 8px; padding: 10px 12px;
-    padding-bottom: max(10px, var(--safe-b));
-    border-top: 1px solid var(--line); background: var(--surface); flex-shrink: 0;
-  }
-  .ch-compose input {
-    flex: 1; padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
-    font: inherit; font-size: 0.88rem; outline: none; background: var(--off);
-  }
-  .ch-compose input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
-  .ch-send {
-    width: 42px; height: 42px; border: none; border-radius: 12px;
-    background: var(--navy); color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0;
-  }
-  .ch-send:active { transform: scale(0.92); }
-
-  .tabbar {
-    display: flex; border-top: 1px solid var(--line); background: var(--surface);
-    padding-bottom: var(--safe-b); flex-shrink: 0;
-    height: calc(var(--tab-h) + var(--safe-b));
-  }
-  .tab {
-    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 2px; border: none; background: transparent; cursor: pointer;
-    color: var(--muted); font: inherit; font-size: 0.6rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 4px;
-    border-radius: 12px; margin: 0 2px; transition: all .2s; position: relative;
-    min-height: 50px;
-  }
-  .tab svg { width: 22px; height: 22px; transition: transform .2s; }
-  .tab.active { color: var(--navy); background: var(--blue-light); }
-  .tab.active svg { transform: scale(1.08); }
-  .tab-badge {
-    position: absolute; top: 6px; right: calc(50% - 20px);
-    min-width: 16px; height: 16px; padding: 0 4px; border-radius: 99px;
-    background: var(--amber); color: #fff; font-size: 0.58rem; font-weight: 700;
-    border: 2px solid var(--surface); display: none; align-items: center; justify-content: center;
-  }
-  .tab-badge.show { display: flex; }
-
+  /* ---------- Boot ---------- */
   .boot {
-    position: fixed; inset: 0; z-index: 300; background: var(--boot-bg);
+    position: fixed; inset: 0; z-index: 400;
+    background: linear-gradient(160deg, #0A2540, #123a6b);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #fff; transition: opacity .5s ease, visibility .5s;
+    color: #fff; transition: opacity .5s ease, visibility .5s ease;
   }
   .boot.hide { opacity: 0; visibility: hidden; pointer-events: none; }
   .boot-logo {
-    width: 64px; height: 64px; border-radius: 18px;
-    background: linear-gradient(135deg, #4A9AD4, #1A5080);
-    display: grid; place-items: center; font-size: 1.2rem; font-weight: 800;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  }
-  .boot h2 { margin-top: 20px; font-size: 1.1rem; font-weight: 700; }
-  .boot p { margin-top: 8px; font-size: 0.82rem; opacity: 0.7; }
-  .boot-bar { width: 160px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 99px; margin-top: 24px; overflow: hidden; }
-  .boot-fill { height: 100%; background: var(--accent-glow); border-radius: 99px; width: 0; transition: width .8s ease; }
-
-  .sync-overlay {
-    position: fixed; inset: 0; z-index: 150; background: var(--overlay);
+    width: 68px; height: 68px; border-radius: 20px;
+    background: linear-gradient(135deg, #4C8DF5, #7C3AED);
     display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity .25s;
+    font-size: 1.6rem; font-weight: 800; letter-spacing: -1px;
+    box-shadow: 0 12px 30px rgba(76,141,245,.45);
   }
-  .sync-overlay.show { opacity: 1; pointer-events: auto; }
-  .sync-card {
-    background: var(--surface); border-radius: 16px; padding: 28px 32px;
-    text-align: center; transform: scale(.9); transition: transform .3s;
-    box-shadow: 0 20px 60px rgba(11,45,77,0.2);
+  .boot h1 { margin: 22px 0 6px; font-size: 1.15rem; font-weight: 700; }
+  .boot p { margin: 0; font-size: .84rem; opacity: .65; }
+  .boot-bar { width: 150px; height: 4px; border-radius: 99px; background: rgba(255,255,255,.16); margin-top: 26px; overflow: hidden; }
+  .boot-fill { height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg,#4C8DF5,#34D399); transition: width .6s ease; }
+
+  /* ---------- Header ---------- */
+  .header {
+    padding: calc(env(safe-area-inset-top, 0px) + 14px) 18px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 40;
   }
-  .sync-overlay.show .sync-card { transform: scale(1); }
-  .sync-ring {
-    width: 48px; height: 48px; border: 3px solid var(--line);
-    border-top-color: var(--navy); border-radius: 50%;
-    animation: spin .8s linear infinite; margin: 0 auto 14px;
+  .header-left { display: flex; align-items: center; gap: 11px; }
+  .logo {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy), var(--brand));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1rem; letter-spacing: -.5px;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .sync-card p { font-size: 0.88rem; color: var(--muted); }
+  .header-title { font-size: 1rem; font-weight: 700; letter-spacing: -.2px; }
+  .header-sub { font-size: .76rem; color: var(--muted); }
+  .header-actions { display: flex; align-items: center; gap: 8px; }
+  .icon-btn {
+    width: 38px; height: 38px; border-radius: 11px;
+    background: var(--surface-2); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    transition: transform .15s ease;
+  }
+  .icon-btn:active { transform: scale(.92); }
+  .switch-link {
+    font-size: .72rem; font-weight: 600; color: var(--muted);
+    text-decoration: none; padding: 8px 11px; border-radius: 10px;
+    background: var(--surface-2); border: 1px solid var(--line);
+  }
+
+  /* ---------- Panels ---------- */
+  .panels { flex: 1; position: relative; overflow: hidden; }
+  .panel { position: absolute; inset: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+  .panel.active { opacity: 1; visibility: visible; transform: none; }
+  .panel-inner { padding: 18px 16px calc(var(--tab-h) + var(--safe-b) + 24px); }
+
+  /* ---------- Mom hero ---------- */
+  .hero {
+    background: linear-gradient(150deg, var(--navy), #1a4a86);
+    border-radius: 20px; padding: 18px; color: #fff;
+    box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+  }
+  .hero::after { content: ''; position: absolute; right: -40px; top: -40px; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%); }
+  .hero-row { display: flex; align-items: center; gap: 13px; position: relative; }
+  .hero-avatar {
+    width: 52px; height: 52px; border-radius: 15px; flex-shrink: 0;
+    background: linear-gradient(135deg,#4C8DF5,#7C3AED); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  }
+  .hero-name { font-size: 1.08rem; font-weight: 700; }
+  .hero-status { font-size: .8rem; opacity: .85; display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .hero-status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: pulse 2.2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)} 70%{box-shadow:0 0 0 8px rgba(52,211,153,0)} 100%{box-shadow:0 0 0 0 rgba(52,211,153,0)} }
+  .hero-summary {
+    margin-top: 14px; background: rgba(255,255,255,.12); backdrop-filter: blur(4px);
+    border-radius: 13px; padding: 12px 13px; font-size: .84rem; line-height: 1.5; position: relative;
+  }
+  .hero-summary b { font-weight: 700; }
+  .hero-summary .tag { display: inline-flex; align-items: center; gap: 5px; font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; opacity: .8; margin-bottom: 5px; }
+
+  /* ---------- Section ---------- */
+  .sec-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); margin: 24px 4px 10px; display: flex; align-items: center; justify-content: space-between; }
+  .sec-label button { font-size: .74rem; font-weight: 600; color: var(--brand); text-transform: none; letter-spacing: 0; }
+
+  /* ---------- Agent cards (Ask BiBi / Ask Admin) ---------- */
+  .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .agent-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 15px 14px; text-align: left; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 9px; transition: transform .15s ease, box-shadow .2s ease;
+  }
+  .agent-card:active { transform: scale(.97); }
+  .agent-ava {
+    width: 42px; height: 42px; border-radius: 13px; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.05rem; color: #fff;
+  }
+  .agent-ava.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
+  .agent-ava.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
+  .agent-card h3 { margin: 0; font-size: .96rem; font-weight: 700; }
+  .agent-card p { margin: 0; font-size: .76rem; color: var(--muted); line-height: 1.4; }
+  .agent-card .go { font-size: .76rem; font-weight: 700; color: var(--brand); display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
+  .agent-card.admin-card .go { color: var(--admin); }
+
+  /* ---------- Updates feed ---------- */
+  .feed { display: flex; flex-direction: column; gap: 10px; }
+  .update {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 13px; display: flex; gap: 11px; box-shadow: var(--shadow);
+  }
+  .update.flash { animation: flashCard .9s ease; }
+  @keyframes flashCard { 0%{background:var(--brand-soft)} 100%{background:var(--surface)} }
+  .update-ico { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .95rem; background: var(--surface-2); }
+  .update-body { flex: 1; min-width: 0; }
+  .update-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .update-who { font-size: .82rem; font-weight: 700; }
+  .update-time { font-size: .68rem; color: var(--faint); flex-shrink: 0; }
+  .update-text { font-size: .82rem; color: var(--muted); margin-top: 1px; line-height: 1.45; }
+
+  /* ---------- To-dos mini ---------- */
+  .todo {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 13px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); margin-bottom: 10px;
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .todo.done-anim { opacity: 0; transform: translateX(40px); }
+  .todo-check {
+    width: 24px; height: 24px; border-radius: 8px; border: 2px solid var(--line); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: .8rem; color: #fff; transition: all .15s ease;
+  }
+  .todo-check.on { background: var(--green); border-color: var(--green); }
+  .todo-main { flex: 1; min-width: 0; }
+  .todo-title { font-size: .86rem; font-weight: 600; }
+  .todo-title.struck { text-decoration: line-through; color: var(--faint); }
+  .todo-meta { font-size: .72rem; color: var(--muted); margin-top: 1px; }
+  .todo-who { font-size: .66rem; font-weight: 700; padding: 3px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); flex-shrink: 0; }
+
+  .add-todo {
+    width: 100%; padding: 12px; border-radius: 13px; border: 1.5px dashed var(--line);
+    background: var(--surface-2); color: var(--muted); font-size: .84rem; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+  }
+  .add-todo:active { transform: scale(.98); }
+
+  /* ---------- Chat panel ---------- */
+  .chat-wrap { display: flex; flex-direction: column; height: 100%; }
+  .agent-switch {
+    display: flex; gap: 6px; padding: 12px 16px 10px; background: var(--surface); border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 5;
+  }
+  .agent-switch button {
+    flex: 1; padding: 10px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line);
+    display: flex; align-items: center; gap: 9px; transition: all .18s ease;
+  }
+  .agent-switch button.active { border-color: transparent; box-shadow: var(--shadow); }
+  .agent-switch button.active[data-agent="bibi"] { background: var(--brand-soft); }
+  .agent-switch button.active[data-agent="admin"] { background: var(--admin-soft); }
+  .as-ava { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .82rem; color: #fff; flex-shrink: 0; }
+  .as-ava.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
+  .as-ava.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
+  .as-text { text-align: left; line-height: 1.15; }
+  .as-name { font-size: .82rem; font-weight: 700; }
+  .as-role { font-size: .66rem; color: var(--muted); }
+
+  .chat-scroll { flex: 1; overflow-y: auto; padding: 16px 14px 8px; -webkit-overflow-scrolling: touch; }
+  .msg { display: flex; gap: 9px; margin-bottom: 14px; max-width: 100%; }
+  .msg.user { flex-direction: row-reverse; }
+  .msg-ava { width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .72rem; color: #fff; }
+  .msg-ava.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
+  .msg-ava.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
+  .msg-ava.user { background: linear-gradient(135deg,#334155,#0A2540); }
+  .msg-col { min-width: 0; max-width: 82%; }
+  .msg.user .msg-col { align-items: flex-end; display: flex; flex-direction: column; }
+  .bubble {
+    padding: 10px 13px; border-radius: 15px; font-size: .86rem; line-height: 1.5; word-wrap: break-word;
+    background: var(--surface); border: 1px solid var(--line); border-top-left-radius: 5px; box-shadow: var(--shadow);
+  }
+  .msg.user .bubble { background: var(--navy); color: #fff; border: none; border-top-left-radius: 15px; border-top-right-radius: 5px; }
+  html[data-theme="dark"] .msg.user .bubble { background: var(--brand); }
+  .bubble b { font-weight: 700; }
+  .msg-time { font-size: .64rem; color: var(--faint); margin: 4px 4px 0; }
+
+  /* draft / action card */
+  .draft {
+    margin-top: 9px; background: var(--surface); border: 1px solid var(--line); border-radius: 15px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .draft-head { display: flex; align-items: center; gap: 9px; padding: 12px 13px 10px; }
+  .draft-ico { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; flex-shrink: 0; }
+  .draft-ico.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
+  .draft-ico.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
+  .draft-title { font-size: .86rem; font-weight: 700; }
+  .draft-to { font-size: .72rem; color: var(--muted); }
+  .draft-body { padding: 0 13px 12px; }
+  .draft-label { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); margin-bottom: 6px; }
+  .draft textarea {
+    width: 100%; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2);
+    padding: 10px 11px; font-size: .84rem; line-height: 1.5; color: var(--text); resize: none; min-height: 62px;
+  }
+  .draft textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  .draft-actions { display: flex; gap: 8px; padding: 0 13px 13px; }
+  .btn {
+    flex: 1; padding: 11px; border-radius: 11px; font-size: .82rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; gap: 6px; transition: transform .12s ease, opacity .2s;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { background: var(--brand); color: #fff; }
+  .btn-primary.admin { background: var(--admin); }
+  .btn-ghost { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); flex: 0 0 auto; padding: 11px 14px; }
+  .btn.sent { opacity: .6; }
+  .draft.done .draft-actions, .draft.done textarea { pointer-events: none; }
+  .draft-sent {
+    margin: 0 13px 13px; padding: 9px 11px; border-radius: 11px; background: var(--green-soft);
+    color: var(--green); font-size: .78rem; font-weight: 600; display: flex; align-items: center; gap: 7px;
+  }
+
+  .quick-actions { display: flex; flex-direction: column; gap: 7px; margin-top: 9px; }
+  .quick-actions .btn { flex: none; width: 100%; }
+
+  .typing { display: none; gap: 9px; margin-bottom: 14px; align-items: center; }
+  .typing.show { display: flex; }
+  .typing-dots { background: var(--surface); border: 1px solid var(--line); border-radius: 15px; border-top-left-radius: 5px; padding: 13px 15px; display: flex; gap: 4px; }
+  .typing-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); animation: td 1.2s infinite; }
+  .typing-dots span:nth-child(2){animation-delay:.2s} .typing-dots span:nth-child(3){animation-delay:.4s}
+  @keyframes td { 0%,60%,100%{opacity:.3;transform:translateY(0)} 30%{opacity:1;transform:translateY(-3px)} }
+
+  .chat-foot { border-top: 1px solid var(--line); background: var(--surface); padding: 10px 14px calc(10px + var(--safe-b)); }
+  .chips { display: flex; gap: 7px; overflow-x: auto; padding-bottom: 9px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex-shrink: 0; padding: 8px 13px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--line);
+    font-size: .78rem; font-weight: 600; color: var(--text); white-space: nowrap; transition: transform .12s ease;
+  }
+  .chip:active { transform: scale(.95); }
+  .chip.admin { background: var(--admin-soft); color: var(--admin); border-color: transparent; }
+  .input-bar { display: flex; gap: 9px; align-items: center; }
+  .input-bar input {
+    flex: 1; border: 1px solid var(--line); border-radius: 13px; background: var(--surface-2);
+    padding: 12px 14px; font-size: .88rem; color: var(--text);
+  }
+  .input-bar input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  .send {
+    width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0; color: #fff; font-size: 1.15rem;
+    display: flex; align-items: center; justify-content: center; background: var(--brand); transition: transform .12s ease;
+  }
+  .send.admin { background: var(--admin); }
+  .send:active { transform: scale(.9); }
+
+  /* ---------- Bottom nav ---------- */
+  .tabbar {
+    height: calc(var(--tab-h) + var(--safe-b)); padding-bottom: var(--safe-b);
+    background: var(--surface); border-top: 1px solid var(--line);
+    display: flex; position: sticky; bottom: 0; z-index: 40;
+  }
+  .tab {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    font-size: .66rem; font-weight: 600; color: var(--faint); position: relative;
+  }
+  .tab svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tab.active { color: var(--brand); }
+  .tab-badge { position: absolute; top: 8px; left: 50%; margin-left: 5px; min-width: 8px; height: 8px; border-radius: 99px; background: var(--red); display: none; }
+  .tab-badge.show { display: block; }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; left: 50%; bottom: calc(var(--tab-h) + var(--safe-b) + 16px); transform: translate(-50%, 20px);
+    background: var(--navy); color: #fff; padding: 11px 16px; border-radius: 13px; font-size: .82rem; font-weight: 600;
+    display: flex; align-items: center; gap: 9px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
+    transition: all .3s cubic-bezier(.2,.8,.2,1); z-index: 200; max-width: 90%;
+  }
+  html[data-theme="dark"] .toast { background: var(--surface-2); border: 1px solid var(--line); }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast-ico { display: flex; }
 
   .live-toast {
-    position: fixed; top: max(12px, env(safe-area-inset-top)); left: 50%;
-    transform: translateX(-50%) translateY(-120%);
-    background: var(--surface); border: 1px solid var(--line);
-    padding: 12px 16px; border-radius: 14px; z-index: 250;
-    box-shadow: 0 8px 32px rgba(11,45,77,0.15);
-    display: flex; align-items: center; gap: 10px; max-width: 90%;
-    transition: transform .4s cubic-bezier(.22,1,.36,1);
+    position: fixed; top: calc(env(safe-area-inset-top,0px) + 12px); left: 50%; transform: translate(-50%,-20px);
+    max-width: 420px; width: calc(100% - 32px);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 11px 13px;
+    display: flex; align-items: center; gap: 11px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
+    transition: all .35s cubic-bezier(.2,.8,.2,1); z-index: 210;
   }
-  .live-toast.show { transform: translateX(-50%) translateY(0); }
-  .live-toast-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--blue-light); display: grid; place-items: center; font-size: 1rem; flex-shrink: 0; }
-  .live-toast-text { font-size: 0.82rem; line-height: 1.4; }
-  .live-toast-text strong { color: var(--navy); }
+  .live-toast.show { opacity: 1; transform: translate(-50%,0); pointer-events: auto; }
+  .live-toast-ico { width: 34px; height: 34px; border-radius: 10px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .live-toast-text { flex: 1; font-size: .8rem; line-height: 1.35; }
+  .live-toast-text b { font-weight: 700; }
+  .live-toast-cta { font-size: .74rem; font-weight: 700; color: var(--brand); flex-shrink: 0; }
 
-  .toast {
-    position: fixed; bottom: calc(var(--tab-h) + var(--safe-b) + 12px); left: 50%;
-    transform: translateX(-50%) translateY(80px); opacity: 0;
-    background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 99px;
-    font-size: 0.8rem; font-weight: 500; z-index: 200; transition: all .3s ease;
-    max-width: 90%; text-align: center;
-  }
-  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .sync-overlay { position: fixed; inset: 0; background: rgba(10,37,64,.4); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all .25s; z-index: 220; }
+  .sync-overlay.show { opacity: 1; visibility: visible; }
+  .sync-card { background: var(--surface); border-radius: 16px; padding: 22px 26px; display: flex; flex-direction: column; align-items: center; gap: 13px; box-shadow: var(--shadow-lg); }
+  .sync-ring { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--brand); animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .sync-card p { margin: 0; font-size: .82rem; font-weight: 600; color: var(--muted); }
 
-  @media (min-width: 721px) {
-    body { padding: 20px 0; height: auto; overflow: auto; }
-    .app { height: calc(100vh - 40px); border-radius: 20px; overflow: hidden; }
+  /* ---------- Caregivers ---------- */
+  .care-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 13px; margin-bottom: 11px; box-shadow: var(--shadow);
   }
+  .care-card.on-shift { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), var(--shadow); }
+  .care-top { display: flex; align-items: center; gap: 12px; }
+  .care-ava {
+    width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .95rem;
+  }
+  .care-main { flex: 1; min-width: 0; }
+  .care-name { font-size: .95rem; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+  .care-role { font-size: .76rem; color: var(--muted); margin-top: 1px; }
+  .care-badge { font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; padding: 3px 7px; border-radius: 99px; background: var(--green-soft); color: var(--green); }
+  .care-badge.fam { background: var(--brand-soft); color: var(--brand); }
+  .care-note { font-size: .8rem; color: var(--muted); line-height: 1.45; margin-top: 10px; background: var(--surface-2); border-radius: 10px; padding: 9px 11px; }
+  .care-actions { display: flex; gap: 8px; margin-top: 11px; }
+  .care-btn {
+    flex: 1; padding: 9px; border-radius: 11px; font-size: .8rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--text); transition: transform .12s ease;
+  }
+  .care-btn:active { transform: scale(.96); }
+  .care-btn.msg { background: var(--brand); border-color: transparent; color: #fff; }
+  .care-btn.warn { background: var(--amber); border-color: transparent; color: #fff; }
+
+  /* workload meter */
+  .load-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; font-size: .74rem; color: var(--muted); }
+  .load-status { font-weight: 800; }
+  .load-status.ok { color: var(--green); }
+  .load-status.high { color: var(--amber); }
+  .load-status.over { color: var(--red); }
+  .meter { height: 8px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; margin-top: 5px; }
+  .meter-fill { height: 100%; border-radius: 99px; transition: width .5s ease; }
+  .meter-fill.ok { background: var(--green); }
+  .meter-fill.high { background: var(--amber); }
+  .meter-fill.over { background: var(--red); }
+
+  .assign-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .assign-chip { font-size: .72rem; font-weight: 600; padding: 5px 9px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); }
+  .assign-chip.task { background: var(--brand-soft); color: var(--brand); border-color: transparent; }
+  .assign-empty { font-size: .74rem; color: var(--faint); margin-top: 10px; }
+
+  .overload-banner {
+    display: flex; gap: 10px; align-items: flex-start; background: var(--amber-soft);
+    border: 1px solid var(--amber); border-radius: 14px; padding: 12px 13px; margin-bottom: 13px; font-size: .82rem; line-height: 1.45;
+  }
+  .overload-banner .ob-ico { font-size: 1.1rem; flex-shrink: 0; }
+  .overload-banner b { font-weight: 700; }
+
+  /* care-team channel */
+  .cg-channel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+  .cg-ch-head { display: flex; align-items: center; gap: 8px; padding: 12px 13px; border-bottom: 1px solid var(--line); }
+  .cg-ch-head .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+  .cg-ch-title { font-size: .86rem; font-weight: 700; }
+  .cg-ch-sub { font-size: .7rem; color: var(--muted); margin-left: auto; }
+  .cg-ch-feed { max-height: 260px; overflow-y: auto; padding: 13px; display: flex; flex-direction: column; gap: 11px; }
+  .cg-ch-msg { display: flex; gap: 9px; }
+  .cg-ch-msg.self { flex-direction: row-reverse; }
+  .cg-ch-ava { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .66rem; }
+  .cg-ch-col { max-width: 78%; }
+  .cg-ch-msg.self .cg-ch-col { text-align: right; }
+  .cg-ch-name { font-size: .68rem; color: var(--muted); margin: 0 3px 2px; }
+  .cg-ch-bubble { display: inline-block; text-align: left; padding: 8px 11px; border-radius: 13px; border-top-left-radius: 4px; background: var(--surface-2); border: 1px solid var(--line); font-size: .82rem; line-height: 1.45; }
+  .cg-ch-msg.self .cg-ch-bubble { background: var(--navy); color: #fff; border: none; border-top-left-radius: 13px; border-top-right-radius: 4px; }
+  html[data-theme="dark"] .cg-ch-msg.self .cg-ch-bubble { background: var(--brand); }
+  .cg-ch-time { font-size: .62rem; color: var(--faint); margin: 3px 4px 0; }
+  /* link to channel from caregivers tab */
+  .channel-link {
+    width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 13px; box-shadow: var(--shadow); margin: 6px 0 4px; transition: transform .12s ease;
+  }
+  .channel-link:active { transform: scale(.98); }
+  .channel-link-ico { width: 42px; height: 42px; border-radius: 13px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+  .channel-link-text { flex: 1; display: flex; flex-direction: column; }
+  .channel-link-text b { font-size: .92rem; font-weight: 700; }
+  .channel-link-text span { font-size: .76rem; color: var(--muted); }
+  .channel-link-go { font-size: .8rem; font-weight: 700; color: var(--brand); flex-shrink: 0; }
+
+  /* channel tab (full) */
+  .ch-topbar { display: flex; align-items: center; gap: 11px; padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); }
+  .ch-topbar-ava { width: 40px; height: 40px; border-radius: 12px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+  .ch-topbar-title { font-size: .96rem; font-weight: 700; }
+  .ch-topbar-sub { font-size: .72rem; color: var(--muted); }
+  .cg-feed { display: flex; flex-direction: column; gap: 12px; padding: 16px 14px 8px; }
+
+  @media (max-width: 380px) { .agent-grid { grid-template-columns: 1fr; } .tab { font-size: .6rem; } }
 </style>
 </head>
 <body>
 
 <div class="boot" id="boot">
   <div class="boot-logo">Bi</div>
-  <h2>Connecting to BiBi</h2>
-  <p id="bootStatus">Loading Mom's care day…</p>
+  <h1>piVoT Family</h1>
+  <p id="bootStatus">Catching up on Mom's day…</p>
   <div class="boot-bar"><div class="boot-fill" id="bootFill"></div></div>
 </div>
 
 <div class="sync-overlay" id="syncOverlay">
-  <div class="sync-card">
-    <div class="sync-ring"></div>
-    <p id="syncText">Syncing…</p>
-  </div>
+  <div class="sync-card"><div class="sync-ring"></div><p id="syncText">Working…</p></div>
 </div>
 
 <div class="live-toast" id="liveToast">
-  <div class="live-toast-icon">📋</div>
+  <div class="live-toast-ico" id="liveToastIco">📋</div>
   <div class="live-toast-text" id="liveToastText"></div>
+  <span class="live-toast-cta" id="liveToastCta">View</span>
 </div>
 
 <div class="app">
   <header class="header">
-    <div class="header-row">
-      <div class="header-left">
-        <div class="logo">Bi</div>
-        <div>
-          <div class="header-title">piVoT Family</div>
-          <div class="header-sub">Eleanor Whitman</div>
-        </div>
-      </div>
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
-        <a class="switch-link" href="provider.html">Clinical</a>
+    <div class="header-left">
+      <div class="logo">Bi</div>
+      <div>
+        <div class="header-title">piVoT Family</div>
+        <div class="header-sub">Eleanor Whitman</div>
       </div>
     </div>
-    <div class="mom-strip">
-      <div class="mom-avatar">RW</div>
-      <div class="mom-info">
-        <div class="mom-name">Ruth Whitman · Mom</div>
-        <div class="mom-status" id="momStatus"><span class="dot"></span>At dermatology appointment</div>
-      </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a class="switch-link" href="provider.html">Clinical</a>
     </div>
   </header>
 
   <div class="panels">
-    <div class="panel active" id="panel-chat">
-      <div class="chat-live"><span class="live-dot"></span> BiBi is watching today's care updates</div>
-      <div class="chat-body">
-      <div class="chat-messages" id="chatMessages">
-        <div class="msg bibi">
-          <div class="msg-avatar bibi">Bi</div>
-          <div>
-            <div class="msg-bubble">Hi Eleanor. I'm BiBi — here to help you follow Mom's care day in plain language. Ask about visits, meals, therapy, or anything flagged for you.</div>
-            <div class="msg-meta">BiBi · just now</div>
+    <!-- ============ HOME ============ -->
+    <div class="panel active" id="panel-home">
+      <div class="panel-inner">
+        <div class="hero">
+          <div class="hero-row">
+            <div class="hero-avatar">RW</div>
+            <div>
+              <div class="hero-name">Ruth Whitman</div>
+              <div class="hero-status"><span class="dot"></span><span id="momStatus">At dermatology appointment</span></div>
+            </div>
+          </div>
+          <div class="hero-summary">
+            <div class="tag">✨ BiBi · today so far</div>
+            <span id="heroSummary">Mom had a calm morning. Breakfast and meds are done. She's at dermatology now with a ride home arranged.</span>
           </div>
         </div>
-      </div>
-      <div class="typing" id="typing"><div class="msg-avatar bibi">Bi</div><div class="typing-dots"><span></span><span></span><span></span></div></div>
-      </div>
-      <div class="chat-chips" id="chatChips">
-        <button class="chip" data-q="How is Mom doing today?">How is Mom?</button>
-        <button class="chip" data-q="Explain Mom's medications">Medications</button>
-        <button class="chip" data-q="What does the blood pressure flag mean?">BP flag</button>
-        <button class="chip" data-q="Anything I should know?">Anything flagged?</button>
-        <button class="chip" data-action="flag">Flag a concern</button>
-      </div>
-      <div class="chat-input-bar">
-        <input id="chatInput" type="text" placeholder="Ask BiBi about Mom's care…" autocomplete="off" />
-        <button class="send-btn" id="sendChat">↑</button>
+
+        <div class="sec-label">Mom's caregiver</div>
+        <div id="homeCaregiver"></div>
+        <button type="button" class="channel-link" onclick="switchTab('channel')" style="margin-top:2px">
+          <span class="channel-link-ico">💬</span>
+          <span class="channel-link-text"><b>Care team channel</b><span>Message everyone at once</span></span>
+          <span class="channel-link-go">Open →</span>
+        </button>
+
+        <div class="sec-label">Get help</div>
+        <div class="agent-grid">
+          <button type="button" class="agent-card" onclick="openAgent('bibi')">
+            <div class="agent-ava bibi">Bi</div>
+            <h3>Ask BiBi</h3>
+            <p>Message family or the nurse, check on Mom, add reminders.</p>
+            <span class="go">Start →</span>
+          </button>
+          <button type="button" class="agent-card admin-card" onclick="openAgent('admin')">
+            <div class="agent-ava admin">KR</div>
+            <h3>Ask Admin</h3>
+            <p>Reach the facility office about billing, visits, or a concern.</p>
+            <span class="go">Reach out →</span>
+          </button>
+        </div>
+
+        <div class="sec-label">Recent updates</div>
+        <div class="feed" id="feed"></div>
+
+        <div class="sec-label">To-dos <button type="button" onclick="switchTab('bibi')">Ask BiBi</button></div>
+        <div id="todoList"></div>
+        <button type="button" class="add-todo" onclick="quickAddTodo()"><span>＋</span> Add a to-do</button>
       </div>
     </div>
 
-    <div class="panel" id="panel-channels">
-      <div class="ch-head">
-        <div class="ch-head-top">
-          <h2>Channels</h2>
-          <span class="ch-live"><span class="live-dot"></span> Connected</span>
+    <!-- ============ CHAT ============ -->
+    <div class="panel" id="panel-bibi">
+      <div class="chat-wrap">
+        <div class="ch-topbar">
+          <div class="ch-topbar-ava" style="background:linear-gradient(135deg,#1D6FEB,#4C8DF5);color:#fff;font-weight:800;font-size:.95rem">Bi</div>
+          <div class="ch-topbar-main">
+            <div class="ch-topbar-title">BiBi</div>
+            <div class="ch-topbar-sub">Here to help with Mom's day</div>
+          </div>
         </div>
-        <div class="ch-tabs" id="channelTabs">
-          <button type="button" class="ch-tab active" data-ch="family">
-            <span class="ch-label-long"># family-coordination</span><span class="ch-label-short"># family</span>
-            <span class="ch-unread" id="unread-family"></span>
-          </button>
-          <button type="button" class="ch-tab" data-ch="care">
-            <span class="ch-label-long"># care-team</span><span class="ch-label-short"># care</span>
-            <span class="ch-unread" id="unread-care"></span>
-          </button>
+
+        <div class="chat-scroll" id="chatScroll">
+          <div id="chatMessages"></div>
+          <div class="typing" id="typing"><div class="msg-ava" id="typingAva">Bi</div><div class="typing-dots"><span></span><span></span><span></span></div></div>
         </div>
-        <p class="ch-desc" id="channelDesc">Family logistics — siblings &amp; caregivers coordinating around Mom.</p>
-      </div>
-      <div class="ch-feed" id="channelFeed"></div>
-      <div class="ch-compose">
-        <input id="channelInput" type="text" placeholder="Message #family-coordination…" autocomplete="off" />
-        <button type="button" class="ch-send" id="channelSend" aria-label="Send">↑</button>
+
+        <div class="chat-foot">
+          <div class="chips" id="chips"></div>
+          <div class="input-bar">
+            <input id="chatInput" type="text" placeholder="Type a message…" autocomplete="off" />
+            <button type="button" class="send" id="sendBtn">↑</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="panel" id="panel-tasks">
-      <div class="tasks-panel">
-        <div class="tasks-scroll">
-          <div class="tasks-head">
-            <h2>Care tasks</h2>
-            <p>What needs doing — assign a family member to help.</p>
+    <!-- ============ CHANNEL ============ -->
+    <div class="panel" id="panel-channel">
+      <div class="chat-wrap">
+        <div class="ch-topbar">
+          <div class="ch-topbar-ava">💬</div>
+          <div class="ch-topbar-main">
+            <div class="ch-topbar-title">Ruth's care team</div>
+            <div class="ch-topbar-sub" id="cgChannelCount">Everyone caring for Mom</div>
           </div>
-
-          <div class="task-stats" id="taskStats"></div>
-
-          <button type="button" class="task-form-toggle" id="taskFormToggle" onclick="toggleTaskForm()">
-            <span>+</span> Add a task
-          </button>
-          <div class="task-form-wrap" id="taskFormWrap">
-            <form class="task-form" id="taskForm" onsubmit="addTask(event)">
-              <div>
-                <label for="taskTitle">What needs to be done?</label>
-                <input id="taskTitle" type="text" placeholder="e.g. Pick up prescription refill" required />
-              </div>
-              <div class="task-form-row">
-                <div>
-                  <label for="taskAssignee">Family member</label>
-                  <select id="taskAssignee" required></select>
-                </div>
-                <div>
-                  <label for="taskDue">When</label>
-                  <input id="taskDue" type="text" placeholder="Today, Tomorrow…" />
-                </div>
-              </div>
-              <button type="submit" class="task-add-btn">Add & assign</button>
-            </form>
-          </div>
-
-          <div id="taskLists"></div>
-          <div class="tasks-desktop-done" id="taskListsDone"></div>
         </div>
 
-        <div class="done-drawer" id="doneDrawer">
-          <div class="done-drawer-handle" id="doneDrawerHandle" onclick="toggleDoneDrawer()">
-            <span class="done-drawer-label">Completed · <span id="doneCount">0</span></span>
-            <span class="done-drawer-chevron">▾</span>
+        <div class="chat-scroll cg-feed" id="cgChannelFeed"></div>
+
+        <div class="chat-foot">
+          <div class="chips" id="channelChips"></div>
+          <div class="input-bar">
+            <input id="cgChannelInput" type="text" placeholder="Message the whole team…" autocomplete="off" />
+            <button type="button" class="send" id="cgChannelSend" aria-label="Send">↑</button>
           </div>
-          <div class="done-drawer-body" id="doneDrawerBody"></div>
         </div>
       </div>
     </div>
   </div>
 
   <nav class="tabbar">
-    <button class="tab active" data-tab="chat">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      BiBi
+    <button class="tab active" data-tab="home">
+      <span class="tab-badge" id="homeBadge"></span>
+      <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      Home
     </button>
-    <button class="tab" data-tab="channels">
-      <span class="tab-badge" id="channelsBadge"></span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16M4 15h16"/><path d="M10 3L8 21M16 3l-2 18"/></svg>
-      Channels
+    <button class="tab" data-tab="channel">
+      <span class="tab-badge" id="channelBadge"></span>
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      Channel
     </button>
-    <button class="tab" data-tab="tasks">
-      <span class="tab-badge" id="tasksBadge"></span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-      Tasks
+    <button class="tab" data-tab="bibi">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Assistant
     </button>
   </nav>
 </div>
-<div class="toast" id="toast"></div>
+
+<div class="toast" id="toast" role="status"><span class="toast-ico" id="toastIco">✓</span><span id="toastBody"></span></div>
 
 <script>
-const assignees = [
-  { id: 'eleanor', name: 'Eleanor Whitman', role: 'You', color: '#134068', initials: 'EW' },
-  { id: 'david', name: 'David Whitman', role: 'Brother', color: '#0E7490', initials: 'DW' },
-  { id: 'sarah', name: 'Sarah Whitman', role: 'Sister', color: '#7C3AED', initials: 'SW' },
+/* ============ Data ============ */
+const me = { name: 'Eleanor Whitman', first: 'Eleanor', initials: 'EW' };
+const mom = { name: 'Ruth Whitman', first: 'Mom' };
+
+const contacts = {
+  bibi:  { name: 'BiBi', initials: 'Bi', role: 'Your helper', kind: 'bibi' },
+  admin: { name: 'Karen Reyes', initials: 'KR', role: 'Facility Administrator', kind: 'admin', phone: '+15551234050' },
+  david: { name: 'David', initials: 'D', role: 'Brother', phone: '+15551234001' },
+  sarah: { name: 'Sarah', initials: 'S', role: 'Sister', phone: '+15551234002' },
+  ana:   { name: 'Ana Melendez', initials: 'AM', role: 'Nurse (LPN)', phone: '+15551234010' },
+  james: { name: 'James Okafor', initials: 'JO', role: 'Physical Therapist', phone: '+15551234011' },
+  maria: { name: 'Maria Torres', initials: 'MT', role: 'Home Health Aide', phone: '+15551234012' },
+  ridewell: { name: 'RideWell', initials: 'RW', role: 'Transport service', phone: '+15551234020' },
+};
+
+// capacity = comfortable number of assignments per day. duties = fixed care tasks (staff).
+const caregivers = [
+  { id:'ana',      color:'#0E9F6E', group:'team',   onShift:true,  capacity:5, duties:['Morning meds','Vitals check','Afternoon meds'] },
+  { id:'maria',    color:'#7C3AED', group:'team',   onShift:true,  capacity:4, duties:['Breakfast help','Bathing & hygiene','Lunch help','Comfort care'] },
+  { id:'james',    color:'#1D6FEB', group:'team',   onShift:false, capacity:3, duties:['PT session (Thu 11:40a)'] },
+  { id:'ridewell', color:'#D97706', group:'team',   onShift:false, capacity:3, duties:['Dermatology round-trip'] },
+  { id:'david',    color:'#0E7490', group:'family', onShift:false, capacity:2, duties:[] },
+  { id:'sarah',    color:'#DB2777', group:'family', onShift:false, capacity:3, duties:[] },
 ];
 
-let tasks = [
-  { id: 1, title: 'Confirm dermatology return ride', status: 'assigned', assigneeId: 'david', createdBy: 'BiBi', due: 'Today 3:30p' },
-  { id: 2, title: 'Call Mom after dermatology appointment', status: 'assigned', assigneeId: 'sarah', createdBy: 'BiBi', due: 'Today' },
-  { id: 3, title: 'Pick up prescription refill', status: 'needed', assigneeId: null, createdBy: 'Eleanor', due: 'Tomorrow' },
+let todos = [
+  { id: 1, title: 'Confirm dermatology ride home', who: 'David', assigneeId: 'david', done: false, due: 'Today 3:30p' },
+  { id: 2, title: 'Call Mom after her appointment', who: 'Sarah', assigneeId: 'sarah', done: false, due: 'Today' },
+  { id: 3, title: 'Pick up prescription refill', who: 'You', assigneeId: 'eleanor', done: false, due: 'Tomorrow' },
+  { id: 4, title: 'Drop off groceries for the week', who: 'David', assigneeId: 'david', done: false, due: 'Today' },
+];
+let nextTodoId = 5;
+
+let channelMsgs = [
+  { id:'ana', text:'Morning meds done — Ruth is comfortable and had breakfast. 💚', time:'9:22a' },
+  { self:true, text:'Thank you, Ana!', time:'9:25a' },
+  { id:'maria', text:'Starting lunch prep and a bit of comfort care now.', time:'12:10p' },
 ];
 
-const people = {
-  eleanor: { name: 'Eleanor Whitman', initials: 'EW', color: '#134068', role: 'Family' },
-  david: { name: 'David Whitman', initials: 'DW', color: '#0E7490', role: 'Family · brother' },
-  sarah: { name: 'Sarah Whitman', initials: 'SW', color: '#7C3AED', role: 'Family · sister' },
-  ana: { name: 'Ana Melendez', initials: 'AM', color: '#1A7A4C', role: 'LPN · on shift' },
-  james: { name: 'James K.', initials: 'JK', color: '#2B6CB0', role: 'Physical therapist' },
-  maria: { name: 'Maria T.', initials: 'MT', color: '#6D28D9', role: 'Home health aide' },
-  ridewell: { name: 'RideWell', initials: 'RW', color: '#7C3AED', role: 'Transport' },
-};
+let feed = [
+  { ico: '🩺', who: 'Ana · Nurse', text: 'Morning meds given. BP a little low earlier (108/64) — Mom rested and felt better.', time: '9:20a' },
+  { ico: '🚗', who: 'RideWell', text: 'Picked Mom up for her dermatology appointment.', time: '1:45p' },
+  { ico: '💬', who: 'David', text: "I'll grab her prescription on the way over.", time: '11:02a' },
+];
 
-const channelMeta = {
-  family: {
-    slug: 'family-coordination',
-    label: 'Family coordination',
-    desc: 'Family logistics — siblings & caregivers coordinating around Mom.',
-  },
-  care: {
-    slug: 'care-team',
-    label: 'Care team',
-    desc: 'Ana, James, Maria & providers — clinical updates in plain language.',
-  },
-};
+/* ============ Helpers ============ */
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function now(){ return new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}).replace(/\s/,'').toLowerCase(); }
+function delay(ms){ return new Promise(r=>setTimeout(r,ms)); }
 
-let activeChannel = 'family';
-let channelUnread = { family: 0, care: 1 };
-let nextChannelMsgId = 20;
+let _toastT;
+function showToast(msg, ico='✓'){
+  $('toastIco').textContent = ico;
+  $('toastBody').textContent = msg;
+  $('toast').classList.add('show');
+  clearTimeout(_toastT);
+  _toastT = setTimeout(()=>$('toast').classList.remove('show'), 2400);
+}
 
-const channelMessages = {
-  family: [
-    { id: 1, authorId: 'david', text: 'I can pick up Mom\'s prescription refill tomorrow after work if someone adds it to tasks.', time: '8:12 AM' },
-    { id: 2, authorId: 'eleanor', text: 'That would help — I added it as a task. Thanks David!', time: '8:20 AM', self: true },
-    { id: 3, authorId: 'sarah', text: 'I\'ll be in town Sunday — happy to sit with Mom if anyone needs a break.', time: '9:45 AM' },
-  ],
-  care: [
-    { id: 10, authorId: 'ana', text: 'Morning medications given on schedule. Blood pressure 108/64 — a little lower than usual. Mom rested and felt better by early afternoon.', time: '9:05 AM' },
-    { id: 11, authorId: 'james', text: 'PT session complete — 30 min gait & balance. Steadier than last week, pain 0/10.', time: '11:42 AM' },
-    { id: 12, authorId: 'ridewell', text: 'Pickup confirmed for dermatology 2:00 PM. Return trip booked 3:30 PM.', time: '1:55 PM' },
-  ],
-};
+let _liveT;
+function showLiveToast(ico, html, cta='View', onTap){
+  $('liveToastIco').textContent = ico;
+  $('liveToastText').innerHTML = html;
+  const ctaEl = $('liveToastCta');
+  ctaEl.textContent = cta;
+  const lt = $('liveToast');
+  lt.classList.add('show');
+  lt.onclick = () => { lt.classList.remove('show'); onTap && onTap(); };
+  clearTimeout(_liveT);
+  _liveT = setTimeout(()=>lt.classList.remove('show'), 4200);
+}
 
-let currentTab = 'chat';
-let nextTaskId = 4;
-
-function esc(s) { return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-
-function getAssignee(id) { return assignees.find(a => a.id === id); }
-
-function showSync(text, ms = 1400) {
-  return new Promise(resolve => {
-    document.getElementById('syncText').textContent = text;
-    document.getElementById('syncOverlay').classList.add('show');
-    setTimeout(() => {
-      document.getElementById('syncOverlay').classList.remove('show');
-      setTimeout(resolve, 250);
-    }, ms);
+function showSync(text, ms=1200){
+  return new Promise(res=>{
+    $('syncText').textContent = text;
+    $('syncOverlay').classList.add('show');
+    setTimeout(()=>{ $('syncOverlay').classList.remove('show'); setTimeout(res,220); }, ms);
   });
 }
 
-function showLiveToast(icon, html, ms = 4000) {
-  const t = document.getElementById('liveToast');
-  t.querySelector('.live-toast-icon').textContent = icon;
-  document.getElementById('liveToastText').innerHTML = html;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), ms);
+function openNativeMessage(id, body){
+  const p = contacts[id];
+  const phone = (p?.phone||'').replace(/[^\d+]/g,'');
+  if(!phone){ showToast(`${p?.name||'They'} have no number on file`, 'ℹ️'); return; }
+  window.location.href = `sms:${phone}${body?`?&body=${encodeURIComponent(body)}`:''}`;
+  showToast(`Opening Messages for ${p.name.split(' ')[0]}…`, '💬');
+}
+function openNativeCall(id){
+  const p = contacts[id];
+  const phone = (p?.phone||'').replace(/[^\d+]/g,'');
+  if(!phone){ showToast('No number on file', 'ℹ️'); return; }
+  window.location.href = `tel:${phone}`;
 }
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2800);
+/* ============ Navigation ============ */
+let currentTab = 'home';
+function switchTab(tab){
+  currentTab = tab;
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id===`panel-${tab}`));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
+  if(tab==='home'){ $('homeBadge').classList.remove('show'); }
+  if(tab==='channel'){ $('channelBadge').classList.remove('show'); setTimeout(()=>{ const f=$('cgChannelFeed'); if(f) f.scrollTop=f.scrollHeight; }, 40); }
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>switchTab(t.dataset.tab)));
+
+function openAgent(kind){
+  switchTab('bibi');
+  if(!assistantStarted){ assistantStarted = true; greet(); }
+  if(kind==='admin') startOfficeRequest();
+  setTimeout(scrollChat, 40);
 }
 
-function populateAssigneeSelects() {
-  const opts = assignees.map(a => `<option value="${a.id}">${esc(a.name)} · ${esc(a.role)}</option>`).join('');
-  document.getElementById('taskAssignee').innerHTML = opts;
+/* ============ Feed & To-dos ============ */
+function renderFeed(){
+  $('feed').innerHTML = feed.map(f=>`
+    <div class="update">
+      <div class="update-ico">${f.ico}</div>
+      <div class="update-body">
+        <div class="update-top"><span class="update-who">${esc(f.who)}</span><span class="update-time">${esc(f.time)}</span></div>
+        <div class="update-text">${esc(f.text)}</div>
+      </div>
+    </div>`).join('');
+}
+function addFeed(item, flash=true){
+  feed.unshift(item);
+  renderFeed();
+  if(flash){ const first=$('feed').firstElementChild; if(first) first.classList.add('flash'); }
+  if(currentTab!=='home') $('homeBadge').classList.add('show');
 }
 
-function updateTasksBadge() {
-  const open = tasks.filter(t => t.status !== 'done').length;
-  const badge = document.getElementById('tasksBadge');
-  badge.textContent = open;
-  badge.classList.toggle('show', open > 0);
+/* ============ Caregivers · workload ============ */
+function assignmentsFor(cg){
+  const tasks = todos.filter(t=>!t.done && t.assigneeId===cg.id).map(t=>({ label:t.title, task:true }));
+  const duties = (cg.duties||[]).map(d=>({ label:d, task:false }));
+  return [...duties, ...tasks];
+}
+function loadInfo(cg){
+  const items = assignmentsFor(cg);
+  const cap = cg.capacity || 1;
+  const pct = Math.min(items.length / cap, 1.35);
+  let level = 'ok', label = 'Light load';
+  const ratio = items.length / cap;
+  if(ratio >= 1) { level = 'over'; label = 'Overloaded'; }
+  else if(ratio >= 0.75) { level = 'high'; label = 'Nearly full'; }
+  else if(ratio >= 0.5) { level = 'ok'; label = 'Balanced'; }
+  return { items, cap, pct, level, label, count: items.length };
+}
+function freestInGroup(group, excludeId){
+  return caregivers
+    .filter(c=>c.group===group && c.id!==excludeId)
+    .map(c=>({ c, free: (c.capacity||1) - loadInfo(c).count }))
+    .sort((a,b)=>b.free-a.free)[0];
 }
 
-function renderTaskStats() {
-  const needed = tasks.filter(t => t.status === 'needed').length;
-  const assigned = tasks.filter(t => t.status === 'assigned').length;
-  const done = tasks.filter(t => t.status === 'done').length;
-  const el = document.getElementById('taskStats');
-  if (!el) return;
-  el.innerHTML = `
-    <div class="task-stat${needed ? ' warn' : ''}"><div class="num">${needed}</div><div class="lbl">Needs assign</div></div>
-    <div class="task-stat"><div class="num">${assigned}</div><div class="lbl">In progress</div></div>
-    <div class="task-stat"><div class="num">${done}</div><div class="lbl">Done</div></div>`;
-  const doneCount = document.getElementById('doneCount');
-  if (doneCount) doneCount.textContent = done;
-}
+function careCardHtml(cg){
+  const c = contacts[cg.id];
+  const li = loadInfo(cg);
+  const badge = cg.onShift ? `<span class="care-badge">On shift</span>`
+    : (cg.group==='family' ? `<span class="care-badge fam">Family</span>` : '');
+  const chips = li.items.length
+    ? `<div class="assign-list">${li.items.map(i=>`<span class="assign-chip ${i.task?'task':''}">${esc(i.label)}</span>`).join('')}</div>`
+    : `<div class="assign-empty">No assignments — has room to help.</div>`;
 
-function taskCardHtml(t, compact) {
-  const a = t.assigneeId ? getAssignee(t.assigneeId) : null;
-  const statusLabel = t.status === 'needed' ? 'Needed' : t.status === 'assigned' ? 'Assigned' : 'Done';
+  let action2;
+  if(li.level==='over' && cg.group==='family'){
+    action2 = `<button type="button" class="care-btn warn" onclick="rebalance('${cg.id}')">⇄ Rebalance</button>`;
+  } else if(li.level==='over'){
+    action2 = `<button type="button" class="care-btn warn" onclick="requestBackup('${cg.id}')">＋ Add support</button>`;
+  } else {
+    action2 = `<button type="button" class="care-btn" onclick="openNativeCall('${cg.id}')">📞 Call</button>`;
+  }
+
   return `
-    <div class="task-card ${t.status}" data-id="${t.id}">
-      <button type="button" class="task-check" onclick="toggleTaskDone(${t.id})" aria-label="${t.status === 'done' ? 'Mark not done' : 'Mark done'}">${t.status === 'done' ? '✓' : ''}</button>
-      <div class="task-body">
-        <div class="task-title">${esc(t.title)}</div>
-        <div class="task-meta">
-          <span class="task-badge ${t.status}">${statusLabel}</span>
-          ${a ? `<span class="task-assignee"><span class="task-assignee-dot" style="background:${a.color}">${esc(a.initials)}</span>${esc(a.name)}</span>` : '<span class="task-assignee" style="color:var(--amber)">Unassigned</span>'}
-          ${t.due ? `<span>Due ${esc(t.due)}</span>` : ''}
-          ${!compact ? `<span>Added by ${esc(t.createdBy)}</span>` : ''}
+    <div class="care-card ${cg.onShift?'on-shift':''}">
+      <div class="care-top">
+        <div class="care-ava" style="background:${cg.color}">${esc(c.initials)}</div>
+        <div class="care-main">
+          <div class="care-name">${esc(c.name)} ${badge}</div>
+          <div class="care-role">${esc(c.role)}</div>
         </div>
-        ${!compact && t.status !== 'done' ? `
-          <div class="task-reassign">
-            <select id="reassign-${t.id}">
-              <option value="">Family member…</option>
-              ${assignees.map(x => `<option value="${x.id}"${x.id === t.assigneeId ? ' selected' : ''}>${esc(x.name)}</option>`).join('')}
-            </select>
-            <button type="button" onclick="assignTask(${t.id})">Assign</button>
-          </div>` : ''}
+      </div>
+      <div class="load-row">
+        <span>Today's load · ${li.count}/${li.cap}</span>
+        <span class="load-status ${li.level}">${li.label}</span>
+      </div>
+      <div class="meter"><div class="meter-fill ${li.level}" style="width:${Math.round(li.pct*100)}%"></div></div>
+      ${chips}
+      <div class="care-actions">
+        <button type="button" class="care-btn msg" onclick="messageCaregiver('${cg.id}')">💬 Message</button>
+        ${action2}
       </div>
     </div>`;
 }
 
-function renderTasks() {
-  const active = tasks.filter(t => t.status !== 'done');
-  const done = tasks.filter(t => t.status === 'done');
-  const el = document.getElementById('taskLists');
-  const doneDesktop = document.getElementById('taskListsDone');
-  const doneBody = document.getElementById('doneDrawerBody');
-
-  let html = '';
-  if (!active.length) {
-    html = '<div class="tasks-empty">All caught up — no open tasks</div>';
-  } else {
-    const groups = [
-      { key: 'needed', label: 'Needs assignment' },
-      { key: 'assigned', label: 'Assigned' },
-    ];
-    groups.forEach(g => {
-      const items = active.filter(t => t.status === g.key);
-      if (!items.length) return;
-      html += `<div class="task-section-label">${g.label} (${items.length})</div>`;
-      items.forEach(t => { html += taskCardHtml(t, false); });
-    });
-  }
-  el.innerHTML = html;
-
-  const doneHtml = done.length
-    ? done.map(t => taskCardHtml(t, true)).join('')
-    : '<div class="tasks-empty">Nothing completed yet</div>';
-
-  if (doneBody) doneBody.innerHTML = doneHtml;
-  if (doneDesktop) {
-    doneDesktop.innerHTML = done.length
-      ? `<div class="task-section-label">Done (${done.length})</div>${done.map(t => taskCardHtml(t, true)).join('')}`
-      : '';
-  }
-
-  renderTaskStats();
-  updateTasksBadge();
+// The caregiver assigned to Mom (shown on Home)
+const primaryCaregiverId = 'ana';
+function renderHomeCaregiver(){
+  const cg = caregivers.find(c=>c.id===primaryCaregiverId) || caregivers.find(c=>c.onShift) || caregivers[0];
+  $('homeCaregiver').innerHTML = cg ? careCardHtml(cg) : '';
 }
 
-function toggleTaskForm() {
-  const wrap = document.getElementById('taskFormWrap');
-  const btn = document.getElementById('taskFormToggle');
-  const open = !wrap.classList.contains('open');
-  wrap.classList.toggle('open', open);
-  btn.classList.toggle('open', open);
-  if (open) document.getElementById('taskTitle').focus();
+function rebalance(id){
+  const from = caregivers.find(c=>c.id===id);
+  const task = todos.find(t=>!t.done && t.assigneeId===id);
+  const target = freestInGroup(from.group, id);
+  if(!task || !target || target.free <= 0){ showToast('No one with spare capacity — try adding support', 'ℹ️'); return; }
+  task.assigneeId = target.c.id;
+  task.who = contacts[target.c.id].name.split(' ')[0];
+  renderTodos();
+  renderHomeCaregiver();
+  const toName = contacts[target.c.id].name.split(' ')[0];
+  showToast(`Moved to ${toName} — load balanced`, '⇄');
+  postChannel({ self:true, text:`Reassigned "${task.title}" to ${toName} to balance the load.` });
 }
 
-function toggleDoneDrawer(force) {
-  const drawer = document.getElementById('doneDrawer');
-  const open = force === true ? true : force === false ? false : !drawer.classList.contains('open');
-  drawer.classList.toggle('open', open);
-  drawer.classList.remove('peek');
+function requestBackup(id){
+  const name = contacts[id].name.split(' ')[0];
+  openAgent('admin');
+  setTimeout(()=>send(`${name} is fully booked with Mom's care today — can we add extra support so they're not overburdened?`), 300);
 }
 
-function peekDoneDrawer() {
-  const drawer = document.getElementById('doneDrawer');
-  drawer.classList.add('peek');
-  setTimeout(() => drawer.classList.remove('peek'), 700);
+function messageCaregiver(id){
+  const c = contacts[id];
+  const first = c.name.split(' ')[0];
+  makeChannelDraft({ to: `${c.name} · ${c.role}`, toId: id, text: `Hi ${first} — ` });
 }
 
-function isMobileTasks() {
-  return window.matchMedia('(max-width: 720px)').matches;
+/* ============ Care team channel ============ */
+const channelChips = [
+  { label:'✏️ Draft a message', text:'' },
+  { label:'Share an update', text:'Quick update on Mom: ' },
+  { label:'Ask for a status', text:'Could someone share how Mom is doing right now? Thank you!' },
+  { label:'Say thanks', text:'Thank you all for taking such good care of Mom today. 💚' },
+];
+function renderChannelChips(){
+  $('channelChips').innerHTML = channelChips.map((c,i)=>`<button type="button" class="chip" data-i="${i}">${esc(c.label)}</button>`).join('');
+  $('channelChips').querySelectorAll('.chip').forEach(el=>el.addEventListener('click', ()=>makeChannelDraft({ text: channelChips[+el.dataset.i].text })));
 }
 
-function addTask(e) {
-  e.preventDefault();
-  const title = document.getElementById('taskTitle').value.trim();
-  const assigneeId = document.getElementById('taskAssignee').value;
-  const due = document.getElementById('taskDue').value.trim();
-  if (!title) return;
-  tasks.unshift({
-    id: nextTaskId++,
-    title,
-    status: assigneeId ? 'assigned' : 'needed',
-    assigneeId: assigneeId || null,
-    createdBy: 'Eleanor',
-    due: due || '—',
-  });
-  document.getElementById('taskForm').reset();
-  populateAssigneeSelects();
-  document.getElementById('taskFormWrap').classList.remove('open');
-  document.getElementById('taskFormToggle').classList.remove('open');
-  renderTasks();
-  const person = getAssignee(assigneeId);
-  showToast(assigneeId ? `✓ Task assigned to ${person.name}` : '✓ Task added — pick a family member when ready');
-}
-
-function assignTask(id) {
-  const sel = document.getElementById('reassign-' + id);
-  const assigneeId = sel?.value;
-  if (!assigneeId) { showToast('Pick a family member to assign'); return; }
-  const task = tasks.find(t => t.id === id);
-  if (!task) return;
-  task.assigneeId = assigneeId;
-  task.status = 'assigned';
-  renderTasks();
-  showToast(`✓ Assigned to ${getAssignee(assigneeId).name}`);
-}
-
-function toggleTaskDone(id) {
-  const task = tasks.find(t => t.id === id);
-  if (!task) return;
-
-  if (task.status === 'done') {
-    task.status = task.assigneeId ? 'assigned' : 'needed';
-    renderTasks();
-    return;
-  }
-
-  const card = document.querySelector(`.task-card[data-id="${id}"]`);
-  if (card && isMobileTasks()) {
-    card.classList.add('sliding-out');
-    showToast('✓ Task completed');
-    setTimeout(() => {
-      task.status = 'done';
-      renderTasks();
-      peekDoneDrawer();
-    }, 360);
-    return;
-  }
-
-  task.status = 'done';
-  renderTasks();
-  showToast('✓ Task completed');
-}
-
-function createTaskFromChat(title, assigneeId, createdBy) {
-  tasks.unshift({
-    id: nextTaskId++,
-    title,
-    status: assigneeId ? 'assigned' : 'needed',
-    assigneeId: assigneeId || null,
-    createdBy: createdBy || 'Eleanor',
-    due: 'Today',
-  });
-  renderTasks();
-  document.getElementById('tasksBadge').classList.add('show');
-}
-
-function postToChannel(channelId, authorId, text, opts = {}) {
-  channelMessages[channelId].push({
-    id: nextChannelMsgId++,
-    authorId,
-    text,
-    time: opts.time || new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }),
-    self: authorId === 'eleanor',
-    flag: opts.flag || false,
-  });
-  if (currentTab !== 'channels' || activeChannel !== channelId) {
-    channelUnread[channelId] = (channelUnread[channelId] || 0) + 1;
-    updateChannelBadges();
-  }
-  if (currentTab === 'channels' && activeChannel === channelId) renderChannelFeed();
-}
-
-function updateChannelBadges() {
-  ['family', 'care'].forEach(ch => {
-    const n = channelUnread[ch] || 0;
-    const el = document.getElementById('unread-' + ch);
-    if (el) {
-      el.textContent = n;
-      el.classList.toggle('show', n > 0);
-    }
-  });
-  const total = (channelUnread.family || 0) + (channelUnread.care || 0);
-  const tabBadge = document.getElementById('channelsBadge');
-  tabBadge.textContent = total;
-  tabBadge.classList.toggle('show', total > 0);
-}
-
-function switchChannel(ch) {
-  activeChannel = ch;
-  channelUnread[ch] = 0;
-  updateChannelBadges();
-  document.querySelectorAll('.ch-tab').forEach(t => t.classList.toggle('active', t.dataset.ch === ch));
-  const meta = channelMeta[ch];
-  document.getElementById('channelDesc').textContent = meta.desc;
-  document.getElementById('channelInput').placeholder = 'Message #' + meta.slug + '…';
-  renderChannelFeed();
-}
-
-function renderChannelFeed() {
-  const feed = document.getElementById('channelFeed');
-  const msgs = channelMessages[activeChannel] || [];
-  feed.innerHTML = `<div class="ch-day-divider">Today · ${esc(channelMeta[activeChannel].label)}</div>` +
-    msgs.map(m => {
-      const p = people[m.authorId] || { name: 'Unknown', initials: '?', color: '#647892', role: '' };
-      return `
-        <div class="ch-msg${m.self ? ' self' : ''}">
-          <div class="ch-avatar" style="background:${p.color}">${esc(p.initials)}</div>
-          <div class="ch-msg-body" style="flex:1;min-width:0">
-            <div class="ch-msg-top">
-              <span class="ch-msg-name">${esc(p.name)}</span>
-              <span class="ch-msg-role">${esc(p.role)}</span>
-              <span class="ch-msg-time">${esc(m.time)}</span>
-            </div>
-            <div class="ch-msg-text">${esc(m.text)}</div>
-            ${m.flag ? '<span class="ch-msg-flag">⚑ Flagged for team</span>' : ''}
-          </div>
+function renderChannel(){
+  $('cgChannelCount').textContent = `${caregivers.length} people · everyone caring for Mom`;
+  const feed = $('cgChannelFeed');
+  feed.innerHTML = channelMsgs.map(m=>{
+    if(m.type==='draft'){
+      const toLine = m.to ? `To: ${esc(m.to)}` : 'To: whole care team';
+      if(m.sent){
+        return `<div class="draft done" data-cd="${m.cid}">
+          <div class="draft-head"><div class="draft-ico bibi">💬</div><div><div class="draft-title">Sent</div><div class="draft-to">${toLine}</div></div></div>
+          <div class="draft-body"><div class="draft-label">Your message</div><textarea rows="3" readonly>${esc(m.text)}</textarea></div>
+          <div class="draft-sent">✓ Sent to the channel</div>
         </div>`;
-    }).join('');
+      }
+      return `<div class="draft" data-cd="${m.cid}">
+        <div class="draft-head"><div class="draft-ico bibi">✏️</div><div><div class="draft-title">Message draft</div><div class="draft-to">${toLine}</div></div></div>
+        <div class="draft-body"><div class="draft-label">Your message · tap to edit</div><textarea rows="3" placeholder="Write your message…">${esc(m.text)}</textarea></div>
+        <div class="draft-actions"><button type="button" class="btn btn-primary" data-cd-send>Send</button><button type="button" class="btn btn-ghost" data-cd-cancel>Discard</button></div>
+      </div>`;
+    }
+    if(m.self){
+      return `<div class="cg-ch-msg self"><div class="cg-ch-ava" style="background:linear-gradient(135deg,#334155,#0A2540)">${me.initials}</div>
+        <div class="cg-ch-col"><div class="cg-ch-name">You</div><div class="cg-ch-bubble">${esc(m.text)}</div><div class="cg-ch-time">${esc(m.time)}</div></div></div>`;
+    }
+    const c = contacts[m.id] || { name:'Care', initials:'?' };
+    const cg = caregivers.find(x=>x.id===m.id);
+    return `<div class="cg-ch-msg"><div class="cg-ch-ava" style="background:${cg?cg.color:'#64748B'}">${esc(c.initials)}</div>
+      <div class="cg-ch-col"><div class="cg-ch-name">${esc(c.name.split(' ')[0])}</div><div class="cg-ch-bubble">${esc(m.text)}</div><div class="cg-ch-time">${esc(m.time)}</div></div></div>`;
+  }).join('');
+
+  channelMsgs.filter(m=>m.type==='draft' && !m.sent).forEach(m=>{
+    const wrap = feed.querySelector(`[data-cd="${m.cid}"]`);
+    if(!wrap) return;
+    const ta = wrap.querySelector('textarea');
+    if(ta) ta.addEventListener('input', ()=>{ m.text = ta.value; });
+    wrap.querySelector('[data-cd-send]')?.addEventListener('click', ()=>sendChannelDraft(m.cid));
+    wrap.querySelector('[data-cd-cancel]')?.addEventListener('click', ()=>{ channelMsgs = channelMsgs.filter(x=>x!==m); renderChannel(); });
+  });
   feed.scrollTop = feed.scrollHeight;
 }
 
-function sendChannelMessage() {
-  const input = document.getElementById('channelInput');
-  const text = input.value.trim();
-  if (!text) return;
-  postToChannel(activeChannel, 'eleanor', text);
-  input.value = '';
-  renderChannelFeed();
-  if (activeChannel === 'care') {
-    setTimeout(() => {
-      postToChannel('care', 'ana', "Got it, Eleanor — I'll follow up and post an update here shortly.");
-      if (currentTab === 'channels') renderChannelFeed();
-    }, 2500);
-  }
+function makeChannelDraft(opts){
+  const cid = 'cd'+Date.now()+Math.floor(Math.random()*99);
+  channelMsgs.push({ type:'draft', cid, to: opts.to||'', toId: opts.toId||'', text: opts.text||'', sent:false });
+  switchTab('channel');
+  renderChannel();
+  setTimeout(()=>{
+    const w = $('cgChannelFeed').querySelector(`[data-cd="${cid}"]`);
+    const ta = w && w.querySelector('textarea');
+    if(ta){ ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+  }, 140);
 }
 
-function switchTab(name) {
-  if (name === currentTab) return;
-  const prev = document.getElementById('panel-' + currentTab);
-  const next = document.getElementById('panel-' + name);
-  prev.classList.add('exit-left');
-  setTimeout(() => prev.classList.remove('exit-left'), 280);
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
-  next.classList.add('active');
-  currentTab = name;
-  if (name === 'tasks') document.getElementById('tasksBadge').classList.remove('show');
-  if (name === 'channels') {
-    channelUnread[activeChannel] = 0;
-    updateChannelBadges();
-    renderChannelFeed();
-  }
+function sendChannelDraft(cid){
+  const m = channelMsgs.find(x=>x.cid===cid);
+  if(!m || m.sent) return;
+  const wrap = $('cgChannelFeed').querySelector(`[data-cd="${cid}"]`);
+  const ta = wrap && wrap.querySelector('textarea');
+  if(ta) m.text = ta.value;
+  if(!m.text.trim()){ showToast('Write a message first', 'ℹ️'); ta && ta.focus(); return; }
+  m.sent = true; m.time = now();
+  renderChannel();
+  showToast('Sent to the channel', '💬');
+  const responder = (m.toId && caregivers.find(c=>c.id===m.toId)) || caregivers.find(c=>c.onShift) || caregivers[0];
+  channelReply(responder.id);
 }
 
-document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
-document.querySelectorAll('.ch-tab').forEach(t => t.addEventListener('click', () => switchChannel(t.dataset.ch)));
-document.getElementById('channelSend').addEventListener('click', sendChannelMessage);
-document.getElementById('channelInput').addEventListener('keydown', e => { if (e.key === 'Enter') sendChannelMessage(); });
-
-// BiBi chat — unchanged behavior
-const chatMessages = document.getElementById('chatMessages');
-const typing = document.getElementById('typing');
-
-function addMsg(text, who) {
-  const row = document.createElement('div');
-  row.className = 'msg ' + who;
-  row.innerHTML = `
-    <div class="msg-avatar ${who}">${who==='bibi'?'Bi':'EW'}</div>
-    <div>
-      <div class="msg-bubble">${esc(text)}</div>
-      <div class="msg-meta">${who==='bibi'?'BiBi':'You'} · just now</div>
-    </div>`;
-  chatMessages.appendChild(row);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
+function channelReply(id){
+  setTimeout(()=>{
+    postChannel({ id, text: channelAck() });
+    if(currentTab!=='channel') $('channelBadge').classList.add('show');
+    showToast(`${contacts[id].name.split(' ')[0]} replied`, '💬');
+  }, 1500);
+}
+function channelAck(){
+  const opts = [
+    "Thanks Eleanor — got it, I'll take care of it. 💚",
+    "Received, thank you! I'll follow up shortly.",
+    "Noted — I'll keep you posted.",
+  ];
+  return opts[Math.floor(Math.random()*opts.length)];
 }
 
-function bibiAnswer(q) {
-  const lower = q.toLowerCase();
-  if (lower.includes('blood pressure') && (lower.includes('flag') || lower.includes('mean') || lower.includes('low')))
-    return { text: "At 9:05 AM Mom's blood pressure was 108/64 — a little lower than her usual range (your alert is set for below 110). She felt tired after breakfast and rested. Ana checked again at 1:10 PM and Mom's energy was back up. This was shared so you'd know, not because it was an emergency." };
-  if (lower.includes('how') && (lower.includes('mom') || lower.includes('doing')))
-    return { text: "Mom's had a mostly steady day. Physical therapy went well this morning. Blood pressure was briefly a little low after breakfast, but she rested and felt better by early afternoon. She's at her dermatology appointment now with RideWell." };
-  if (lower.includes('medication') || lower.includes('meds'))
-    return { rich: 'meds' };
-  if (lower.includes('yesterday') || lower.includes('happened'))
-    return { text: "Yesterday (Tuesday): Maria (home health aide) was on shift. Physical therapy went well. Mom had brief dizziness when standing in the morning that went away with rest. She had a good appetite at dinner. Nothing urgent was flagged for you." };
-  if (lower.includes('flag') || lower.includes('should know') || lower.includes('attention'))
-    return { text: "One update flagged for you: at 9:05 AM Ana noted blood pressure was a little low (108/64) and Mom felt tired after breakfast. By 1:10 PM her energy was back up — no further concerns since." };
-  if (lower.includes('left') || lower.includes('rest') || lower.includes('today'))
-    return { text: "Still ahead: return ride from dermatology around 3:30 PM, and Ana's end-of-shift care summary. Everything else on today's plan is done." };
-  if (lower.includes('visit') || lower.includes('who'))
-    return { text: "Today: Ana (nurse, all day), James (physical therapist, 11:40 AM), Coastal Meals (breakfast & lunch), and RideWell (dermatology ride)." };
-  if (lower.includes('explain') || lower.includes('what does') || lower.includes('mean'))
-    return { text: "I translate clinical notes into everyday language. Ask me about any update and I'll walk you through it in simpler terms." };
-  if (lower.includes('pt') || lower.includes('therapy') || lower.includes('physical'))
-    return { text: "James led a 30-minute session at 11:40 AM — walking and balance exercises. Mom's steps were steadier than last week and she had no pain. He's recommending twice-a-week sessions." };
-  if (lower.includes('meal') || lower.includes('eat'))
-    return { text: "Breakfast at 7:45 AM and lunch at 12:15 PM — both on Mom's low-salt meal plan from Coastal Meals." };
-  if (lower.includes('side effect'))
-    return { text: "No medication side effects were noted today. Morning medications were given at 9:05 AM without problems.", unknown: true };
-  if (lower.includes('lab') || lower.includes('test result') || lower.includes('blood work'))
-    return { text: "I don't have access to lab or test results — those stay in Mom's medical record. I can flag this for the care team so someone follows up with you.", unknown: true };
-  if (lower.includes('insurance') || lower.includes('bill') || lower.includes('cost'))
-    return { text: "I can't pull billing or insurance details. Want me to route this to the care team?", unknown: true };
-  return { text: "I couldn't find that in today's care updates. You can flag it for the care team or add a task for a family member to handle.", unknown: true };
+function postChannel(msg){
+  msg.time = msg.time || now();
+  channelMsgs.push(msg);
+  renderChannel();
+  if(!msg.self && msg.type!=='draft' && currentTab!=='channel') $('channelBadge').classList.add('show');
 }
 
-function addMsgRich(html, actions, extraHtml) {
-  const row = document.createElement('div');
-  row.className = 'msg bibi';
-  const btns = (actions||[]).map((a,i) =>
-    `<button class="${a.variant||'btn-primary'}" data-act="${i}">${esc(a.label)}</button>`
-  ).join('');
-  row.innerHTML = `
-    <div class="msg-avatar bibi">Bi</div>
-    <div>
-      <div class="msg-bubble">${html}</div>
-      ${extraHtml || ''}
-      ${btns ? `<div class="msg-card">${btns}</div>` : ''}
-      <div class="msg-meta">BiBi · just now</div>
-    </div>`;
-  chatMessages.appendChild(row);
-  (actions||[]).forEach((a,i) => row.querySelector(`[data-act="${i}"]`)?.addEventListener('click', a.action));
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-  return row;
+function sendChannel(){
+  const inp = $('cgChannelInput');
+  const text = inp.value.trim();
+  if(!text) return;
+  postChannel({ self:true, text });
+  inp.value = '';
+  const responder = caregivers.find(c=>c.onShift) || caregivers[0];
+  channelReply(responder.id);
 }
 
-function addEscalateOptions(prefill) {
-  const id = 'esc-' + Date.now();
-  addMsgRich(
-    `<strong>I don't have that information on hand.</strong><br>You can flag it for the care team or ask a question — someone will follow up.`,
-    null,
-    `<div class="escalate-form" id="${id}">
-      <div class="escalate-hint">Describe your concern or question. We'll add a family task and post to #care-team.</div>
-      <textarea id="${id}-input" placeholder="e.g. Mom seemed confused on our call — is that normal?">${esc(prefill || '')}</textarea>
-      <div class="msg-card" style="margin-top:0;padding:0;border:none;background:transparent">
-        <button class="btn-flag" data-flag>⚑ Flag for care team</button>
-        <button class="btn-primary" data-ask>Ask care team</button>
+function renderTodos(){
+  const list = $('todoList');
+  if(!todos.length){ list.innerHTML = `<div class="update" style="justify-content:center;color:var(--muted);font-size:.82rem">All caught up 🎉</div>`; return; }
+  list.innerHTML = todos.map(t=>`
+    <div class="todo" data-id="${t.id}">
+      <button type="button" class="todo-check ${t.done?'on':''}" onclick="toggleTodo(${t.id})">${t.done?'✓':''}</button>
+      <div class="todo-main">
+        <div class="todo-title ${t.done?'struck':''}">${esc(t.title)}</div>
+        <div class="todo-meta">${esc(t.due||'')}</div>
       </div>
-    </div>`
-  );
-  const form = document.getElementById(id);
-  form.querySelector('[data-flag]').addEventListener('click', () => submitFamilyEscalation(id, true));
-  form.querySelector('[data-ask]').addEventListener('click', () => submitFamilyEscalation(id, false));
+      <span class="todo-who">${esc(t.who)}</span>
+    </div>`).join('');
+}
+function toggleTodo(id){
+  const t = todos.find(x=>x.id===id);
+  if(!t) return;
+  if(!t.done){
+    const el = document.querySelector(`.todo[data-id="${id}"]`);
+    if(el){ el.classList.add('done-anim'); }
+    showToast('Nice — marked done', '✓');
+    setTimeout(()=>{ t.done=true; renderTodos(); renderHomeCaregiver(); }, 300);
+  } else {
+    t.done=false; renderTodos(); renderHomeCaregiver();
+  }
+}
+function addTodo(title, who='You', due='Today', assigneeId){
+  if(!assigneeId){ const m = { 'You':'eleanor', 'David':'david', 'Sarah':'sarah', 'Ana':'ana' }; assigneeId = m[who] || 'eleanor'; }
+  todos.unshift({ id: nextTodoId++, title, who, assigneeId, done:false, due });
+  renderTodos();
+  renderHomeCaregiver();
+}
+function quickAddTodo(){
+  const title = prompt('What needs to be done?');
+  if(title && title.trim()){ addTodo(title.trim()); showToast('To-do added', '✓'); }
 }
 
-function submitFamilyEscalation(formId, isFlag) {
-  const input = document.getElementById(formId + '-input');
-  const text = input.value.trim();
-  if (!text) { showToast('Please add a message first'); input.focus(); return; }
-  input.disabled = true;
-  const form = document.getElementById(formId);
-  form.querySelectorAll('button').forEach(b => { b.classList.add('btn-sent'); b.textContent = isFlag ? '✓ Flagged' : '✓ Sent'; });
-  showSync(isFlag ? 'Flagging for care team…' : 'Sending question to care team…', 1200).then(() => {
-    createTaskFromChat((isFlag ? 'FLAG: ' : 'Question: ') + text, null, 'Eleanor');
-    postToChannel('care', 'eleanor', (isFlag ? '⚑ FLAG: ' : '❓ Question: ') + text, { flag: isFlag });
-    showToast(isFlag ? '✓ Flagged — assign a family member in Tasks' : '✓ Question sent to care team');
-    showLiveToast(isFlag ? '⚑' : '❓', `<strong>${isFlag?'Flagged':'Question sent'}</strong> — posted to #care-team`);
-    setTimeout(() => {
-      postToChannel('care', 'ana', 'Hi Eleanor — got your ' + (isFlag ? 'flag' : 'question') + ". I'll check on this and update you shortly.");
-      addMsg("Hi Eleanor — got your " + (isFlag ? 'flag' : 'question') + ". I'll check on this and update you shortly.", 'bibi');
-    }, 2000);
+/* ============ Chat ============ */
+const agent = 'bibi';
+const chatHistory = { bibi: [] };
+let assistantStarted = false;
+
+const assistantChips = [
+  { label:'How is Mom?', q:'How is Mom doing today?' },
+  { label:'Message David', q:'Tell David to pick up the prescription' },
+  { label:'Ask the nurse', q:'Ask the nurse how her afternoon is going' },
+  { label:'Add a reminder', q:'Remind Sarah to call Mom tonight' },
+  { label:'Contact the office', q:'I have a question for the facility office' },
+];
+
+function initAssistant(){
+  $('typingAva').className = 'msg-ava bibi';
+  $('typingAva').textContent = 'Bi';
+  $('chatInput').placeholder = 'Ask BiBi anything…';
+  renderChips();
+  renderChat();
+  if(!assistantStarted){ assistantStarted = true; greet(); }
+  setTimeout(scrollChat, 30);
+}
+
+function renderChips(){
+  $('chips').innerHTML = assistantChips.map((c,i)=>
+    `<button type="button" class="chip" data-i="${i}">${esc(c.label)}</button>`).join('');
+  $('chips').querySelectorAll('.chip').forEach(el=>{
+    el.addEventListener('click', ()=>send(assistantChips[+el.dataset.i].q));
   });
 }
 
-function openFlagConcern() {
-  addEscalateOptions('');
-  document.getElementById('chatMessages').lastElementChild?.scrollIntoView({behavior:'smooth'});
+function startOfficeRequest(){
+  addAgentActions(
+    `Sure — I can reach the <b>facility office</b> for you. What's it about?`,
+    [
+      { label:'Billing question', variant:'btn-primary', fn:()=>send('I have a question about this month’s bill') },
+      { label:'Change a visit time', fn:()=>send('Can we change Mom’s physical therapy time?') },
+      { label:'Request records', fn:()=>send('I’d like a copy of Mom’s care records') },
+      { label:'Raise a concern', fn:()=>send('I want to raise a concern about care') },
+    ]
+  );
 }
 
-function sendChat(text) {
-  if (!text.trim()) return;
-  const sendBtn = document.getElementById('sendChat');
-  sendBtn.classList.add('sending');
-  setTimeout(() => sendBtn.classList.remove('sending'), 300);
-  addMsg(text, 'user');
-  document.getElementById('chatInput').value = '';
-  typing.classList.add('show');
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-  setTimeout(() => {
-    typing.classList.remove('show');
-    const result = bibiAnswer(text);
-    if (result.rich === 'meds') {
-      addMsgRich(`<strong>Mom's medications</strong> (from her care plan):<br><br>
-        • Lisinopril 10 mg — once each morning, for blood pressure<br>
-        • Metformin 500 mg — twice daily, for diabetes<br>
-        • Aspirin 81 mg — once each morning<br>
-        • Acetaminophen 500 mg — as needed for pain<br><br>
-        All morning medications were given at 9:05 AM today without problems.`, [
-        { label: 'View tasks', variant: 'btn-ghost', action: () => switchTab('tasks') },
-        { label: 'What does the BP flag mean?', variant: 'btn-ghost', action: () => sendChat('What does the blood pressure flag mean?') },
+function scrollChat(){ const s=$('chatScroll'); s.scrollTop = s.scrollHeight; }
+
+function renderChat(){
+  $('chatMessages').innerHTML = '';
+  chatHistory[agent].forEach(m=>paintMsg(m));
+}
+
+function paintMsg(m){
+  const wrap = document.createElement('div');
+  if(m.type==='draft'){ wrap.innerHTML = m.html; wrap.dataset.draftId = m.draftId; bindDraft(wrap, m); }
+  else if(m.type==='rich'){
+    wrap.className = 'msg ' + (agent);
+    wrap.innerHTML = `<div class="msg-ava ${agent}">${contacts[agent==='admin'?'admin':'bibi'].initials}</div>
+      <div class="msg-col"><div class="bubble">${m.html}</div>${m.actionsHtml||''}<div class="msg-time">${m.time}</div></div>`;
+    $('chatMessages').appendChild(wrap);
+    bindActions(wrap, m);
+    return;
+  } else {
+    const who = m.who;
+    const ava = who==='user' ? `<div class="msg-ava user">${me.initials}</div>` : `<div class="msg-ava ${agent}">${contacts[agent==='admin'?'admin':'bibi'].initials}</div>`;
+    wrap.className = 'msg ' + (who==='user'?'user':agent);
+    wrap.innerHTML = `${ava}<div class="msg-col"><div class="bubble">${m.html}</div><div class="msg-time">${m.time}</div></div>`;
+  }
+  $('chatMessages').appendChild(wrap);
+}
+
+function pushMsg(m){ m.time = m.time||now(); chatHistory[agent].push(m); paintMsg(m); scrollChat(); }
+
+function addUser(text){ pushMsg({ who:'user', html: esc(text) }); }
+function addAgent(html, actionsHtml){ pushMsg({ type:'rich', html, actionsHtml }); }
+
+function showTyping(){ $('typing').classList.add('show'); scrollChat(); }
+function hideTyping(){ $('typing').classList.remove('show'); }
+
+/* ---- action buttons under a rich message ---- */
+function bindActions(wrap, m){
+  if(!m.actions) return;
+  m.actions.forEach((a,i)=>{
+    const btn = wrap.querySelector(`[data-act="${m.aid}-${i}"]`);
+    if(btn) btn.addEventListener('click', a.fn);
+  });
+}
+function actionsHtml(actions){
+  const aid = 'a'+Date.now()+Math.floor(Math.random()*999);
+  const html = `<div class="quick-actions">${actions.map((a,i)=>
+    `<button type="button" class="btn ${a.variant||'btn-ghost'}" data-act="${aid}-${i}">${esc(a.label)}</button>`).join('')}</div>`;
+  return { aid, html };
+}
+function addAgentActions(html, actions){
+  const { aid, html: ah } = actionsHtml(actions);
+  const m = { type:'rich', html, actionsHtml: ah, actions, aid, time: now() };
+  chatHistory[agent].push(m);
+  paintMsg(m);
+  scrollChat();
+}
+
+/* ---- draft cards ---- */
+function bindDraft(wrap, m){
+  const send = wrap.querySelector('[data-draft-send]');
+  const edit = wrap.querySelector('[data-draft-edit]');
+  const ta = wrap.querySelector('textarea');
+  if(m.sent){ return; }
+  send && send.addEventListener('click', ()=>sendDraft(m, wrap));
+  edit && edit.addEventListener('click', ()=>{ $('chatInput').value = ta.value; $('chatInput').focus(); showToast('Copied — edit and send again','✎'); });
+  if(ta){ ta.addEventListener('input', ()=>{ m.draft = ta.value; }); }
+}
+
+function makeDraft(opts){
+  // opts: { kind:'bibi'|'admin', title, to, draft, onSend }
+  const id = 'd'+Date.now();
+  const html = `
+    <div class="draft" data-draft-id="${id}">
+      <div class="draft-head">
+        <div class="draft-ico ${opts.kind}">${opts.kind==='admin'?'🏢':'💬'}</div>
+        <div><div class="draft-title">${esc(opts.title)}</div><div class="draft-to">To: ${esc(opts.to)}</div></div>
+      </div>
+      <div class="draft-body">
+        <div class="draft-label">Your message · tap to edit</div>
+        <textarea rows="3">${esc(opts.draft)}</textarea>
+      </div>
+      <div class="draft-actions">
+        <button type="button" class="btn btn-primary ${opts.kind==='admin'?'admin':''}" data-draft-send>Send</button>
+        <button type="button" class="btn btn-ghost" data-draft-edit>Edit</button>
+      </div>
+    </div>`;
+  const m = { type:'draft', draftId:id, html, draft:opts.draft, onSend:opts.onSend, kind:opts.kind, to:opts.to, sent:false, time: now() };
+  chatHistory[agent].push(m);
+  paintMsg(m);
+  scrollChat();
+}
+
+async function sendDraft(m, wrap){
+  const ta = wrap.querySelector('textarea');
+  const body = ta ? ta.value : m.draft;
+  m.sent = true;
+  m.draft = body;
+  wrap.querySelector('.draft').classList.add('done');
+  const sendBtn = wrap.querySelector('[data-draft-send]');
+  sendBtn.classList.add('sent'); sendBtn.textContent = 'Sending…';
+  const actions = wrap.querySelector('.draft-actions');
+  await delay(650);
+  sendBtn.textContent = '✓ Sent';
+  actions.insertAdjacentHTML('afterend', `<div class="draft-sent">✓ Sent to ${esc(m.to)}</div>`);
+  // Persist sent state so re-renders (e.g. switching agents) keep it
+  m.html = `
+    <div class="draft done" data-draft-id="${m.draftId}">
+      <div class="draft-head">
+        <div class="draft-ico ${m.kind}">${m.kind==='admin'?'🏢':'💬'}</div>
+        <div><div class="draft-title">Sent</div><div class="draft-to">To: ${esc(m.to)}</div></div>
+      </div>
+      <div class="draft-body">
+        <div class="draft-label">Your message</div>
+        <textarea rows="3" readonly>${esc(body)}</textarea>
+      </div>
+      <div class="draft-sent">✓ Sent to ${esc(m.to)}</div>
+    </div>`;
+  if(m.onSend) m.onSend(body);
+}
+
+/* ---- greeting ---- */
+function greet(){
+  addAgentActions(
+    `Hi ${me.first} — I'm <b>BiBi</b>. I can message family or the nurse, check on Mom, keep your to-dos straight, and reach the facility office about billing, scheduling, records, or concerns. What do you need?`,
+    [
+      { label:'How is Mom today?', variant:'btn-primary', fn:()=>send('How is Mom doing today?') },
+      { label:'Message the family', fn:()=>send('Tell David to pick up the prescription') },
+      { label:'Contact the office', fn:()=>startOfficeRequest() },
+    ]
+  );
+}
+
+/* ---- send + route ---- */
+function send(text){
+  text = (text||$('chatInput').value||'').trim();
+  if(!text){ $('chatInput').focus(); return; }
+  addUser(text);
+  $('chatInput').value = '';
+  showTyping();
+  setTimeout(()=>{
+    hideTyping();
+    bibiReply(text);
+  }, 620 + Math.random()*350);
+}
+$('sendBtn').addEventListener('click', ()=>send());
+$('chatInput').addEventListener('keydown', e=>{ if(e.key==='Enter') send(); });
+
+/* ============ BiBi logic ============ */
+function detectPerson(l){
+  if(l.includes('david')) return 'david';
+  if(l.includes('sarah')) return 'sarah';
+  if(l.includes('ana')||l.includes('nurse')) return 'ana';
+  return null;
+}
+function bibiReply(text){
+  const l = text.toLowerCase();
+
+  // how is mom
+  if((l.includes('how')&&(l.includes('mom')||l.includes('she')||l.includes('doing')))||l.includes('check in')){
+    addAgentActions(
+      `Here's what people shared today:<br><br>• <b>Ana (nurse):</b> Morning meds done; BP a little low earlier (108/64), she rested and felt better.<br>• <b>RideWell:</b> Took Mom to dermatology.<br>• <b>David:</b> Grabbing her prescription.<br><br>Want me to ask Ana for a fresh update?`,
+      [
+        { label:'Ask the nurse', variant:'btn-primary', fn:()=>send('Ask the nurse how her afternoon is going') },
+        { label:'Ask Sarah to call Mom', fn:()=>send('Remind Sarah to call Mom tonight') },
+      ]
+    );
+    return;
+  }
+
+  // message nurse / care
+  if((l.includes('ask')||l.includes('message')||l.includes('tell'))&&(l.includes('nurse')||l.includes('ana')||l.includes('care'))){
+    makeDraft({
+      kind:'bibi', title:'Message the nurse', to:'Ana Melendez (Nurse)',
+      draft: l.includes('afternoon') ? "Hi Ana — how is Mom's afternoon going after this morning?" : `Hi Ana — Eleanor here. ${capitalize(stripCmd(text))}`,
+      onSend: (body)=>{
+        addFeed({ ico:'💬', who:'You → Ana', text: body, time: now() }, false);
+        setTimeout(()=>{
+          pushMsg({ who:'agent', html:`<b>Ana</b> replied: "Got it — I'll check on Mom and update you shortly." 💚` });
+        }, 1600);
+        showToast('Message sent to Ana', '💬');
+      }
+    });
+    addAgent("Here's a draft for the nurse — edit anything, then send.");
+    return;
+  }
+
+  // message family (david/sarah) or reminder
+  const person = detectPerson(l);
+  if(person && person!=='ana' && (l.includes('tell')||l.includes('message')||l.includes('ask')||l.includes('remind')||l.includes('text')||l.includes('call'))){
+    const c = contacts[person];
+    if(l.includes('call')&&!l.includes('text')&&!l.includes('message')){
+      addAgentActions(`Want me to start a call to <b>${c.name}</b>?`, [
+        { label:`Call ${c.name}`, variant:'btn-primary', fn:()=>openNativeCall(person) },
+        { label:'Send a text instead', fn:()=>send(`Text ${c.name} to call Mom`) },
       ]);
-    } else if (result.unknown) {
-      addMsg(result.text, 'bibi');
-      setTimeout(() => addEscalateOptions(text), 400);
-    } else {
-      addMsg(result.text, 'bibi');
-    }
-  }, 700 + Math.random() * 500);
-}
-
-document.getElementById('sendChat').addEventListener('click', () => sendChat(document.getElementById('chatInput').value));
-document.getElementById('chatInput').addEventListener('keydown', e => { if (e.key === 'Enter') sendChat(e.target.value); });
-document.querySelectorAll('#chatChips .chip').forEach(c => {
-  if (c.dataset.action === 'flag') c.addEventListener('click', openFlagConcern);
-  else if (c.dataset.q) c.addEventListener('click', () => sendChat(c.dataset.q));
-});
-
-function runBoot() {
-  const fill = document.getElementById('bootFill');
-  const status = document.getElementById('bootStatus');
-  const steps = [
-    { pct: 40, text: 'Connecting to care team…' },
-    { pct: 80, text: 'BiBi is ready…' },
-    { pct: 100, text: 'Connected' },
-  ];
-  let i = 0;
-  const tick = () => {
-    if (i >= steps.length) {
-      setTimeout(() => document.getElementById('boot').classList.add('hide'), 400);
-      setTimeout(startLiveDemo, 800);
       return;
     }
-    fill.style.width = steps[i].pct + '%';
+    const task = stripCmd(text);
+    makeDraft({
+      kind:'bibi', title:`Message ${c.name}`, to:`${c.name} (${c.role})`,
+      draft: `Hi ${c.name} — ${capitalize(task)}. Thanks!`,
+      onSend: (body)=>{
+        addFeed({ ico:'💬', who:`You → ${c.name}`, text: body, time: now() }, false);
+        if(l.includes('remind')||l.includes('pick up')||l.includes('prescription')||l.includes('ride')){
+          addTodo(capitalize(task), c.name, 'Today');
+          showToast(`Sent + added a to-do for ${c.name}`, '✓');
+        } else { showToast(`Message sent to ${c.name}`, '💬'); }
+        setTimeout(()=>{
+          pushMsg({ who:'agent', html:`<b>${c.name}</b> replied: "On it — I'll take care of that." 👍` });
+        }, 1600);
+      }
+    });
+    addAgentActions("Here's a draft — edit it, then send. Want to text it directly too?", [
+      { label:`Open Messages for ${c.name}`, fn:()=>openNativeMessage(person, `Hi ${c.name} — ${capitalize(stripCmd(text))}`) },
+    ]);
+    return;
+  }
+
+  // facility-office topics → BiBi drafts a note to the office
+  if(l.includes('bill')||l.includes('invoice')||l.includes('payment')||l.includes('charge')||l.includes('cost')
+     ||l.includes('records')||l.includes('document')||l.includes('insurance')
+     ||l.includes('schedule')||l.includes('reschedule')||l.includes('appointment')||l.includes('therapy')
+     ||l.includes('office')||l.includes('admin')||l.includes('concern')||l.includes('complaint')){
+    adminReply(text);
+    return;
+  }
+
+  // default
+  addAgentActions(
+    `I can help with things like:<br><br>• <i>"How is Mom?"</i><br>• <i>"Tell David to pick up the prescription"</i><br>• <i>"Ask the nurse how she's doing"</i>`,
+    [
+      { label:'How is Mom?', variant:'btn-primary', fn:()=>send('How is Mom doing today?') },
+      { label:'Contact the office', variant:'btn-ghost', fn:()=>startOfficeRequest() },
+    ]
+  );
+}
+
+/* ============ Admin logic ============ */
+function adminReply(text){
+  const l = text.toLowerCase();
+  let title = 'Message the facility office', draft = `Hi Karen — Eleanor Whitman here (Ruth Whitman's daughter). ${capitalize(stripCmd(text))}`;
+  let ack = "Thanks Eleanor — I've received your note and will follow up shortly.";
+  let feedIco = '🏢', topic = 'Note';
+
+  if(l.includes('bill')||l.includes('invoice')||l.includes('charge')||l.includes('payment')||l.includes('cost')){
+    title = 'Billing question'; topic = 'Billing';
+    draft = `Hi Karen — this is Eleanor, Ruth Whitman's daughter. I have a question about this month's statement — could someone walk me through the recent charges? Thank you.`;
+    ack = "Thanks Eleanor — I'll pull up Ruth's account and our billing lead will call you today with a breakdown.";
+    feedIco = '💳';
+  } else if(l.includes('schedule')||l.includes('reschedule')||l.includes('visit')||l.includes('time')||l.includes('appointment')||l.includes('therapy')){
+    title = 'Scheduling request'; topic = 'Scheduling';
+    draft = `Hi Karen — could we adjust Ruth Whitman's physical therapy time? Afternoons work better for the family to join. Let me know what's open.`;
+    ack = "Of course — I'll check James's availability and send you a couple of afternoon options.";
+    feedIco = '📅';
+  } else if(l.includes('record')||l.includes('document')||l.includes('chart')||l.includes('history')){
+    title = 'Records request'; topic = 'Records';
+    draft = `Hi Karen — I'd like to request a copy of Ruth Whitman's recent care records for our family file. What do you need from me to release them?`;
+    ack = "Happy to help — I'll email a records-release form. Once signed, we'll share them within 2 business days.";
+    feedIco = '📄';
+  } else if(l.includes('concern')||l.includes('complaint')||l.includes('issue')||l.includes('problem')||l.includes('worried')||l.includes('unhappy')){
+    title = 'Raise a concern'; topic = 'Concern';
+    draft = `Hi Karen — I'd like to raise a concern about Mom's care and talk it through. Could we set up a quick call today?`;
+    ack = "I'm sorry to hear that, Eleanor — this is important. I'll call you within the hour so we can talk it through.";
+    feedIco = '⚠️';
+  }
+
+  makeDraft({
+    kind:'admin', title, to:`${contacts.admin.name} · ${contacts.admin.role}`,
+    draft,
+    onSend: (body)=>{
+      addFeed({ ico: feedIco, who:`You → Facility office`, text: `${topic}: ${body}`, time: now() }, false);
+      showToast('Sent to the facility office', '🏢');
+      showLiveToast('🏢', `<b>The office received your ${topic.toLowerCase()}</b> — a reply is on the way`, 'Open', ()=>switchTab('bibi'));
+      setTimeout(async ()=>{
+        showTyping();
+        await delay(1500);
+        hideTyping();
+        pushMsg({ who:'agent', html:`<b>Karen Reyes</b>: "${ack}"` });
+        addTodo(`Follow up: ${topic.toLowerCase()} with facility office`, 'You', 'This week');
+      }, 1400);
+    }
+  });
+  addAgentActions(`I've drafted your ${topic.toLowerCase()} note to <b>${contacts.admin.name}</b>. Review it, then send — or call the office directly.`, [
+    { label:'Call the office', fn:()=>openNativeCall('admin') },
+  ]);
+}
+
+/* ============ tiny text utils ============ */
+function stripCmd(t){
+  return t.replace(/^(please\s+)?(can you\s+)?(tell|ask|message|remind|text|call|notify)\s+(david|sarah|ana|the nurse|mom|karen|admin|the office)\s*(to|that|about|:)?\s*/i,'')
+          .replace(/^(i(?:'d| would)? like to|i want to|i have a|could we|can we)\s*/i,'')
+          .trim() || t;
+}
+function capitalize(s){ s=String(s||'').trim(); return s.charAt(0).toUpperCase()+s.slice(1); }
+
+/* ============ Boot + live demo ============ */
+function boot(){
+  const fill = $('bootFill'), status = $('bootStatus');
+  const steps = [
+    { pct:35, text:'Starting BiBi…' },
+    { pct:70, text:'Loading Mom’s day…' },
+    { pct:100, text:'Almost ready…' },
+  ];
+  let i=0;
+  const tick = ()=>{
+    if(i>=steps.length){ setTimeout(()=>$('boot').classList.add('hide'), 380); setTimeout(liveDemo, 900); return; }
+    fill.style.width = steps[i].pct+'%';
     status.textContent = steps[i].text;
-    i++;
-    setTimeout(tick, 450);
+    i++; setTimeout(tick, 480);
   };
   setTimeout(tick, 300);
 }
 
-function startLiveDemo() {
-  setTimeout(() => {
-    postToChannel('care', 'ana', '📋 Family summary: Blood pressure was a little lower than usual this morning (108/64). Mom rested and felt better later.');
-    showLiveToast('📋', '<strong>Ana posted in #care-team</strong> — plain-language summary');
-    addMsg("Ana shared a quick update: Mom's blood pressure was a little lower than usual this morning (108/64). She rested and felt better later — nothing urgent.", 'bibi');
-  }, 3500);
+function liveDemo(){
+  setTimeout(()=>{
+    addFeed({ ico:'🚗', who:'RideWell', text:'Mom is heading home from dermatology — ETA 3:25p.', time: now() });
+    $('momStatus').textContent = 'Heading home from dermatology';
+    showLiveToast('🚗', '<b>RideWell</b> — Mom is heading home', 'View', ()=>switchTab('home'));
+  }, 4500);
 
-  setTimeout(() => {
-    postToChannel('care', 'ridewell', 'Mom is on the way home from dermatology — ETA 3:25 PM.');
-    showLiveToast('🚗', '<strong>RideWell</strong> — update in #care-team');
-    document.getElementById('momStatus').innerHTML = '<span class="dot"></span>Heading home from dermatology';
-  }, 5500);
+  setTimeout(async ()=>{
+    await showSync('Updating from the care team…', 1000);
+    addFeed({ ico:'✅', who:'RideWell', text:'Mom dropped off safely at home — resting now.', time: now() });
+    $('momStatus').textContent = 'Home safely · resting';
+    $('heroSummary').textContent = 'Mom is home safely and resting after dermatology. A calm day overall — meds done and vitals settled.';
+    const ride = todos.find(t=>/ride/i.test(t.title));
+    if(ride && !ride.done){ ride.done = true; renderTodos(); renderHomeCaregiver(); }
+    showLiveToast('✅', '<b>Mom is home safely</b> — to-dos updated', 'Home', ()=>switchTab('home'));
+  }, 8500);
 
-  setTimeout(async () => {
-    await showSync('Receiving live update from RideWell…', 1000);
-    postToChannel('care', 'ridewell', 'Return trip from dermatology completed — Mom dropped off safely at home.');
-    postToChannel('family', 'david', 'Just saw RideWell\'s update — glad Mom\'s home safe!');
-    document.getElementById('momStatus').innerHTML = '<span class="dot"></span>Home safely · resting';
-    const task = tasks.find(t => t.title.includes('dermatology return'));
-    if (task && task.status !== 'done') {
-      if (isMobileTasks() && currentTab === 'tasks') {
-        const card = document.querySelector(`.task-card[data-id="${task.id}"]`);
-        if (card) {
-          card.classList.add('sliding-out');
-          setTimeout(() => { task.status = 'done'; renderTasks(); peekDoneDrawer(); }, 360);
-        } else {
-          task.status = 'done';
-          renderTasks();
-        }
-      } else {
-        task.status = 'done';
-        renderTasks();
-      }
-    }
-    if (currentTab === 'chat') {
-      addMsg("RideWell just confirmed — Mom's back home from dermatology safely.", 'bibi');
-    } else {
-      showLiveToast('✅', '<strong>Mom is home!</strong> Updates in Channels & Tasks');
-    }
-  }, 9000);
+  setTimeout(()=>{
+    postChannel({ id:'ana', text:'Mom is settled in and resting comfortably. Vitals are back to normal. 💚' });
+    showLiveToast('💬', '<b>Ana</b> posted in the care team channel', 'Open', ()=>switchTab('channel'));
+  }, 11500);
 }
 
-runBoot();
-populateAssigneeSelects();
-renderTasks();
-switchChannel('family');
-updateChannelBadges();
-
-(function initTheme() {
-  const KEY = 'pivot-demo-theme';
-  const btn = document.getElementById('themeToggle');
-  function apply(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem(KEY, theme);
-    if (btn) {
-      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
-      btn.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
-    }
-  }
-  const saved = localStorage.getItem(KEY);
-  apply(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-  if (btn) btn.addEventListener('click', () => {
-    apply(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+/* ============ Theme ============ */
+(function initTheme(){
+  const KEY='pivot-demo-theme', btn=$('themeToggle');
+  const set = ()=>{ btn.textContent = document.documentElement.getAttribute('data-theme')==='dark' ? '☀️' : '🌙'; };
+  set();
+  btn.addEventListener('click', ()=>{
+    const dark = document.documentElement.getAttribute('data-theme')==='dark';
+    if(dark){ document.documentElement.removeAttribute('data-theme'); localStorage.setItem(KEY,'light'); }
+    else { document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem(KEY,'dark'); }
+    set();
   });
 })();
+
+/* ============ Init ============ */
+$('cgChannelSend').addEventListener('click', sendChannel);
+$('cgChannelInput').addEventListener('keydown', e=>{ if(e.key==='Enter') sendChannel(); });
+
+renderFeed();
+renderTodos();
+renderHomeCaregiver();
+renderChannelChips();
+renderChannel();
+initAssistant();
+boot();
 </script>
 </body>
 </html>
