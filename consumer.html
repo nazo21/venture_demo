@@ -3,226 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>piVoT — Family</title>
-<script>try{var t=localStorage.getItem('pivot-demo-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Family Care</title>
+<script>try{var t=localStorage.getItem('family-demo-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
+  /* Apple HIG–inspired design system · accessibility first */
   :root {
-    --bg: #F4F6FB;
+    --bg: #F2F2F7;
     --surface: #FFFFFF;
-    --surface-2: #F7F9FC;
-    --line: #E4E9F2;
-    --text: #0E1B2E;
-    --muted: #5C6B82;
-    --faint: #8A99B0;
-    --brand: #1D6FEB;
-    --brand-soft: #E7F0FE;
-    --navy: #0A2540;
-    --admin: #7C3AED;
-    --admin-soft: #F1E9FE;
-    --green: #0E9F6E;
-    --green-soft: #E1F7EF;
-    --amber: #D97706;
-    --amber-soft: #FDF0D9;
-    --red: #E02424;
-    --shadow: 0 1px 2px rgba(13,30,60,.06), 0 8px 24px rgba(13,30,60,.05);
-    --shadow-lg: 0 12px 40px rgba(13,30,60,.14);
-    --r: 16px;
-    --tab-h: 64px;
+    --surface-2: #F2F2F7;
+    --line: rgba(60,60,67,.12);
+    --separator: rgba(60,60,67,.18);
+    --text: #000000;
+    --muted: #6C6C70;
+    --faint: #8E8E93;
+    --brand: #007AFF;
+    --brand-soft: rgba(0,122,255,.12);
+    --navy: #1C1C1E;
+    --admin: #AF52DE;
+    --admin-soft: rgba(175,82,222,.12);
+    --green: #34C759;
+    --green-soft: rgba(52,199,89,.14);
+    --amber: #FF9F0A;
+    --amber-soft: rgba(255,159,10,.16);
+    --red: #FF3B30;
+    --red-soft: rgba(255,59,48,.12);
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,.12);
+    --r: 14px;
+    --r-lg: 20px;
+    --tab-h: 56px;
     --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-t: env(safe-area-inset-top, 0px);
+    --focus: 0 0 0 3px rgba(0,122,255,.35);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   html[data-theme="dark"] {
-    --bg: #0A0F18;
-    --surface: #131B29;
-    --surface-2: #0F1622;
-    --line: #26324A;
-    --text: #EAF0F8;
-    --muted: #97A6BE;
-    --faint: #6B7B95;
-    --brand: #4C8DF5;
-    --brand-soft: #16233B;
-    --navy: #4C8DF5;
-    --admin: #A87BF6;
-    --admin-soft: #241a3a;
-    --green: #34D399;
-    --green-soft: #10251D;
-    --amber: #FBBF24;
-    --amber-soft: #2A2210;
-    --red: #FB7185;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
-    --shadow-lg: 0 16px 48px rgba(0,0,0,.5);
+    --bg: #000000;
+    --surface: #1C1C1E;
+    --surface-2: #2C2C2E;
+    --line: rgba(84,84,88,.65);
+    --separator: rgba(84,84,88,.65);
+    --text: #F5F5F7;
+    --muted: #98989D;
+    --faint: #636366;
+    --brand: #0A84FF;
+    --brand-soft: rgba(10,132,255,.22);
+    --navy: #F5F5F7;
+    --admin: #BF5AF2;
+    --admin-soft: rgba(191,90,242,.22);
+    --green: #30D158;
+    --green-soft: rgba(48,209,88,.2);
+    --amber: #FFD60A;
+    --amber-soft: rgba(255,214,10,.18);
+    --red: #FF453A;
+    --red-soft: rgba(255,69,58,.2);
+    --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 8px 28px rgba(0,0,0,.45);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,.55);
+    --focus: 0 0 0 3px rgba(10,132,255,.45);
   }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
   html, body { margin: 0; height: 100%; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font);
     background: var(--bg);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
-    line-height: 1.45;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.4;
+    letter-spacing: -.01em;
   }
-  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-  input, textarea { font-family: inherit; }
+  button, a, input, select, textarea { font-family: inherit; }
+  button { cursor: pointer; border: none; background: none; color: inherit; }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: none; box-shadow: var(--focus);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 
   .app {
-    max-width: 460px;
+    max-width: 430px;
     margin: 0 auto;
     min-height: 100dvh;
     background: var(--bg);
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 0 60px rgba(13,30,60,.08);
   }
 
   /* ---------- Boot ---------- */
   .boot {
     position: fixed; inset: 0; z-index: 400;
-    background: linear-gradient(160deg, #0A2540, #123a6b);
+    background: var(--bg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #fff; transition: opacity .5s ease, visibility .5s ease;
+    color: var(--text); transition: opacity .45s ease, visibility .45s ease;
   }
   .boot.hide { opacity: 0; visibility: hidden; pointer-events: none; }
   .boot-logo {
-    width: 68px; height: 68px; border-radius: 20px;
-    background: linear-gradient(135deg, #4C8DF5, #7C3AED);
+    width: 72px; height: 72px; border-radius: 18px;
+    background: var(--brand); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; font-weight: 800; letter-spacing: -1px;
-    box-shadow: 0 12px 30px rgba(76,141,245,.45);
+    font-size: 1.55rem; font-weight: 700; letter-spacing: -.04em;
   }
-  .boot h1 { margin: 22px 0 6px; font-size: 1.15rem; font-weight: 700; }
-  .boot p { margin: 0; font-size: .84rem; opacity: .65; }
-  .boot-bar { width: 150px; height: 4px; border-radius: 99px; background: rgba(255,255,255,.16); margin-top: 26px; overflow: hidden; }
-  .boot-fill { height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg,#4C8DF5,#34D399); transition: width .6s ease; }
-
-  /* ---------- Header ---------- */
-  .header {
-    padding: calc(env(safe-area-inset-top, 0px) + 14px) 18px 14px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: var(--surface);
-    border-bottom: 1px solid var(--line);
-    position: sticky; top: 0; z-index: 40;
-  }
-  .header-left { display: flex; align-items: center; gap: 11px; }
-  .logo {
-    width: 40px; height: 40px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--navy), var(--brand));
-    color: #fff; display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 1rem; letter-spacing: -.5px;
-  }
-  .header-title { font-size: 1rem; font-weight: 700; letter-spacing: -.2px; }
-  .header-sub { font-size: .76rem; color: var(--muted); }
-  .header-actions { display: flex; align-items: center; gap: 8px; }
-  .icon-btn {
-    width: 38px; height: 38px; border-radius: 11px;
-    background: var(--surface-2); border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center; font-size: 1rem;
-    transition: transform .15s ease;
-  }
-  .icon-btn:active { transform: scale(.92); }
-  .switch-link {
-    font-size: .72rem; font-weight: 600; color: var(--muted);
-    text-decoration: none; padding: 8px 11px; border-radius: 10px;
-    background: var(--surface-2); border: 1px solid var(--line);
-  }
+  .boot h1 { margin: 20px 0 6px; font-size: 1.35rem; font-weight: 700; letter-spacing: -.03em; }
+  .boot p { margin: 0; font-size: .95rem; color: var(--muted); }
+  .boot-bar { width: 140px; height: 4px; border-radius: 99px; background: var(--line); margin-top: 28px; overflow: hidden; }
+  .boot-fill { height: 100%; width: 0; border-radius: 99px; background: var(--brand); transition: width .55s ease; }
 
   /* ---------- Panels ---------- */
   .panels { flex: 1; position: relative; overflow: hidden; }
-  .panel { position: absolute; inset: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+  .panel { position: absolute; inset: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .28s ease, transform .28s ease, visibility .28s; }
   .panel.active { opacity: 1; visibility: visible; transform: none; }
-  .panel-inner { padding: 18px 16px calc(var(--tab-h) + var(--safe-b) + 24px); }
+  .panel-inner { padding: calc(var(--safe-t) + 12px) 16px calc(var(--tab-h) + var(--safe-b) + 28px); }
 
-  /* ---------- Mom hero ---------- */
+  /* ---------- Mom hero (Health-like card) ---------- */
   .hero {
-    background: linear-gradient(150deg, var(--navy), #1a4a86);
-    border-radius: 20px; padding: 18px; color: #fff;
-    box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--r-lg); padding: 16px 16px 14px; color: var(--text);
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
   }
-  .hero::after { content: ''; position: absolute; right: -40px; top: -40px; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%); }
-  .hero-row { display: flex; align-items: center; gap: 13px; position: relative; }
+  .hero::after { display: none; }
+  .hero-row { display: flex; align-items: center; gap: 12px; position: relative; }
   .hero-avatar {
-    width: 52px; height: 52px; border-radius: 15px; flex-shrink: 0;
-    background: linear-gradient(135deg,#4C8DF5,#7C3AED); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem;
-    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    background: var(--brand); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;
   }
-  .hero-name { font-size: 1.08rem; font-weight: 700; }
-  .hero-status { font-size: .8rem; opacity: .85; display: flex; align-items: center; gap: 6px; margin-top: 2px; }
-  .hero-status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: pulse 2.2s infinite; }
-  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)} 70%{box-shadow:0 0 0 8px rgba(52,211,153,0)} 100%{box-shadow:0 0 0 0 rgba(52,211,153,0)} }
+  .hero-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -.02em; }
+  .hero-status { font-size: .9rem; color: var(--muted); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .hero-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52,199,89,.5); animation: pulse 2.4s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(52,199,89,.45)} 70%{box-shadow:0 0 0 8px rgba(52,199,89,0)} 100%{box-shadow:0 0 0 0 rgba(52,199,89,0)} }
   .hero-summary {
-    margin-top: 14px; background: rgba(255,255,255,.12); backdrop-filter: blur(4px);
-    border-radius: 13px; padding: 12px 13px; font-size: .84rem; line-height: 1.5; position: relative;
+    margin-top: 14px; background: var(--surface-2);
+    border-radius: 12px; padding: 12px 13px; font-size: .95rem; line-height: 1.45; position: relative; color: var(--text);
   }
-  .hero-summary b { font-weight: 700; }
-  .hero-summary .tag { display: inline-flex; align-items: center; gap: 5px; font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; opacity: .8; margin-bottom: 5px; }
+  .hero-summary b { font-weight: 600; }
+  .hero-summary .tag { display: inline-flex; align-items: center; gap: 5px; font-size: .72rem; font-weight: 600; letter-spacing: -.01em; color: var(--muted); margin-bottom: 4px; text-transform: none; }
 
   /* ---------- Section ---------- */
-  .sec-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); margin: 24px 4px 10px; display: flex; align-items: center; justify-content: space-between; }
-  .sec-label button { font-size: .74rem; font-weight: 600; color: var(--brand); text-transform: none; letter-spacing: 0; }
+  .sec-label { font-size: .82rem; font-weight: 600; letter-spacing: -.01em; color: var(--muted); margin: 22px 4px 10px; display: flex; align-items: center; justify-content: space-between; text-transform: none; }
+  .sec-label button { min-height: 32px; font-size: .95rem; font-weight: 600; color: var(--brand); text-transform: none; letter-spacing: 0; padding: 0 4px; }
 
-  /* ---------- Agent cards (Ask BiBi / Ask Admin) ---------- */
-  .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  /* ---------- Quick action cards ---------- */
+  .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .agent-card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
-    padding: 15px 14px; text-align: left; box-shadow: var(--shadow);
-    display: flex; flex-direction: column; gap: 9px; transition: transform .15s ease, box-shadow .2s ease;
+    background: var(--surface); border: none; border-radius: var(--r);
+    padding: 14px; text-align: left; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 8px; transition: transform .15s ease, opacity .15s ease;
+    min-height: 44px;
   }
-  .agent-card:active { transform: scale(.97); }
+  .agent-card:active { transform: scale(.97); opacity: .92; }
   .agent-ava {
-    width: 42px; height: 42px; border-radius: 13px; display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 1.05rem; color: #fff;
+    width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem; color: #fff; background: var(--brand);
   }
-  .agent-ava.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
-  .agent-ava.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
-  .agent-card h3 { margin: 0; font-size: .96rem; font-weight: 700; }
-  .agent-card p { margin: 0; font-size: .76rem; color: var(--muted); line-height: 1.4; }
-  .agent-card .go { font-size: .76rem; font-weight: 700; color: var(--brand); display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
+  .agent-ava.bibi { background: var(--brand); }
+  .agent-ava.admin { background: var(--admin); }
+  .agent-card h3 { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: -.02em; }
+  .agent-card p { margin: 0; font-size: .82rem; color: var(--muted); line-height: 1.35; }
+  .agent-card .go { font-size: .82rem; font-weight: 600; color: var(--brand); display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
   .agent-card.admin-card .go { color: var(--admin); }
+  .agent-card.sm { flex-direction: row; align-items: center; gap: 12px; padding: 12px 14px; min-height: 64px; }
+  .agent-card.sm .agent-ava { width: 36px; height: 36px; border-radius: 9px; font-size: .88rem; }
+  .agent-sm-text { min-width: 0; }
+  .agent-sm-text h3 { margin: 0; font-size: .95rem; font-weight: 600; letter-spacing: -.02em; }
+  .agent-sm-text p { margin: 2px 0 0; font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   /* ---------- Updates feed ---------- */
-  .feed { display: flex; flex-direction: column; gap: 10px; }
+  .feed { display: flex; flex-direction: column; gap: 8px; }
   .update {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 12px 13px; display: flex; gap: 11px; box-shadow: var(--shadow);
+    background: var(--surface); border: none; border-radius: var(--r);
+    padding: 14px; display: flex; gap: 12px; box-shadow: var(--shadow);
   }
   .update.flash { animation: flashCard .9s ease; }
   @keyframes flashCard { 0%{background:var(--brand-soft)} 100%{background:var(--surface)} }
-  .update-ico { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .95rem; background: var(--surface-2); }
+  .update-ico { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .95rem; background: var(--brand-soft); color: var(--brand); }
+  .update-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .update-body { flex: 1; min-width: 0; }
   .update-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-  .update-who { font-size: .82rem; font-weight: 700; }
-  .update-time { font-size: .68rem; color: var(--faint); flex-shrink: 0; }
-  .update-text { font-size: .82rem; color: var(--muted); margin-top: 1px; line-height: 1.45; }
+  .update-who { font-size: .95rem; font-weight: 600; }
+  .update-time { font-size: .78rem; color: var(--faint); flex-shrink: 0; }
+  .update-text { font-size: .9rem; color: var(--muted); margin-top: 2px; line-height: 1.4; }
 
   /* ---------- To-dos mini ---------- */
   .todo {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 12px 13px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); margin-bottom: 10px;
-    transition: opacity .3s ease, transform .3s ease;
+    background: var(--surface); border: none; border-radius: var(--r);
+    padding: 14px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); margin-bottom: 8px;
+    transition: opacity .3s ease, transform .3s ease; min-height: 56px;
   }
   .todo.done-anim { opacity: 0; transform: translateX(40px); }
   .todo-check {
-    width: 24px; height: 24px; border-radius: 8px; border: 2px solid var(--line); flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--separator); flex-shrink: 0;
     display: flex; align-items: center; justify-content: center; font-size: .8rem; color: #fff; transition: all .15s ease;
   }
   .todo-check.on { background: var(--green); border-color: var(--green); }
   .todo-main { flex: 1; min-width: 0; }
-  .todo-title { font-size: .86rem; font-weight: 600; }
+  .todo-title { font-size: .95rem; font-weight: 500; }
   .todo-title.struck { text-decoration: line-through; color: var(--faint); }
-  .todo-meta { font-size: .72rem; color: var(--muted); margin-top: 1px; }
-  .todo-who { font-size: .66rem; font-weight: 700; padding: 3px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); flex-shrink: 0; }
+  .todo-meta { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+  .todo-who { font-size: .72rem; font-weight: 600; padding: 4px 9px; border-radius: 99px; background: var(--surface-2); color: var(--muted); flex-shrink: 0; }
 
   .add-todo {
-    width: 100%; padding: 12px; border-radius: 13px; border: 1.5px dashed var(--line);
-    background: var(--surface-2); color: var(--muted); font-size: .84rem; font-weight: 600;
-    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; min-height: 48px; padding: 12px; border-radius: var(--r); border: none;
+    background: var(--surface); color: var(--brand); font-size: .95rem; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 7px; box-shadow: var(--shadow);
   }
-  .add-todo:active { transform: scale(.98); }
+  .add-todo:active { opacity: .75; }
 
   /* ---------- Chat panel ---------- */
-  .chat-wrap { display: flex; flex-direction: column; height: 100%; }
+  .chat-wrap {
+    display: flex; flex-direction: column; height: 100%;
+    min-height: 0; background: var(--bg);
+  }
   .agent-switch {
     display: flex; gap: 6px; padding: 12px 16px 10px; background: var(--surface); border-bottom: 1px solid var(--line);
     position: sticky; top: 0; z-index: 5;
@@ -234,30 +237,35 @@
   .agent-switch button.active { border-color: transparent; box-shadow: var(--shadow); }
   .agent-switch button.active[data-agent="bibi"] { background: var(--brand-soft); }
   .agent-switch button.active[data-agent="admin"] { background: var(--admin-soft); }
-  .as-ava { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .82rem; color: #fff; flex-shrink: 0; }
-  .as-ava.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
-  .as-ava.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
+  .as-ava { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .82rem; color: #fff; flex-shrink: 0; }
+  .as-ava.bibi { background: var(--brand); }
+  .as-ava.admin { background: var(--admin); }
   .as-text { text-align: left; line-height: 1.15; }
   .as-name { font-size: .82rem; font-weight: 700; }
   .as-role { font-size: .66rem; color: var(--muted); }
 
-  .chat-scroll { flex: 1; overflow-y: auto; padding: 16px 14px 8px; -webkit-overflow-scrolling: touch; }
+  .chat-scroll {
+    flex: 1 1 auto; min-height: 0; overflow-y: auto;
+    padding: 14px 14px 18px; -webkit-overflow-scrolling: touch;
+    background: var(--bg);
+  }
   .msg { display: flex; gap: 9px; margin-bottom: 14px; max-width: 100%; }
   .msg.user { flex-direction: row-reverse; }
-  .msg-ava { width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .72rem; color: #fff; }
-  .msg-ava.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
-  .msg-ava.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
-  .msg-ava.user { background: linear-gradient(135deg,#334155,#0A2540); }
-  .msg-col { min-width: 0; max-width: 82%; }
+  .msg-ava { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .72rem; color: #fff; }
+  .msg-ava.bibi { background: var(--brand); }
+  .msg-ava.admin { background: var(--admin); }
+  .msg-ava.user { background: var(--faint); }
+  .msg-col { min-width: 0; max-width: 78%; }
   .msg.user .msg-col { align-items: flex-end; display: flex; flex-direction: column; }
   .bubble {
-    padding: 10px 13px; border-radius: 15px; font-size: .86rem; line-height: 1.5; word-wrap: break-word;
-    background: var(--surface); border: 1px solid var(--line); border-top-left-radius: 5px; box-shadow: var(--shadow);
+    padding: 10px 14px; border-radius: 18px; font-size: 1rem; line-height: 1.35; word-wrap: break-word;
+    background: var(--surface); color: var(--text); border: none; border-bottom-left-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
   }
-  .msg.user .bubble { background: var(--navy); color: #fff; border: none; border-top-left-radius: 15px; border-top-right-radius: 5px; }
+  .msg.user .bubble { background: var(--brand); color: #fff; border-bottom-left-radius: 18px; border-bottom-right-radius: 6px; box-shadow: none; }
   html[data-theme="dark"] .msg.user .bubble { background: var(--brand); }
-  .bubble b { font-weight: 700; }
-  .msg-time { font-size: .64rem; color: var(--faint); margin: 4px 4px 0; }
+  .bubble b { font-weight: 600; }
+  .msg-time { font-size: .72rem; color: var(--faint); margin: 4px 6px 0; }
 
   /* draft / action card */
   .draft {
@@ -266,27 +274,28 @@
   }
   .draft-head { display: flex; align-items: center; gap: 9px; padding: 12px 13px 10px; }
   .draft-ico { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; flex-shrink: 0; }
-  .draft-ico.bibi { background: linear-gradient(135deg,#1D6FEB,#4C8DF5); }
-  .draft-ico.admin { background: linear-gradient(135deg,#7C3AED,#A855F7); }
-  .draft-title { font-size: .86rem; font-weight: 700; }
-  .draft-to { font-size: .72rem; color: var(--muted); }
+  .draft-ico svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .draft-ico.bibi { background: var(--brand); }
+  .draft-ico.admin { background: var(--admin); }
+  .draft-title { font-size: .95rem; font-weight: 600; }
+  .draft-to { font-size: .82rem; color: var(--muted); }
   .draft-body { padding: 0 13px 12px; }
-  .draft-label { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); margin-bottom: 6px; }
+  .draft-label { font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
   .draft textarea {
-    width: 100%; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2);
-    padding: 10px 11px; font-size: .84rem; line-height: 1.5; color: var(--text); resize: none; min-height: 62px;
+    width: 100%; border: none; border-radius: 12px; background: var(--surface-2);
+    padding: 12px; font-size: 1rem; line-height: 1.4; color: var(--text); resize: none; min-height: 64px;
   }
-  .draft textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  .draft textarea:focus { outline: none; box-shadow: var(--focus); }
   .draft-actions { display: flex; gap: 8px; padding: 0 13px 13px; }
   .btn {
-    flex: 1; padding: 11px; border-radius: 11px; font-size: .82rem; font-weight: 700;
+    flex: 1; min-height: 44px; padding: 12px 16px; border-radius: 12px; font-size: 1rem; font-weight: 600;
     display: flex; align-items: center; justify-content: center; gap: 6px; transition: transform .12s ease, opacity .2s;
   }
-  .btn:active { transform: scale(.97); }
+  .btn:active { transform: scale(.97); opacity: .9; }
   .btn-primary { background: var(--brand); color: #fff; }
   .btn-primary.admin { background: var(--admin); }
-  .btn-ghost { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); flex: 0 0 auto; padding: 11px 14px; }
-  .btn.sent { opacity: .6; }
+  .btn-ghost { background: var(--surface-2); color: var(--text); border: none; flex: 0 0 auto; padding: 12px 16px; }
+  .btn.sent { opacity: .55; }
   .draft.done .draft-actions, .draft.done textarea { pointer-events: none; }
   .draft-sent {
     margin: 0 13px 13px; padding: 9px 11px; border-radius: 11px; background: var(--green-soft);
@@ -303,100 +312,138 @@
   .typing-dots span:nth-child(2){animation-delay:.2s} .typing-dots span:nth-child(3){animation-delay:.4s}
   @keyframes td { 0%,60%,100%{opacity:.3;transform:translateY(0)} 30%{opacity:1;transform:translateY(-3px)} }
 
-  .chat-foot { border-top: 1px solid var(--line); background: var(--surface); padding: 10px 14px calc(10px + var(--safe-b)); }
-  .chips { display: flex; gap: 7px; overflow-x: auto; padding-bottom: 9px; scrollbar-width: none; }
+  .chat-foot {
+    flex-shrink: 0;
+    border-top: .5px solid var(--separator);
+    background: var(--surface);
+    padding: 10px 12px 12px;
+    z-index: 5;
+  }
+  html[data-theme="dark"] .chat-foot { background: var(--surface); }
+  .chips {
+    display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden;
+    padding: 2px 2px 10px; margin: 0 -2px; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
   .chips::-webkit-scrollbar { display: none; }
   .chip {
-    flex-shrink: 0; padding: 8px 13px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--line);
-    font-size: .78rem; font-weight: 600; color: var(--text); white-space: nowrap; transition: transform .12s ease;
+    flex-shrink: 0; min-height: 36px; padding: 8px 14px; border-radius: 99px;
+    background: var(--surface-2); border: none;
+    font-size: .88rem; font-weight: 500; color: var(--text); white-space: nowrap;
+    transition: transform .12s ease, opacity .12s;
+    display: inline-flex; align-items: center; gap: 6px;
   }
-  .chip:active { transform: scale(.95); }
-  .chip.admin { background: var(--admin-soft); color: var(--admin); border-color: transparent; }
-  .input-bar { display: flex; gap: 9px; align-items: center; }
-  .input-bar input {
-    flex: 1; border: 1px solid var(--line); border-radius: 13px; background: var(--surface-2);
-    padding: 12px 14px; font-size: .88rem; color: var(--text);
+  .chip svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .chip:active { transform: scale(.96); opacity: .85; }
+  .chip.admin { background: var(--admin-soft); color: var(--admin); }
+  .chip.quick {
+    padding: 8px 14px 8px 10px;
+    background: var(--brand-soft); color: var(--brand); font-weight: 600;
   }
-  .input-bar input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  .chip.quick .chip-ico {
+    width: 24px; height: 24px; border-radius: 7px;
+    background: var(--surface); color: var(--brand);
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .chip.quick .chip-ico svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .input-bar { display: flex; gap: 8px; align-items: flex-end; }
+  .input-bar input, .input-bar textarea {
+    flex: 1; border: none; border-radius: 20px; background: var(--surface-2);
+    padding: 10px 16px; font-size: 1rem; color: var(--text); font-family: inherit; line-height: 1.35;
+    min-height: 36px;
+  }
+  .input-bar textarea {
+    resize: none; overflow-y: auto; min-height: 36px; max-height: 120px;
+    field-sizing: content;
+  }
+  .input-bar input:focus, .input-bar textarea:focus { outline: none; box-shadow: var(--focus); }
   .send {
-    width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0; color: #fff; font-size: 1.15rem;
-    display: flex; align-items: center; justify-content: center; background: var(--brand); transition: transform .12s ease;
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; color: #fff; font-size: 1.05rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; background: var(--brand); transition: transform .12s ease, opacity .12s;
+    margin-bottom: 0;
   }
   .send.admin { background: var(--admin); }
   .send:active { transform: scale(.9); }
+  .send:disabled { opacity: .35; }
 
-  /* ---------- Bottom nav ---------- */
+  /* ---------- Bottom nav (frosted) ---------- */
   .tabbar {
     height: calc(var(--tab-h) + var(--safe-b)); padding-bottom: var(--safe-b);
-    background: var(--surface); border-top: 1px solid var(--line);
+    background: rgba(255,255,255,.82); border-top: .5px solid var(--separator);
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
     display: flex; position: sticky; bottom: 0; z-index: 40;
   }
+  html[data-theme="dark"] .tabbar { background: rgba(28,28,30,.86); }
   .tab {
-    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
-    font-size: .66rem; font-weight: 600; color: var(--faint); position: relative;
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    min-height: 44px; font-size: .64rem; font-weight: 500; color: var(--faint); position: relative;
   }
-  .tab svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tab svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
   .tab.active { color: var(--brand); }
-  .tab-badge { position: absolute; top: 8px; left: 50%; margin-left: 5px; min-width: 8px; height: 8px; border-radius: 99px; background: var(--red); display: none; }
+  .tab.active svg { stroke-width: 2.1; }
+  .tab-badge { position: absolute; top: 6px; left: 50%; margin-left: 8px; min-width: 8px; height: 8px; border-radius: 99px; background: var(--red); display: none; }
   .tab-badge.show { display: block; }
 
   /* ---------- Toast ---------- */
   .toast {
     position: fixed; left: 50%; bottom: calc(var(--tab-h) + var(--safe-b) + 16px); transform: translate(-50%, 20px);
-    background: var(--navy); color: #fff; padding: 11px 16px; border-radius: 13px; font-size: .82rem; font-weight: 600;
+    background: rgba(28,28,30,.92); color: #fff; padding: 12px 18px; border-radius: 14px; font-size: .95rem; font-weight: 500;
     display: flex; align-items: center; gap: 9px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
     transition: all .3s cubic-bezier(.2,.8,.2,1); z-index: 200; max-width: 90%;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   }
-  html[data-theme="dark"] .toast { background: var(--surface-2); border: 1px solid var(--line); }
+  html[data-theme="dark"] .toast { background: rgba(44,44,46,.94); border: .5px solid var(--line); }
   .toast.show { opacity: 1; transform: translate(-50%, 0); }
   .toast-ico { display: flex; }
 
   .live-toast {
-    position: fixed; top: calc(env(safe-area-inset-top,0px) + 12px); left: 50%; transform: translate(-50%,-20px);
-    max-width: 420px; width: calc(100% - 32px);
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 11px 13px;
-    display: flex; align-items: center; gap: 11px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
+    position: fixed; top: calc(var(--safe-t) + 12px); left: 50%; transform: translate(-50%,-20px);
+    max-width: 400px; width: calc(100% - 32px);
+    background: rgba(255,255,255,.92); border: none; border-radius: 16px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
     transition: all .35s cubic-bezier(.2,.8,.2,1); z-index: 210;
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
+  html[data-theme="dark"] .live-toast { background: rgba(44,44,46,.92); }
   .live-toast.show { opacity: 1; transform: translate(-50%,0); pointer-events: auto; }
   .live-toast-ico { width: 34px; height: 34px; border-radius: 10px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
   .live-toast-text { flex: 1; font-size: .8rem; line-height: 1.35; }
   .live-toast-text b { font-weight: 700; }
   .live-toast-cta { font-size: .74rem; font-weight: 700; color: var(--brand); flex-shrink: 0; }
 
-  .sync-overlay { position: fixed; inset: 0; background: rgba(10,37,64,.4); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all .25s; z-index: 220; }
+  .sync-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all .25s; z-index: 220; }
   .sync-overlay.show { opacity: 1; visibility: visible; }
-  .sync-card { background: var(--surface); border-radius: 16px; padding: 22px 26px; display: flex; flex-direction: column; align-items: center; gap: 13px; box-shadow: var(--shadow-lg); }
-  .sync-ring { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--brand); animation: spin .8s linear infinite; }
+  .sync-card { background: var(--surface); border-radius: 16px; padding: 24px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--shadow-lg); }
+  .sync-ring { width: 32px; height: 32px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--brand); animation: spin .8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .sync-card p { margin: 0; font-size: .82rem; font-weight: 600; color: var(--muted); }
+  .sync-card p { margin: 0; font-size: .95rem; font-weight: 500; color: var(--muted); }
 
   /* ---------- Caregivers ---------- */
   .care-card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
-    padding: 13px; margin-bottom: 11px; box-shadow: var(--shadow);
+    background: var(--surface); border: none; border-radius: var(--r-lg);
+    padding: 16px; margin-bottom: 10px; box-shadow: var(--shadow);
   }
-  .care-card.on-shift { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), var(--shadow); }
+  .care-card.on-shift { box-shadow: 0 0 0 2px var(--green), var(--shadow); }
   .care-top { display: flex; align-items: center; gap: 12px; }
   .care-ava {
-    width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; color: #fff;
-    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .95rem;
+    width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .95rem;
   }
   .care-main { flex: 1; min-width: 0; }
-  .care-name { font-size: .95rem; font-weight: 700; display: flex; align-items: center; gap: 7px; }
-  .care-role { font-size: .76rem; color: var(--muted); margin-top: 1px; }
-  .care-badge { font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; padding: 3px 7px; border-radius: 99px; background: var(--green-soft); color: var(--green); }
+  .care-name { font-size: 1.05rem; font-weight: 600; display: flex; align-items: center; gap: 8px; letter-spacing: -.02em; }
+  .care-role { font-size: .88rem; color: var(--muted); margin-top: 2px; }
+  .care-badge { font-size: .72rem; font-weight: 600; padding: 3px 8px; border-radius: 99px; background: var(--green-soft); color: var(--green); }
   .care-badge.fam { background: var(--brand-soft); color: var(--brand); }
-  .care-note { font-size: .8rem; color: var(--muted); line-height: 1.45; margin-top: 10px; background: var(--surface-2); border-radius: 10px; padding: 9px 11px; }
-  .care-actions { display: flex; gap: 8px; margin-top: 11px; }
+  .care-note { font-size: .9rem; color: var(--muted); line-height: 1.4; margin-top: 12px; background: var(--surface-2); border-radius: 12px; padding: 10px 12px; }
+  .care-actions { display: flex; gap: 8px; margin-top: 12px; }
   .care-btn {
-    flex: 1; padding: 9px; border-radius: 11px; font-size: .8rem; font-weight: 700;
+    flex: 1; min-height: 44px; padding: 10px; border-radius: 12px; font-size: .95rem; font-weight: 600;
     display: flex; align-items: center; justify-content: center; gap: 6px;
-    background: var(--surface-2); border: 1px solid var(--line); color: var(--text); transition: transform .12s ease;
+    background: var(--surface-2); border: none; color: var(--text); transition: transform .12s ease, opacity .12s;
   }
-  .care-btn:active { transform: scale(.96); }
-  .care-btn.msg { background: var(--brand); border-color: transparent; color: #fff; }
-  .care-btn.warn { background: var(--amber); border-color: transparent; color: #fff; }
+  .care-btn:active { transform: scale(.97); opacity: .9; }
+  .care-btn.msg { background: var(--brand); color: #fff; }
+  .care-btn.warn { background: var(--amber); color: #1C1C1E; }
 
   /* workload meter */
   .load-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; font-size: .74rem; color: var(--muted); }
@@ -431,14 +478,21 @@
   .cg-ch-feed { max-height: 260px; overflow-y: auto; padding: 13px; display: flex; flex-direction: column; gap: 11px; }
   .cg-ch-msg { display: flex; gap: 9px; }
   .cg-ch-msg.self { flex-direction: row-reverse; }
-  .cg-ch-ava { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .66rem; }
+  .cg-ch-ava { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .66rem; }
   .cg-ch-col { max-width: 78%; }
   .cg-ch-msg.self .cg-ch-col { text-align: right; }
-  .cg-ch-name { font-size: .68rem; color: var(--muted); margin: 0 3px 2px; }
-  .cg-ch-bubble { display: inline-block; text-align: left; padding: 8px 11px; border-radius: 13px; border-top-left-radius: 4px; background: var(--surface-2); border: 1px solid var(--line); font-size: .82rem; line-height: 1.45; }
-  .cg-ch-msg.self .cg-ch-bubble { background: var(--navy); color: #fff; border: none; border-top-left-radius: 13px; border-top-right-radius: 4px; }
+  .cg-ch-name { font-size: .78rem; color: var(--muted); margin: 0 4px 3px; font-weight: 500; }
+  .cg-ch-bubble {
+    display: inline-block; text-align: left; padding: 9px 13px; border-radius: 18px;
+    border-bottom-left-radius: 6px; background: var(--surface); color: var(--text); border: none;
+    font-size: 1rem; line-height: 1.35; box-shadow: 0 1px 2px rgba(0,0,0,.06);
+  }
+  .cg-ch-msg.self .cg-ch-bubble {
+    background: var(--brand); color: #fff;
+    border-bottom-left-radius: 18px; border-bottom-right-radius: 6px; box-shadow: none;
+  }
   html[data-theme="dark"] .cg-ch-msg.self .cg-ch-bubble { background: var(--brand); }
-  .cg-ch-time { font-size: .62rem; color: var(--faint); margin: 3px 4px 0; }
+  .cg-ch-time { font-size: .72rem; color: var(--faint); margin: 3px 6px 0; }
   /* link to channel from caregivers tab */
   .channel-link {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
@@ -453,20 +507,216 @@
   .channel-link-go { font-size: .8rem; font-weight: 700; color: var(--brand); flex-shrink: 0; }
 
   /* channel tab (full) */
-  .ch-topbar { display: flex; align-items: center; gap: 11px; padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); }
-  .ch-topbar-ava { width: 40px; height: 40px; border-radius: 12px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
-  .ch-topbar-title { font-size: .96rem; font-weight: 700; }
-  .ch-topbar-sub { font-size: .72rem; color: var(--muted); }
-  .cg-feed { display: flex; flex-direction: column; gap: 12px; padding: 16px 14px 8px; }
+  .ch-topbar {
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+    padding: calc(var(--safe-t) + 10px) 16px 12px;
+    background: rgba(255,255,255,.86); border-bottom: .5px solid var(--separator);
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+  html[data-theme="dark"] .ch-topbar { background: rgba(28,28,30,.88); }
+  .ch-back { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.55rem; line-height: 1; color: var(--brand); background: var(--surface-2); border: none; transition: opacity .12s ease; }
+  .ch-back:active { opacity: .55; }
+  .ch-topbar-ava svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  #chTopIco { background: var(--brand-soft); color: var(--brand); }
+  .ch-topbar-ava { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .ch-topbar-title { font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em; }
+  .ch-topbar-sub { font-size: .82rem; color: var(--muted); }
+  .cg-feed { display: flex; flex-direction: column; gap: 12px; padding: 14px 14px 20px; flex: 1 1 auto; min-height: 0; }
 
-  @media (max-width: 380px) { .agent-grid { grid-template-columns: 1fr; } .tab { font-size: .6rem; } }
+  /* ---------- Attention + progress ---------- */
+  .attn-strip {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin: 0 0 16px; padding: 0; border-radius: 0;
+    background: transparent; border: none; box-shadow: none;
+  }
+  .attn-chip {
+    display: flex; align-items: center; justify-content: flex-start; gap: 8px;
+    min-height: 48px; padding: 12px; border-radius: 14px;
+    background: var(--surface); border: none; box-shadow: var(--shadow);
+    font-size: .88rem; font-weight: 600; color: var(--text); text-align: left; width: 100%;
+  }
+  .attn-chip.warn { background: var(--amber-soft); color: var(--text); }
+  .attn-chip.ok { background: var(--green-soft); color: var(--green); }
+  .attn-chip .n {
+    min-width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--brand-soft); border: none;
+    font-size: .9rem; font-weight: 700; color: var(--brand);
+  }
+  .attn-chip.warn .n { background: var(--amber); color: #1C1C1E; }
+  .attn-chip.ok .n { background: var(--green); color: #fff; }
+  .progress-card { background: var(--surface); border: none; border-radius: var(--r); padding: 14px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .progress-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+  .progress-top b { font-size: 1rem; font-weight: 600; }
+  .progress-top span { font-size: .88rem; color: var(--muted); }
+  .progress-bar { height: 6px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 99px; background: var(--green); transition: width .4s ease; }
+
+  /* ---------- Pending tasks (home) ---------- */
+  .task-swipe { position: relative; margin-bottom: 8px; border-radius: var(--r); overflow: hidden; }
+  .task-swipe-bg { position: absolute; inset: 0; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; font-size: .88rem; font-weight: 600; }
+  .task-row { position: relative; background: var(--surface); border: none; border-radius: var(--r); padding: 14px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); transition: opacity .3s ease, transform .25s ease; touch-action: pan-y; min-height: 60px; }
+  .task-row.needs { box-shadow: 0 0 0 2px var(--amber), var(--shadow); }
+  .task-row.done-anim { opacity: 0; transform: translateX(60px); }
+  .task-check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--separator); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .8rem; color: #fff; transition: all .15s ease; }
+  .task-check.on { background: var(--green); border-color: var(--green); }
+  .task-body { flex: 1; min-width: 0; cursor: pointer; }
+  .task-title { font-size: 1rem; font-weight: 500; letter-spacing: -.01em; }
+  .task-title.struck { text-decoration: line-through; color: var(--faint); }
+  .task-meta { font-size: .82rem; color: var(--muted); margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .task-pill { font-size: .72rem; font-weight: 600; padding: 3px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
+  .task-pill.date { background: var(--brand-soft); color: var(--brand); }
+  .task-pill.person { background: var(--admin-soft); color: var(--admin); }
+  .task-pill.warn { background: var(--amber-soft); color: #C93400; }
+  html[data-theme="dark"] .task-pill.warn { color: var(--amber); }
+  .task-ops { display: flex; gap: 6px; flex-shrink: 0; }
+  .op-btn { width: 36px; height: 36px; border-radius: 10px; background: var(--surface-2); border: none; display: flex; align-items: center; justify-content: center; font-size: .82rem; transition: opacity .12s ease; }
+  .op-btn:active { opacity: .6; }
+  .done-list { display: flex; flex-direction: column; gap: 6px; }
+  .done-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); font-size: .9rem; color: var(--muted); }
+  .done-row .tick { color: var(--green); font-weight: 700; }
+  .done-row b { color: var(--text); font-weight: 500; }
+  .care-log { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 4px; }
+  .care-log-item { background: var(--surface); border: none; border-radius: var(--r); padding: 12px; text-align: left; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; min-height: 88px; }
+  .care-log-item .care-log-main { background: none; border: none; padding: 0; text-align: left; color: inherit; width: 100%; min-height: 44px; }
+  .care-log-item .care-log-main:active { opacity: .7; }
+  .care-log-item .k { font-size: .78rem; font-weight: 500; color: var(--muted); }
+  .care-log-item .v { font-size: 1.05rem; font-weight: 600; margin-top: 2px; letter-spacing: -.02em; }
+  .care-log-item .v.empty { color: var(--faint); font-weight: 500; }
+  .care-log-acts { display: flex; gap: 6px; }
+  .care-log-acts button { flex: 1; min-height: 32px; font-size: .72rem; font-weight: 600; padding: 6px 4px; border-radius: 8px; background: var(--surface-2); border: none; color: var(--muted); }
+  .care-log-acts button:active { opacity: .7; }
+  .care-log-acts button.pri { background: var(--brand-soft); color: var(--brand); }
+  .task-pill.unassigned { background: var(--amber-soft); color: #C93400; }
+  html[data-theme="dark"] .task-pill.unassigned { color: var(--amber); }
+  .task-row.unassigned { box-shadow: 0 0 0 2px var(--amber), var(--shadow); }
+
+  /* ---------- Bottom sheet modal ---------- */
+  .sheet-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: all .25s; z-index: 250; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet-overlay.show { opacity: 1; visibility: visible; }
+  .sheet { width: 100%; max-width: 430px; background: var(--surface); border-radius: 14px 14px 0 0; padding: 10px 20px calc(22px + var(--safe-b)); box-shadow: var(--shadow-lg); transform: translateY(100%); transition: transform .32s cubic-bezier(.32,.72,0,1); max-height: 92vh; overflow-y: auto; }
+  .sheet-overlay.show .sheet { transform: none; }
+  .sheet-grab { width: 36px; height: 5px; border-radius: 99px; background: rgba(60,60,67,.3); margin: 0 auto 16px; }
+  html[data-theme="dark"] .sheet-grab { background: rgba(235,235,245,.3); }
+  .sheet-title { font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 18px; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: .82rem; font-weight: 500; color: var(--muted); margin-bottom: 7px; }
+  .field input, .field select, .field textarea { width: 100%; border: none; border-radius: 12px; background: var(--surface-2); padding: 14px; font-size: 1.05rem; color: var(--text); min-height: 48px; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; box-shadow: var(--focus); }
+  .assign-row { display: flex; gap: 8px; }
+  .assign-row select { flex: 1; }
+  .add-person-btn { flex-shrink: 0; min-width: 48px; min-height: 48px; border-radius: 12px; background: var(--brand-soft); color: var(--brand); font-weight: 700; font-size: 1.25rem; border: none; }
+  .sheet-actions { display: flex; gap: 10px; margin-top: 8px; }
+  .sheet-actions .btn { flex: 1; }
+  .btn-danger { background: var(--red-soft); color: var(--red); }
+
+  /* ---------- Channel: iOS segmented control ---------- */
+  .ch-seg {
+    display: flex; gap: 0; margin: 10px 16px 8px; padding: 3px; flex-shrink: 0;
+    background: var(--surface-2); border-radius: 10px; border-bottom: none;
+  }
+  .ch-seg button {
+    flex: 1; min-height: 32px; padding: 7px 6px; border-radius: 8px; background: transparent; border: none;
+    font-size: .84rem; font-weight: 600; color: var(--text); position: relative; transition: background .18s ease, box-shadow .18s ease;
+  }
+  .ch-seg button.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 1px rgba(0,0,0,.04); }
+  html[data-theme="dark"] .ch-seg button.active { box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+  .ch-seg .seg-badge { position: absolute; top: 5px; right: 8px; width: 7px; height: 7px; border-radius: 99px; background: var(--red); display: none; }
+  .ch-seg .seg-badge.show { display: block; }
+  .cg-ch-fwd { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; min-height: 28px; font-size: .82rem; font-weight: 600; color: var(--brand); background: none; padding: 2px 0; }
+  .cg-ch-fwd:active { opacity: .55; }
+  .cg-ch-dm { font-size: .68rem; font-weight: 600; color: var(--admin); background: var(--admin-soft); padding: 2px 7px; border-radius: 6px; margin-left: 6px; }
+
+  /* ---------- Emergency check → 911 ---------- */
+  .emg-check { display: flex; align-items: center; gap: 12px; margin: 0 13px 12px; padding: 12px 14px; border-radius: 12px; background: var(--amber-soft); border: none; cursor: pointer; min-height: 48px; }
+  .emg-check input { width: 22px; height: 22px; accent-color: var(--red); flex-shrink: 0; }
+  .emg-check span { font-size: .95rem; font-weight: 500; color: var(--text); }
+  .emg-banner { margin: 9px 0 0; padding: 16px; border-radius: 14px; background: var(--red-soft); border: none; }
+  .emg-banner .eb-title { font-size: 1.05rem; font-weight: 700; color: var(--red); display: flex; align-items: center; gap: 7px; }
+  .emg-banner .eb-text { font-size: .95rem; color: var(--text); margin-top: 8px; line-height: 1.45; }
+  .emg-banner .eb-call { margin-top: 12px; width: 100%; min-height: 50px; padding: 14px; border-radius: 12px; background: var(--red); color: #fff; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+  .emg-banner .eb-call:active { opacity: .9; }
+
+  /* ---------- Home greeting ---------- */
+  .home-greet { display: flex; align-items: center; justify-content: space-between; margin: 2px 2px 18px; }
+  .greet-hi { font-size: 1.7rem; font-weight: 700; letter-spacing: -.03em; line-height: 1.15; }
+  .greet-date { font-size: .95rem; color: var(--muted); margin-top: 4px; font-weight: 400; }
+  .greet-ava { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; transition: opacity .12s ease; overflow: hidden; }
+  .greet-ava svg { width: 26px; height: 26px; }
+  .greet-ava:active { opacity: .75; }
+
+  /* ---------- Settings (grouped list) ---------- */
+  .set-hero { display: flex; align-items: center; gap: 14px; padding: 8px 4px 10px; }
+  .set-hero-ava { width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .set-hero-ava svg { width: 36px; height: 36px; }
+  .set-hero-name { font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; }
+  .set-hero-role { font-size: .95rem; color: var(--muted); margin-top: 3px; }
+  .set-group { background: var(--surface); border: none; border-radius: var(--r); box-shadow: none; overflow: hidden; margin-bottom: 8px; }
+  .set-row { display: flex; align-items: center; gap: 14px; padding: 12px 16px; min-height: 52px; width: 100%; text-align: left; background: none; border: none; color: var(--text); text-decoration: none; cursor: pointer; }
+  .set-row + .set-row { border-top: .5px solid var(--separator); }
+  .set-row:active { background: var(--surface-2); }
+  .set-row-ico { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem; background: var(--brand); color: #fff; }
+  .set-row-ico.warn { background: var(--amber); color: #1C1C1E; }
+  .set-row-ico.plum { background: var(--admin); }
+  .set-row-ico.rose { background: var(--red); }
+  .set-row-main { flex: 1; min-width: 0; }
+  .set-row-title { font-size: 1.05rem; font-weight: 400; }
+  .set-row-sub { font-size: .82rem; color: var(--muted); margin-top: 1px; }
+  .set-row-go { font-size: 1.25rem; color: var(--faint); flex-shrink: 0; font-weight: 300; }
+  .set-row-val { font-size: 1rem; color: var(--muted); flex-shrink: 0; max-width: 52%; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .set-row-val.placeholder { color: var(--faint); }
+  .set-foot { text-align: center; font-size: .82rem; color: var(--faint); margin-top: 20px; line-height: 1.5; }
+
+  /* iOS toggle */
+  .switch { position: relative; width: 51px; height: 31px; flex-shrink: 0; }
+  .switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 1; }
+  .switch-track { position: absolute; inset: 0; border-radius: 99px; background: rgba(120,120,128,.16); border: none; transition: background .22s ease; }
+  html[data-theme="dark"] .switch-track { background: rgba(120,120,128,.32); }
+  .switch-track::after { content: ''; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.15), 0 1px 1px rgba(0,0,0,.06); transition: transform .22s cubic-bezier(.4,.0,.2,1); }
+  .switch input:checked + .switch-track { background: var(--green); }
+  .switch input:checked + .switch-track::after { transform: translateX(20px); }
+  .switch input:focus-visible + .switch-track { box-shadow: var(--focus); }
+
+  /* ---------- Inline icon sizing ---------- */
+  .agent-ava svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .care-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .task-pill svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .op-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tag svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .task-pill { display: inline-flex; align-items: center; gap: 4px; }
+
+  /* ---------- Urgency screening (channel) ---------- */
+  .screen-bar { display: flex; align-items: center; gap: 10px; padding: 4px 2px 8px; }
+  .screen-note { font-size: .82rem; color: var(--muted); flex: 1; line-height: 1.35; }
+  .screen-btn { flex-shrink: 0; min-height: 32px; font-size: .82rem; font-weight: 600; color: #C93400; background: var(--amber-soft); border: none; padding: 6px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 5px; }
+  html[data-theme="dark"] .screen-btn { color: var(--amber); }
+  .screen-btn:active { opacity: .75; }
+  .screen-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .urgent-copy { font-size: 1rem; color: var(--muted); line-height: 1.45; margin: 0 0 16px; }
+  .urgent-copy b { color: var(--text); font-weight: 600; }
+
+  /* Settings section headers (iOS grouped-list style) */
+  #panel-settings .sec-label {
+    font-size: .78rem; font-weight: 400; text-transform: uppercase; letter-spacing: .02em;
+    color: var(--muted); margin: 26px 16px 8px; padding: 0;
+  }
+  #panel-settings .sec-label:first-of-type { margin-top: 18px; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  @media (max-width: 380px) { .agent-grid { grid-template-columns: 1fr; } .tab { font-size: .6rem; } .greet-hi { font-size: 1.45rem; } }
+  @media (prefers-contrast: more) {
+    :root { --line: rgba(0,0,0,.35); --separator: rgba(0,0,0,.45); --muted: #3A3A3C; }
+    html[data-theme="dark"] { --line: rgba(255,255,255,.45); --separator: rgba(255,255,255,.5); --muted: #EBEBF0; }
+    .btn-primary, .care-btn.msg, .send { outline: 1px solid currentColor; }
+  }
 </style>
 </head>
 <body>
 
 <div class="boot" id="boot">
   <div class="boot-logo">Bi</div>
-  <h1>piVoT Family</h1>
+  <h1>Family Care</h1>
   <p id="bootStatus">Catching up on Mom's day…</p>
   <div class="boot-bar"><div class="boot-fill" id="bootFill"></div></div>
 </div>
@@ -482,24 +732,21 @@
 </div>
 
 <div class="app">
-  <header class="header">
-    <div class="header-left">
-      <div class="logo">Bi</div>
-      <div>
-        <div class="header-title">piVoT Family</div>
-        <div class="header-sub">Eleanor Whitman</div>
-      </div>
-    </div>
-    <div class="header-actions">
-      <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
-      <a class="switch-link" href="provider.html">Clinical</a>
-    </div>
-  </header>
-
   <div class="panels">
     <!-- ============ HOME ============ -->
-    <div class="panel active" id="panel-home">
+    <div class="panel active" id="panel-home" aria-hidden="false">
       <div class="panel-inner">
+        <div class="home-greet">
+          <div>
+            <div class="greet-hi" id="greetHi">Hello, Eleanor</div>
+            <div class="greet-date" id="greetDate"></div>
+          </div>
+          <button type="button" class="greet-ava" onclick="switchTab('settings')" aria-label="Your profile">
+            <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5 0-9 2.6-9 6v1h18v-1c0-3.4-4-6-9-6z"/></svg>
+          </button>
+        </div>
+        <div id="attnStrip" class="attn-strip" aria-label="What needs attention"></div>
+
         <div class="hero">
           <div class="hero-row">
             <div class="hero-avatar">RW</div>
@@ -509,49 +756,56 @@
             </div>
           </div>
           <div class="hero-summary">
-            <div class="tag">✨ BiBi · today so far</div>
+            <div class="tag">Today's snapshot</div>
             <span id="heroSummary">Mom had a calm morning. Breakfast and meds are done. She's at dermatology now with a ride home arranged.</span>
           </div>
         </div>
 
-        <div class="sec-label">Mom's caregiver</div>
-        <div id="homeCaregiver"></div>
-        <button type="button" class="channel-link" onclick="switchTab('channel')" style="margin-top:2px">
-          <span class="channel-link-ico">💬</span>
-          <span class="channel-link-text"><b>Care team channel</b><span>Message everyone at once</span></span>
-          <span class="channel-link-go">Open →</span>
-        </button>
-
-        <div class="sec-label">Get help</div>
-        <div class="agent-grid">
-          <button type="button" class="agent-card" onclick="openAgent('bibi')">
-            <div class="agent-ava bibi">Bi</div>
-            <h3>Ask BiBi</h3>
-            <p>Message family or the nurse, check on Mom, add reminders.</p>
-            <span class="go">Start →</span>
+        <div class="sec-label">Quick actions</div>
+        <div class="agent-grid" role="group" aria-label="Quick actions">
+          <button type="button" class="agent-card sm" onclick="homeAskCareTeam()">
+            <div class="agent-ava" style="background:var(--green)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="agent-sm-text"><h3>Ask care team</h3><p>Check-in &amp; updates</p></div>
           </button>
-          <button type="button" class="agent-card admin-card" onclick="openAgent('admin')">
-            <div class="agent-ava admin">KR</div>
-            <h3>Ask Admin</h3>
-            <p>Reach the facility office about billing, visits, or a concern.</p>
-            <span class="go">Reach out →</span>
+          <button type="button" class="agent-card sm admin-card" onclick="homeAskAdmin()">
+            <div class="agent-ava admin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 21v-4h6v4"/><path d="M8.5 7h.01M12 7h.01M15.5 7h.01M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></div>
+            <div class="agent-sm-text"><h3>Ask admin</h3><p>Office &amp; concerns</p></div>
+          </button>
+          <button type="button" class="agent-card sm" onclick="homeAskCaregiver()">
+            <div class="agent-ava" style="background:var(--brand)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="agent-sm-text"><h3>Ask caregiver</h3><p>Ana · on shift</p></div>
+          </button>
+          <button type="button" class="agent-card sm" onclick="homeAddReminder()">
+            <div class="agent-ava" style="background:var(--amber);color:#1C1C1E" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div class="agent-sm-text"><h3>Add reminder</h3><p>Task for today</p></div>
           </button>
         </div>
 
+        <div class="sec-label">Today's care log</div>
+        <div class="care-log" id="careLog"></div>
+
+        <div class="sec-label">Pending tasks <button type="button" onclick="openTaskEditor()">＋ Add</button></div>
+        <div id="taskProgress"></div>
+        <div id="todoList"></div>
+        <button type="button" class="add-todo" onclick="openTaskEditor()"><span>＋</span> Add a task</button>
+
+        <div class="sec-label">Completed today <button type="button" id="doneToggleBtn" onclick="toggleDoneSection()" style="display:none">Show</button></div>
+        <div id="doneList" class="done-list" style="display:none"></div>
+
+        <div class="sec-label">Mom's care provider</div>
+        <div id="homeCaregiver"></div>
+
         <div class="sec-label">Recent updates</div>
         <div class="feed" id="feed"></div>
-
-        <div class="sec-label">To-dos <button type="button" onclick="switchTab('bibi')">Ask BiBi</button></div>
-        <div id="todoList"></div>
-        <button type="button" class="add-todo" onclick="quickAddTodo()"><span>＋</span> Add a to-do</button>
       </div>
     </div>
 
     <!-- ============ CHAT ============ -->
-    <div class="panel" id="panel-bibi">
+    <div class="panel" id="panel-bibi" aria-hidden="true">
       <div class="chat-wrap">
         <div class="ch-topbar">
-          <div class="ch-topbar-ava" style="background:linear-gradient(135deg,#1D6FEB,#4C8DF5);color:#fff;font-weight:800;font-size:.95rem">Bi</div>
+          <button type="button" class="ch-back" onclick="switchTab('home')" aria-label="Back to home">‹</button>
+          <div class="ch-topbar-ava" style="background:var(--brand);color:#fff;font-weight:700;font-size:.95rem" aria-hidden="true">Bi</div>
           <div class="ch-topbar-main">
             <div class="ch-topbar-title">BiBi</div>
             <div class="ch-topbar-sub">Here to help with Mom's day</div>
@@ -574,45 +828,212 @@
     </div>
 
     <!-- ============ CHANNEL ============ -->
-    <div class="panel" id="panel-channel">
+    <div class="panel" id="panel-channel" aria-hidden="true">
       <div class="chat-wrap">
         <div class="ch-topbar">
-          <div class="ch-topbar-ava">💬</div>
-          <div class="ch-topbar-main">
-            <div class="ch-topbar-title">Ruth's care team</div>
-            <div class="ch-topbar-sub" id="cgChannelCount">Everyone caring for Mom</div>
+          <div class="ch-topbar-ava" id="chTopIco" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           </div>
+          <div class="ch-topbar-main">
+            <div class="ch-topbar-title" id="chTopTitle">Care team</div>
+            <div class="ch-topbar-sub" id="cgChannelCount">Nurse, aide, therapist &amp; transport</div>
+          </div>
+        </div>
+
+        <div class="ch-seg" role="tablist" aria-label="Channels">
+          <button type="button" role="tab" aria-selected="true" id="segCare" class="active" onclick="switchChannel('care');screenCareTeam()">Care team<span class="seg-badge" id="segCareBadge" aria-hidden="true"></span></button>
+          <button type="button" role="tab" aria-selected="false" id="segFamily" onclick="switchChannel('family')">Family<span class="seg-badge" id="segFamilyBadge" aria-hidden="true"></span></button>
+          <button type="button" role="tab" aria-selected="false" id="segAdmin" onclick="switchChannel('admin')">Admin<span class="seg-badge" id="segAdminBadge" aria-hidden="true"></span></button>
         </div>
 
         <div class="chat-scroll cg-feed" id="cgChannelFeed"></div>
 
         <div class="chat-foot">
+          <div class="screen-bar" id="careScreenBar">
+            <span class="screen-note">Replies here can take time — not for emergencies.</span>
+            <button type="button" class="screen-btn" onclick="openUrgent()"><svg viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg> Urgent?</button>
+          </div>
           <div class="chips" id="channelChips"></div>
           <div class="input-bar">
-            <input id="cgChannelInput" type="text" placeholder="Message the whole team…" autocomplete="off" />
+            <textarea id="cgChannelInput" rows="1" placeholder="Message the care team…" autocomplete="off"></textarea>
             <button type="button" class="send" id="cgChannelSend" aria-label="Send">↑</button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- ============ SETTINGS ============ -->
+    <div class="panel" id="panel-settings" aria-hidden="true">
+      <div class="panel-inner">
+        <div class="set-hero">
+          <div class="set-hero-ava">
+            <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5 0-9 2.6-9 6v1h18v-1c0-3.4-4-6-9-6z"/></svg>
+          </div>
+          <div>
+            <div class="set-hero-name" id="setHeroName">Eleanor Whitman</div>
+            <div class="set-hero-role">Family caregiver · Ruth's daughter</div>
+          </div>
+        </div>
+
+        <div class="sec-label">Personal information</div>
+        <div class="set-group" id="profileList"></div>
+        <button type="button" class="add-todo" onclick="openInfoEditor()" style="margin-top:2px"><span>＋</span> Add information</button>
+
+        <div class="sec-label">Preferences</div>
+        <div class="set-group">
+          <label class="set-row" for="themeSwitch">
+            <span class="set-row-ico" aria-hidden="true" style="background:#5856D6">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+            </span>
+            <span class="set-row-main">
+              <span class="set-row-title">Dark Mode</span>
+              <span class="set-row-sub">Match system or use at night</span>
+            </span>
+            <span class="switch"><input type="checkbox" id="themeSwitch" aria-label="Dark mode" /><span class="switch-track"></span></span>
+          </label>
+          <label class="set-row" for="notifSwitch">
+            <span class="set-row-ico" aria-hidden="true" style="background:var(--red)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            </span>
+            <span class="set-row-main">
+              <span class="set-row-title">Notifications</span>
+              <span class="set-row-sub">Alerts about Mom and care team</span>
+            </span>
+            <span class="switch"><input type="checkbox" id="notifSwitch" checked aria-label="Notifications" /><span class="switch-track"></span></span>
+          </label>
+        </div>
+
+        <div class="sec-label">Support</div>
+        <div class="set-group">
+          <button type="button" class="set-row" onclick="openFeedback()">
+            <span class="set-row-ico warn" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            <span class="set-row-main">
+              <span class="set-row-title">Contact Us</span>
+              <span class="set-row-sub">Send feedback to our team</span>
+            </span>
+            <span class="set-row-go" aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <div class="sec-label">More</div>
+        <div class="set-group">
+          <a class="set-row" href="provider.html">
+            <span class="set-row-ico plum" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <span class="set-row-main">
+              <span class="set-row-title">Clinical View</span>
+              <span class="set-row-sub">For providers and staff</span>
+            </span>
+            <span class="set-row-go" aria-hidden="true">›</span>
+          </a>
+        </div>
+
+        <div class="set-foot">Family Care<br>Caring for Ruth Whitman</div>
+      </div>
+    </div>
   </div>
 
-  <nav class="tabbar">
-    <button class="tab active" data-tab="home">
-      <span class="tab-badge" id="homeBadge"></span>
-      <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+  <nav class="tabbar" role="navigation" aria-label="Main">
+    <button type="button" class="tab active" data-tab="home" aria-current="page">
+      <span class="tab-badge" id="homeBadge" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
       Home
     </button>
-    <button class="tab" data-tab="channel">
-      <span class="tab-badge" id="channelBadge"></span>
-      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <button type="button" class="tab" data-tab="channel">
+      <span class="tab-badge" id="channelBadge" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       Channel
     </button>
-    <button class="tab" data-tab="bibi">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Assistant
+    <button type="button" class="tab" data-tab="settings">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
     </button>
   </nav>
+</div>
+
+<div class="sheet-overlay" id="taskSheet">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="taskSheetTitle">
+    <div class="sheet-grab"></div>
+    <div class="sheet-title" id="taskSheetTitle">Add a task</div>
+    <div class="field">
+      <label for="taskTitle">What needs to be done?</label>
+      <input id="taskTitle" type="text" placeholder="e.g. Pick up prescription refill" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label for="taskAssignee">Assign to</label>
+      <div class="assign-row">
+        <select id="taskAssignee"></select>
+        <button type="button" class="add-person-btn" onclick="addPerson()" aria-label="Add a person">＋</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="taskDate">Date</label>
+      <input id="taskDate" type="date" />
+    </div>
+    <div class="sheet-actions">
+      <button type="button" class="btn btn-danger" id="taskDeleteBtn" onclick="deleteTaskFromSheet()" style="display:none">Delete</button>
+      <button type="button" class="btn btn-ghost" onclick="closeTaskEditor()" style="flex:0 0 auto;padding:11px 16px">Cancel</button>
+      <button type="button" class="btn btn-primary" onclick="saveTask()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="feedbackSheet">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+    <div class="sheet-grab"></div>
+    <div class="sheet-title" id="feedbackTitle">Contact us</div>
+    <div class="field">
+      <label for="feedbackEmail">Your email (optional)</label>
+      <input id="feedbackEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+    </div>
+    <div class="field">
+      <label for="feedbackText">What's working, or what could be better?</label>
+      <textarea id="feedbackText" rows="4" placeholder="Share your thoughts…" style="width:100%;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);padding:11px 12px;font-size:.9rem;color:var(--text);resize:none;"></textarea>
+    </div>
+    <div class="sheet-actions">
+      <button type="button" class="btn btn-ghost" onclick="closeFeedback()" style="flex:0 0 auto;padding:11px 16px">Cancel</button>
+      <button type="button" class="btn btn-primary" id="feedbackSendBtn" onclick="sendFeedback()">Send feedback</button>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="infoSheet">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <div class="sheet-grab"></div>
+    <div class="sheet-title" id="infoTitle">Edit information</div>
+    <div class="field">
+      <label for="infoLabel">Label</label>
+      <input id="infoLabel" type="text" placeholder="e.g. Emergency contact" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label for="infoValue">Details</label>
+      <input id="infoValue" type="text" placeholder="Enter details" autocomplete="off" />
+    </div>
+    <div class="sheet-actions">
+      <button type="button" class="btn btn-danger" id="infoDeleteBtn" onclick="deleteInfoFromSheet()" style="display:none">Delete</button>
+      <button type="button" class="btn btn-ghost" onclick="closeInfoEditor()" style="flex:0 0 auto;padding:11px 16px">Cancel</button>
+      <button type="button" class="btn btn-primary" onclick="saveInfo()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="urgentSheet">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheet-grab"></div>
+    <div id="urgentContent"></div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="homeActionSheet">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="homeActionTitle">
+    <div class="sheet-grab"></div>
+    <div class="sheet-title" id="homeActionTitle">What do you need?</div>
+    <p class="urgent-copy" id="homeActionSub" style="margin-top:-6px"></p>
+    <div class="quick-actions" id="homeActionChoices"></div>
+  </div>
 </div>
 
 <div class="toast" id="toast" role="status"><span class="toast-ico" id="toastIco">✓</span><span id="toastBody"></span></div>
@@ -621,6 +1042,39 @@
 /* ============ Data ============ */
 const me = { name: 'Eleanor Whitman', first: 'Eleanor', initials: 'EW' };
 const mom = { name: 'Ruth Whitman', first: 'Mom' };
+
+// Editable personal information (CRUD in Settings)
+let profileInfo = [
+  { id:'p1', label:'Full name',            value:'Eleanor Whitman', icon:'👤', placeholder:'Add your name' },
+  { id:'p2', label:'Email',                value:'',                icon:'✉️', placeholder:'Add your email' },
+  { id:'p3', label:'Phone',                value:'',                icon:'📞', placeholder:'Add phone number' },
+  { id:'p4', label:'Relationship to Ruth', value:'Daughter',        icon:'👪', placeholder:'Add relationship' },
+  { id:'p5', label:'Address',              value:'',                icon:'📍', placeholder:'Add address' },
+];
+let nextInfoId = 6;
+
+/* Inline line-icons (feather-style) for a cleaner, modern look */
+const ICON = {
+  people:  '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  building:'<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 21v-4h6v4"/><path d="M8.5 7h.01M12 7h.01M15.5 7h.01M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg>',
+  pulse:   '<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+  clock:   '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  message: '<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+  medical: '<svg viewBox="0 0 24 24"><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><path d="M12 8v6M9 11h6"/></svg>',
+  user:    '<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+  edit:    '<svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"/></svg>',
+  trash:   '<svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M10 11v6M14 11v6"/></svg>',
+  heart:   '<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>',
+  spark:   '<svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>',
+  car:     '<svg viewBox="0 0 24 24"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><path d="M5 13h14v5H5z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg>',
+  check:   '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>',
+  hospital:'<svg viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v16"/><path d="M2 21h20"/><path d="M12 7v4M10 9h4"/><path d="M9 21v-3h6v3"/></svg>',
+  card:    '<svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>',
+  file:    '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
+  alert:   '<svg viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>',
+  basket:  '<svg viewBox="0 0 24 24"><path d="M3 9h18l-1.5 10.5A2 2 0 0 1 17.5 21h-11a2 2 0 0 1-2-1.5z"/><path d="M8 9l4-6 4 6"/></svg>',
+};
 
 const contacts = {
   bibi:  { name: 'BiBi', initials: 'Bi', role: 'Your helper', kind: 'bibi' },
@@ -631,36 +1085,85 @@ const contacts = {
   james: { name: 'James Okafor', initials: 'JO', role: 'Physical Therapist', phone: '+15551234011' },
   maria: { name: 'Maria Torres', initials: 'MT', role: 'Home Health Aide', phone: '+15551234012' },
   ridewell: { name: 'RideWell', initials: 'RW', role: 'Transport service', phone: '+15551234020' },
+  provider: { name: 'Dr. Alan Pierce', initials: 'AP', role: 'Primary care provider', phone: '+15551234030' },
 };
+
+// People available to assign tasks to (editable via "Add person")
+let people = [
+  { id: 'eleanor', name: 'You (Eleanor)', short: 'You' },
+  { id: 'david',   name: 'David',                short: 'David' },
+  { id: 'sarah',   name: 'Sarah',                short: 'Sarah' },
+  { id: 'ana',     name: 'Ana Melendez (Nurse)', short: 'Ana' },
+  { id: 'maria',   name: 'Maria Torres (Aide)',  short: 'Maria' },
+];
+function isUnassigned(t){ return !t?.assigneeId || t.assigneeId==='unassigned'; }
+function personName(id){
+  if(!id || id==='unassigned') return 'Unassigned';
+  const p = people.find(x=>x.id===id);
+  return p ? p.short : 'Unassigned';
+}
 
 // capacity = comfortable number of assignments per day. duties = fixed care tasks (staff).
 const caregivers = [
-  { id:'ana',      color:'#0E9F6E', group:'team',   onShift:true,  capacity:5, duties:['Morning meds','Vitals check','Afternoon meds'] },
-  { id:'maria',    color:'#7C3AED', group:'team',   onShift:true,  capacity:4, duties:['Breakfast help','Bathing & hygiene','Lunch help','Comfort care'] },
-  { id:'james',    color:'#1D6FEB', group:'team',   onShift:false, capacity:3, duties:['PT session (Thu 11:40a)'] },
-  { id:'ridewell', color:'#D97706', group:'team',   onShift:false, capacity:3, duties:['Dermatology round-trip'] },
-  { id:'david',    color:'#0E7490', group:'family', onShift:false, capacity:2, duties:[] },
-  { id:'sarah',    color:'#DB2777', group:'family', onShift:false, capacity:3, duties:[] },
+  { id:'ana',      color:'#34C759', group:'team',   onShift:true,  capacity:5, duties:['Morning meds','Vitals check','Afternoon meds'] },
+  { id:'maria',    color:'#AF52DE', group:'team',   onShift:true,  capacity:4, duties:['Breakfast help','Bathing & hygiene','Lunch help','Comfort care'] },
+  { id:'james',    color:'#007AFF', group:'team',   onShift:false, capacity:3, duties:['PT session (Thu 11:40a)'] },
+  { id:'ridewell', color:'#FF9F0A', group:'team',   onShift:false, capacity:3, duties:['Dermatology round-trip'] },
+  { id:'david',    color:'#5AC8FA', group:'family', onShift:false, capacity:2, duties:[] },
+  { id:'sarah',    color:'#FF2D55', group:'family', onShift:false, capacity:3, duties:[] },
 ];
 
 let todos = [
-  { id: 1, title: 'Confirm dermatology ride home', who: 'David', assigneeId: 'david', done: false, due: 'Today 3:30p' },
+  { id: 1, title: 'Confirm dermatology ride home', who: 'David', assigneeId: 'david', done: false, due: 'Today 3:30p', needs: true },
   { id: 2, title: 'Call Mom after her appointment', who: 'Sarah', assigneeId: 'sarah', done: false, due: 'Today' },
   { id: 3, title: 'Pick up prescription refill', who: 'You', assigneeId: 'eleanor', done: false, due: 'Tomorrow' },
   { id: 4, title: 'Drop off groceries for the week', who: 'David', assigneeId: 'david', done: false, due: 'Today' },
+  { id: 5, title: 'Review evening comfort checklist', who: 'Unassigned', assigneeId: 'unassigned', done: false, due: 'Today', needs: true },
 ];
-let nextTodoId = 5;
+let nextTodoId = 6;
+let showDoneSection = false;
 
-let channelMsgs = [
-  { id:'ana', text:'Morning meds done — Ruth is comfortable and had breakfast. 💚', time:'9:22a' },
-  { self:true, text:'Thank you, Ana!', time:'9:25a' },
-  { id:'maria', text:'Starting lunch prep and a bit of comfort care now.', time:'12:10p' },
+// Lightweight editable care log (tap-to-edit, no AI)
+let careLog = [
+  { id:'meds',    label:'Meds',      value:'Morning done',  placeholder:'Not logged' },
+  { id:'pain',    label:'Pain',      value:'2 / 10',        placeholder:'Not logged' },
+  { id:'meals',   label:'Meals',     value:'Breakfast',     placeholder:'Not logged' },
+  { id:'hydrate', label:'Hydration', value:'Adequate · 5 cups', placeholder:'Not logged' },
 ];
+
+// Three channels: care team, family, and facility admin
+let channels = {
+  care: [
+    { id:'ana', text:'Morning meds done — Ruth is comfortable and had breakfast. 💚', time:'9:22a' },
+    { self:true, text:'Thank you, Ana!', time:'9:25a' },
+    { id:'maria', text:'Starting lunch prep and a bit of comfort care now.', time:'12:10p' },
+  ],
+  family: [
+    { id:'david', text:"I'll grab Mom's prescription on the way over this afternoon.", time:'11:02a' },
+    { self:true, text:'Thanks David! Sarah, can you call her tonight?', time:'11:05a' },
+    { id:'sarah', text:'Of course — I\u2019ll call her around 7. 💗', time:'11:20a' },
+  ],
+  admin: [
+    { id:'admin', text:'Hi Eleanor — the facility office is here if you need help with billing, scheduling, or a concern.', time:'8:05a' },
+  ],
+};
+let currentChannel = 'care';
+const channelMembers = {
+  care:   ['ana','maria','james','ridewell'],
+  family: ['david','sarah'],
+  admin:  ['admin'],
+};
+const channelMeta = {
+  care:   { ico:'people',   title:'Care team', sub:'Nurse, aide, therapist & transport', placeholder:'Message the care team…' },
+  family: { ico:'heart',    title:'Family',    sub:'David & Sarah',                        placeholder:'Message the family…' },
+  admin:  { ico:'building', title:'Admin',     sub:'Facility office · Karen Reyes',       placeholder:'Message the office…' },
+};
+function segBadgeId(ch){ return ({ care:'segCareBadge', family:'segFamilyBadge', admin:'segAdminBadge' })[ch]; }
 
 let feed = [
-  { ico: '🩺', who: 'Ana · Nurse', text: 'Morning meds given. BP a little low earlier (108/64) — Mom rested and felt better.', time: '9:20a' },
-  { ico: '🚗', who: 'RideWell', text: 'Picked Mom up for her dermatology appointment.', time: '1:45p' },
-  { ico: '💬', who: 'David', text: "I'll grab her prescription on the way over.", time: '11:02a' },
+  { ico: 'medical', who: 'Ana · Nurse', text: 'Morning meds given. BP a little low earlier (108/64) — Mom rested and felt better.', time: '9:20a' },
+  { ico: 'car', who: 'RideWell', text: 'Picked Mom up for her dermatology appointment.', time: '1:45p' },
+  { ico: 'message', who: 'David', text: "I'll grab her prescription on the way over.", time: '11:02a' },
 ];
 
 /* ============ Helpers ============ */
@@ -717,12 +1220,27 @@ function openNativeCall(id){
 let currentTab = 'home';
 function switchTab(tab){
   currentTab = tab;
-  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id===`panel-${tab}`));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
+  document.querySelectorAll('.panel').forEach(p=>{
+    const on = p.id===`panel-${tab}`;
+    p.classList.toggle('active', on);
+    p.setAttribute('aria-hidden', on ? 'false' : 'true');
+  });
+  document.querySelectorAll('.tab').forEach(t=>{
+    const on = t.dataset.tab===tab;
+    t.classList.toggle('active', on);
+    if(on) t.setAttribute('aria-current', 'page');
+    else t.removeAttribute('aria-current');
+  });
   if(tab==='home'){ $('homeBadge').classList.remove('show'); }
-  if(tab==='channel'){ $('channelBadge').classList.remove('show'); setTimeout(()=>{ const f=$('cgChannelFeed'); if(f) f.scrollTop=f.scrollHeight; }, 40); }
+  if(tab==='channel'){
+    $('channelBadge').classList.remove('show');
+    const badge = $(segBadgeId(currentChannel));
+    if(badge) badge.classList.remove('show');
+    renderChannel();
+    setTimeout(()=>{ const f=$('cgChannelFeed'); if(f) f.scrollTop=f.scrollHeight; }, 40);
+  }
 }
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>switchTab(t.dataset.tab)));
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>{ switchTab(t.dataset.tab); if(t.dataset.tab==='channel' && currentChannel==='care') screenCareTeam(); }));
 
 function openAgent(kind){
   switchTab('bibi');
@@ -735,7 +1253,7 @@ function openAgent(kind){
 function renderFeed(){
   $('feed').innerHTML = feed.map(f=>`
     <div class="update">
-      <div class="update-ico">${f.ico}</div>
+      <div class="update-ico">${ICON[f.ico]||f.ico}</div>
       <div class="update-body">
         <div class="update-top"><span class="update-who">${esc(f.who)}</span><span class="update-time">${esc(f.time)}</span></div>
         <div class="update-text">${esc(f.text)}</div>
@@ -817,7 +1335,176 @@ function careCardHtml(cg){
 const primaryCaregiverId = 'ana';
 function renderHomeCaregiver(){
   const cg = caregivers.find(c=>c.id===primaryCaregiverId) || caregivers.find(c=>c.onShift) || caregivers[0];
-  $('homeCaregiver').innerHTML = cg ? careCardHtml(cg) : '';
+  if(!cg){ $('homeCaregiver').innerHTML = ''; return; }
+  const c = contacts[cg.id];
+  const li = loadInfo(cg);
+  $('homeCaregiver').innerHTML = `
+    <div class="care-card ${cg.onShift?'on-shift':''}">
+      <div class="care-top">
+        <div class="care-ava" style="background:${cg.color}">${esc(c.initials)}</div>
+        <div class="care-main">
+          <div class="care-name">${esc(c.name)} ${cg.onShift?'<span class="care-badge">On shift</span>':''}</div>
+          <div class="care-role">Assigned care provider · ${esc(c.role)}</div>
+        </div>
+      </div>
+      <div class="load-row">
+        <span>Today's load · ${li.count}/${li.cap}</span>
+        <span class="load-status ${li.level}">${li.label}</span>
+      </div>
+      <div class="meter"><div class="meter-fill ${li.level}" style="width:${Math.round(li.pct*100)}%"></div></div>
+      <div class="care-actions">
+        <button type="button" class="care-btn msg" onclick="messageCareTeam()">${ICON.message} Message care team</button>
+        <button type="button" class="care-btn" onclick="messageProvider()">${ICON.medical} Message provider</button>
+      </div>
+    </div>`;
+}
+
+// Home actions — smart workflows that use today's context
+function messageCareTeam(){
+  switchTab('channel');
+  switchChannel('care');
+  screenCareTeam();
+}
+function openAdminChannel(){
+  switchTab('channel');
+  switchChannel('admin');
+}
+function messageProvider(){
+  openAgent('bibi');
+  setTimeout(()=>startProviderRequest(), 250);
+}
+function askPrimaryCaregiver(){
+  homeAskCaregiver();
+}
+
+function closeHomeAction(){ $('homeActionSheet').classList.remove('show'); }
+function openHomeAction(title, sub, choices){
+  $('homeActionTitle').textContent = title;
+  $('homeActionSub').textContent = sub || '';
+  $('homeActionChoices').innerHTML = choices.map((c,i)=>
+    `<button type="button" class="btn ${c.primary?'btn-primary':'btn-ghost'}" data-ha="${i}">${esc(c.label)}</button>`
+  ).join('');
+  $('homeActionChoices').querySelectorAll('[data-ha]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ closeHomeAction(); choices[+btn.dataset.ha].fn(); });
+  });
+  $('homeActionSheet').classList.add('show');
+}
+
+function momStatusText(){ return ($('momStatus')?.textContent || '').trim(); }
+function openPendingTasks(){ return todos.filter(t=>!t.done); }
+
+function homeAskCareTeam(){
+  const status = momStatusText();
+  const pending = openPendingTasks();
+  const ride = pending.find(t=>/ride|transport|appointment/i.test(t.title));
+  openHomeAction(
+    'Ask the care team',
+    'Based on Mom’s day, what should we check on?',
+    [
+      { label: status ? `How is she — ${status}` : 'How is Mom right now?', primary:true, fn:()=>{
+        switchTab('channel'); switchChannel('care');
+        const text = status
+          ? `Hi team — Mom is currently "${status}". Could someone share how she's doing? Thank you!`
+          : 'Hi team — could someone share how Mom is doing right now? Thank you!';
+        screenCareTeam();
+        setTimeout(()=>quickCompose(text), 120);
+      }},
+      ...(ride ? [{ label:`Update on: ${ride.title}`, fn:()=>{
+        switchTab('channel'); switchChannel('care'); screenCareTeam();
+        setTimeout(()=>quickCompose(`Hi team — any update on "${ride.title}"? Thank you!`), 120);
+      }}] : []),
+      { label:'Share a quick family update', fn:()=>{
+        switchTab('channel'); switchChannel('care'); screenCareTeam();
+        setTimeout(()=>quickCompose('Quick family update on Mom: '), 120);
+      }},
+      { label:'Just open the channel', fn:()=>messageCareTeam() },
+    ]
+  );
+}
+
+function homeAskAdmin(){
+  openHomeAction(
+    'Ask admin',
+    'I’ll open the Admin channel with a clear note ready to edit.',
+    [
+      { label:'Nurse or aide didn’t show', primary:true, fn:()=>{
+        switchTab('channel'); switchChannel('admin');
+        setTimeout(()=>quickCompose("Hi Karen — our scheduled nurse/aide didn't show up for Mom today. Can you look into coverage? Thank you."), 80);
+      }},
+      { label:'Billing question', fn:()=>{
+        switchTab('channel'); switchChannel('admin');
+        setTimeout(()=>quickCompose("Hi Karen — I have a question about this month's bill: "), 80);
+      }},
+      { label:'Change a visit time', fn:()=>{
+        switchTab('channel'); switchChannel('admin');
+        setTimeout(()=>quickCompose("Hi Karen — can we change Mom's visit time? "), 80);
+      }},
+      { label:'Raise another concern', fn:()=>{
+        switchTab('channel'); switchChannel('admin');
+        setTimeout(()=>quickCompose("Hi Karen — I'd like to raise a concern about Mom's care: "), 80);
+      }},
+    ]
+  );
+}
+
+function homeAskCaregiver(){
+  const cg = caregivers.find(c=>c.id===primaryCaregiverId) || caregivers[0];
+  const c = contacts[cg.id];
+  const first = c.name.split(' ')[0];
+  const status = momStatusText();
+  const load = loadInfo(cg);
+  openHomeAction(
+    `Ask ${first}`,
+    load.level==='over'
+      ? `${first} looks busy today — keep it short, or ask for a quick status.`
+      : `Send ${first} a note about Mom’s day.`,
+    [
+      { label: status ? `Check on her (${status})` : 'How is her afternoon going?', primary:true, fn:()=>{
+        switchTab('channel'); switchChannel('care');
+        const text = status
+          ? `Hi ${first} — Mom is "${status}". How is she doing right now? Thanks!`
+          : `Hi ${first} — how is Mom's afternoon going? Thanks!`;
+        setTimeout(()=>quickCompose(text), 80);
+      }},
+      { label:'Ask about meds / vitals', fn:()=>{
+        switchTab('channel'); switchChannel('care');
+        setTimeout(()=>quickCompose(`Hi ${first} — any update on Mom's meds or vitals today? Thanks!`), 80);
+      }},
+      { label:'Say thank you', fn:()=>{
+        switchTab('channel'); switchChannel('care');
+        setTimeout(()=>quickCompose(`Hi ${first} — thank you for taking such good care of Mom today.`), 80);
+      }},
+    ]
+  );
+}
+
+function homeAddReminder(){
+  const pending = openPendingTasks();
+  const status = momStatusText();
+  const suggestions = [];
+  if(/dermatology|appointment|heading|home/i.test(status)){
+    suggestions.push({ title:'Call Mom after she gets home', who:'Sarah', assigneeId:'sarah', due:'Today' });
+  }
+  if(!pending.some(t=>/prescription|refill/i.test(t.title))){
+    suggestions.push({ title:'Pick up prescription refill', who:'David', assigneeId:'david', due:'Tomorrow' });
+  }
+  suggestions.push({ title:'Check in with the care team tonight', who:'You', assigneeId:'eleanor', due:'Today' });
+  suggestions.push({ title:'Custom reminder…', custom:true });
+
+  openHomeAction(
+    'Add a reminder',
+    pending.length ? `You already have ${pending.length} open task${pending.length===1?'':'s'}. Pick a suggested next step:` : 'Suggested reminders based on Mom’s day:',
+    suggestions.map((s,i)=>({
+      label: s.custom ? s.title : s.title,
+      primary: i===0,
+      fn: ()=>{
+        if(s.custom){ openTaskEditor(); return; }
+        addTodo(s.title, s.who, s.due, s.assigneeId);
+        showToast('Reminder added', '✓');
+        switchTab('home');
+      }
+    }))
+  );
 }
 
 function rebalance(id){
@@ -843,75 +1530,151 @@ function requestBackup(id){
 function messageCaregiver(id){
   const c = contacts[id];
   const first = c.name.split(' ')[0];
-  makeChannelDraft({ to: `${c.name} · ${c.role}`, toId: id, text: `Hi ${first} — ` });
+  makeChannelDraft({ channel:'care', to: `${c.name} · ${c.role}`, toId: id, text: `Hi ${first} — ` });
 }
 
-/* ============ Care team channel ============ */
-const channelChips = [
-  { label:'✏️ Draft a message', text:'' },
-  { label:'Share an update', text:'Quick update on Mom: ' },
-  { label:'Ask for a status', text:'Could someone share how Mom is doing right now? Thank you!' },
-  { label:'Say thanks', text:'Thank you all for taking such good care of Mom today. 💚' },
-];
+/* ============ Care channels (care team + family) ============ */
+const channelChips = {
+  care: [
+    { icon:'pulse',   label:'Ask for status', text:'Could someone share how Mom is doing right now? Thank you!' },
+    { icon:'edit',    label:'Share update',   text:'Quick update on Mom: ' },
+    { icon:'heart',   label:'Say thanks',     text:'Thank you all for taking such good care of Mom today.' },
+  ],
+  family: [
+    { icon:'edit',    label:'Family update',  text:'Quick family update on Mom: ' },
+    { icon:'people',  label:'Ask for help',   text:'Could one of you help with Mom this week? Thank you!' },
+    { icon:'heart',   label:'Say thanks',     text:'Thanks so much for pitching in with Mom.' },
+  ],
+  admin: [
+    { icon:'card',     label:'Billing',    text:'I have a question about this month\'s bill: ' },
+    { icon:'calendar', label:'Scheduling', text:'Can we change Mom\'s visit time? ' },
+    { icon:'alert',    label:'A concern',  text:'I\'d like to raise a concern about Mom\'s care: ' },
+  ],
+};
 function renderChannelChips(){
-  $('channelChips').innerHTML = channelChips.map((c,i)=>`<button type="button" class="chip" data-i="${i}">${esc(c.label)}</button>`).join('');
-  $('channelChips').querySelectorAll('.chip').forEach(el=>el.addEventListener('click', ()=>makeChannelDraft({ text: channelChips[+el.dataset.i].text })));
+  const chips = channelChips[currentChannel] || [];
+  $('channelChips').innerHTML = chips.map((c,i)=>`<button type="button" class="chip quick" data-i="${i}"><span class="chip-ico">${ICON[c.icon]||''}</span><span>${esc(c.label)}</span></button>`).join('');
+  $('channelChips').querySelectorAll('.chip').forEach(el=>el.addEventListener('click', ()=>quickCompose(chips[+el.dataset.i].text)));
+}
+function autosizeChannelInput(){
+  const ta = $('cgChannelInput');
+  if(!ta) return;
+  ta.style.height = 'auto';
+  const next = Math.min(Math.max(ta.scrollHeight, 36), 120);
+  ta.style.height = next + 'px';
+}
+function quickCompose(text){
+  const ta = $('cgChannelInput');
+  if(!ta) return;
+  // Put the quick-action text into the composer (iMessage-style) so it shows right away
+  ta.value = text || '';
+  autosizeChannelInput();
+  const feed = $('cgChannelFeed');
+  if(feed) feed.scrollTop = feed.scrollHeight;
+  setTimeout(()=>{
+    ta.focus();
+    const len = ta.value.length;
+    ta.setSelectionRange(len, len);
+  }, 40);
+  showToast('Edit below, then send', '✎');
+}
+
+function switchChannel(ch){
+  if(!channels[ch]) return;
+  currentChannel = ch;
+  [['segCare','care'],['segFamily','family'],['segAdmin','admin']].forEach(([id, key])=>{
+    const el = $(id);
+    const on = ch===key;
+    el.classList.toggle('active', on);
+    el.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  const badge = $(segBadgeId(ch));
+  if(badge) badge.classList.remove('show');
+  const meta = channelMeta[ch];
+  $('chTopIco').innerHTML = ICON[meta.ico] || meta.ico;
+  $('chTopTitle').textContent = meta.title;
+  const inp = $('cgChannelInput');
+  if(inp){
+    inp.placeholder = meta.placeholder || 'Write a message…';
+    if(!inp.value) inp.style.height = '36px';
+  }
+  const screenBar = $('careScreenBar');
+  if(screenBar) screenBar.style.display = ch==='care' ? '' : 'none';
+  renderChannelChips();
+  renderChannel();
 }
 
 function renderChannel(){
-  $('cgChannelCount').textContent = `${caregivers.length} people · everyone caring for Mom`;
+  const list = channels[currentChannel];
+  const meta = channelMeta[currentChannel];
+  $('cgChannelCount').textContent = meta.sub;
   const feed = $('cgChannelFeed');
-  feed.innerHTML = channelMsgs.map(m=>{
+  feed.innerHTML = list.map((m,idx)=>{
     if(m.type==='draft'){
-      const toLine = m.to ? `To: ${esc(m.to)}` : 'To: whole care team';
+      const toLine = `To: ${esc(meta.title)}`;
       if(m.sent){
         return `<div class="draft done" data-cd="${m.cid}">
-          <div class="draft-head"><div class="draft-ico bibi">💬</div><div><div class="draft-title">Sent</div><div class="draft-to">${toLine}</div></div></div>
+          <div class="draft-head"><div class="draft-ico bibi">${ICON.message}</div><div><div class="draft-title">Sent</div><div class="draft-to">${toLine}</div></div></div>
           <div class="draft-body"><div class="draft-label">Your message</div><textarea rows="3" readonly>${esc(m.text)}</textarea></div>
-          <div class="draft-sent">✓ Sent to the channel</div>
+          <div class="draft-sent">✓ Sent to ${esc(meta.title)}</div>
         </div>`;
       }
       return `<div class="draft" data-cd="${m.cid}">
-        <div class="draft-head"><div class="draft-ico bibi">✏️</div><div><div class="draft-title">Message draft</div><div class="draft-to">${toLine}</div></div></div>
+        <div class="draft-head"><div class="draft-ico bibi">${ICON.edit}</div><div><div class="draft-title">Message draft</div><div class="draft-to">${toLine}</div></div></div>
         <div class="draft-body"><div class="draft-label">Your message · tap to edit</div><textarea rows="3" placeholder="Write your message…">${esc(m.text)}</textarea></div>
         <div class="draft-actions"><button type="button" class="btn btn-primary" data-cd-send>Send</button><button type="button" class="btn btn-ghost" data-cd-cancel>Discard</button></div>
       </div>`;
     }
     if(m.self){
-      return `<div class="cg-ch-msg self"><div class="cg-ch-ava" style="background:linear-gradient(135deg,#334155,#0A2540)">${me.initials}</div>
+      return `<div class="cg-ch-msg self"><div class="cg-ch-ava" style="background:var(--faint)">${me.initials}</div>
         <div class="cg-ch-col"><div class="cg-ch-name">You</div><div class="cg-ch-bubble">${esc(m.text)}</div><div class="cg-ch-time">${esc(m.time)}</div></div></div>`;
     }
     const c = contacts[m.id] || { name:'Care', initials:'?' };
     const cg = caregivers.find(x=>x.id===m.id);
-    return `<div class="cg-ch-msg"><div class="cg-ch-ava" style="background:${cg?cg.color:'#64748B'}">${esc(c.initials)}</div>
-      <div class="cg-ch-col"><div class="cg-ch-name">${esc(c.name.split(' ')[0])}</div><div class="cg-ch-bubble">${esc(m.text)}</div><div class="cg-ch-time">${esc(m.time)}</div></div></div>`;
+    const avaColor = cg ? cg.color : (m.id==='admin' ? '#AF52DE' : '#8E8E93');
+    const fwd = currentChannel==='care' ? `<button type="button" class="cg-ch-fwd" data-fwd="${idx}">↪ Forward to family</button>` : '';
+    return `<div class="cg-ch-msg"><div class="cg-ch-ava" style="background:${avaColor}">${esc(c.initials)}</div>
+      <div class="cg-ch-col"><div class="cg-ch-name">${esc(c.name.split(' ')[0])}</div><div class="cg-ch-bubble">${esc(m.text)}</div>${fwd}<div class="cg-ch-time">${esc(m.time)}</div></div></div>`;
   }).join('');
 
-  channelMsgs.filter(m=>m.type==='draft' && !m.sent).forEach(m=>{
+  list.filter(m=>m.type==='draft' && !m.sent).forEach(m=>{
     const wrap = feed.querySelector(`[data-cd="${m.cid}"]`);
     if(!wrap) return;
     const ta = wrap.querySelector('textarea');
     if(ta) ta.addEventListener('input', ()=>{ m.text = ta.value; });
     wrap.querySelector('[data-cd-send]')?.addEventListener('click', ()=>sendChannelDraft(m.cid));
-    wrap.querySelector('[data-cd-cancel]')?.addEventListener('click', ()=>{ channelMsgs = channelMsgs.filter(x=>x!==m); renderChannel(); });
+    wrap.querySelector('[data-cd-cancel]')?.addEventListener('click', ()=>{ channels[currentChannel] = channels[currentChannel].filter(x=>x!==m); renderChannel(); });
   });
+  feed.querySelectorAll('[data-fwd]').forEach(btn=>btn.addEventListener('click', ()=>forwardToFamily(+btn.dataset.fwd)));
   feed.scrollTop = feed.scrollHeight;
 }
 
-function makeChannelDraft(opts){
-  const cid = 'cd'+Date.now()+Math.floor(Math.random()*99);
-  channelMsgs.push({ type:'draft', cid, to: opts.to||'', toId: opts.toId||'', text: opts.text||'', sent:false });
-  switchTab('channel');
+function forwardToFamily(idx){
+  const src = channels.care[idx];
+  if(!src || src.type==='draft') return;
+  const who = src.self ? 'You' : (contacts[src.id]?.name.split(' ')[0] || 'Care team');
+  channels.family.push({ self:true, forwarded:true, text:`↪ Shared from the care team — ${who}: ${src.text}`, time: now() });
+  $('segFamilyBadge').classList.add('show');
+  showToast('Shared with the family channel', '↪');
   renderChannel();
+}
+
+function makeChannelDraft(opts){
+  const ch = opts.channel || currentChannel;
+  const cid = 'cd'+Date.now()+Math.floor(Math.random()*99);
+  channels[ch].push({ type:'draft', cid, to: opts.to||'', toId: opts.toId||'', text: opts.text||'', sent:false });
+  switchTab('channel');
+  if(ch!==currentChannel) switchChannel(ch); else renderChannel();
   setTimeout(()=>{
     const w = $('cgChannelFeed').querySelector(`[data-cd="${cid}"]`);
     const ta = w && w.querySelector('textarea');
     if(ta){ ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
-  }, 140);
+  }, 160);
 }
 
 function sendChannelDraft(cid){
-  const m = channelMsgs.find(x=>x.cid===cid);
+  const list = channels[currentChannel];
+  const m = list.find(x=>x.cid===cid);
   if(!m || m.sent) return;
   const wrap = $('cgChannelFeed').querySelector(`[data-cd="${cid}"]`);
   const ta = wrap && wrap.querySelector('textarea');
@@ -919,15 +1682,15 @@ function sendChannelDraft(cid){
   if(!m.text.trim()){ showToast('Write a message first', 'ℹ️'); ta && ta.focus(); return; }
   m.sent = true; m.time = now();
   renderChannel();
-  showToast('Sent to the channel', '💬');
-  const responder = (m.toId && caregivers.find(c=>c.id===m.toId)) || caregivers.find(c=>c.onShift) || caregivers[0];
-  channelReply(responder.id);
+  showToast(`Sent to ${channelMeta[currentChannel].title}`, '💬');
+  const members = channelMembers[currentChannel];
+  channelReply(members[0], currentChannel);
 }
 
-function channelReply(id){
+function channelReply(id, ch, dm){
+  ch = ch || currentChannel;
   setTimeout(()=>{
-    postChannel({ id, text: channelAck() });
-    if(currentTab!=='channel') $('channelBadge').classList.add('show');
+    postChannel({ id, text: channelAck(), dm: !!dm }, ch);
     showToast(`${contacts[id].name.split(' ')[0]} replied`, '💬');
   }, 1500);
 }
@@ -940,57 +1703,294 @@ function channelAck(){
   return opts[Math.floor(Math.random()*opts.length)];
 }
 
-function postChannel(msg){
+function postChannel(msg, ch){
+  ch = ch || currentChannel;
   msg.time = msg.time || now();
-  channelMsgs.push(msg);
-  renderChannel();
-  if(!msg.self && msg.type!=='draft' && currentTab!=='channel') $('channelBadge').classList.add('show');
+  channels[ch].push(msg);
+  if(ch===currentChannel) renderChannel();
+  if(!msg.self && msg.type!=='draft'){
+    if(currentTab!=='channel') $('channelBadge').classList.add('show');
+    if(currentTab!=='channel' || currentChannel!==ch){
+      const badge = $(segBadgeId(ch));
+      if(badge) badge.classList.add('show');
+    }
+  }
 }
 
 function sendChannel(){
   const inp = $('cgChannelInput');
-  const text = inp.value.trim();
+  const text = (inp.value || '').trim();
   if(!text) return;
-  postChannel({ self:true, text });
+  postChannel({ self:true, text }, currentChannel);
   inp.value = '';
-  const responder = caregivers.find(c=>c.onShift) || caregivers[0];
-  channelReply(responder.id);
+  autosizeChannelInput();
+  channelReply(channelMembers[currentChannel][0], currentChannel);
+}
+
+function formatDate(iso){
+  if(!iso) return '';
+  const d = new Date(iso+'T00:00:00');
+  if(isNaN(d)) return iso;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const diff = Math.round((d - today)/86400000);
+  if(diff===0) return 'Today';
+  if(diff===1) return 'Tomorrow';
+  if(diff===-1) return 'Yesterday';
+  return d.toLocaleDateString([], { month:'short', day:'numeric' });
+}
+function taskDueText(t){ return t.dateISO ? formatDate(t.dateISO) : (t.due||''); }
+function isTaskToday(t){
+  const d = taskDueText(t).toLowerCase();
+  return !d || d==='today' || /today/.test(String(t.due||'').toLowerCase()) || (t.dateISO && formatDate(t.dateISO)==='Today');
+}
+function pendingTodos(){ return todos.filter(t=>!t.done); }
+function completedToday(){ return todos.filter(t=>t.done && (t.completedAt || isTaskToday(t))); }
+function needsAttentionTodos(){ return pendingTodos().filter(t=>t.needs || /yesterday|overdue/i.test(taskDueText(t))); }
+
+function unassignedTodos(){ return pendingTodos().filter(isUnassigned); }
+
+function renderAttention(){
+  const pending = pendingTodos();
+  const needs = needsAttentionTodos();
+  const done = completedToday();
+  const unassigned = unassignedTodos();
+  // Always show a compact 2×2 grid so every chip is visible on mobile (no horizontal scroll)
+  const chips = [
+    { cls: needs.length ? 'warn' : '', n: needs.length, label: 'Need attention', go: 'todoList' },
+    { cls: unassigned.length ? 'warn' : '', n: unassigned.length, label: 'Unassigned', go: 'todoList' },
+    { cls: '', n: pending.length, label: 'Pending', go: 'todoList' },
+    { cls: 'ok', n: done.length, label: 'Done today', go: 'doneList', fn: 'showDoneSection=true;renderTodos();' },
+  ];
+  $('attnStrip').innerHTML = chips.map(c=>`
+    <button type="button" class="attn-chip ${c.cls}" onclick="${c.fn||''}document.getElementById('${c.go}').scrollIntoView({behavior:'smooth',block:'start'})">
+      <span class="n">${c.n}</span><span>${esc(c.label)}</span>
+    </button>`).join('');
+}
+
+function renderCareLog(){
+  $('careLog').innerHTML = careLog.map(item=>`
+    <div class="care-log-item">
+      <button type="button" class="care-log-main" onclick="editCareLog('${item.id}')">
+        <div class="k">${esc(item.label)}</div>
+        <div class="v ${item.value?'':'empty'}">${esc(item.value || item.placeholder)}</div>
+      </button>
+      <div class="care-log-acts">
+        <button type="button" onclick="shareCareLog('${item.id}','family')">Family</button>
+        <button type="button" class="pri" onclick="shareCareLog('${item.id}','care',true)">Ask team</button>
+      </div>
+    </div>`).join('');
+}
+function editCareLog(id){
+  const item = careLog.find(x=>x.id===id);
+  if(!item) return;
+  const next = prompt(`${item.label}`, item.value || '');
+  if(next===null) return;
+  item.value = next.trim();
+  renderCareLog();
+  if(item.value){
+    addFeed({ ico:'check', who:`Care log · ${item.label}`, text: item.value, time: now() }, false);
+    showToast(`${item.label} updated`, '✓');
+  }
+}
+function shareCareLog(id, channel, ask){
+  const item = careLog.find(x=>x.id===id);
+  if(!item) return;
+  if(!item.value){
+    showToast('Add a value first — tap the log to edit', 'ℹ️');
+    editCareLog(id);
+    return;
+  }
+  const text = ask
+    ? `Quick question about Mom's ${item.label.toLowerCase()}: currently "${item.value}". Could someone take a look? Thank you!`
+    : `Care log update — ${item.label}: ${item.value}`;
+  switchTab('channel');
+  switchChannel(channel);
+  setTimeout(()=>quickCompose(text), 100);
+  showToast(ask ? 'Draft ready for the care team' : 'Draft ready for family', '💬');
+}
+
+function renderProgress(){
+  const total = todos.filter(t=>isTaskToday(t) || !t.done).length || todos.length;
+  const done = completedToday().length;
+  const pending = pendingTodos().length;
+  const denom = Math.max(done + pending, 1);
+  const pct = Math.round((done / denom) * 100);
+  $('taskProgress').innerHTML = `
+    <div class="progress-card">
+      <div class="progress-top"><b>${done} of ${denom} completed</b><span>${pending? pending+' left' : 'All clear'}</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>`;
 }
 
 function renderTodos(){
+  renderAttention();
+  renderProgress();
   const list = $('todoList');
-  if(!todos.length){ list.innerHTML = `<div class="update" style="justify-content:center;color:var(--muted);font-size:.82rem">All caught up 🎉</div>`; return; }
-  list.innerHTML = todos.map(t=>`
-    <div class="todo" data-id="${t.id}">
-      <button type="button" class="todo-check ${t.done?'on':''}" onclick="toggleTodo(${t.id})">${t.done?'✓':''}</button>
-      <div class="todo-main">
-        <div class="todo-title ${t.done?'struck':''}">${esc(t.title)}</div>
-        <div class="todo-meta">${esc(t.due||'')}</div>
-      </div>
-      <span class="todo-who">${esc(t.who)}</span>
-    </div>`).join('');
-}
-function toggleTodo(id){
-  const t = todos.find(x=>x.id===id);
-  if(!t) return;
-  if(!t.done){
-    const el = document.querySelector(`.todo[data-id="${id}"]`);
-    if(el){ el.classList.add('done-anim'); }
-    showToast('Nice — marked done', '✓');
-    setTimeout(()=>{ t.done=true; renderTodos(); renderHomeCaregiver(); }, 300);
+  const pending = pendingTodos();
+  if(!pending.length){
+    list.innerHTML = `<div class="update" style="justify-content:center;color:var(--muted);font-size:.82rem">All caught up for now</div>`;
   } else {
-    t.done=false; renderTodos(); renderHomeCaregiver();
+    list.innerHTML = pending.map(t=>{
+      const dateTxt = taskDueText(t);
+      const needs = !!t.needs;
+      const unassigned = isUnassigned(t);
+      return `<div class="task-swipe" data-swipe="${t.id}">
+        <div class="task-swipe-bg">Complete</div>
+        <div class="task-row ${needs?'needs':''} ${unassigned?'unassigned':''}" data-id="${t.id}">
+          <button type="button" class="task-check" onclick="completeTask(${t.id})" aria-label="Complete"></button>
+          <div class="task-body" onclick="openTaskEditor(${t.id})">
+            <div class="task-title">${esc(t.title)}</div>
+            <div class="task-meta">
+              <span class="task-pill ${unassigned?'unassigned':'person'}">${ICON.user} ${esc(unassigned ? 'Unassigned' : (personName(t.assigneeId) || t.who))}</span>
+              ${dateTxt?`<span class="task-pill date">${ICON.calendar} ${esc(dateTxt)}</span>`:''}
+              ${needs?`<span class="task-pill warn">Needs attention</span>`:''}
+              ${unassigned?`<span class="task-pill unassigned">Assign someone</span>`:''}
+            </div>
+          </div>
+          <div class="task-ops">
+            <button type="button" class="op-btn" onclick="rescheduleTask(${t.id})" aria-label="Reschedule">${ICON.calendar}</button>
+            <button type="button" class="op-btn" onclick="openTaskEditor(${t.id})" aria-label="Edit task">${ICON.edit}</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+    bindTaskSwipes();
+  }
+
+  const done = completedToday();
+  const btn = $('doneToggleBtn');
+  const wrap = $('doneList');
+  if(btn){
+    btn.style.display = done.length ? '' : 'none';
+    btn.textContent = showDoneSection ? 'Hide' : `Show (${done.length})`;
+  }
+  if(wrap){
+    wrap.style.display = (showDoneSection && done.length) ? '' : 'none';
+    wrap.innerHTML = done.map(t=>`
+      <div class="done-row"><span class="tick">✓</span><span><b>${esc(t.title)}</b> · ${esc(personName(t.assigneeId)||t.who||'You')}${t.completedAt?` · ${esc(t.completedAt)}`:''}</span></div>`).join('');
   }
 }
+function toggleDoneSection(){ showDoneSection = !showDoneSection; renderTodos(); }
+
+function completeTask(id){
+  const t = todos.find(x=>x.id===id);
+  if(!t || t.done) return;
+  const el = document.querySelector(`.task-row[data-id="${id}"]`);
+  if(el) el.classList.add('done-anim');
+  setTimeout(()=>{
+    t.done = true;
+    t.needs = false;
+    t.completedAt = now();
+    // Auto-share with care team + activity history
+    postChannel({ self:true, text:`✓ Completed: ${t.title}${t.who?` (${t.who})`:''}` }, 'care');
+    addFeed({ ico:'check', who:'Task completed', text: t.title, time: t.completedAt }, true);
+    showToast('Completed · shared with care team', '✓');
+    renderTodos();
+    renderHomeCaregiver();
+  }, 280);
+}
+function toggleTodo(id){ completeTask(id); }
+function rescheduleTask(id){
+  openTaskEditor(id);
+  setTimeout(()=>$('taskDate').focus(), 180);
+  showToast('Pick a new date', '📅');
+}
+function bindTaskSwipes(){
+  document.querySelectorAll('.task-swipe').forEach(wrap=>{
+    const row = wrap.querySelector('.task-row');
+    if(!row || row.dataset.swipeBound) return;
+    row.dataset.swipeBound = '1';
+    let startX = 0, dx = 0, dragging = false;
+    const onStart = x=>{ startX = x; dx = 0; dragging = true; row.style.transition = 'none'; };
+    const onMove = x=>{
+      if(!dragging) return;
+      dx = Math.max(0, Math.min(120, x - startX));
+      row.style.transform = `translateX(${dx}px)`;
+    };
+    const onEnd = ()=>{
+      if(!dragging) return;
+      dragging = false;
+      row.style.transition = '';
+      if(dx > 72){ completeTask(+wrap.dataset.swipe); }
+      else { row.style.transform = ''; }
+      dx = 0;
+    };
+    row.addEventListener('touchstart', e=>onStart(e.touches[0].clientX), {passive:true});
+    row.addEventListener('touchmove', e=>onMove(e.touches[0].clientX), {passive:true});
+    row.addEventListener('touchend', onEnd);
+    row.addEventListener('mousedown', e=>onStart(e.clientX));
+    window.addEventListener('mousemove', e=>{ if(dragging) onMove(e.clientX); });
+    window.addEventListener('mouseup', onEnd);
+  });
+}
+function deleteTask(id){
+  const t = todos.find(x=>x.id===id);
+  if(!t) return;
+  const el = document.querySelector(`.task-row[data-id="${id}"]`);
+  if(el) el.classList.add('done-anim');
+  setTimeout(()=>{ todos = todos.filter(x=>x.id!==id); renderTodos(); renderHomeCaregiver(); showToast('Task deleted', '🗑️'); }, 250);
+}
 function addTodo(title, who='You', due='Today', assigneeId){
-  if(!assigneeId){ const m = { 'You':'eleanor', 'David':'david', 'Sarah':'sarah', 'Ana':'ana' }; assigneeId = m[who] || 'eleanor'; }
+  if(!assigneeId){
+    const found = people.find(p=>p.short.toLowerCase()===String(who).toLowerCase());
+    assigneeId = found ? found.id : 'eleanor';
+  }
   todos.unshift({ id: nextTodoId++, title, who, assigneeId, done:false, due });
   renderTodos();
   renderHomeCaregiver();
 }
-function quickAddTodo(){
-  const title = prompt('What needs to be done?');
-  if(title && title.trim()){ addTodo(title.trim()); showToast('To-do added', '✓'); }
+
+/* ---- Task editor (create / edit / delete) ---- */
+let editingTaskId = null;
+function renderAssigneeOptions(selectedId){
+  const opts = [`<option value="unassigned" ${(!selectedId || selectedId==='unassigned')?'selected':''}>Unassigned</option>`]
+    .concat(people.map(p=>`<option value="${p.id}" ${p.id===selectedId?'selected':''}>${esc(p.name)}</option>`));
+  $('taskAssignee').innerHTML = opts.join('');
+}
+function openTaskEditor(id){
+  editingTaskId = (typeof id==='number') ? id : null;
+  const t = editingTaskId!=null ? todos.find(x=>x.id===editingTaskId) : null;
+  $('taskSheetTitle').textContent = t ? 'Edit task' : 'Add a task';
+  $('taskTitle').value = t ? t.title : '';
+  renderAssigneeOptions(t ? (t.assigneeId || 'unassigned') : 'unassigned');
+  $('taskDate').value = t && t.dateISO ? t.dateISO : '';
+  $('taskDeleteBtn').style.display = t ? 'block' : 'none';
+  $('taskSheet').classList.add('show');
+  setTimeout(()=>$('taskTitle').focus(), 140);
+}
+function closeTaskEditor(){ $('taskSheet').classList.remove('show'); editingTaskId = null; }
+function addPerson(){
+  const name = prompt('Add a person to assign tasks to:');
+  if(!name || !name.trim()) return;
+  const clean = name.trim();
+  const id = 'p'+Date.now();
+  people.push({ id, name: clean, short: clean.split(' ')[0] });
+  renderAssigneeOptions(id);
+  showToast(`${clean.split(' ')[0]} added`, '👤');
+}
+function saveTask(){
+  const title = $('taskTitle').value.trim();
+  if(!title){ showToast('Give the task a name', 'ℹ️'); $('taskTitle').focus(); return; }
+  const assigneeId = $('taskAssignee').value || 'unassigned';
+  const dateISO = $('taskDate').value || '';
+  const who = personName(assigneeId);
+  if(editingTaskId!=null){
+    const t = todos.find(x=>x.id===editingTaskId);
+    if(t){ t.title = title; t.assigneeId = assigneeId; t.who = who; t.dateISO = dateISO; t.due = ''; if(!isUnassigned(t)) t.needs = t.needs && true; }
+    showToast(isUnassigned({assigneeId}) ? 'Saved — still unassigned' : 'Task updated', '✓');
+  } else {
+    todos.unshift({ id: nextTodoId++, title, who, assigneeId, dateISO, done:false, needs: assigneeId==='unassigned' });
+    showToast(assigneeId==='unassigned' ? 'Task added — unassigned' : 'Task added', '✓');
+  }
+  closeTaskEditor();
+  renderTodos();
+  renderHomeCaregiver();
+}
+function deleteTaskFromSheet(){
+  if(editingTaskId==null) return;
+  const id = editingTaskId;
+  closeTaskEditor();
+  deleteTask(id);
 }
 
 /* ============ Chat ============ */
@@ -1026,14 +2026,34 @@ function renderChips(){
 
 function startOfficeRequest(){
   addAgentActions(
-    `Sure — I can reach the <b>facility office</b> for you. What's it about?`,
+    `Sure — I can reach the <b>facility office</b> for you. Pick what it's about so I can title it clearly:`,
     [
-      { label:'Billing question', variant:'btn-primary', fn:()=>send('I have a question about this month’s bill') },
-      { label:'Change a visit time', fn:()=>send('Can we change Mom’s physical therapy time?') },
-      { label:'Request records', fn:()=>send('I’d like a copy of Mom’s care records') },
-      { label:'Raise a concern', fn:()=>send('I want to raise a concern about care') },
+      { label:'🩺 Nurse didn’t show up', variant:'btn-primary', fn:()=>send('The nurse didn’t show up for Mom’s visit today') },
+      { label:'🧺 Aide didn’t show up', fn:()=>send('Mom’s home health aide didn’t show up today') },
+      { label:'💳 Billing question', fn:()=>send('I have a question about this month’s bill') },
+      { label:'📅 Change a visit time', fn:()=>send('Can we change Mom’s physical therapy time?') },
+      { label:'📄 Request records', fn:()=>send('I’d like a copy of Mom’s care records') },
+      { label:'⚠️ Another concern', fn:()=>send('I want to raise a concern about Mom’s care') },
     ]
   );
+}
+
+function startProviderRequest(){
+  makeDraft({
+    kind:'admin', title:"Message Mom's provider", to:`${contacts.provider.name} · ${contacts.provider.role}`,
+    draft:`Hi Dr. Pierce — this is Eleanor, Ruth Whitman's daughter. I have a question about Mom's care: `,
+    note:'Providers usually reply within 1 business day. For anything urgent, call 911 or use the care team channel.',
+    emergency:true,
+    onSend: (body)=>{
+      addFeed({ ico:'hospital', who:'You → Dr. Pierce', text: body, time: now() }, false);
+      showToast("Sent to Mom's provider", '🏥');
+      showLiveToast('🏥', `<b>Message sent to Dr. Pierce</b> — expect a reply within a business day`, 'OK');
+      setTimeout(()=>{
+        pushMsg({ who:'agent', html:`Your message is with <b>Dr. Pierce's</b> office. They typically reply within <b>1 business day</b> — I'll let you know the moment they respond.` });
+      }, 1400);
+    }
+  });
+  addAgent("Here's a note to Mom's provider — review and send. Heads up: providers usually take about a business day to reply, so for anything urgent use the care team or 911.");
 }
 
 function scrollChat(){ const s=$('chatScroll'); s.scrollTop = s.scrollHeight; }
@@ -1101,11 +2121,15 @@ function bindDraft(wrap, m){
   send && send.addEventListener('click', ()=>sendDraft(m, wrap));
   edit && edit.addEventListener('click', ()=>{ $('chatInput').value = ta.value; $('chatInput').focus(); showToast('Copied — edit and send again','✎'); });
   if(ta){ ta.addEventListener('input', ()=>{ m.draft = ta.value; }); }
+  const emg = wrap.querySelector('[data-emg-check]');
+  if(emg){ emg.addEventListener('change', ()=>{ if(emg.checked) escalate911(wrap); }); }
 }
 
 function makeDraft(opts){
-  // opts: { kind:'bibi'|'admin', title, to, draft, onSend }
+  // opts: { kind:'bibi'|'admin', title, to, draft, onSend, note, emergency }
   const id = 'd'+Date.now();
+  const noteHtml = opts.note ? `<div class="draft-to" style="padding:0 13px 11px;color:var(--muted)">⏳ ${esc(opts.note)}</div>` : '';
+  const emgHtml = opts.emergency ? `<label class="emg-check"><input type="checkbox" data-emg-check><span>⚠️ Is this an emergency or a high concern?</span></label>` : '';
   const html = `
     <div class="draft" data-draft-id="${id}">
       <div class="draft-head">
@@ -1116,6 +2140,8 @@ function makeDraft(opts){
         <div class="draft-label">Your message · tap to edit</div>
         <textarea rows="3">${esc(opts.draft)}</textarea>
       </div>
+      ${noteHtml}
+      ${emgHtml}
       <div class="draft-actions">
         <button type="button" class="btn btn-primary ${opts.kind==='admin'?'admin':''}" data-draft-send>Send</button>
         <button type="button" class="btn btn-ghost" data-draft-edit>Edit</button>
@@ -1125,6 +2151,22 @@ function makeDraft(opts){
   chatHistory[agent].push(m);
   paintMsg(m);
   scrollChat();
+}
+
+function escalate911(wrap){
+  const card = wrap.querySelector('.draft');
+  if(!card || card.querySelector('.emg-banner')) return;
+  card.classList.add('done');
+  const banner = document.createElement('div');
+  banner.className = 'emg-banner';
+  banner.innerHTML = `
+    <div class="eb-title">🚨 Please call 911 now</div>
+    <div class="eb-text">I'm so sorry — for an emergency or urgent medical concern, the home caregiver and the office can't respond quickly enough to keep Mom safe. Please call <b>911</b> right away. I'll alert the care team too.</div>
+    <a class="eb-call" href="tel:911">📞 Call 911</a>`;
+  card.appendChild(banner);
+  scrollChat();
+  postChannel({ self:true, text:'⚠️ Possible emergency with Mom — calling 911 now.' }, 'care');
+  showToast('For an emergency, call 911', '🚨');
 }
 
 async function sendDraft(m, wrap){
@@ -1207,10 +2249,10 @@ function bibiReply(text){
   // message nurse / care
   if((l.includes('ask')||l.includes('message')||l.includes('tell'))&&(l.includes('nurse')||l.includes('ana')||l.includes('care'))){
     makeDraft({
-      kind:'bibi', title:'Message the nurse', to:'Ana Melendez (Nurse)',
+      kind:'bibi', title:'Message the nurse', to:'Ana Melendez (Nurse)', emergency:true,
       draft: l.includes('afternoon') ? "Hi Ana — how is Mom's afternoon going after this morning?" : `Hi Ana — Eleanor here. ${capitalize(stripCmd(text))}`,
       onSend: (body)=>{
-        addFeed({ ico:'💬', who:'You → Ana', text: body, time: now() }, false);
+        addFeed({ ico:'message', who:'You → Ana', text: body, time: now() }, false);
         setTimeout(()=>{
           pushMsg({ who:'agent', html:`<b>Ana</b> replied: "Got it — I'll check on Mom and update you shortly." 💚` });
         }, 1600);
@@ -1237,7 +2279,7 @@ function bibiReply(text){
       kind:'bibi', title:`Message ${c.name}`, to:`${c.name} (${c.role})`,
       draft: `Hi ${c.name} — ${capitalize(task)}. Thanks!`,
       onSend: (body)=>{
-        addFeed({ ico:'💬', who:`You → ${c.name}`, text: body, time: now() }, false);
+        addFeed({ ico:'message', who:`You → ${c.name}`, text: body, time: now() }, false);
         if(l.includes('remind')||l.includes('pick up')||l.includes('prescription')||l.includes('ride')){
           addTodo(capitalize(task), c.name, 'Today');
           showToast(`Sent + added a to-do for ${c.name}`, '✓');
@@ -1254,10 +2296,13 @@ function bibiReply(text){
   }
 
   // facility-office topics → BiBi drafts a note to the office
+  const officeNoShow = (l.includes('nurse')||l.includes('aide')||l.includes('hha')||l.includes('home health'))
+    && (l.includes('show')||l.includes('showed')||l.includes('missed')||l.includes('arrive')||l.includes('came')||l.includes('no-show'));
   if(l.includes('bill')||l.includes('invoice')||l.includes('payment')||l.includes('charge')||l.includes('cost')
      ||l.includes('records')||l.includes('document')||l.includes('insurance')
      ||l.includes('schedule')||l.includes('reschedule')||l.includes('appointment')||l.includes('therapy')
-     ||l.includes('office')||l.includes('admin')||l.includes('concern')||l.includes('complaint')){
+     ||l.includes('office')||l.includes('admin')||l.includes('concern')||l.includes('complaint')
+     ||officeNoShow){
     adminReply(text);
     return;
   }
@@ -1277,33 +2322,44 @@ function adminReply(text){
   const l = text.toLowerCase();
   let title = 'Message the facility office', draft = `Hi Karen — Eleanor Whitman here (Ruth Whitman's daughter). ${capitalize(stripCmd(text))}`;
   let ack = "Thanks Eleanor — I've received your note and will follow up shortly.";
-  let feedIco = '🏢', topic = 'Note';
+  let feedIco = 'building', topic = 'Note';
 
-  if(l.includes('bill')||l.includes('invoice')||l.includes('charge')||l.includes('payment')||l.includes('cost')){
+  const noShow = l.includes('show')||l.includes('showed')||l.includes('missed')||l.includes('arrive')||l.includes('came')||l.includes('no-show');
+  if((l.includes('nurse')||l.includes('lpn')) && noShow){
+    title = 'Nurse didn’t show up'; topic = 'Missed nurse visit';
+    draft = `Hi Karen — this is Eleanor, Ruth Whitman's daughter. Our scheduled nurse didn't show up for Mom's visit today. Could you look into what happened and arrange coverage as soon as possible? Thank you.`;
+    ack = "I'm so sorry, Eleanor — that shouldn't happen. I'm looking into it now and will arrange a nurse to come today. I'll call you shortly.";
+    feedIco = 'medical';
+  } else if((l.includes('aide')||l.includes('hha')||l.includes('home health')) && noShow){
+    title = 'Aide didn’t show up'; topic = 'Missed aide visit';
+    draft = `Hi Karen — this is Eleanor, Ruth Whitman's daughter. Mom's home health aide didn't show up for today's visit. Can you find out why and send someone to help with her care? Thank you.`;
+    ack = "I'm sorry about that, Eleanor — I'll find out why and get an aide out to Ruth today. I'll update you as soon as I can.";
+    feedIco = 'basket';
+  } else if(l.includes('bill')||l.includes('invoice')||l.includes('charge')||l.includes('payment')||l.includes('cost')){
     title = 'Billing question'; topic = 'Billing';
     draft = `Hi Karen — this is Eleanor, Ruth Whitman's daughter. I have a question about this month's statement — could someone walk me through the recent charges? Thank you.`;
     ack = "Thanks Eleanor — I'll pull up Ruth's account and our billing lead will call you today with a breakdown.";
-    feedIco = '💳';
+    feedIco = 'card';
   } else if(l.includes('schedule')||l.includes('reschedule')||l.includes('visit')||l.includes('time')||l.includes('appointment')||l.includes('therapy')){
     title = 'Scheduling request'; topic = 'Scheduling';
     draft = `Hi Karen — could we adjust Ruth Whitman's physical therapy time? Afternoons work better for the family to join. Let me know what's open.`;
     ack = "Of course — I'll check James's availability and send you a couple of afternoon options.";
-    feedIco = '📅';
+    feedIco = 'calendar';
   } else if(l.includes('record')||l.includes('document')||l.includes('chart')||l.includes('history')){
     title = 'Records request'; topic = 'Records';
     draft = `Hi Karen — I'd like to request a copy of Ruth Whitman's recent care records for our family file. What do you need from me to release them?`;
     ack = "Happy to help — I'll email a records-release form. Once signed, we'll share them within 2 business days.";
-    feedIco = '📄';
+    feedIco = 'file';
   } else if(l.includes('concern')||l.includes('complaint')||l.includes('issue')||l.includes('problem')||l.includes('worried')||l.includes('unhappy')){
     title = 'Raise a concern'; topic = 'Concern';
     draft = `Hi Karen — I'd like to raise a concern about Mom's care and talk it through. Could we set up a quick call today?`;
     ack = "I'm sorry to hear that, Eleanor — this is important. I'll call you within the hour so we can talk it through.";
-    feedIco = '⚠️';
+    feedIco = 'alert';
   }
 
   makeDraft({
     kind:'admin', title, to:`${contacts.admin.name} · ${contacts.admin.role}`,
-    draft,
+    draft, emergency:true,
     onSend: (body)=>{
       addFeed({ ico: feedIco, who:`You → Facility office`, text: `${topic}: ${body}`, time: now() }, false);
       showToast('Sent to the facility office', '🏢');
@@ -1350,18 +2406,18 @@ function boot(){
 
 function liveDemo(){
   setTimeout(()=>{
-    addFeed({ ico:'🚗', who:'RideWell', text:'Mom is heading home from dermatology — ETA 3:25p.', time: now() });
+    addFeed({ ico:'car', who:'RideWell', text:'Mom is heading home from dermatology — ETA 3:25p.', time: now() });
     $('momStatus').textContent = 'Heading home from dermatology';
     showLiveToast('🚗', '<b>RideWell</b> — Mom is heading home', 'View', ()=>switchTab('home'));
   }, 4500);
 
   setTimeout(async ()=>{
     await showSync('Updating from the care team…', 1000);
-    addFeed({ ico:'✅', who:'RideWell', text:'Mom dropped off safely at home — resting now.', time: now() });
+    addFeed({ ico:'check', who:'RideWell', text:'Mom dropped off safely at home — resting now.', time: now() });
     $('momStatus').textContent = 'Home safely · resting';
     $('heroSummary').textContent = 'Mom is home safely and resting after dermatology. A calm day overall — meds done and vitals settled.';
     const ride = todos.find(t=>/ride/i.test(t.title));
-    if(ride && !ride.done){ ride.done = true; renderTodos(); renderHomeCaregiver(); }
+    if(ride && !ride.done){ completeTask(ride.id); }
     showLiveToast('✅', '<b>Mom is home safely</b> — to-dos updated', 'Home', ()=>switchTab('home'));
   }, 8500);
 
@@ -1373,26 +2429,177 @@ function liveDemo(){
 
 /* ============ Theme ============ */
 (function initTheme(){
-  const KEY='pivot-demo-theme', btn=$('themeToggle');
-  const set = ()=>{ btn.textContent = document.documentElement.getAttribute('data-theme')==='dark' ? '☀️' : '🌙'; };
-  set();
-  btn.addEventListener('click', ()=>{
-    const dark = document.documentElement.getAttribute('data-theme')==='dark';
-    if(dark){ document.documentElement.removeAttribute('data-theme'); localStorage.setItem(KEY,'light'); }
-    else { document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem(KEY,'dark'); }
-    set();
+  const KEY='family-demo-theme', sw=$('themeSwitch');
+  const isDark = ()=>document.documentElement.getAttribute('data-theme')==='dark';
+  sw.checked = isDark();
+  sw.addEventListener('change', ()=>{
+    if(sw.checked){ document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem(KEY,'dark'); }
+    else { document.documentElement.removeAttribute('data-theme'); localStorage.setItem(KEY,'light'); }
   });
 })();
 
+/* ============ Greeting ============ */
+function setGreeting(){
+  const h = new Date().getHours();
+  const part = h < 12 ? 'Good morning' : (h < 18 ? 'Good afternoon' : 'Good evening');
+  $('greetHi').textContent = `${part}, ${me.first}`;
+  $('greetDate').textContent = new Date().toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' });
+}
+
+/* ============ Personal information (CRUD) ============ */
+function profileIconStyle(label){
+  const l = (label||'').toLowerCase();
+  if(l.includes('phone') || l.includes('mobile')) return 'background:#34C759';
+  if(l.includes('email') || l.includes('mail')) return 'background:#007AFF';
+  if(l.includes('address') || l.includes('home')) return 'background:#FF9F0A';
+  if(l.includes('name')) return 'background:#5856D6';
+  if(l.includes('relation') || l.includes('role')) return 'background:#AF52DE';
+  return 'background:#8E8E93';
+}
+function renderProfile(){
+  const wrap = $('profileList');
+  wrap.innerHTML = profileInfo.map(p=>`
+    <button type="button" class="set-row" onclick="openInfoEditor('${p.id}')">
+      <span class="set-row-ico" aria-hidden="true" style="${profileIconStyle(p.label)}">${esc(p.icon||'•')}</span>
+      <span class="set-row-main"><span class="set-row-title">${esc(p.label)}</span></span>
+      <span class="set-row-val ${p.value?'':'placeholder'}">${esc(p.value || p.placeholder || 'Add')}</span>
+      <span class="set-row-go" aria-hidden="true">›</span>
+    </button>`).join('');
+  const nameField = profileInfo.find(p=>/name/i.test(p.label));
+  if(nameField && nameField.value) $('setHeroName').textContent = nameField.value;
+}
+let editingInfoId = null;
+function openInfoEditor(id){
+  editingInfoId = (typeof id==='string') ? id : null;
+  const p = editingInfoId ? profileInfo.find(x=>x.id===editingInfoId) : null;
+  $('infoTitle').textContent = p ? 'Edit information' : 'Add information';
+  $('infoLabel').value = p ? p.label : '';
+  $('infoValue').value = p ? p.value : '';
+  $('infoDeleteBtn').style.display = p ? 'block' : 'none';
+  $('infoSheet').classList.add('show');
+  setTimeout(()=>{ (p ? $('infoValue') : $('infoLabel')).focus(); }, 140);
+}
+function closeInfoEditor(){ $('infoSheet').classList.remove('show'); editingInfoId = null; }
+function saveInfo(){
+  const label = $('infoLabel').value.trim();
+  const value = $('infoValue').value.trim();
+  if(!label){ showToast('Add a label first', 'ℹ️'); $('infoLabel').focus(); return; }
+  if(editingInfoId){
+    const p = profileInfo.find(x=>x.id===editingInfoId);
+    if(p){ p.label = label; p.value = value; p.placeholder = p.placeholder || `Add ${label.toLowerCase()}`; }
+    showToast('Info updated', '✓');
+  } else {
+    profileInfo.push({ id:'p'+(nextInfoId++), label, value, icon:'📝', placeholder:`Add ${label.toLowerCase()}` });
+    showToast('Info added', '✓');
+  }
+  closeInfoEditor();
+  renderProfile();
+}
+function deleteInfoFromSheet(){
+  if(!editingInfoId) return;
+  profileInfo = profileInfo.filter(x=>x.id!==editingInfoId);
+  closeInfoEditor();
+  renderProfile();
+  showToast('Info removed', '🗑️');
+}
+
+/* ============ Urgency screening (care team / caregiver) ============ */
+let urgentWho = 'the care team';
+let careScreened = false;
+// One-time screening gate before messaging the care team this session
+function screenCareTeam(){
+  if(careScreened) return;
+  careScreened = true;
+  urgentWho = 'the care team';
+  renderUrgentStep1();
+  $('urgentSheet').classList.add('show');
+}
+function openUrgent(){
+  urgentWho = 'the care team';
+  renderUrgentStep1();
+  $('urgentSheet').classList.add('show');
+}
+function closeUrgent(){ $('urgentSheet').classList.remove('show'); }
+function renderUrgentStep1(){
+  $('urgentContent').innerHTML = `
+    <div class="sheet-title">Before you message ${esc(urgentWho)}</div>
+    <p class="urgent-copy">Messages here can take a while — someone may not reply for a bit, so this <b>isn't</b> the way to reach anyone in an emergency.<br><br>Is this a <b>medical emergency</b> or something urgent?</p>
+    <div class="sheet-actions" style="flex-direction:column;gap:9px">
+      <button type="button" class="btn btn-danger" style="width:100%" onclick="renderUrgentStep2()">Yes — it's a medical emergency / urgent</button>
+      <button type="button" class="btn btn-primary" style="width:100%" onclick="closeUrgent()">No — it can wait, let me message</button>
+    </div>`;
+}
+function renderUrgentStep2(){
+  $('urgentContent').innerHTML = `
+    <div class="emg-banner" style="margin:0">
+      <div class="eb-title">🚨 Don't wait for a reply here</div>
+      <div class="eb-text">For a <b>medical emergency</b>, call <b>911</b> now. If it's urgent but not life-threatening, go to the nearest <b>ER</b> or urgent care, or call Mom's provider. The care team can't respond right away in this channel.</div>
+      <a class="eb-call" href="tel:911" onclick="flagUrgentToTeam()">📞 Call 911</a>
+    </div>
+    <div class="sheet-actions" style="flex-direction:column;gap:9px;margin-top:12px">
+      <button type="button" class="btn btn-ghost" style="width:100%" onclick="messageProvider();closeUrgent()">Contact Mom's provider instead</button>
+      <button type="button" class="btn btn-ghost" style="width:100%" onclick="closeUrgent()">Message the team anyway</button>
+    </div>`;
+}
+function flagUrgentToTeam(){
+  postChannel({ self:true, text:'⚠️ Possible emergency with Mom — calling 911 now.' }, 'care');
+}
+
+/* ============ Feedback (Formspree) ============ */
+const FEEDBACK_FORM = 'https://formspree.io/f/mkokkzky';
+function openFeedback(){ $('feedbackSheet').classList.add('show'); setTimeout(()=>$('feedbackText').focus(), 140); }
+function closeFeedback(){ $('feedbackSheet').classList.remove('show'); }
+async function sendFeedback(){
+  const message = $('feedbackText').value.trim();
+  const email = ($('feedbackEmail')?.value || '').trim();
+  if(!message){ showToast('Add a note first', 'ℹ️'); $('feedbackText').focus(); return; }
+  const btn = $('feedbackSendBtn');
+  if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+  try{
+    const res = await fetch(FEEDBACK_FORM, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message,
+        email: email || undefined,
+        name: me.name,
+        _subject: 'Family Care — contact / feedback',
+      }),
+    });
+    if(!res.ok) throw new Error('send failed');
+    $('feedbackText').value = '';
+    if($('feedbackEmail')) $('feedbackEmail').value = '';
+    closeFeedback();
+    showToast('Thanks — your message was sent', '💬');
+  } catch(err){
+    showToast("Couldn't send — check your connection and try again", 'ℹ️');
+  } finally {
+    if(btn){ btn.disabled = false; btn.textContent = 'Send feedback'; }
+  }
+}
+
 /* ============ Init ============ */
 $('cgChannelSend').addEventListener('click', sendChannel);
-$('cgChannelInput').addEventListener('keydown', e=>{ if(e.key==='Enter') sendChannel(); });
+$('cgChannelInput').addEventListener('input', autosizeChannelInput);
+$('cgChannelInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendChannel(); }
+});
+$('taskSheet').addEventListener('click', e=>{ if(e.target===$('taskSheet')) closeTaskEditor(); });
+$('taskTitle').addEventListener('keydown', e=>{ if(e.key==='Enter') saveTask(); });
+$('feedbackSheet').addEventListener('click', e=>{ if(e.target===$('feedbackSheet')) closeFeedback(); });
+$('infoSheet').addEventListener('click', e=>{ if(e.target===$('infoSheet')) closeInfoEditor(); });
+$('urgentSheet').addEventListener('click', e=>{ if(e.target===$('urgentSheet')) closeUrgent(); });
+$('homeActionSheet').addEventListener('click', e=>{ if(e.target===$('homeActionSheet')) closeHomeAction(); });
+$('infoLabel').addEventListener('keydown', e=>{ if(e.key==='Enter') $('infoValue').focus(); });
+$('infoValue').addEventListener('keydown', e=>{ if(e.key==='Enter') saveInfo(); });
 
+setGreeting();
+renderProfile();
+renderCareLog();
 renderFeed();
 renderTodos();
 renderHomeCaregiver();
-renderChannelChips();
-renderChannel();
+switchChannel('care');
 initAssistant();
 boot();
 </script>
