@@ -366,14 +366,14 @@
   .send:active { transform: scale(.9); }
   .send:disabled { opacity: .35; }
 
-  /* ---------- Bottom nav (frosted) ---------- */
+  /* ---------- Bottom nav (frosted mobile footer) ---------- */
   .tabbar {
     height: calc(var(--tab-h) + var(--safe-b)); padding-bottom: var(--safe-b);
-    background: rgba(255,255,255,.82); border-top: .5px solid var(--separator);
+    background: rgba(255,255,255,.86); border-top: .5px solid var(--separator);
     backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
     display: flex; position: sticky; bottom: 0; z-index: 40;
   }
-  html[data-theme="dark"] .tabbar { background: rgba(28,28,30,.86); }
+  html[data-theme="dark"] .tabbar { background: rgba(28,28,30,.9); }
   .tab {
     flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
     min-height: 44px; font-size: .64rem; font-weight: 500; color: var(--faint); position: relative;
@@ -383,6 +383,12 @@
   .tab.active svg { stroke-width: 2.1; }
   .tab-badge { position: absolute; top: 6px; left: 50%; margin-left: 8px; min-width: 8px; height: 8px; border-radius: 99px; background: var(--red); display: none; }
   .tab-badge.show { display: block; }
+  .home-indicator {
+    position: absolute; left: 50%; bottom: max(5px, calc(var(--safe-b) * 0.3));
+    transform: translateX(-50%); width: 120px; height: 5px; border-radius: 99px;
+    background: rgba(0,0,0,.18); pointer-events: none;
+  }
+  html[data-theme="dark"] .home-indicator { background: rgba(255,255,255,.28); }
 
   /* ---------- Toast ---------- */
   .toast {
@@ -925,7 +931,7 @@
             </span>
             <span class="set-row-main">
               <span class="set-row-title">Clinical View</span>
-              <span class="set-row-sub">For providers and staff</span>
+              <span class="set-row-sub">Patients &amp; POA tasks for nurses</span>
             </span>
             <span class="set-row-go" aria-hidden="true">›</span>
           </a>
@@ -951,6 +957,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       Settings
     </button>
+    <div class="home-indicator" aria-hidden="true"></div>
   </nav>
 </div>
 
@@ -1715,6 +1722,14 @@ function postChannel(msg, ch){
       if(badge) badge.classList.add('show');
     }
   }
+  // Mirror family → care team messages to Clinical Care (provider.html)
+  if(ch==='care' && msg.self && msg.text && !msg._synced){
+    try {
+      const outbox = JSON.parse(localStorage.getItem('familycare-family-outbox')||'[]');
+      outbox.push({ text: msg.text, name: me.first, initials: me.initials, time: msg.time, at: Date.now() });
+      localStorage.setItem('familycare-family-outbox', JSON.stringify(outbox.slice(-50)));
+    } catch(e){}
+  }
 }
 
 function sendChannel(){
@@ -1843,6 +1858,7 @@ function renderTodos(){
             <div class="task-meta">
               <span class="task-pill ${unassigned?'unassigned':'person'}">${ICON.user} ${esc(unassigned ? 'Unassigned' : (personName(t.assigneeId) || t.who))}</span>
               ${dateTxt?`<span class="task-pill date">${ICON.calendar} ${esc(dateTxt)}</span>`:''}
+              ${t.fromProvider?`<span class="task-pill date">${ICON.medical} From nurse</span>`:''}
               ${needs?`<span class="task-pill warn">Needs attention</span>`:''}
               ${unassigned?`<span class="task-pill unassigned">Assign someone</span>`:''}
             </div>
@@ -2578,6 +2594,74 @@ async function sendFeedback(){
   }
 }
 
+/* ============ Sync with Clinical Care (provider.html) ============ */
+const PROVIDER_KEYS = {
+  poaTasks: 'familycare-poa-tasks',
+  providerReplies: 'familycare-provider-replies',
+};
+function loadImportedTaskIds(){
+  try { return new Set(JSON.parse(localStorage.getItem('familycare-imported-task-ids')||'[]')); }
+  catch(e){ return new Set(); }
+}
+function saveImportedTaskIds(set){
+  localStorage.setItem('familycare-imported-task-ids', JSON.stringify([...set]));
+}
+function importProviderTasks(){
+  let list = [];
+  try { list = JSON.parse(localStorage.getItem(PROVIDER_KEYS.poaTasks)||'[]'); } catch(e){ return; }
+  const imported = loadImportedTaskIds();
+  let added = 0;
+  list.forEach(t=>{
+    if(t.patientId && t.patientId!=='ruth') return;
+    if(!t.title || t.done) return;
+    if(imported.has(t.id) || todos.some(x=>x.providerTaskId===t.id)) return;
+    todos.unshift({
+      id: nextTodoId++,
+      providerTaskId: t.id,
+      title: t.title,
+      who: t.who || me.first,
+      assigneeId: (t.assigneeId==='eleanor' || t.poaId==='eleanor') ? 'eleanor' : (t.assigneeId || 'eleanor'),
+      done: false,
+      due: t.due || 'Today',
+      dateISO: t.dateISO || '',
+      needs: true,
+      fromProvider: true,
+    });
+    imported.add(t.id);
+    added++;
+  });
+  if(added){
+    saveImportedTaskIds(imported);
+    renderTodos();
+    renderHomeCaregiver();
+    addFeed({
+      ico: 'medical',
+      who: 'Care team',
+      text: added===1 ? 'Your nurse assigned you a new task' : `Your nurse assigned you ${added} new tasks`,
+      time: now(),
+    }, true);
+    showToast(added===1 ? 'New task from your nurse' : `${added} tasks from your nurse`, '📋');
+  }
+}
+function importProviderReplies(){
+  let replies = [];
+  try { replies = JSON.parse(localStorage.getItem(PROVIDER_KEYS.providerReplies)||'[]'); } catch(e){ return; }
+  let changed = false;
+  const next = replies.map(r=>{
+    if(r.imported || !r.text) return r;
+    postChannel({ id: r.id || 'ana', text: r.text, time: r.time || now(), _fromProvider: true }, 'care');
+    changed = true;
+    return { ...r, imported: true };
+  });
+  if(changed){
+    try { localStorage.setItem(PROVIDER_KEYS.providerReplies, JSON.stringify(next.slice(-40))); } catch(e){}
+  }
+}
+function syncFromProvider(){
+  importProviderTasks();
+  importProviderReplies();
+}
+
 /* ============ Init ============ */
 $('cgChannelSend').addEventListener('click', sendChannel);
 $('cgChannelInput').addEventListener('input', autosizeChannelInput);
@@ -2601,6 +2685,11 @@ renderTodos();
 renderHomeCaregiver();
 switchChannel('care');
 initAssistant();
+syncFromProvider();
+window.addEventListener('storage', e=>{
+  if(e.key===PROVIDER_KEYS.poaTasks || e.key===PROVIDER_KEYS.providerReplies) syncFromProvider();
+});
+setInterval(syncFromProvider, 2500);
 boot();
 </script>
 </body>
